@@ -36,7 +36,7 @@ public class MovementControllerTest : MonoBehaviour {
         Vector3 v = (_cameraController.GetHorizontalDirectionForwardVector() * _moveDir.y +
                      _cameraController.GetHorizontalDirectionRightVector() * _moveDir.x).Swizzle_x0y();
         
-        if (Physics.SphereCast(_rb.position, 0.5f, Vector3.down, out RaycastHit hit, groundCheckRayLength, layer)) {
+        if (Physics.SphereCast(_rb.position, 0.499f, Vector3.down, out RaycastHit hit, groundCheckRayLength, layer)) {
             if (Physics.Raycast(hit.point + Vector3.up, Vector3.down, out hit, 2f, layer)) {
                 float angle = Vector3.Angle(hit.normal, Vector3.up);
                 if(angle <= maxSlopeAngle) {
