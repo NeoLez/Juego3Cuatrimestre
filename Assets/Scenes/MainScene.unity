@@ -1952,7 +1952,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   airLerp: 0.2
-  groundLerp: 0.6
+  groundLerp: 0.5
   angleBasedSpeedLimit:
     serializedVersion: 2
     m_Curve:

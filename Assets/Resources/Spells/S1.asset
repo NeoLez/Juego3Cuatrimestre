@@ -9,12 +9,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aa5a6f65cc14d58bce53b93753cbb88, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d4d59735b1e47dc9e9a6e987a9871ee, type: 3}
   m_Name: S1
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   id: 0
-  spellName: VerticalDash
+  spellName: CameraDash
   inkCost: 0
-  worldForce: {x: 0, y: 12, z: 0}
-  cameraForce: {x: 0, y: 0, z: 0}
+  moveDistance: 12
+  time: 0.15
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

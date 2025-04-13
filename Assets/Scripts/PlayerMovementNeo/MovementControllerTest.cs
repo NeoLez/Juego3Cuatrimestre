@@ -1,4 +1,8 @@
+using System;
+using System.Numerics;
 using UnityEngine;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 [RequireComponent(typeof(Rigidbody), typeof(CameraController))]
 public class MovementControllerTest : MonoBehaviour {
@@ -43,15 +47,13 @@ public class MovementControllerTest : MonoBehaviour {
                     state = CharacterState.Grounded;
                     v -= Vector3.Dot(v, hit.normal) * hit.normal;
                     v *= angleBasedSpeedLimit.Evaluate(angle / 90f);
-                    Debug.Log(angleBasedSpeedLimit.Evaluate(angle / 90f));
-                    Debug.Log(hit.collider.name);
                 }
             }
         }
         else {
             state = CharacterState.Air;
         }
-        Debug.Log(Vector3.Angle(hit.normal, Vector3.up));
+        
         Debug.DrawRay(_rb.position + Vector3.down, v, Color.red);
         
         v *= movementSpeed;
@@ -65,6 +67,32 @@ public class MovementControllerTest : MonoBehaviour {
             v = Vector3.Lerp(_rb.velocity.Swizzle_x0z(), v, groundLerp);
             _rb.velocity = v;
         }
+        
+        DoDash();
+    }
+    
+    private Vector3 dashVector;
+    private float time;
+    private float distance;
+    private float currentTime = Int32.MaxValue;
+    private AnimationCurve curve;
+
+    private void DoDash() {
+        if (currentTime < time) {
+            currentTime += Time.fixedDeltaTime;
+            float a1 = curve.Evaluate(currentTime/time);
+            float a2 = curve.Evaluate((currentTime / time) + 0.001f);
+            float speed = (((a2 - a1) * distance) / 0.001f) / time;
+            
+            _rb.velocity = dashVector * speed;
+        }
+    }
+    public void Dash(Vector3 moveVector, float distance, float time, AnimationCurve curve) {
+        this.time = time;
+        this.curve = curve;
+        this.distance = distance;
+        currentTime = 0;
+        dashVector = moveVector.normalized;
     }
 }
 
