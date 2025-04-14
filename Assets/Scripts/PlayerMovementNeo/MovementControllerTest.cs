@@ -20,7 +20,9 @@ public class MovementControllerTest : MonoBehaviour {
     [SerializeField] private AnimationCurve angleBasedSpeedLimit;
     
     [SerializeField] private float maxSlopeAngle;
+    [SerializeField] private float currentSlopeAngle;
     [SerializeField] private CharacterState state = CharacterState.Grounded;
+    private Vector3 _surfaceNormal;
     
     void Start() {
         _input = new();
@@ -35,18 +37,24 @@ public class MovementControllerTest : MonoBehaviour {
     void Update() {
         _moveDir = _input.Movement.MoveDir.ReadValue<Vector2>();
     }
-    
+
+    private Vector3 prevSpeed = Vector3.zero;
+    private Vector3 prevGravity = Vector3.zero;
     private void FixedUpdate() {
-        Vector3 v = (_cameraController.GetHorizontalDirectionForwardVector() * _moveDir.y +
+        Vector3 worldMoveDir = (_cameraController.GetHorizontalDirectionForwardVector() * _moveDir.y +
                      _cameraController.GetHorizontalDirectionRightVector() * _moveDir.x).Swizzle_x0y();
         
         if (Physics.SphereCast(_rb.position, 0.499f, Vector3.down, out RaycastHit hit, groundCheckRayLength, layer)) {
             if (Physics.Raycast(hit.point + Vector3.up, Vector3.down, out hit, 2f, layer)) {
-                float angle = Vector3.Angle(hit.normal, Vector3.up);
-                if(angle <= maxSlopeAngle) {
+                currentSlopeAngle = Vector3.Angle(hit.normal, Vector3.up);
+                if(currentSlopeAngle <= maxSlopeAngle) {
                     state = CharacterState.Grounded;
-                    v -= Vector3.Dot(v, hit.normal) * hit.normal;
-                    v *= angleBasedSpeedLimit.Evaluate(angle / 90f);
+                    _surfaceNormal = hit.normal;
+                }
+                else
+                {
+                    _surfaceNormal = hit.normal;
+                    state = CharacterState.Sliding;
                 }
             }
         }
@@ -54,19 +62,36 @@ public class MovementControllerTest : MonoBehaviour {
             state = CharacterState.Air;
         }
         
-        Debug.DrawRay(_rb.position + Vector3.down, v, Color.red);
-        
-        v *= movementSpeed;
-        
+        Vector3 v = worldMoveDir * movementSpeed;
+        Vector3 gravity = Vector3.zero;
         if (state == CharacterState.Air) {
-            v = Vector3.Lerp(_rb.velocity.Swizzle_x0z(), v, airLerp);
-            v.y = _rb.velocity.y + Physics.gravity.y * Time.fixedDeltaTime;
-            _rb.velocity = v;
+            v = Vector3.Lerp(prevSpeed, v, airLerp);
+            prevSpeed = v;
+            gravity = prevGravity + Physics.gravity * Time.fixedDeltaTime;
+            prevGravity = gravity;
         }
-        else {
-            v = Vector3.Lerp(_rb.velocity.Swizzle_x0z(), v, groundLerp);
-            _rb.velocity = v;
+        else if (state == CharacterState.Grounded) {
+            v = Vector3.ProjectOnPlane(v, _surfaceNormal);
+            //v *= angleBasedSpeedLimit.Evaluate(currentSlopeAngle / 90f);
+            v = Vector3.Lerp(prevSpeed, v, groundLerp);
+            prevGravity = Vector3.zero;
+            prevSpeed = v;
+        }else if (state == CharacterState.Sliding) {
+            v = Vector3.ProjectOnPlane(v, _surfaceNormal);
+            if (v.y > 0)
+                v.y = 0;
+            
+            v = Vector3.Lerp(prevSpeed, v, groundLerp);
+            
+            gravity = prevGravity + Vector3.ProjectOnPlane(Physics.gravity * Time.fixedDeltaTime, _surfaceNormal);
+            Vector3 gravityClone = gravity.Swizzle_xyz();
+            gravityClone.y = 0;
+            v += gravityClone;
+            prevSpeed = v;
+            prevGravity = gravity;
         }
+        _rb.velocity = v + gravity;
+        Debug.DrawRay(_rb.position + Vector3.down, v, Color.red);
         
         DoDash();
     }
@@ -98,5 +123,6 @@ public class MovementControllerTest : MonoBehaviour {
 
 public enum CharacterState {
     Grounded,
+    Sliding,
     Air,
 }

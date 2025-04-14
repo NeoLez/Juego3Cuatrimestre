@@ -1947,7 +1947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 8
-  groundCheckRayLength: 0.75
+  groundCheckRayLength: 0.65
   layer:
     serializedVersion: 2
     m_Bits: 8
@@ -1995,8 +1995,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maxSlopeAngle: 35
-  state: 0
+  maxSlopeAngle: 40
+  currentSlopeAngle: 0
+  state: 1
 --- !u!114 &1985094017
 MonoBehaviour:
   m_ObjectHideFlags: 0
