@@ -47,7 +47,8 @@ public class MovementControllerTest : MonoBehaviour {
     private byte _currentJumps;
     [SerializeField] private byte maxJumps;
     [SerializeField] private float maxJumpDuration;
-    [SerializeField] private float maxJumpHeight;
+    [SerializeField] private float initialJumpVelocity;
+    [SerializeField] private float jumpHoldSpeed;
     [SerializeField] private AnimationCurve jumpCurve;
     private void InputJumpStarted(InputAction.CallbackContext ctx) {
         _jumpInputRegistered = true;
@@ -57,7 +58,10 @@ public class MovementControllerTest : MonoBehaviour {
         _jumpInputRegistered = false;
     }
     private bool ShouldStartJump() {
-        return _jumpInputRegistered && Time.fixedTime - _jumpInputStartTime <= jumpInputBufferTime;
+        return _jumpInputRegistered && (
+                state == CharacterState.Air ||
+                state == CharacterState.Grounded && Time.fixedTime - _jumpInputStartTime <= jumpInputBufferTime
+                );
     }
 
     private Vector2 _moveDir = Vector2.zero;
@@ -67,6 +71,7 @@ public class MovementControllerTest : MonoBehaviour {
 
     private Vector3 _prevSpeed = Vector3.zero;
     private Vector3 _prevGravity = Vector3.zero;
+    private Vector3 _prevJumpSpeed = Vector3.zero;
     private void FixedUpdate() {
         Vector3 worldMoveDir = (_cameraController.GetHorizontalDirectionForwardVector() * _moveDir.y +
                      _cameraController.GetHorizontalDirectionRightVector() * _moveDir.x).Swizzle_x0y();
@@ -123,32 +128,31 @@ public class MovementControllerTest : MonoBehaviour {
         //TODO Jumping stops too suddenly. Maybe switch from curves to a more standard set speed + extra force when jump is held.
         if (!_currentlyJumping && ShouldStartJump() && _currentJumps > 0 && _currentDashTime > _dashTime) {
             _currentlyJumping = true;
+            gravity = Vector3.up * initialJumpVelocity;
+            _prevGravity = gravity;
             _jumpStartTime = Time.fixedTime;
             _currentJumps--;
         }
         if (_currentlyJumping) {
             if (!_jumpInputRegistered) {
                 _currentlyJumping = false;
-                gravity = Vector3.zero;
-                _prevGravity = gravity;
+                _jumpInputRegistered = false;
+                _prevJumpSpeed = Vector3.zero;
             }
             else {
                 float percentage = (Time.fixedTime - _jumpStartTime) / maxJumpDuration;
                 if (percentage > 1.0) {
                     _currentlyJumping = false;
+                    _jumpInputRegistered = false;
+                    _prevJumpSpeed = Vector3.zero;
                 }
                 else {
-                    float a1 = jumpCurve.Evaluate(percentage);
-                    float a2 = jumpCurve.Evaluate(percentage + 0.001f);
-                    float speed = (((a2 - a1) * maxJumpHeight) / 0.001f) / maxJumpDuration;
-
-                    gravity = Vector3.up * speed;
-                    _prevGravity = gravity;
+                    _prevJumpSpeed = Vector3.up * (jumpCurve.Evaluate(percentage) * jumpHoldSpeed);
                 }
             }
         }
         
-        _rb.velocity = v + gravity;
+        _rb.velocity = v + gravity + _prevJumpSpeed;
         
         Debug.DrawRay(_rb.position + Vector3.down, v, Color.red);
         
