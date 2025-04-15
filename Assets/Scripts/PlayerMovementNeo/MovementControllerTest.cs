@@ -4,11 +4,12 @@ using UnityEngine.InputSystem;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
-[RequireComponent(typeof(Rigidbody), typeof(CameraController))]
+[RequireComponent(typeof(Rigidbody), typeof(CameraController), typeof(CapsuleCollider))]
 public class MovementControllerTest : MonoBehaviour {
     private PlayerInputActions _input;
     private Rigidbody _rb;
     private CameraController _cameraController;
+    private CapsuleCollider _capsuleCollider;
 
     [SerializeField] private float movementSpeed;
     [SerializeField] private float groundCheckRayLength;
@@ -24,8 +25,6 @@ public class MovementControllerTest : MonoBehaviour {
     [SerializeField] private CharacterState state = CharacterState.Grounded;
     private Vector3 _surfaceNormal;
     
-    
-    
     void Start() {
         _input = new();
         _input.Enable();
@@ -33,103 +32,72 @@ public class MovementControllerTest : MonoBehaviour {
 
         _rb = GetComponent<Rigidbody>();
         _cameraController = GetComponent<CameraController>();
+        _capsuleCollider = GetComponent<CapsuleCollider>();
 
         _input.Movement.Jump.started += InputJumpStarted;
         _input.Movement.Jump.canceled += InputJumpEnded;
     }
-
-
-    [SerializeField] private float jumpInputBufferTime;
-    private bool _jumpInputRegistered;
-    private float _jumpInputStartTime;
-    private bool _currentlyJumping;
-    private float _jumpStartTime;
-    private byte _currentJumps;
-    [SerializeField] private byte maxJumps;
-    [SerializeField] private float maxJumpDuration;
-    [SerializeField] private float initialJumpVelocity;
-    [SerializeField] private float jumpHoldSpeed;
-    [SerializeField] private AnimationCurve jumpCurve;
-    private void InputJumpStarted(InputAction.CallbackContext ctx) {
-        _jumpInputRegistered = true;
-        _jumpInputStartTime = Time.fixedTime;
-    }
-    private void InputJumpEnded(InputAction.CallbackContext ctx) {
-        _jumpInputRegistered = false;
-    }
-    private bool ShouldStartJump() {
-        return _jumpInputRegistered && (
-                state == CharacterState.Air ||
-                state == CharacterState.Grounded && Time.fixedTime - _jumpInputStartTime <= jumpInputBufferTime
-                );
-    }
-
+    
     private Vector2 _moveDir = Vector2.zero;
     void Update() {
         _moveDir = _input.Movement.MoveDir.ReadValue<Vector2>();
     }
-
+    
     private Vector3 _prevSpeed = Vector3.zero;
-    private Vector3 _prevGravity = Vector3.zero;
+    private Vector3 _speed = Vector3.zero;
+    private Vector3 _gravitySpeed = Vector3.zero;
     private Vector3 _prevJumpSpeed = Vector3.zero;
     private void FixedUpdate() {
+        UpdateMovementState();
+        HandleMovement();
+        HandleJumping();
+        
+        _rb.velocity = _speed + _gravitySpeed + _prevJumpSpeed;
+        
+        HandleDashing();
+    }
+
+    private void HandleMovement() {
         Vector3 worldMoveDir = (_cameraController.GetHorizontalDirectionForwardVector() * _moveDir.y +
-                     _cameraController.GetHorizontalDirectionRightVector() * _moveDir.x).Swizzle_x0y();
-        
-        if (Physics.SphereCast(_rb.position, 0.499f, Vector3.down, out RaycastHit hit, groundCheckRayLength, layer)) {
-            if (Physics.Raycast(hit.point + Vector3.up, Vector3.down, out hit, 2f, layer)) {
-                currentSlopeAngle = Vector3.Angle(hit.normal, Vector3.up);
-                if(currentSlopeAngle <= maxSlopeAngle) {
-                    state = CharacterState.Grounded;
-                    _surfaceNormal = hit.normal;
-                }
-                else
-                {
-                    _surfaceNormal = hit.normal;
-                    state = CharacterState.Sliding;
-                }
-            }
+                                _cameraController.GetHorizontalDirectionRightVector() * _moveDir.x).Swizzle_x0y();
+        _speed = worldMoveDir * movementSpeed;
+
+        switch (state) {
+            case CharacterState.Air:
+                _speed = Vector3.Lerp(_prevSpeed, _speed, airLerp);
+                _gravitySpeed += Physics.gravity * Time.fixedDeltaTime;
+                break;
+            case CharacterState.Grounded:
+                _speed = Vector3.ProjectOnPlane(_speed, _surfaceNormal);
+                _speed = Vector3.Lerp(_prevSpeed, _speed, groundLerp);
+                if(_gravitySpeed.y < 0)//Never make gravitySpeed 0 if it points away from the floor (caused by jump). 
+                    _gravitySpeed = Vector3.zero;//Set to 0 to prevent it from accumulating speed while the player is standing.
+                break;
+            case CharacterState.Sliding:
+                _speed = Vector3.ProjectOnPlane(_speed, _surfaceNormal);
+                if (_speed.y > 0) //Prevent player from climbing up the slope under any circumstance
+                    _speed.y = 0;
+            
+                _speed = Vector3.Lerp(_prevSpeed, _speed, groundLerp);
+            
+                //Remove horizontal components from gravity vector and add them to the character velocity
+                //This makes sure that the lateral speed gained from sliding in slope lerps correctly when getting out of the slope
+                _gravitySpeed += Vector3.ProjectOnPlane(Physics.gravity * Time.fixedDeltaTime, _surfaceNormal).Swizzle_0y0();
+                Vector3 gravityClone = _gravitySpeed.Swizzle_xyz();
+                gravityClone.y = 0;
+                _speed += gravityClone;
+                break;
         }
-        else {
-            state = CharacterState.Air;
-        }
-        
-        Vector3 v = worldMoveDir * movementSpeed;
-        Vector3 gravity = Vector3.zero;
-        if (state == CharacterState.Air) {
-            v = Vector3.Lerp(_prevSpeed, v, airLerp);
-            _prevSpeed = v;
-            gravity = _prevGravity + Physics.gravity * Time.fixedDeltaTime;
-            _prevGravity = gravity;
-        }
-        else if (state == CharacterState.Grounded) {
+        _prevSpeed = _speed;
+    }
+    
+    private void HandleJumping() {
+        if (state == CharacterState.Grounded)
             _currentJumps = maxJumps;
-            
-            v = Vector3.ProjectOnPlane(v, _surfaceNormal);
-            //v *= angleBasedSpeedLimit.Evaluate(currentSlopeAngle / 90f);
-            v = Vector3.Lerp(_prevSpeed, v, groundLerp);
-            _prevGravity = Vector3.zero;
-            _prevSpeed = v;
-        }else if (state == CharacterState.Sliding) {
-            v = Vector3.ProjectOnPlane(v, _surfaceNormal);
-            if (v.y > 0)
-                v.y = 0;
-            
-            v = Vector3.Lerp(_prevSpeed, v, groundLerp);
-            
-            gravity = _prevGravity + Vector3.ProjectOnPlane(Physics.gravity * Time.fixedDeltaTime, _surfaceNormal);
-            Vector3 gravityClone = gravity.Swizzle_xyz();
-            gravityClone.y = 0;
-            v += gravityClone;
-            _prevSpeed = v;
-            _prevGravity = gravity;
-        }
         
-        //TODO Jumping stops too suddenly. Maybe switch from curves to a more standard set speed + extra force when jump is held.
         if (!_currentlyJumping && ShouldStartJump() && _currentJumps > 0 && _currentDashTime > _dashTime) {
             _currentlyJumping = true;
-            gravity = Vector3.up * initialJumpVelocity;
-            _prevGravity = gravity;
+            _gravitySpeed = Vector3.up * initialJumpVelocity;
             _jumpStartTime = Time.fixedTime;
             _currentJumps--;
         }
@@ -151,15 +119,56 @@ public class MovementControllerTest : MonoBehaviour {
                 }
             }
         }
-        
-        _rb.velocity = v + gravity + _prevJumpSpeed;
-        
-        Debug.DrawRay(_rb.position + Vector3.down, v, Color.red);
-        
-        DoDash();
     }
 
-
+    private void UpdateMovementState() {
+        if (Physics.SphereCast(_rb.position, _capsuleCollider.radius - 0.001f, Vector3.down, out RaycastHit hit, groundCheckRayLength, layer)) {
+            if (Physics.Raycast(hit.point + Vector3.up, Vector3.down, out hit, 2f, layer)) {
+                currentSlopeAngle = Vector3.Angle(hit.normal, Vector3.up);
+                if(currentSlopeAngle <= maxSlopeAngle) {
+                    state = CharacterState.Grounded;
+                    _surfaceNormal = hit.normal;
+                }
+                else
+                {
+                    _surfaceNormal = hit.normal;
+                    state = CharacterState.Sliding;
+                }
+            }
+        }
+        else {
+            state = CharacterState.Air;
+        }
+    }
+    
+    
+    #region Jump
+    [SerializeField] private float jumpInputBufferTime;
+    private bool _jumpInputRegistered;
+    private float _jumpInputStartTime;
+    private bool _currentlyJumping;
+    private float _jumpStartTime;
+    private byte _currentJumps;
+    [SerializeField] private byte maxJumps;
+    [SerializeField] private float maxJumpDuration;
+    [SerializeField] private float initialJumpVelocity;
+    [SerializeField] private float jumpHoldSpeed;
+    [SerializeField] private AnimationCurve jumpCurve;
+    private void InputJumpStarted(InputAction.CallbackContext ctx) {
+        _jumpInputRegistered = true;
+        _jumpInputStartTime = Time.fixedTime;
+    }
+    private void InputJumpEnded(InputAction.CallbackContext ctx) {
+        _jumpInputRegistered = false;
+    }
+    private bool ShouldStartJump() {
+        return _jumpInputRegistered && (
+            state == CharacterState.Air ||
+            state == CharacterState.Grounded && Time.fixedTime - _jumpInputStartTime <= jumpInputBufferTime
+        );
+    }
+    #endregion
+    
     #region Dash
     private Vector3 _dashVector;
     private float _dashTime;
@@ -167,9 +176,9 @@ public class MovementControllerTest : MonoBehaviour {
     private float _currentDashTime = Int32.MaxValue;
     private AnimationCurve _dashCurve;
 
-    private void DoDash() {
+    private void HandleDashing() {
         if (_currentDashTime < _dashTime) {
-            _prevGravity = Vector3.zero;
+            _gravitySpeed = Vector3.zero;
             _currentDashTime += Time.fixedDeltaTime;
             float a1 = _dashCurve.Evaluate(_currentDashTime/_dashTime);
             float a2 = _dashCurve.Evaluate((_currentDashTime / _dashTime) + 0.001f);

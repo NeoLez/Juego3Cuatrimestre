@@ -1951,7 +1951,7 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 8
-  airLerp: 0.2
+  airLerp: 0.4
   groundLerp: 0.6
   angleBasedSpeedLimit:
     serializedVersion: 2
@@ -1959,30 +1959,21 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: -0.06795862
-      outSlope: -0.06795862
+      inSlope: -0.55401057
+      outSlope: -0.55401057
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.937058
+      outWeight: 0.40984285
     - serializedVersion: 3
-      time: 0.46719408
-      value: 0.7929089
+      time: 0.60039485
+      value: 0.3308725
       inSlope: -1.1955162
       outSlope: -1.1955162
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.17538899
       outWeight: 0.46835896
-    - serializedVersion: 3
-      time: 0.7351943
-      value: 0.016041065
-      inSlope: -0.19358471
-      outSlope: -0.19358471
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.90821666
-      outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: 0.0004927134
@@ -1999,7 +1990,7 @@ MonoBehaviour:
   currentSlopeAngle: 0
   state: 0
   jumpInputBufferTime: 0.15
-  maxJumps: 1
+  maxJumps: 2
   maxJumpDuration: 1
   initialJumpVelocity: 3
   jumpHoldSpeed: 3
