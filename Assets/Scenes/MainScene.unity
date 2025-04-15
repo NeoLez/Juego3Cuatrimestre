@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 208848568}
   - component: {fileID: 208848567}
   - component: {fileID: 208848566}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1951,8 +1951,8 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 8
-  airLerp: 0.2
-  groundLerp: 0.5
+  airLerp: 0.4
+  groundLerp: 0.6
   angleBasedSpeedLimit:
     serializedVersion: 2
     m_Curve:
@@ -1998,6 +1998,48 @@ MonoBehaviour:
   maxSlopeAngle: 40
   currentSlopeAngle: 0
   state: 1
+  jumpInputBufferTime: 0.05
+  jumpInputRegistered: 0
+  jumpInputStartTime: 0
+  currentlyJumping: 0
+  jumpStartTime: 0
+  currentJumps: 0
+  maxJumps: 2
+  maxJumpDuration: 0.4
+  maxJumpHeight: 2
+  jumpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 3.0133379
+      outSlope: 3.0133379
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.10087126
+    - serializedVersion: 3
+      time: 0.4126572
+      value: 0.6179766
+      inSlope: 0.85444707
+      outSlope: 0.85444707
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.30105826
+      outWeight: 0.13294978
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.5493098
+      outSlope: 0.5493098
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.27473757
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &1985094017
 MonoBehaviour:
   m_ObjectHideFlags: 0
