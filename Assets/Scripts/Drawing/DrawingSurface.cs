@@ -51,7 +51,7 @@ public class DrawingSurface : MonoBehaviour {
         }
     }
 
-    private void Update() {
+    private void LateUpdate() {
         DrawGraphics();
     }
 

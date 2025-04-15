@@ -732,6 +732,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 604727237}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &686407772 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8910071711987796980, guid: 7f5be58c8fb938a44990f866f8803265, type: 3}
+  m_PrefabInstance: {fileID: 1701875659}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &901190243
 GameObject:
   m_ObjectHideFlags: 0
@@ -1812,6 +1817,7 @@ GameObject:
   - component: {fileID: 1985094011}
   - component: {fileID: 1985094016}
   - component: {fileID: 1985094013}
+  - component: {fileID: 1985094020}
   - component: {fileID: 1985094017}
   - component: {fileID: 1985094012}
   - component: {fileID: 1985094018}
@@ -1883,7 +1889,7 @@ MonoBehaviour:
   cam: {fileID: 1969247730}
   sensitivity: 0.1
   yaw: 0
-  pitch: 0
+  pitch: 2
 --- !u!136 &1985094014
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1990,7 +1996,6 @@ MonoBehaviour:
   currentSlopeAngle: 0
   state: 0
   jumpInputBufferTime: 0.15
-  _currentJumps: 0
   maxJumps: 2
   maxJumpDuration: 1
   initialJumpVelocity: 3
@@ -2065,6 +2070,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1985094020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985094009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e90eaceab8740b7b4d3844ca763226e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  surface: {fileID: 686407772}
+  distance: 3
 --- !u!1001 &2038021225
 PrefabInstance:
   m_ObjectHideFlags: 0

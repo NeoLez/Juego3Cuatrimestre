@@ -11,8 +11,7 @@ public class CameraController : MonoBehaviour {
     private PlayerInputActions input;
 
     private void Awake() {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        LockCamera();
         
         input = new();
         input.Enable();
@@ -33,6 +32,16 @@ public class CameraController : MonoBehaviour {
             yaw += 360;
         
         cam.localRotation = Quaternion.Euler(-pitch, yaw, 0);
+    }
+
+    public void LockCamera() {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void UnlockCamera() {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     public Vector2 GetHorizontalDirectionForwardVector() {
