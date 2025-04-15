@@ -118,7 +118,7 @@ public class MovementControllerTest : MonoBehaviour {
     }
     
     private void HandleJumping() {
-        if (state == CharacterState.Grounded)
+        if (!_currentlyJumping && state == CharacterState.Grounded)
             _currentJumps = maxJumps;
         
         if (!_currentlyJumping && ShouldStartJump() && _currentJumps > 0 && _currentDashTime > _dashTime) {

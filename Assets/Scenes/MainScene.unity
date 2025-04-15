@@ -1810,15 +1810,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1985094011}
-  - component: {fileID: 1985094010}
-  - component: {fileID: 1985094012}
-  - component: {fileID: 1985094017}
   - component: {fileID: 1985094016}
   - component: {fileID: 1985094013}
+  - component: {fileID: 1985094017}
+  - component: {fileID: 1985094012}
   - component: {fileID: 1985094018}
   - component: {fileID: 1985094015}
   - component: {fileID: 1985094014}
   - component: {fileID: 1985094019}
+  - component: {fileID: 1985094010}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1947,7 +1947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 8
-  groundCheckRayLength: 0.65
+  groundCheckRayLength: 0.51
   layer:
     serializedVersion: 2
     m_Bits: 8
@@ -1990,6 +1990,7 @@ MonoBehaviour:
   currentSlopeAngle: 0
   state: 0
   jumpInputBufferTime: 0.15
+  _currentJumps: 0
   maxJumps: 2
   maxJumpDuration: 1
   initialJumpVelocity: 3
