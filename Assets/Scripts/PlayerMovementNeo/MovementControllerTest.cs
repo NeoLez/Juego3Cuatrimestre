@@ -62,6 +62,8 @@ public class MovementControllerTest : MonoBehaviour {
                                 _cameraController.GetHorizontalDirectionRightVector() * _moveDir.x).Swizzle_x0y();
         _speed = worldMoveDir * movementSpeed;
 
+        AdjustMovementSpeedWithSlope();
+        
         switch (state) {
             case CharacterState.Air:
                 _speed = Vector3.Lerp(_prevSpeed, _speed, airLerp);
@@ -89,6 +91,30 @@ public class MovementControllerTest : MonoBehaviour {
                 break;
         }
         _prevSpeed = _speed;
+    }
+    
+    public void AdjustMovementSpeedWithSlope() {
+        if (_surfaceNormal != Vector3.zero && _surfaceNormal != Vector3.up) {
+            float slopeSpeedCoefficient = angleBasedSpeedLimit.Evaluate(currentSlopeAngle / 90f);
+            
+            //Calculates the two basis vectors for the new reference system that is relative to the plane rotation
+            Vector3 planeOppositeX = Vector3.ProjectOnPlane(_surfaceNormal, Vector3.up);
+            Vector3 planeOppositeY = planeOppositeX.Swizzle_zyx();
+            planeOppositeY.x *= -1;
+            
+            //Transforms the speed to that system (matrix multiplication)
+            _speed = new Vector3(planeOppositeX.x * _speed.x + planeOppositeY.x * _speed.z, _speed.y, planeOppositeX.z * _speed.x + planeOppositeY.z * _speed.z);
+            
+            //Adjusts the component of the velocity that goes toward the plane
+            if (_speed.x > 0)
+                _speed.x *= slopeSpeedCoefficient;
+
+            //Calculates the inverse of the matrix above, and uses it to go back to the normal basis
+            float det = planeOppositeX.x * planeOppositeY.z - planeOppositeY.x * planeOppositeX.z;
+            planeOppositeX /= det;
+            planeOppositeY /= det;
+            _speed = new Vector3(planeOppositeY.z * _speed.x - planeOppositeY.x * _speed.z, _speed.y, -planeOppositeX.z * _speed.x + planeOppositeX.x * _speed.z);
+        }
     }
     
     private void HandleJumping() {
@@ -123,6 +149,7 @@ public class MovementControllerTest : MonoBehaviour {
 
     private void UpdateMovementState() {
         if (Physics.SphereCast(_rb.position, _capsuleCollider.radius - 0.001f, Vector3.down, out RaycastHit hit, groundCheckRayLength, layer)) {
+            //Do another raycast since the normal vector obtained through the SphereCast collider are inaccurate
             if (Physics.Raycast(hit.point + Vector3.up, Vector3.down, out hit, 2f, layer)) {
                 currentSlopeAngle = Vector3.Angle(hit.normal, Vector3.up);
                 if(currentSlopeAngle <= maxSlopeAngle) {
