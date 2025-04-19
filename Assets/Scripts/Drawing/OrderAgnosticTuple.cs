@@ -8,7 +8,7 @@ public class OrderAgnosticByteTuple {
     private readonly int _hashCode;
     
     public byte firstByte => byte1;
-    public byte secondByte => byte1;
+    public byte secondByte => byte2;
 
     public OrderAgnosticByteTuple(byte byte1, byte byte2) {
         this.byte1 = byte1;
