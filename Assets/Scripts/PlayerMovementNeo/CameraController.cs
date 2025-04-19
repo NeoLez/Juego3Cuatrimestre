@@ -8,22 +8,22 @@ public class CameraController : MonoBehaviour {
     [SerializeField] private float yaw;
     [SerializeField] private float pitch;
     
-    private PlayerInputActions input;
+    private PlayerInputActions _input;
 
     private void Awake() {
         LockCamera();
         
-        input = new();
-        input.Enable();
-        input.Movement.Enable();
+        _input = new();
+        _input.Enable();
+        _input.Movement.Enable();
 
         cam = Camera.main.transform;
     }
 
     private void Update() {
         cam.position = cameraPosition.position;
-        yaw += input.Movement.MouseX.ReadValue<float>() * sensitivity;
-        pitch += input.Movement.MouseY.ReadValue<float>() * sensitivity;
+        yaw += _input.Movement.MouseX.ReadValue<float>() * sensitivity;
+        pitch += _input.Movement.MouseY.ReadValue<float>() * sensitivity;
 
         pitch = Mathf.Clamp(pitch, -89f, 89f);
         if (yaw > 360)

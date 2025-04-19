@@ -3,9 +3,12 @@ using UnityEngine;
 
 [Serializable]
 public class OrderAgnosticByteTuple {
-    [SerializeField] public byte byte1;
-    [SerializeField] public byte byte2;
+    [SerializeField] private byte byte1;
+    [SerializeField] private byte byte2;
     private readonly int _hashCode;
+    
+    public byte firstByte => byte1;
+    public byte secondByte => byte1;
 
     public OrderAgnosticByteTuple(byte byte1, byte byte2) {
         this.byte1 = byte1;

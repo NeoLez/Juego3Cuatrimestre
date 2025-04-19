@@ -69,13 +69,13 @@ public class DrawingSurface : MonoBehaviour {
         if (_tuples.Count > 0) {
             _connectionsRenderer.positionCount = _tuples.Count + 1;
             for (int i = 0; i < _tuples.Count; i++) {
-                _connectionsRenderer.SetPosition(i, transform.rotation * PosToUnscaled(points[_tuples[i].byte1].position - Vector2.one / 2) +
+                _connectionsRenderer.SetPosition(i, transform.rotation * PosToUnscaled(points[_tuples[i].firstByte].position - Vector2.one / 2) +
                                                     transform.position + offsetVector*2);
             }
 
             _connectionsRenderer.SetPosition(_tuples.Count,
                 transform.rotation *
-                PosToUnscaled(points[_tuples[^1].byte2].position - Vector2.one / 2) +
+                PosToUnscaled(points[_tuples[^1].secondByte].position - Vector2.one / 2) +
                 transform.position + offsetVector*2);
         }
         else {
