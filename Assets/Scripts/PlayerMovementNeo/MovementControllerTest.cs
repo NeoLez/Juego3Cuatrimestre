@@ -192,6 +192,7 @@ public class MovementControllerTest : MonoBehaviour {
     private bool ShouldStartJump() {
         return _jumpInputRegistered && (
             state == CharacterState.Air ||
+            state == CharacterState.Sliding ||
             state == CharacterState.Grounded && Time.fixedTime - _jumpInputStartTime <= jumpInputBufferTime
         );
     }
