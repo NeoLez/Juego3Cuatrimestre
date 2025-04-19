@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Spikes : MonoBehaviour
 {
-    public int daño = 1;
+    public int damage = 1;
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            PlayerHealth salud = collision.gameObject.GetComponent<PlayerHealth>();
-            if (salud != null)
+            PlayerHealth health = collision.gameObject.GetComponent<PlayerHealth>();
+            if (health != null)
             {
-                salud.RecibirDaño(daño);
+                health.TakeDamage(damage);
                 Debug.Log("jaja moriste");
             }
         }

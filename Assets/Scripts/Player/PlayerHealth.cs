@@ -1,28 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int vidaMaxima = 1;
-    private int vidaActual;
+    public int maxHealth = 1;
+    private int _currentHealth;
 
     void Start()
     {
-        vidaActual = vidaMaxima;
+        _currentHealth = maxHealth;
     }
 
-    public void RecibirDaño(int cantidad)
+    public void TakeDamage(int amount)
     {
-        vidaActual -= cantidad;
+        _currentHealth -= amount;
 
-        if (vidaActual <= 0)
+        if (_currentHealth <= 0)
         {
-            Morir();
+            Die();
         }
     }
 
-    void Morir()
+    void Die()
     {
         Destroy(gameObject);
     }
