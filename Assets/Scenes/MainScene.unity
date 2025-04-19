@@ -1217,7 +1217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e081cf83661594fbc94ca6822fbcab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "da\xF1o": 1
+  damage: 1
 --- !u!1 &866936704
 GameObject:
   m_ObjectHideFlags: 0
@@ -2200,13 +2200,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3148258963937955015, guid: 7f5be58c8fb938a44990f866f8803265, type: 3}
-      propertyPath: lineMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: cf41397dc908943a38769b3d61f3877a, type: 2}
     - target: {fileID: 8910071711987796980, guid: 7f5be58c8fb938a44990f866f8803265, type: 3}
       propertyPath: m_Name
       value: DrawingSurface
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910071711987796980, guid: 7f5be58c8fb938a44990f866f8803265, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

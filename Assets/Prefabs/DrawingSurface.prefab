@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2277261464143010089
 Transform:
   m_ObjectHideFlags: 0
@@ -28,10 +28,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8910071711987796980}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00000044703478}
-  m_LocalPosition: {x: 4.09, y: 2.57, z: -2.48}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: -0.039609794, y: 0.81620663, z: 0.05635911, w: 0.57363886}
+  m_LocalPosition: {x: 5.4651394, y: 2.3504643, z: 4.117846}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 10562e6f8daa558449d3e16c8c5d7133, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95,10 +95,10 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -120,17 +120,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - position: {x: 0.5, y: 0.85}
-    size: 0.2
+  - position: {x: 0, y: 0.35}
+    size: 0.1
     selected: 0
-  - position: {x: 0.85, y: 0.5}
-    size: 0.2
+  - position: {x: 0.35, y: 0}
+    size: 0.1
     selected: 0
-  - position: {x: 0.5, y: 0.15}
-    size: 0.2
+  - position: {x: 0, y: -0.35}
+    size: 0.1
     selected: 0
-  - position: {x: 0.15, y: 0.5}
-    size: 0.2
+  - position: {x: -0.35, y: 0}
+    size: 0.1
     selected: 0
-  lineMaterial: {fileID: 2100000, guid: 6cce181ffb843314ca8f9fe86ad02e6f, type: 2}
-  lineOffset: 0.03
+  lineMaterial: {fileID: 2100000, guid: 5b0dec69cb3e712498110ba7e2865932, type: 2}
+  circleMaterial: {fileID: 2100000, guid: 4aec9f159f48f9848b0a58dcc2471b4c, type: 2}
+  _tuples: []
+  lineOffset: 0.001
+  lineWidth: 0.025
+  circleResolution: 16

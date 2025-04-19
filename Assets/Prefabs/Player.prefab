@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   surface: {fileID: 0}
-  distance: 3
+  distance: 1.15
 --- !u!114 &3226827653230105896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,4 +405,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edd4f8be09d38244987562b3ad2f4155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 1
+  maxHealth: 1

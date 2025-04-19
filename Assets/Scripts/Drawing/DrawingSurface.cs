@@ -3,22 +3,46 @@ using System.Linq;
 using Optional;
 using Optional.Unsafe;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class DrawingSurface : MonoBehaviour {
     [SerializeField] private DrawingPoint[] points;
     [SerializeField] private Material lineMaterial;
+    [SerializeField] private Material circleMaterial;
+    [FormerlySerializedAs("_tuples")] [SerializeField] private List<OrderAgnosticByteTuple> tuples = new(4);
     [SerializeField] private float lineOffset;
-    private readonly List<LineRenderer> _lineRenderers = new();
-    private LineRenderer _connectionsRenderer;
-    private List<OrderAgnosticByteTuple> _tuples = new(4);
     private byte? _lastPoint;
-    
+
+    [SerializeField] private float lineWidth;
+    private MeshFilter _lineMeshFilter;
+    [SerializeField] private int circleResolution;
+    private MeshFilter _circlesMeshFilter;
+    private void Awake() {
+        GameObject linesObject = new GameObject();
+        linesObject.transform.SetParent(transform);
+        linesObject.transform.localPosition = Vector3.back * lineOffset;
+        linesObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        _lineMeshFilter = linesObject.AddComponent<MeshFilter>();
+        var meshRenderer = linesObject.AddComponent<MeshRenderer>();
+        meshRenderer.material = lineMaterial;
+        
+        GameObject circlesObject = new GameObject();
+        circlesObject.transform.SetParent(transform);
+        circlesObject.transform.localPosition = Vector3.back * lineOffset;
+        circlesObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        _circlesMeshFilter = circlesObject.AddComponent<MeshFilter>();
+        var circlesMeshRenderer = circlesObject.AddComponent<MeshRenderer>();
+        circlesMeshRenderer.material = circleMaterial;
+        
+        DrawCircles();
+    }
+
     public void FinishDrawing() {
         foreach (var point in points) {
             point.selected = false;
         }
 
-        Drawing res = new Drawing(_tuples.ToHashSet().ToArray());
+        Drawing res = new Drawing(tuples.ToHashSet().ToArray());
         Option<SpellSO> s = DrawingPatternDatabase.GetSpellFromDrawing(res);
         if (s.HasValue) {
             //WHAT IT DOES WITH THE VALUE COULD BE CHANGED TO HAVE DIFFERENT KINDS OF DRAWING SURFACES, MAYBE HAVING
@@ -27,96 +51,101 @@ public class DrawingSurface : MonoBehaviour {
             cardStorage.AddCard(s.ValueOrFailure());
         }
 
-        _tuples.Clear();
+        tuples.Clear();
         _lastPoint = null;
+
+        _lineMeshFilter.mesh = new Mesh();
     }
 
     public void NotifyPosition(Vector2 position) {
         Vector2 unscaled = PosToUnscaled(position);
 
         for (byte i = 0; i< points.Length; i++) {
-            Vector2 pointUnscaled = PosToUnscaled(points[i].position);
+            Vector2 pointUnscaled = points[i].position;
             if (Vector2.Distance(pointUnscaled, unscaled) <= points[i].size) {
                 points[i].selected = true;
                 if (_lastPoint is not null) {
                     if (_lastPoint != i) {
                         OrderAgnosticByteTuple newTuple = new OrderAgnosticByteTuple(_lastPoint.Value, i);
-                        //if (!_tuples.Contains(newTuple)) { THIS CAUSES VISUAL BUGS BECAUSE THE LINE RENDERER SUCKS
-                        //THIS FIX ALSO CAUSES LAG IF THE PLAYER DRAWS TOO MANY LINES :C
-                        _tuples.Add(newTuple);
+                        //if (!_tuples.Contains(newTuple)) {
+                            tuples.Add(newTuple);
+                        //}
                     }
                 }
                 _lastPoint = i;
+                break;
             }
         }
-    }
-
-    private void LateUpdate() {
+        
         DrawGraphics();
     }
 
-    public void DrawGraphics() {
-        Vector3 offsetVector = transform.rotation * new Vector3(0, 0, -lineOffset);
+    private void DrawGraphics() {
+        var vertices = new Vector3[tuples.Count * 4];
+        int[] indices = new int[tuples.Count * 6];
         
-        if (_connectionsRenderer == null) {
-            GameObject aux = new GameObject();
-            _connectionsRenderer = aux.AddComponent<LineRenderer>();
-            _connectionsRenderer.material = lineMaterial;
-            _connectionsRenderer.endColor = _connectionsRenderer.startColor = Color.black;
-            _connectionsRenderer.widthCurve = new AnimationCurve(new Keyframe(0f, 0.1f));
-        }
-
-        if (_tuples.Count > 0) {
-            _connectionsRenderer.positionCount = _tuples.Count + 1;
-            for (int i = 0; i < _tuples.Count; i++) {
-                _connectionsRenderer.SetPosition(i, transform.rotation * PosToUnscaled(points[_tuples[i].firstByte].position - Vector2.one / 2) +
-                                                    transform.position + offsetVector*2);
-            }
-
-            _connectionsRenderer.SetPosition(_tuples.Count,
-                transform.rotation *
-                PosToUnscaled(points[_tuples[^1].secondByte].position - Vector2.one / 2) +
-                transform.position + offsetVector*2);
-        }
-        else {
-            _connectionsRenderer.positionCount = 0;
-        }
-
-
-        
-        if (points.Length > _lineRenderers.Count) {
-            int diff = points.Length - _lineRenderers.Count;
-            for (int i = 0; i < diff; i++) {
-                GameObject aux = new GameObject();
-                _lineRenderers.Add(aux.AddComponent<LineRenderer>());
-                _lineRenderers[i].material = lineMaterial;
-                _lineRenderers[i].loop = true;
-                _lineRenderers[i].widthCurve = new AnimationCurve(new Keyframe(0f, 0.05f));
-                _lineRenderers[i].positionCount = 4;
-                
-                //TODO changing this prevents clipping, but we need to figure out how to have it render in the right orientation
-                //_lineRenderers[i].alignment = LineAlignment.TransformZ;
-            }
-        }
-        
-        for (int i = 0; i < points.Length; i++) {
-            _lineRenderers[i].endColor = _lineRenderers[i].startColor = points[i].selected ? Color.green : Color.red;
+        for(int i = 0; i < tuples.Count; i++) {
+            var tuple = tuples[i];
             
-            Vector3[] a = {
-                transform.rotation * (PosToUnscaled(points[i].position - Vector2.one / 2) + Vector2.up * points[i].size) +
-                transform.position + offsetVector,
-                transform.rotation * (PosToUnscaled(points[i].position - Vector2.one / 2) + Vector2.right * points[i].size) +
-                transform.position + offsetVector,
-                transform.rotation * (PosToUnscaled(points[i].position - Vector2.one / 2) + Vector2.down * points[i].size) +
-                transform.position + offsetVector,
-                transform.rotation * (PosToUnscaled(points[i].position - Vector2.one / 2) + Vector2.left * points[i].size) +
-                transform.position + offsetVector,
-            };
-            _lineRenderers[i].SetPositions(a);
+            Vector2 pos1 = points[tuple.firstByte].position;
+            Vector2 pos2 = points[tuple.secondByte].position;
+            Vector2 distance = (pos2 - pos1).normalized;
+            Vector2 perpendicular = new Vector2(-distance.y, distance.x);
+            perpendicular *= lineWidth/2;
+            
+            vertices[i * 4] = (pos1 + distance * points[tuple.firstByte].size + perpendicular).Swizzle_xy0();
+            vertices[i * 4 + 1] = (pos1 + distance * points[tuple.firstByte].size - perpendicular).Swizzle_xy0();
+            vertices[i * 4 + 2] = (pos2 - distance * points[tuple.secondByte].size + perpendicular).Swizzle_xy0();
+            vertices[i * 4 + 3] = (pos2 - distance * points[tuple.secondByte].size - perpendicular).Swizzle_xy0();
+
+            indices[i * 6] = i * 4;
+            indices[i * 6 + 1] = i * 4 + 2;
+            indices[i * 6 + 2] = i * 4 + 1;
+            indices[i * 6 + 3] = i * 4 + 1;
+            indices[i * 6 + 4] = i * 4 + 2;
+            indices[i * 6 + 5] = i * 4 + 3;
         }
+
+        Mesh mesh = new Mesh();
+        mesh.vertices = vertices;
+        mesh.triangles = indices;
+        mesh.RecalculateNormals();
+        _lineMeshFilter.mesh = mesh;
+    }
+
+    private void Update() {
+        DrawCircles();
+    }
+
+    private void DrawCircles() {
+        var circlesVertices = new Vector3[points.Length * 2 * circleResolution];
+        int[] circlesIndices = new int[points.Length * 6 * circleResolution];
+        for(int i = 0; i < points.Length; i++) {
+            int vertexOffset = circleResolution * 2 * i;
+            int indexOffset = circleResolution * 6 * i;
+            for (int j = 0; j < circleResolution; j++) {
+                float angle = (360.0f / circleResolution) * j;
+                Vector2 v = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
+                circlesVertices[vertexOffset + j * 2] = v * (points[i].size + lineWidth / 2f) + points[i].position;
+                circlesVertices[vertexOffset + j * 2 + 1] = v * (points[i].size - lineWidth / 2f) + points[i].position;
+
+                circlesIndices[indexOffset + j * 6] = vertexOffset + (j * 2) % (circleResolution * 2);
+                circlesIndices[indexOffset + j * 6 + 1] = vertexOffset + (j * 2 + 2) % (circleResolution * 2);
+                circlesIndices[indexOffset + j * 6 + 2] = vertexOffset + (j * 2 + 1) % (circleResolution * 2);
+                circlesIndices[indexOffset + j * 6 + 3] = vertexOffset + (j * 2 + 1) % (circleResolution * 2);
+                circlesIndices[indexOffset + j * 6 + 4] = vertexOffset + (j * 2 + 2) % (circleResolution * 2);
+                circlesIndices[indexOffset + j * 6 + 5] = vertexOffset + (j * 2 + 3) % (circleResolution * 2);
+            }
+        }
+        
+        Mesh circlesMesh = new Mesh();
+        circlesMesh.vertices = circlesVertices;
+        circlesMesh.triangles = circlesIndices;
+        circlesMesh.RecalculateNormals();
+        _circlesMeshFilter.mesh = circlesMesh;
     }
 
     private Vector2 PosToUnscaled(Vector2 v) {
-        return new Vector2(v.x * transform.localScale.x, v.y * transform.localScale.y);
+        return new Vector2((v.x - 0.5f) * transform.localScale.x, (v.y - 0.5f) * transform.localScale.y);
     }
 }
