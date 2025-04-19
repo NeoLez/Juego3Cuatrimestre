@@ -164,6 +164,7 @@ public class MovementControllerTest : MonoBehaviour {
             }
         }
         else {
+            _surfaceNormal = Vector3.up;
             state = CharacterState.Air;
         }
     }
