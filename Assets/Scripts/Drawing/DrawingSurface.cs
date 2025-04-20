@@ -9,11 +9,12 @@ public class DrawingSurface : MonoBehaviour {
     [SerializeField] private DrawingPoint[] points;
     [SerializeField] private Material lineMaterial;
     [SerializeField] private Material circleMaterial;
-    [FormerlySerializedAs("_tuples")] [SerializeField] private List<Line> tuples = new(4);
+    [SerializeField] private List<Line> tuples = new(4);
     [SerializeField] private float lineOffset;
     private byte? _lastPoint;
 
     [SerializeField] private float lineWidth;
+    [SerializeField] private float circleLineWidth;
     private MeshFilter _lineMeshFilter;
     [SerializeField] private int circleResolution;
     private MeshFilter _circlesMeshFilter;
@@ -126,8 +127,8 @@ public class DrawingSurface : MonoBehaviour {
             for (int j = 0; j < circleResolution; j++) {
                 float angle = (360.0f / circleResolution) * j;
                 Vector2 v = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
-                circlesVertices[vertexOffset + j * 2] = v * (points[i].size + lineWidth / 2f) + points[i].position;
-                circlesVertices[vertexOffset + j * 2 + 1] = v * (points[i].size - lineWidth / 2f) + points[i].position;
+                circlesVertices[vertexOffset + j * 2] = v * (points[i].size + circleLineWidth / 2f) + points[i].position;
+                circlesVertices[vertexOffset + j * 2 + 1] = v * (points[i].size - circleLineWidth / 2f) + points[i].position;
 
                 circlesIndices[indexOffset + j * 6] = vertexOffset + (j * 2) % (circleResolution * 2);
                 circlesIndices[indexOffset + j * 6 + 1] = vertexOffset + (j * 2 + 2) % (circleResolution * 2);

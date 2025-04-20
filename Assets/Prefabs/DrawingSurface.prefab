@@ -134,7 +134,8 @@ MonoBehaviour:
     selected: 0
   lineMaterial: {fileID: 2100000, guid: 5b0dec69cb3e712498110ba7e2865932, type: 2}
   circleMaterial: {fileID: 2100000, guid: 4aec9f159f48f9848b0a58dcc2471b4c, type: 2}
-  _tuples: []
+  tuples: []
   lineOffset: 0.001
-  lineWidth: 0.025
+  lineWidth: 0.015
+  circleLineWidth: 0.025
   circleResolution: 16

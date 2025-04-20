@@ -2515,11 +2515,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a74e96fdd8e647ac93325bbbf2d45889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardStorage: {fileID: 0}
-  cardPanel: {fileID: 1805854295}
-  cardPrefab: {fileID: 2933685303529508442, guid: a789563e7c075174e9d5ae452662d24c, type: 3}
-  cardsUIElement: []
-  uiCards: []
 --- !u!1 &1948202294
 GameObject:
   m_ObjectHideFlags: 0
