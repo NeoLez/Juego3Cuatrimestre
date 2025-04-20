@@ -69,6 +69,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "UseCard0",
+                    "type": "Button",
+                    "id": "ae20a96d-9f9e-4502-88b9-f69cf740b7bc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "UseCard1",
                     "type": "Button",
                     "id": "0b63a1a3-2329-4633-b823-3dd4759a81df",
@@ -99,6 +108,15 @@
                     "name": "UseCard4",
                     "type": "Button",
                     "id": "15b82f39-d5d7-4f13-b9a7-7925e1675b87",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "UseCard5",
+                    "type": "Button",
+                    "id": "0a85d487-38fc-4096-b0d9-a798cc998233",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -405,6 +423,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ec84b38b-f1bb-42da-8beb-7857cc2b1daa",
+                    "path": "<Keyboard>/backquote",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseCard0",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bf1a36a0-391c-423b-9a1c-9ae29c086311",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseCard5",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

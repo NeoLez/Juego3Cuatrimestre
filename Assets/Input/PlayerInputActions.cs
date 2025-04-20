@@ -91,6 +91,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""UseCard0"",
+                    ""type"": ""Button"",
+                    ""id"": ""ae20a96d-9f9e-4502-88b9-f69cf740b7bc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""UseCard1"",
                     ""type"": ""Button"",
                     ""id"": ""0b63a1a3-2329-4633-b823-3dd4759a81df"",
@@ -121,6 +130,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""name"": ""UseCard4"",
                     ""type"": ""Button"",
                     ""id"": ""15b82f39-d5d7-4f13-b9a7-7925e1675b87"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseCard5"",
+                    ""type"": ""Button"",
+                    ""id"": ""0a85d487-38fc-4096-b0d9-a798cc998233"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -429,6 +447,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Sprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ec84b38b-f1bb-42da-8beb-7857cc2b1daa"",
+                    ""path"": ""<Keyboard>/backquote"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseCard0"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bf1a36a0-391c-423b-9a1c-9ae29c086311"",
+                    ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseCard5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -444,10 +484,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Movement_MouseRightClick = m_Movement.FindAction("MouseRightClick", throwIfNotFound: true);
         m_Movement_MousePosition = m_Movement.FindAction("MousePosition", throwIfNotFound: true);
         m_Movement_OpenBook = m_Movement.FindAction("OpenBook", throwIfNotFound: true);
+        m_Movement_UseCard0 = m_Movement.FindAction("UseCard0", throwIfNotFound: true);
         m_Movement_UseCard1 = m_Movement.FindAction("UseCard1", throwIfNotFound: true);
         m_Movement_UseCard2 = m_Movement.FindAction("UseCard2", throwIfNotFound: true);
         m_Movement_UseCard3 = m_Movement.FindAction("UseCard3", throwIfNotFound: true);
         m_Movement_UseCard4 = m_Movement.FindAction("UseCard4", throwIfNotFound: true);
+        m_Movement_UseCard5 = m_Movement.FindAction("UseCard5", throwIfNotFound: true);
         m_Movement_Dash = m_Movement.FindAction("Dash", throwIfNotFound: true);
         m_Movement_Jump = m_Movement.FindAction("Jump", throwIfNotFound: true);
         m_Movement_Sprint = m_Movement.FindAction("Sprint", throwIfNotFound: true);
@@ -519,10 +561,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement_MouseRightClick;
     private readonly InputAction m_Movement_MousePosition;
     private readonly InputAction m_Movement_OpenBook;
+    private readonly InputAction m_Movement_UseCard0;
     private readonly InputAction m_Movement_UseCard1;
     private readonly InputAction m_Movement_UseCard2;
     private readonly InputAction m_Movement_UseCard3;
     private readonly InputAction m_Movement_UseCard4;
+    private readonly InputAction m_Movement_UseCard5;
     private readonly InputAction m_Movement_Dash;
     private readonly InputAction m_Movement_Jump;
     private readonly InputAction m_Movement_Sprint;
@@ -537,10 +581,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @MouseRightClick => m_Wrapper.m_Movement_MouseRightClick;
         public InputAction @MousePosition => m_Wrapper.m_Movement_MousePosition;
         public InputAction @OpenBook => m_Wrapper.m_Movement_OpenBook;
+        public InputAction @UseCard0 => m_Wrapper.m_Movement_UseCard0;
         public InputAction @UseCard1 => m_Wrapper.m_Movement_UseCard1;
         public InputAction @UseCard2 => m_Wrapper.m_Movement_UseCard2;
         public InputAction @UseCard3 => m_Wrapper.m_Movement_UseCard3;
         public InputAction @UseCard4 => m_Wrapper.m_Movement_UseCard4;
+        public InputAction @UseCard5 => m_Wrapper.m_Movement_UseCard5;
         public InputAction @Dash => m_Wrapper.m_Movement_Dash;
         public InputAction @Jump => m_Wrapper.m_Movement_Jump;
         public InputAction @Sprint => m_Wrapper.m_Movement_Sprint;
@@ -574,6 +620,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @OpenBook.started += instance.OnOpenBook;
             @OpenBook.performed += instance.OnOpenBook;
             @OpenBook.canceled += instance.OnOpenBook;
+            @UseCard0.started += instance.OnUseCard0;
+            @UseCard0.performed += instance.OnUseCard0;
+            @UseCard0.canceled += instance.OnUseCard0;
             @UseCard1.started += instance.OnUseCard1;
             @UseCard1.performed += instance.OnUseCard1;
             @UseCard1.canceled += instance.OnUseCard1;
@@ -586,6 +635,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @UseCard4.started += instance.OnUseCard4;
             @UseCard4.performed += instance.OnUseCard4;
             @UseCard4.canceled += instance.OnUseCard4;
+            @UseCard5.started += instance.OnUseCard5;
+            @UseCard5.performed += instance.OnUseCard5;
+            @UseCard5.canceled += instance.OnUseCard5;
             @Dash.started += instance.OnDash;
             @Dash.performed += instance.OnDash;
             @Dash.canceled += instance.OnDash;
@@ -620,6 +672,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @OpenBook.started -= instance.OnOpenBook;
             @OpenBook.performed -= instance.OnOpenBook;
             @OpenBook.canceled -= instance.OnOpenBook;
+            @UseCard0.started -= instance.OnUseCard0;
+            @UseCard0.performed -= instance.OnUseCard0;
+            @UseCard0.canceled -= instance.OnUseCard0;
             @UseCard1.started -= instance.OnUseCard1;
             @UseCard1.performed -= instance.OnUseCard1;
             @UseCard1.canceled -= instance.OnUseCard1;
@@ -632,6 +687,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @UseCard4.started -= instance.OnUseCard4;
             @UseCard4.performed -= instance.OnUseCard4;
             @UseCard4.canceled -= instance.OnUseCard4;
+            @UseCard5.started -= instance.OnUseCard5;
+            @UseCard5.performed -= instance.OnUseCard5;
+            @UseCard5.canceled -= instance.OnUseCard5;
             @Dash.started -= instance.OnDash;
             @Dash.performed -= instance.OnDash;
             @Dash.canceled -= instance.OnDash;
@@ -667,10 +725,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnMouseRightClick(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
         void OnOpenBook(InputAction.CallbackContext context);
+        void OnUseCard0(InputAction.CallbackContext context);
         void OnUseCard1(InputAction.CallbackContext context);
         void OnUseCard2(InputAction.CallbackContext context);
         void OnUseCard3(InputAction.CallbackContext context);
         void OnUseCard4(InputAction.CallbackContext context);
+        void OnUseCard5(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);

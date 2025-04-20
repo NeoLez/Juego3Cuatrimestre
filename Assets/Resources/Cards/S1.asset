@@ -16,6 +16,7 @@ MonoBehaviour:
   id: 0
   spellName: CameraDash
   inkCost: 0
+  maxUses: 1
   moveDistance: 12
   time: 0.15
   curve:

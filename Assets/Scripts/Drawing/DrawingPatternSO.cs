@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "DrawingPattern", menuName = "SO/Drawing/Pattern")]
 public class DrawingPatternSO : ScriptableObject {
     [SerializeField] public Drawing drawing;
-    [SerializeField] public SpellSO spell;
+    [FormerlySerializedAs("spell")] [SerializeField] public CardInfoSO cardInfo;
 }

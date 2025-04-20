@@ -9,7 +9,7 @@ public class DrawingSurface : MonoBehaviour {
     [SerializeField] private DrawingPoint[] points;
     [SerializeField] private Material lineMaterial;
     [SerializeField] private Material circleMaterial;
-    [FormerlySerializedAs("_tuples")] [SerializeField] private List<OrderAgnosticByteTuple> tuples = new(4);
+    [FormerlySerializedAs("_tuples")] [SerializeField] private List<Line> tuples = new(4);
     [SerializeField] private float lineOffset;
     private byte? _lastPoint;
 
@@ -43,7 +43,7 @@ public class DrawingSurface : MonoBehaviour {
         }
 
         Drawing res = new Drawing(tuples.ToHashSet().ToArray());
-        Option<SpellSO> s = DrawingPatternDatabase.GetSpellFromDrawing(res);
+        Option<CardInfoSO> s = DrawingPatternDatabase.GetSpellFromDrawing(res);
         if (s.HasValue) {
             //WHAT IT DOES WITH THE VALUE COULD BE CHANGED TO HAVE DIFFERENT KINDS OF DRAWING SURFACES, MAYBE HAVING
             //A CALLBACK EXTERNAL SCRIPTS CAN SUBSCRIBE TO WOULD BE GOOD
@@ -66,7 +66,7 @@ public class DrawingSurface : MonoBehaviour {
                 points[i].selected = true;
                 if (_lastPoint is not null) {
                     if (_lastPoint != i) {
-                        OrderAgnosticByteTuple newTuple = new OrderAgnosticByteTuple(_lastPoint.Value, i);
+                        Line newTuple = new Line(_lastPoint.Value, i);
                         //if (!_tuples.Contains(newTuple)) {
                             tuples.Add(newTuple);
                         //}

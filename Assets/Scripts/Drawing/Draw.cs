@@ -4,14 +4,11 @@ public class Draw : MonoBehaviour
 {
     private PlayerInputActions _input;
     private DrawingSurface _currentSurface;
-    private CardStorage _cardStorage;
 
     private void Awake() {
         _input = new();
         _input.Enable();
         _input.Movement.Enable();
-
-        _cardStorage = GetComponent<CardStorage>();
     }
 
     void Update() {

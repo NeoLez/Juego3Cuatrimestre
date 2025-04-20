@@ -11,13 +11,15 @@ public class CardUser : MonoBehaviour {
 
         _cardStorage = GetComponent<CardStorage>();
 
-        _input.Movement.UseCard1.performed += (context => UseCard(1));
-        _input.Movement.UseCard2.performed += (context => UseCard(2));
-        _input.Movement.UseCard3.performed += (context => UseCard(3));
-        _input.Movement.UseCard4.performed += (context => UseCard(4));
+        _input.Movement.UseCard0.performed += (context => SetCurrentCard(0));
+        _input.Movement.UseCard1.performed += (context => SetCurrentCard(1));
+        _input.Movement.UseCard2.performed += (context => SetCurrentCard(2));
+        _input.Movement.UseCard3.performed += (context => SetCurrentCard(3));
+        _input.Movement.UseCard4.performed += (context => SetCurrentCard(4));
+        _input.Movement.UseCard5.performed += (context => SetCurrentCard(5));
     }
 
-    private void UseCard(byte i) {
-        _cardStorage.UseCard(i);
+    private void SetCurrentCard(byte i) {
+        _cardStorage.SetCurrentCard(i);
     }
 }
