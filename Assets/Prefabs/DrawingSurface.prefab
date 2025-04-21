@@ -136,6 +136,6 @@ MonoBehaviour:
   circleMaterial: {fileID: 2100000, guid: 4aec9f159f48f9848b0a58dcc2471b4c, type: 2}
   tuples: []
   lineOffset: 0.001
-  lineWidth: 0.015
-  circleLineWidth: 0.025
+  lineWidth: 0.04
+  circleLineWidth: 0.02
   circleResolution: 16

@@ -1,21 +1,21 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CardStorage : MonoBehaviour {
-    private Card[] _cards = new Card[CARDS_MAX];
-    [SerializeField] private GameObject[] _CardUIGameObjects = new GameObject[6];
-    [SerializeField] private GameObject UIPanel;
-    [SerializeField] private GameObject CardPrefab;
-    private const int CARDS_MAX = 6;
+    private readonly Card[] _cards = new Card[CardsMax];
+    [FormerlySerializedAs("_CardUIGameObjects")] [SerializeField] private GameObject[] cardUIGameObjects = new GameObject[6];
+    [FormerlySerializedAs("UIPanel")] [SerializeField] private GameObject uiPanel;
+    private const int CardsMax = 6;
 
     public bool AddCard(CardInfoSO cardInfo) {
-        for (byte i = 0; i < CARDS_MAX; i++) {
+        for (byte i = 0; i < CardsMax; i++) {
             if (_cards[i] == null) {
                 _cards[i] = cardInfo.GetCard(i);
 
-                GameObject card = Instantiate(CardPrefab, UIPanel.transform);
+                GameObject card = Instantiate(cardInfo.cardUIPrefab, uiPanel.transform);
                 card.transform.SetSiblingIndex(i);
-                _CardUIGameObjects[i] = card;
-                card.GetComponent<RectTransform>().anchoredPosition = Vector2.right * 120 * i;
+                cardUIGameObjects[i] = card;
+                card.GetComponent<RectTransform>().anchoredPosition = Vector2.right * (120 * i);
                 
                 return true;
             }
@@ -33,7 +33,7 @@ public class CardStorage : MonoBehaviour {
 
     public void RemoveCard(byte i) {
         _cards[i] = null;
-        Destroy(_CardUIGameObjects[i]);
-        _CardUIGameObjects[i] = null;
+        Destroy(cardUIGameObjects[i]);
+        cardUIGameObjects[i] = null;
     }
 }

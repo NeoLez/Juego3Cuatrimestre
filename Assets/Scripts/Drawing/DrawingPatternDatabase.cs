@@ -7,7 +7,7 @@ public static class DrawingPatternDatabase {
     public static Option<CardInfoSO> GetSpellFromDrawing(Drawing drawing) {
         foreach (var pattern in Patterns) {
             if (pattern.drawing.Equals(drawing)) {
-                return pattern.cardInfo.Some();
+                return pattern.cardInfo.SomeNotNull();
             }
         }
 

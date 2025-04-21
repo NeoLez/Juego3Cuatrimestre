@@ -3,7 +3,6 @@ using System.Linq;
 using Optional;
 using Optional.Unsafe;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class DrawingSurface : MonoBehaviour {
     [SerializeField] private DrawingPoint[] points;
@@ -26,6 +25,7 @@ public class DrawingSurface : MonoBehaviour {
         _lineMeshFilter = linesObject.AddComponent<MeshFilter>();
         var meshRenderer = linesObject.AddComponent<MeshRenderer>();
         meshRenderer.material = lineMaterial;
+        linesObject.gameObject.layer = LayerMask.NameToLayer("FirstPerson");
         
         GameObject circlesObject = new GameObject();
         circlesObject.transform.SetParent(transform);
@@ -34,6 +34,7 @@ public class DrawingSurface : MonoBehaviour {
         _circlesMeshFilter = circlesObject.AddComponent<MeshFilter>();
         var circlesMeshRenderer = circlesObject.AddComponent<MeshRenderer>();
         circlesMeshRenderer.material = circleMaterial;
+        circlesObject.layer = LayerMask.NameToLayer("FirstPerson");
         
         DrawCircles();
     }
@@ -46,6 +47,8 @@ public class DrawingSurface : MonoBehaviour {
         Drawing res = new Drawing(tuples.ToHashSet().ToArray());
         Option<CardInfoSO> s = DrawingPatternDatabase.GetSpellFromDrawing(res);
         if (s.HasValue) {
+            Debug.Log(s.ValueOrFailure());
+            
             //WHAT IT DOES WITH THE VALUE COULD BE CHANGED TO HAVE DIFFERENT KINDS OF DRAWING SURFACES, MAYBE HAVING
             //A CALLBACK EXTERNAL SCRIPTS CAN SUBSCRIBE TO WOULD BE GOOD
             CardStorage cardStorage = GameManager.Player.GetComponent<CardStorage>();
