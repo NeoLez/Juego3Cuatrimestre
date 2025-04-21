@@ -6,5 +6,6 @@ public class ManagerPlayerRegistration : MonoBehaviour{
         GameManager.Input = new PlayerInputActions();
         GameManager.Input.Enable();
         GameManager.Input.Movement.Enable();
+        GameManager.MainCamera = Camera.main;
     }
 }

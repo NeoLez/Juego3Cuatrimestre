@@ -33,7 +33,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "MouseLeftClick",
+                    "name": "CardUseSelf",
                     "type": "Button",
                     "id": "2acb657a-3e8f-455f-b958-d5907b89ced6",
                     "expectedControlType": "Button",
@@ -42,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "MouseRightClick",
+                    "name": "CardUseThrow",
                     "type": "Button",
                     "id": "ef4e52f9-f716-48b4-9cb9-2f7660aee57d",
                     "expectedControlType": "Button",
@@ -144,6 +144,15 @@
                     "name": "Sprint",
                     "type": "Button",
                     "id": "f5ff3b49-df12-41f0-a984-c15af0acd3d6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DrawButton",
+                    "type": "Button",
+                    "id": "e86c206a-eb11-4605-b907-e6e116b21415",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -312,7 +321,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MouseLeftClick",
+                    "action": "CardUseSelf",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -323,7 +332,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MouseRightClick",
+                    "action": "CardUseThrow",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -445,6 +454,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "UseCard5",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d4fa4258-11ab-4df3-a649-33a27e80c79e",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DrawButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

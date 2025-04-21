@@ -12,7 +12,7 @@ public class Draw : MonoBehaviour
     }
 
     void Update() {
-        if (!_input.Movement.MouseLeftClick.IsPressed()) {
+        if (!_input.Movement.DrawButton.IsPressed()) {
             if (_currentSurface is not null) {
                 _currentSurface.FinishDrawing();
                 
