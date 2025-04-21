@@ -4,13 +4,13 @@ using UnityEngine;
 public static class DrawingPatternDatabase {
     private static readonly DrawingPatternSO[] Patterns = Resources.LoadAll<DrawingPatternSO>("Patterns");
 
-    public static Option<SpellSO> GetSpellFromDrawing(Drawing drawing) {
+    public static Option<CardInfoSO> GetSpellFromDrawing(Drawing drawing) {
         foreach (var pattern in Patterns) {
             if (pattern.drawing.Equals(drawing)) {
-                return pattern.spell.Some();
+                return pattern.cardInfo.SomeNotNull();
             }
         }
 
-        return Option.None<SpellSO>();
+        return Option.None<CardInfoSO>();
     }
 }

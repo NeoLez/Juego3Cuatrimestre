@@ -3,17 +3,17 @@ using System.Linq;
 using Optional;
 using Optional.Unsafe;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class DrawingSurface : MonoBehaviour {
     [SerializeField] private DrawingPoint[] points;
     [SerializeField] private Material lineMaterial;
     [SerializeField] private Material circleMaterial;
-    [FormerlySerializedAs("_tuples")] [SerializeField] private List<OrderAgnosticByteTuple> tuples = new(4);
+    [SerializeField] private List<Line> tuples = new(4);
     [SerializeField] private float lineOffset;
     private byte? _lastPoint;
 
     [SerializeField] private float lineWidth;
+    [SerializeField] private float circleLineWidth;
     private MeshFilter _lineMeshFilter;
     [SerializeField] private int circleResolution;
     private MeshFilter _circlesMeshFilter;
@@ -25,6 +25,7 @@ public class DrawingSurface : MonoBehaviour {
         _lineMeshFilter = linesObject.AddComponent<MeshFilter>();
         var meshRenderer = linesObject.AddComponent<MeshRenderer>();
         meshRenderer.material = lineMaterial;
+        linesObject.gameObject.layer = LayerMask.NameToLayer("FirstPerson");
         
         GameObject circlesObject = new GameObject();
         circlesObject.transform.SetParent(transform);
@@ -33,6 +34,7 @@ public class DrawingSurface : MonoBehaviour {
         _circlesMeshFilter = circlesObject.AddComponent<MeshFilter>();
         var circlesMeshRenderer = circlesObject.AddComponent<MeshRenderer>();
         circlesMeshRenderer.material = circleMaterial;
+        circlesObject.layer = LayerMask.NameToLayer("FirstPerson");
         
         DrawCircles();
     }
@@ -43,8 +45,10 @@ public class DrawingSurface : MonoBehaviour {
         }
 
         Drawing res = new Drawing(tuples.ToHashSet().ToArray());
-        Option<SpellSO> s = DrawingPatternDatabase.GetSpellFromDrawing(res);
+        Option<CardInfoSO> s = DrawingPatternDatabase.GetSpellFromDrawing(res);
         if (s.HasValue) {
+            Debug.Log(s.ValueOrFailure());
+            
             //WHAT IT DOES WITH THE VALUE COULD BE CHANGED TO HAVE DIFFERENT KINDS OF DRAWING SURFACES, MAYBE HAVING
             //A CALLBACK EXTERNAL SCRIPTS CAN SUBSCRIBE TO WOULD BE GOOD
             CardStorage cardStorage = GameManager.Player.GetComponent<CardStorage>();
@@ -66,7 +70,7 @@ public class DrawingSurface : MonoBehaviour {
                 points[i].selected = true;
                 if (_lastPoint is not null) {
                     if (_lastPoint != i) {
-                        OrderAgnosticByteTuple newTuple = new OrderAgnosticByteTuple(_lastPoint.Value, i);
+                        Line newTuple = new Line(_lastPoint.Value, i);
                         //if (!_tuples.Contains(newTuple)) {
                             tuples.Add(newTuple);
                         //}
@@ -126,8 +130,8 @@ public class DrawingSurface : MonoBehaviour {
             for (int j = 0; j < circleResolution; j++) {
                 float angle = (360.0f / circleResolution) * j;
                 Vector2 v = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
-                circlesVertices[vertexOffset + j * 2] = v * (points[i].size + lineWidth / 2f) + points[i].position;
-                circlesVertices[vertexOffset + j * 2 + 1] = v * (points[i].size - lineWidth / 2f) + points[i].position;
+                circlesVertices[vertexOffset + j * 2] = v * (points[i].size + circleLineWidth / 2f) + points[i].position;
+                circlesVertices[vertexOffset + j * 2 + 1] = v * (points[i].size - circleLineWidth / 2f) + points[i].position;
 
                 circlesIndices[indexOffset + j * 6] = vertexOffset + (j * 2) % (circleResolution * 2);
                 circlesIndices[indexOffset + j * 6 + 1] = vertexOffset + (j * 2 + 2) % (circleResolution * 2);

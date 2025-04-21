@@ -16,6 +16,8 @@ MonoBehaviour:
   id: 0
   spellName: CameraDash
   inkCost: 0
+  maxUses: 1
+  cardUIPrefab: {fileID: 2933685303529508442, guid: a789563e7c075174e9d5ae452662d24c, type: 3}
   moveDistance: 12
   time: 0.15
   curve:

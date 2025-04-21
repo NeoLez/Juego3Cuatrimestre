@@ -3,10 +3,10 @@ using UnityEngine;
 
 [Serializable]
 public class Drawing {
-    [SerializeField] private OrderAgnosticByteTuple[] lines;
+    [SerializeField] private Line[] lines;
     private readonly int _hashCode;
 
-    public Drawing(OrderAgnosticByteTuple[] lines) {
+    public Drawing(Line[] lines) {
         this.lines = lines;
         
         foreach (var line in lines) {

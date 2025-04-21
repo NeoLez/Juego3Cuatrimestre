@@ -33,7 +33,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "MouseLeftClick",
+                    "name": "CardUseSelf",
                     "type": "Button",
                     "id": "2acb657a-3e8f-455f-b958-d5907b89ced6",
                     "expectedControlType": "Button",
@@ -42,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "MouseRightClick",
+                    "name": "CardUseThrow",
                     "type": "Button",
                     "id": "ef4e52f9-f716-48b4-9cb9-2f7660aee57d",
                     "expectedControlType": "Button",
@@ -63,6 +63,15 @@
                     "name": "OpenBook",
                     "type": "Button",
                     "id": "29f42c78-3235-43a3-a679-32fdc722469c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "UseCard0",
+                    "type": "Button",
+                    "id": "ae20a96d-9f9e-4502-88b9-f69cf740b7bc",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -105,6 +114,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "UseCard5",
+                    "type": "Button",
+                    "id": "0a85d487-38fc-4096-b0d9-a798cc998233",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Dash",
                     "type": "Button",
                     "id": "af8cbbd0-3088-41ae-9213-69bc46f7e7e7",
@@ -126,6 +144,15 @@
                     "name": "Sprint",
                     "type": "Button",
                     "id": "f5ff3b49-df12-41f0-a984-c15af0acd3d6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DrawButton",
+                    "type": "Button",
+                    "id": "e86c206a-eb11-4605-b907-e6e116b21415",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -294,7 +321,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MouseLeftClick",
+                    "action": "CardUseSelf",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -305,7 +332,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MouseRightClick",
+                    "action": "CardUseThrow",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -405,6 +432,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ec84b38b-f1bb-42da-8beb-7857cc2b1daa",
+                    "path": "<Keyboard>/backquote",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseCard0",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bf1a36a0-391c-423b-9a1c-9ae29c086311",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseCard5",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d4fa4258-11ab-4df3-a649-33a27e80c79e",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DrawButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
