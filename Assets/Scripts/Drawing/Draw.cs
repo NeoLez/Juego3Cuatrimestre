@@ -4,6 +4,7 @@ public class Draw : MonoBehaviour
 {
     private PlayerInputActions _input;
     private DrawingSurface _currentSurface;
+    [SerializeField] private LayerMask Layer;
 
     private void Awake() {
         _input = GameManager.Input;
@@ -22,8 +23,7 @@ public class Draw : MonoBehaviour
         
         
         Ray ray = Camera.main.ScreenPointToRay(_input.BookActions.MousePosition.ReadValue<Vector2>());
-        RaycastHit hit;
-        if (!Physics.Raycast(ray, out hit)) {
+        if (!Physics.Raycast(ray, out RaycastHit hit, 50f, Layer)) {
             return;
         }
 
