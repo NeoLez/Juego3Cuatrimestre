@@ -26,9 +26,7 @@ public class MovementControllerTest : MonoBehaviour {
     private Vector3 _surfaceNormal;
     
     void Start() {
-        _input = new();
-        _input.Enable();
-        _input.Movement.Enable();
+        _input = GameManager.Input;
 
         _rb = GetComponent<Rigidbody>();
         _cameraController = GetComponent<CameraController>();

@@ -8,5 +8,5 @@ public abstract class CardInfoSO : ScriptableObject {
     [SerializeField] public byte maxUses;
     [SerializeField] public GameObject cardUIPrefab;
 
-    public abstract Card GetCard(byte position);
+    public abstract Card GetCard(int position);
 }

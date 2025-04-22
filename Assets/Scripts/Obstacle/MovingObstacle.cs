@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class MovingObstacle : MonoBehaviour
 {
-    public Vector3 puntoA;         // Posición inicial
-    public Vector3 puntoB;         // Posición final
+    public Vector3 puntoA;         // Posicion inicial
+    public Vector3 puntoB;         // Posicion final
     public float velocidad = 2f;   
 
     private float t = 0f;

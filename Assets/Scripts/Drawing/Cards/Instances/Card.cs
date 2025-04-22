@@ -2,24 +2,24 @@
 using NonMonobehaviorUpdates;
 
 public abstract class Card : ITickableUpdate, ITickableFixedUpdate {
-    protected bool Enabled;
-    protected byte Position;
+    public bool Enabled { get; private set; }
+    protected int Position;
     protected byte Uses;
     public event Action OnEnabled;
     public event Action OnDisabled;
 
-    public Card(CardInfoSO cardInfo, byte position) {
+    public Card(CardInfoSO cardInfo, int position) {
         Position = position;
         Uses = cardInfo.maxUses;
 
         UpdatesManager.RegisterFixedUpdate(this);
         UpdatesManager.RegisterUpdate(this);
 
-        GameManager.Input.Movement.CardUseSelf.started += _ => {
+        GameManager.Input.CardUsage.CardUseSelf.started += _ => {
             if (Enabled)
                 OnSelfActivation();
         };
-        GameManager.Input.Movement.CardUseThrow.started += _ => {
+        GameManager.Input.CardUsage.CardUseThrow.started += _ => {
             if (Enabled) {
                 OnThrowActivation();
             }
@@ -59,7 +59,7 @@ public abstract class Card : ITickableUpdate, ITickableFixedUpdate {
     protected virtual void OnThrowActivation() {
     }
 
-    protected void RegisterUse(byte useAmount = 1) {
+    protected void RegisterUse(int useAmount = 1) {
         if (--Uses <= useAmount) {
             GameManager.Player.GetComponent<CardStorage>().RemoveCard(Position);
             OnUsesExhausted();

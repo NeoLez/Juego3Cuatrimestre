@@ -6,7 +6,7 @@ public class DashCardInfoCameraSO : CardInfoSO {
     [SerializeField] public float time;
     [SerializeField] public AnimationCurve curve; 
     
-    public override Card GetCard(byte position) {
+    public override Card GetCard(int position) {
         return new DashCard(this, position);
     }
 }

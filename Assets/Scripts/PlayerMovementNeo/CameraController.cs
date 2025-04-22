@@ -4,7 +4,6 @@ public class CameraController : MonoBehaviour {
     [SerializeField] private Transform cameraPosition;
     [SerializeField] private Transform cam;
     [SerializeField] private float sensitivity = 1;
-    private bool movementEnabled = true;
 
     [SerializeField] private float yaw;
     [SerializeField] private float pitch;
@@ -12,23 +11,17 @@ public class CameraController : MonoBehaviour {
     private PlayerInputActions _input;
 
     private void Awake() {
-        LockCamera();
-        
-        _input = new();
-        _input.Enable();
-        _input.Movement.Enable();
-
+        _input = GameManager.Input;
         cam = Camera.main.transform;
+        
+        LockCamera();
     }
 
     private void Update() {
         cam.position = cameraPosition.position;
         
-        if (!movementEnabled)
-            return;
-        
-        yaw += _input.Movement.MouseX.ReadValue<float>() * sensitivity;
-        pitch += _input.Movement.MouseY.ReadValue<float>() * sensitivity;
+        yaw += _input.CameraMovement.MouseX.ReadValue<float>() * sensitivity;
+        pitch += _input.CameraMovement.MouseY.ReadValue<float>() * sensitivity;
 
         pitch = Mathf.Clamp(pitch, -89f, 89f);
         if (yaw > 360)
@@ -41,13 +34,13 @@ public class CameraController : MonoBehaviour {
 
     public void LockCamera() {
         Cursor.visible = false;
-        movementEnabled = true;
+        _input.CameraMovement.Enable();
         Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void UnlockCamera() {
         Cursor.visible = true;
-        movementEnabled = false;
+        _input.CameraMovement.Disable();
         Cursor.lockState = CursorLockMode.Confined;
     }
 

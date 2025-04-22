@@ -1679,6 +1679,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   uiPanel: {fileID: 1805854295}
+  CurrentlySelected: 0
 --- !u!114 &1297545634
 MonoBehaviour:
   m_ObjectHideFlags: 0

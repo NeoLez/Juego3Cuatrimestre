@@ -37,144 +37,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""MouseX"",
-                    ""type"": ""Value"",
-                    ""id"": ""dd27d146-7895-4d0b-a71b-ec9a8e74d3f0"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""MouseY"",
-                    ""type"": ""Value"",
-                    ""id"": ""1e4a5d6e-195f-4aea-80e6-72feb40f52b0"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""CardUseSelf"",
-                    ""type"": ""Button"",
-                    ""id"": ""2acb657a-3e8f-455f-b958-d5907b89ced6"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""CardUseThrow"",
-                    ""type"": ""Button"",
-                    ""id"": ""ef4e52f9-f716-48b4-9cb9-2f7660aee57d"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""MousePosition"",
-                    ""type"": ""Value"",
-                    ""id"": ""ca10082d-f721-48c6-b32f-39e4cc553f6b"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""OpenBook"",
-                    ""type"": ""Button"",
-                    ""id"": ""29f42c78-3235-43a3-a679-32fdc722469c"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""UseCard0"",
-                    ""type"": ""Button"",
-                    ""id"": ""ae20a96d-9f9e-4502-88b9-f69cf740b7bc"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""UseCard1"",
-                    ""type"": ""Button"",
-                    ""id"": ""0b63a1a3-2329-4633-b823-3dd4759a81df"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""UseCard2"",
-                    ""type"": ""Button"",
-                    ""id"": ""f7bf969e-1908-4ba0-90e5-dc6aa4ce3534"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""UseCard3"",
-                    ""type"": ""Button"",
-                    ""id"": ""c2645853-78e6-48fc-86c1-bb7c1c366c4a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""UseCard4"",
-                    ""type"": ""Button"",
-                    ""id"": ""15b82f39-d5d7-4f13-b9a7-7925e1675b87"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""UseCard5"",
-                    ""type"": ""Button"",
-                    ""id"": ""0a85d487-38fc-4096-b0d9-a798cc998233"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Dash"",
-                    ""type"": ""Button"",
-                    ""id"": ""af8cbbd0-3088-41ae-9213-69bc46f7e7e7"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""23a415cc-3320-49a9-a03f-90627d5a992e"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Sprint"",
-                    ""type"": ""Button"",
-                    ""id"": ""f5ff3b49-df12-41f0-a984-c15af0acd3d6"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""DrawButton"",
-                    ""type"": ""Button"",
-                    ""id"": ""e86c206a-eb11-4605-b907-e6e116b21415"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -294,7 +159,44 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""08d94ea9-a5e5-4272-b33b-c74537f3ba1a"",
+                    ""id"": ""8eebd07a-d432-4045-8576-088fae7576e6"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""CameraMovement"",
+            ""id"": ""a9e7d9a1-3b00-4cc7-bcd0-6d54366bef21"",
+            ""actions"": [
+                {
+                    ""name"": ""MouseX"",
+                    ""type"": ""Value"",
+                    ""id"": ""e3beb489-8cc4-46e8-b8ca-214eb0629f78"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MouseY"",
+                    ""type"": ""Value"",
+                    ""id"": ""bd13dc71-8bb4-4394-b945-fde9883c9005"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""410417d5-e01c-4142-80a3-38e6d6272b18"",
                     ""path"": ""<Mouse>/delta/x"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -305,7 +207,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2bc1c942-a008-4ac0-bc5f-6d16302e1d1e"",
+                    ""id"": ""6660985e-1f4e-4d96-a329-c61d4f6d65f7"",
                     ""path"": ""<Gamepad>/rightStick/x"",
                     ""interactions"": """",
                     ""processors"": ""Scale(factor=2)"",
@@ -316,7 +218,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""d42fdf99-f1c6-46a5-9bf6-b4c6e3ad3064"",
+                    ""id"": ""e3032288-f7dd-4461-93a0-3741efbab60e"",
                     ""path"": ""<Mouse>/delta/y"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -327,7 +229,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fe9f7859-5499-42e8-af3e-93e91f013151"",
+                    ""id"": ""d7319b06-83e9-428f-a439-0972be607f7d"",
                     ""path"": ""<Gamepad>/rightStick/y"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -335,32 +237,45 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""MouseY"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
+                }
+            ]
+        },
+        {
+            ""name"": ""BookActions"",
+            ""id"": ""be80d4a6-8c4b-498f-8aa8-0f1b795b0841"",
+            ""actions"": [
                 {
-                    ""name"": """",
-                    ""id"": ""56ab0c7e-cb3b-4d5c-8801-e6b3b4f8aa6a"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
+                    ""name"": ""MousePosition"",
+                    ""type"": ""Value"",
+                    ""id"": ""2d7f4ea9-4701-42af-8daa-6028d87cf8a8"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""CardUseSelf"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ce929094-e14d-4684-8dc8-dae7f18bf6ea"",
-                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""CardUseThrow"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""OpenBook"",
+                    ""type"": ""Button"",
+                    ""id"": ""70e9bce3-1895-4021-a2c9-26bcf0879433"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DrawButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""e1934e27-bb96-4f6d-b630-a8ac421fdc17"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
                     ""name"": """",
-                    ""id"": ""e4304ad4-2ae8-48d7-b618-54f97aab00f2"",
+                    ""id"": ""bf59daa3-40be-42b2-b263-28ede2f1456c"",
                     ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -371,7 +286,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a1849054-2af1-452e-aa15-bc0323a3f3e2"",
+                    ""id"": ""c6de6a17-8ee9-4a51-829c-094cf80f0103"",
                     ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -382,84 +297,107 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""879a1b36-da0c-4fe9-9020-d79f86f0f18e"",
-                    ""path"": ""<Keyboard>/1"",
+                    ""id"": ""db917c47-f46e-43db-bafc-66ef6c56f1b1"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""UseCard1"",
+                    ""action"": ""DrawButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
+                }
+            ]
+        },
+        {
+            ""name"": ""CardUsage"",
+            ""id"": ""7290b582-b780-4589-85cb-459b3de531a5"",
+            ""actions"": [
                 {
-                    ""name"": """",
-                    ""id"": ""8d520a9c-22dd-4524-a4c0-d39441fec96a"",
-                    ""path"": ""<Keyboard>/2"",
-                    ""interactions"": """",
+                    ""name"": ""UseCard0"",
+                    ""type"": ""Button"",
+                    ""id"": ""216240af-a8df-4dad-be73-f05c8465828f"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""UseCard2"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d0ffa8a6-2901-4024-b928-03f4ba95c990"",
-                    ""path"": ""<Keyboard>/3"",
                     ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""UseCard3"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""initialStateCheck"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""ccab26b2-f00f-4e3a-bcaf-adb7dd6f4661"",
-                    ""path"": ""<Keyboard>/4"",
+                    ""name"": ""UseCard1"",
+                    ""type"": ""Button"",
+                    ""id"": ""793e8390-a739-4429-9c94-2b414b79c321"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
                     ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""UseCard4"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""initialStateCheck"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""202c245d-3006-4698-ba58-206d52bc2c43"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""name"": ""UseCard2"",
+                    ""type"": ""Button"",
+                    ""id"": ""7153dbce-024d-416c-86dc-7ce40a30d2bf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
                     ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Dash"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""initialStateCheck"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""8eebd07a-d432-4045-8576-088fae7576e6"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""name"": ""UseCard3"",
+                    ""type"": ""Button"",
+                    ""id"": ""1168196b-dfa9-4d0f-baf9-1788aff1c576"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
                     ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""initialStateCheck"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""6adc518d-569e-4ba0-85db-ed409ed60d92"",
-                    ""path"": ""<Keyboard>/shift"",
+                    ""name"": ""UseCard4"",
+                    ""type"": ""Button"",
+                    ""id"": ""388d6471-5c43-4822-b130-8574dad6be4a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
                     ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""UseCard5"",
+                    ""type"": ""Button"",
+                    ""id"": ""0b851386-2848-4455-94ab-2a60e2a89288"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CardUseSelf"",
+                    ""type"": ""Button"",
+                    ""id"": ""93ab373d-4b43-48bd-848f-2a18a86fb8ae"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CardUseThrow"",
+                    ""type"": ""Button"",
+                    ""id"": ""3e758258-4f2c-4c3e-9224-5d3f92fab0c3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CardSelectRelative"",
+                    ""type"": ""Button"",
+                    ""id"": ""fc7995e4-66da-4eea-a150-f49c5fd48912"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
                     ""name"": """",
-                    ""id"": ""ec84b38b-f1bb-42da-8beb-7857cc2b1daa"",
+                    ""id"": ""f865ccf2-5cac-4e45-b611-8a2e6ad37f1a"",
                     ""path"": ""<Keyboard>/backquote"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -470,7 +408,51 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""bf1a36a0-391c-423b-9a1c-9ae29c086311"",
+                    ""id"": ""e18ccb74-9f74-4f06-a175-529edf867d60"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseCard1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8dbfc264-9b88-4af5-9eec-46a9e92b79f6"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseCard2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""da581d30-aa0c-4d59-9514-e80d362d07da"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseCard3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bf609782-771d-4ef9-b5f4-002df5a7158e"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseCard4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8da84bb3-cfae-4ca1-a8e9-4cb47ba94e10"",
                     ""path"": ""<Keyboard>/5"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -481,14 +463,58 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""d4fa4258-11ab-4df3-a649-33a27e80c79e"",
+                    ""id"": ""4fe051b0-13d9-4806-acc5-db4864d1ff3e"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""DrawButton"",
+                    ""action"": ""CardUseSelf"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d0761d9e-f22d-4917-acf9-535c62429bdb"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CardUseThrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""66ccca74-eeb2-439f-9b96-776cf014d3ec"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CardSelectRelative"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Negative"",
+                    ""id"": ""2694469d-2a2a-48cb-a629-59056fcd1843"",
+                    ""path"": ""<Mouse>/scroll/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CardSelectRelative"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Positive"",
+                    ""id"": ""abd8b1e2-c63a-4acb-aaa3-c402593ee190"",
+                    ""path"": ""<Mouse>/scroll/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CardSelectRelative"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -498,22 +524,27 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         // Movement
         m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
         m_Movement_MoveDir = m_Movement.FindAction("MoveDir", throwIfNotFound: true);
-        m_Movement_MouseX = m_Movement.FindAction("MouseX", throwIfNotFound: true);
-        m_Movement_MouseY = m_Movement.FindAction("MouseY", throwIfNotFound: true);
-        m_Movement_CardUseSelf = m_Movement.FindAction("CardUseSelf", throwIfNotFound: true);
-        m_Movement_CardUseThrow = m_Movement.FindAction("CardUseThrow", throwIfNotFound: true);
-        m_Movement_MousePosition = m_Movement.FindAction("MousePosition", throwIfNotFound: true);
-        m_Movement_OpenBook = m_Movement.FindAction("OpenBook", throwIfNotFound: true);
-        m_Movement_UseCard0 = m_Movement.FindAction("UseCard0", throwIfNotFound: true);
-        m_Movement_UseCard1 = m_Movement.FindAction("UseCard1", throwIfNotFound: true);
-        m_Movement_UseCard2 = m_Movement.FindAction("UseCard2", throwIfNotFound: true);
-        m_Movement_UseCard3 = m_Movement.FindAction("UseCard3", throwIfNotFound: true);
-        m_Movement_UseCard4 = m_Movement.FindAction("UseCard4", throwIfNotFound: true);
-        m_Movement_UseCard5 = m_Movement.FindAction("UseCard5", throwIfNotFound: true);
-        m_Movement_Dash = m_Movement.FindAction("Dash", throwIfNotFound: true);
         m_Movement_Jump = m_Movement.FindAction("Jump", throwIfNotFound: true);
-        m_Movement_Sprint = m_Movement.FindAction("Sprint", throwIfNotFound: true);
-        m_Movement_DrawButton = m_Movement.FindAction("DrawButton", throwIfNotFound: true);
+        // CameraMovement
+        m_CameraMovement = asset.FindActionMap("CameraMovement", throwIfNotFound: true);
+        m_CameraMovement_MouseX = m_CameraMovement.FindAction("MouseX", throwIfNotFound: true);
+        m_CameraMovement_MouseY = m_CameraMovement.FindAction("MouseY", throwIfNotFound: true);
+        // BookActions
+        m_BookActions = asset.FindActionMap("BookActions", throwIfNotFound: true);
+        m_BookActions_MousePosition = m_BookActions.FindAction("MousePosition", throwIfNotFound: true);
+        m_BookActions_OpenBook = m_BookActions.FindAction("OpenBook", throwIfNotFound: true);
+        m_BookActions_DrawButton = m_BookActions.FindAction("DrawButton", throwIfNotFound: true);
+        // CardUsage
+        m_CardUsage = asset.FindActionMap("CardUsage", throwIfNotFound: true);
+        m_CardUsage_UseCard0 = m_CardUsage.FindAction("UseCard0", throwIfNotFound: true);
+        m_CardUsage_UseCard1 = m_CardUsage.FindAction("UseCard1", throwIfNotFound: true);
+        m_CardUsage_UseCard2 = m_CardUsage.FindAction("UseCard2", throwIfNotFound: true);
+        m_CardUsage_UseCard3 = m_CardUsage.FindAction("UseCard3", throwIfNotFound: true);
+        m_CardUsage_UseCard4 = m_CardUsage.FindAction("UseCard4", throwIfNotFound: true);
+        m_CardUsage_UseCard5 = m_CardUsage.FindAction("UseCard5", throwIfNotFound: true);
+        m_CardUsage_CardUseSelf = m_CardUsage.FindAction("CardUseSelf", throwIfNotFound: true);
+        m_CardUsage_CardUseThrow = m_CardUsage.FindAction("CardUseThrow", throwIfNotFound: true);
+        m_CardUsage_CardSelectRelative = m_CardUsage.FindAction("CardSelectRelative", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -576,43 +607,13 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Movement;
     private List<IMovementActions> m_MovementActionsCallbackInterfaces = new List<IMovementActions>();
     private readonly InputAction m_Movement_MoveDir;
-    private readonly InputAction m_Movement_MouseX;
-    private readonly InputAction m_Movement_MouseY;
-    private readonly InputAction m_Movement_CardUseSelf;
-    private readonly InputAction m_Movement_CardUseThrow;
-    private readonly InputAction m_Movement_MousePosition;
-    private readonly InputAction m_Movement_OpenBook;
-    private readonly InputAction m_Movement_UseCard0;
-    private readonly InputAction m_Movement_UseCard1;
-    private readonly InputAction m_Movement_UseCard2;
-    private readonly InputAction m_Movement_UseCard3;
-    private readonly InputAction m_Movement_UseCard4;
-    private readonly InputAction m_Movement_UseCard5;
-    private readonly InputAction m_Movement_Dash;
     private readonly InputAction m_Movement_Jump;
-    private readonly InputAction m_Movement_Sprint;
-    private readonly InputAction m_Movement_DrawButton;
     public struct MovementActions
     {
         private @PlayerInputActions m_Wrapper;
         public MovementActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @MoveDir => m_Wrapper.m_Movement_MoveDir;
-        public InputAction @MouseX => m_Wrapper.m_Movement_MouseX;
-        public InputAction @MouseY => m_Wrapper.m_Movement_MouseY;
-        public InputAction @CardUseSelf => m_Wrapper.m_Movement_CardUseSelf;
-        public InputAction @CardUseThrow => m_Wrapper.m_Movement_CardUseThrow;
-        public InputAction @MousePosition => m_Wrapper.m_Movement_MousePosition;
-        public InputAction @OpenBook => m_Wrapper.m_Movement_OpenBook;
-        public InputAction @UseCard0 => m_Wrapper.m_Movement_UseCard0;
-        public InputAction @UseCard1 => m_Wrapper.m_Movement_UseCard1;
-        public InputAction @UseCard2 => m_Wrapper.m_Movement_UseCard2;
-        public InputAction @UseCard3 => m_Wrapper.m_Movement_UseCard3;
-        public InputAction @UseCard4 => m_Wrapper.m_Movement_UseCard4;
-        public InputAction @UseCard5 => m_Wrapper.m_Movement_UseCard5;
-        public InputAction @Dash => m_Wrapper.m_Movement_Dash;
         public InputAction @Jump => m_Wrapper.m_Movement_Jump;
-        public InputAction @Sprint => m_Wrapper.m_Movement_Sprint;
-        public InputAction @DrawButton => m_Wrapper.m_Movement_DrawButton;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -625,24 +626,187 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @MoveDir.started += instance.OnMoveDir;
             @MoveDir.performed += instance.OnMoveDir;
             @MoveDir.canceled += instance.OnMoveDir;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
+        }
+
+        private void UnregisterCallbacks(IMovementActions instance)
+        {
+            @MoveDir.started -= instance.OnMoveDir;
+            @MoveDir.performed -= instance.OnMoveDir;
+            @MoveDir.canceled -= instance.OnMoveDir;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
+        }
+
+        public void RemoveCallbacks(IMovementActions instance)
+        {
+            if (m_Wrapper.m_MovementActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IMovementActions instance)
+        {
+            foreach (var item in m_Wrapper.m_MovementActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_MovementActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public MovementActions @Movement => new MovementActions(this);
+
+    // CameraMovement
+    private readonly InputActionMap m_CameraMovement;
+    private List<ICameraMovementActions> m_CameraMovementActionsCallbackInterfaces = new List<ICameraMovementActions>();
+    private readonly InputAction m_CameraMovement_MouseX;
+    private readonly InputAction m_CameraMovement_MouseY;
+    public struct CameraMovementActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public CameraMovementActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MouseX => m_Wrapper.m_CameraMovement_MouseX;
+        public InputAction @MouseY => m_Wrapper.m_CameraMovement_MouseY;
+        public InputActionMap Get() { return m_Wrapper.m_CameraMovement; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(CameraMovementActions set) { return set.Get(); }
+        public void AddCallbacks(ICameraMovementActions instance)
+        {
+            if (instance == null || m_Wrapper.m_CameraMovementActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CameraMovementActionsCallbackInterfaces.Add(instance);
             @MouseX.started += instance.OnMouseX;
             @MouseX.performed += instance.OnMouseX;
             @MouseX.canceled += instance.OnMouseX;
             @MouseY.started += instance.OnMouseY;
             @MouseY.performed += instance.OnMouseY;
             @MouseY.canceled += instance.OnMouseY;
-            @CardUseSelf.started += instance.OnCardUseSelf;
-            @CardUseSelf.performed += instance.OnCardUseSelf;
-            @CardUseSelf.canceled += instance.OnCardUseSelf;
-            @CardUseThrow.started += instance.OnCardUseThrow;
-            @CardUseThrow.performed += instance.OnCardUseThrow;
-            @CardUseThrow.canceled += instance.OnCardUseThrow;
+        }
+
+        private void UnregisterCallbacks(ICameraMovementActions instance)
+        {
+            @MouseX.started -= instance.OnMouseX;
+            @MouseX.performed -= instance.OnMouseX;
+            @MouseX.canceled -= instance.OnMouseX;
+            @MouseY.started -= instance.OnMouseY;
+            @MouseY.performed -= instance.OnMouseY;
+            @MouseY.canceled -= instance.OnMouseY;
+        }
+
+        public void RemoveCallbacks(ICameraMovementActions instance)
+        {
+            if (m_Wrapper.m_CameraMovementActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ICameraMovementActions instance)
+        {
+            foreach (var item in m_Wrapper.m_CameraMovementActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_CameraMovementActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public CameraMovementActions @CameraMovement => new CameraMovementActions(this);
+
+    // BookActions
+    private readonly InputActionMap m_BookActions;
+    private List<IBookActionsActions> m_BookActionsActionsCallbackInterfaces = new List<IBookActionsActions>();
+    private readonly InputAction m_BookActions_MousePosition;
+    private readonly InputAction m_BookActions_OpenBook;
+    private readonly InputAction m_BookActions_DrawButton;
+    public struct BookActionsActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public BookActionsActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MousePosition => m_Wrapper.m_BookActions_MousePosition;
+        public InputAction @OpenBook => m_Wrapper.m_BookActions_OpenBook;
+        public InputAction @DrawButton => m_Wrapper.m_BookActions_DrawButton;
+        public InputActionMap Get() { return m_Wrapper.m_BookActions; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(BookActionsActions set) { return set.Get(); }
+        public void AddCallbacks(IBookActionsActions instance)
+        {
+            if (instance == null || m_Wrapper.m_BookActionsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_BookActionsActionsCallbackInterfaces.Add(instance);
             @MousePosition.started += instance.OnMousePosition;
             @MousePosition.performed += instance.OnMousePosition;
             @MousePosition.canceled += instance.OnMousePosition;
             @OpenBook.started += instance.OnOpenBook;
             @OpenBook.performed += instance.OnOpenBook;
             @OpenBook.canceled += instance.OnOpenBook;
+            @DrawButton.started += instance.OnDrawButton;
+            @DrawButton.performed += instance.OnDrawButton;
+            @DrawButton.canceled += instance.OnDrawButton;
+        }
+
+        private void UnregisterCallbacks(IBookActionsActions instance)
+        {
+            @MousePosition.started -= instance.OnMousePosition;
+            @MousePosition.performed -= instance.OnMousePosition;
+            @MousePosition.canceled -= instance.OnMousePosition;
+            @OpenBook.started -= instance.OnOpenBook;
+            @OpenBook.performed -= instance.OnOpenBook;
+            @OpenBook.canceled -= instance.OnOpenBook;
+            @DrawButton.started -= instance.OnDrawButton;
+            @DrawButton.performed -= instance.OnDrawButton;
+            @DrawButton.canceled -= instance.OnDrawButton;
+        }
+
+        public void RemoveCallbacks(IBookActionsActions instance)
+        {
+            if (m_Wrapper.m_BookActionsActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IBookActionsActions instance)
+        {
+            foreach (var item in m_Wrapper.m_BookActionsActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_BookActionsActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public BookActionsActions @BookActions => new BookActionsActions(this);
+
+    // CardUsage
+    private readonly InputActionMap m_CardUsage;
+    private List<ICardUsageActions> m_CardUsageActionsCallbackInterfaces = new List<ICardUsageActions>();
+    private readonly InputAction m_CardUsage_UseCard0;
+    private readonly InputAction m_CardUsage_UseCard1;
+    private readonly InputAction m_CardUsage_UseCard2;
+    private readonly InputAction m_CardUsage_UseCard3;
+    private readonly InputAction m_CardUsage_UseCard4;
+    private readonly InputAction m_CardUsage_UseCard5;
+    private readonly InputAction m_CardUsage_CardUseSelf;
+    private readonly InputAction m_CardUsage_CardUseThrow;
+    private readonly InputAction m_CardUsage_CardSelectRelative;
+    public struct CardUsageActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public CardUsageActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @UseCard0 => m_Wrapper.m_CardUsage_UseCard0;
+        public InputAction @UseCard1 => m_Wrapper.m_CardUsage_UseCard1;
+        public InputAction @UseCard2 => m_Wrapper.m_CardUsage_UseCard2;
+        public InputAction @UseCard3 => m_Wrapper.m_CardUsage_UseCard3;
+        public InputAction @UseCard4 => m_Wrapper.m_CardUsage_UseCard4;
+        public InputAction @UseCard5 => m_Wrapper.m_CardUsage_UseCard5;
+        public InputAction @CardUseSelf => m_Wrapper.m_CardUsage_CardUseSelf;
+        public InputAction @CardUseThrow => m_Wrapper.m_CardUsage_CardUseThrow;
+        public InputAction @CardSelectRelative => m_Wrapper.m_CardUsage_CardSelectRelative;
+        public InputActionMap Get() { return m_Wrapper.m_CardUsage; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(CardUsageActions set) { return set.Get(); }
+        public void AddCallbacks(ICardUsageActions instance)
+        {
+            if (instance == null || m_Wrapper.m_CardUsageActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CardUsageActionsCallbackInterfaces.Add(instance);
             @UseCard0.started += instance.OnUseCard0;
             @UseCard0.performed += instance.OnUseCard0;
             @UseCard0.canceled += instance.OnUseCard0;
@@ -661,43 +825,19 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @UseCard5.started += instance.OnUseCard5;
             @UseCard5.performed += instance.OnUseCard5;
             @UseCard5.canceled += instance.OnUseCard5;
-            @Dash.started += instance.OnDash;
-            @Dash.performed += instance.OnDash;
-            @Dash.canceled += instance.OnDash;
-            @Jump.started += instance.OnJump;
-            @Jump.performed += instance.OnJump;
-            @Jump.canceled += instance.OnJump;
-            @Sprint.started += instance.OnSprint;
-            @Sprint.performed += instance.OnSprint;
-            @Sprint.canceled += instance.OnSprint;
-            @DrawButton.started += instance.OnDrawButton;
-            @DrawButton.performed += instance.OnDrawButton;
-            @DrawButton.canceled += instance.OnDrawButton;
+            @CardUseSelf.started += instance.OnCardUseSelf;
+            @CardUseSelf.performed += instance.OnCardUseSelf;
+            @CardUseSelf.canceled += instance.OnCardUseSelf;
+            @CardUseThrow.started += instance.OnCardUseThrow;
+            @CardUseThrow.performed += instance.OnCardUseThrow;
+            @CardUseThrow.canceled += instance.OnCardUseThrow;
+            @CardSelectRelative.started += instance.OnCardSelectRelative;
+            @CardSelectRelative.performed += instance.OnCardSelectRelative;
+            @CardSelectRelative.canceled += instance.OnCardSelectRelative;
         }
 
-        private void UnregisterCallbacks(IMovementActions instance)
+        private void UnregisterCallbacks(ICardUsageActions instance)
         {
-            @MoveDir.started -= instance.OnMoveDir;
-            @MoveDir.performed -= instance.OnMoveDir;
-            @MoveDir.canceled -= instance.OnMoveDir;
-            @MouseX.started -= instance.OnMouseX;
-            @MouseX.performed -= instance.OnMouseX;
-            @MouseX.canceled -= instance.OnMouseX;
-            @MouseY.started -= instance.OnMouseY;
-            @MouseY.performed -= instance.OnMouseY;
-            @MouseY.canceled -= instance.OnMouseY;
-            @CardUseSelf.started -= instance.OnCardUseSelf;
-            @CardUseSelf.performed -= instance.OnCardUseSelf;
-            @CardUseSelf.canceled -= instance.OnCardUseSelf;
-            @CardUseThrow.started -= instance.OnCardUseThrow;
-            @CardUseThrow.performed -= instance.OnCardUseThrow;
-            @CardUseThrow.canceled -= instance.OnCardUseThrow;
-            @MousePosition.started -= instance.OnMousePosition;
-            @MousePosition.performed -= instance.OnMousePosition;
-            @MousePosition.canceled -= instance.OnMousePosition;
-            @OpenBook.started -= instance.OnOpenBook;
-            @OpenBook.performed -= instance.OnOpenBook;
-            @OpenBook.canceled -= instance.OnOpenBook;
             @UseCard0.started -= instance.OnUseCard0;
             @UseCard0.performed -= instance.OnUseCard0;
             @UseCard0.canceled -= instance.OnUseCard0;
@@ -716,53 +856,58 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @UseCard5.started -= instance.OnUseCard5;
             @UseCard5.performed -= instance.OnUseCard5;
             @UseCard5.canceled -= instance.OnUseCard5;
-            @Dash.started -= instance.OnDash;
-            @Dash.performed -= instance.OnDash;
-            @Dash.canceled -= instance.OnDash;
-            @Jump.started -= instance.OnJump;
-            @Jump.performed -= instance.OnJump;
-            @Jump.canceled -= instance.OnJump;
-            @Sprint.started -= instance.OnSprint;
-            @Sprint.performed -= instance.OnSprint;
-            @Sprint.canceled -= instance.OnSprint;
-            @DrawButton.started -= instance.OnDrawButton;
-            @DrawButton.performed -= instance.OnDrawButton;
-            @DrawButton.canceled -= instance.OnDrawButton;
+            @CardUseSelf.started -= instance.OnCardUseSelf;
+            @CardUseSelf.performed -= instance.OnCardUseSelf;
+            @CardUseSelf.canceled -= instance.OnCardUseSelf;
+            @CardUseThrow.started -= instance.OnCardUseThrow;
+            @CardUseThrow.performed -= instance.OnCardUseThrow;
+            @CardUseThrow.canceled -= instance.OnCardUseThrow;
+            @CardSelectRelative.started -= instance.OnCardSelectRelative;
+            @CardSelectRelative.performed -= instance.OnCardSelectRelative;
+            @CardSelectRelative.canceled -= instance.OnCardSelectRelative;
         }
 
-        public void RemoveCallbacks(IMovementActions instance)
+        public void RemoveCallbacks(ICardUsageActions instance)
         {
-            if (m_Wrapper.m_MovementActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_CardUsageActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IMovementActions instance)
+        public void SetCallbacks(ICardUsageActions instance)
         {
-            foreach (var item in m_Wrapper.m_MovementActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_CardUsageActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_MovementActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_CardUsageActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public MovementActions @Movement => new MovementActions(this);
+    public CardUsageActions @CardUsage => new CardUsageActions(this);
     public interface IMovementActions
     {
         void OnMoveDir(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
+    }
+    public interface ICameraMovementActions
+    {
         void OnMouseX(InputAction.CallbackContext context);
         void OnMouseY(InputAction.CallbackContext context);
-        void OnCardUseSelf(InputAction.CallbackContext context);
-        void OnCardUseThrow(InputAction.CallbackContext context);
+    }
+    public interface IBookActionsActions
+    {
         void OnMousePosition(InputAction.CallbackContext context);
         void OnOpenBook(InputAction.CallbackContext context);
+        void OnDrawButton(InputAction.CallbackContext context);
+    }
+    public interface ICardUsageActions
+    {
         void OnUseCard0(InputAction.CallbackContext context);
         void OnUseCard1(InputAction.CallbackContext context);
         void OnUseCard2(InputAction.CallbackContext context);
         void OnUseCard3(InputAction.CallbackContext context);
         void OnUseCard4(InputAction.CallbackContext context);
         void OnUseCard5(InputAction.CallbackContext context);
-        void OnDash(InputAction.CallbackContext context);
-        void OnJump(InputAction.CallbackContext context);
-        void OnSprint(InputAction.CallbackContext context);
-        void OnDrawButton(InputAction.CallbackContext context);
+        void OnCardUseSelf(InputAction.CallbackContext context);
+        void OnCardUseThrow(InputAction.CallbackContext context);
+        void OnCardSelectRelative(InputAction.CallbackContext context);
     }
 }

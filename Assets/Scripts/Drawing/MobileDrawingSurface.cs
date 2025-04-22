@@ -5,20 +5,15 @@ using UnityEngine.InputSystem;
 public class MobileDrawingSurface : MonoBehaviour {
     [SerializeField] private GameObject surface;
     [SerializeField] private float distance;
-    private PlayerInputActions _input;
     private CameraController _cameraController;
     private bool _surfaceActive;
 
     private void Awake() {
-        _input = new PlayerInputActions();
-        _input.Enable();
-        _input.Movement.Enable();
-
         _cameraController = GetComponent<CameraController>();
         
         surface.SetActive(_surfaceActive);
 
-        _input.Movement.OpenBook.started += OpenBook;
+        GameManager.Input.BookActions.OpenBook.started += OpenBook;
     }
 
     private void LateUpdate() {
@@ -34,11 +29,15 @@ public class MobileDrawingSurface : MonoBehaviour {
             _surfaceActive = false;
             surface.SetActive(false);
             _cameraController.LockCamera();
+            GameManager.Input.CameraMovement.Enable();
+            GameManager.Input.CardUsage.Enable();
         }
         else {
             _surfaceActive = true;
             surface.SetActive(true);
             _cameraController.UnlockCamera();
+            GameManager.Input.CameraMovement.Disable();
+            GameManager.Input.CardUsage.Disable();
         }
     }
 }

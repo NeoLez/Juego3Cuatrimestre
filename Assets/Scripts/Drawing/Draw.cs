@@ -6,13 +6,11 @@ public class Draw : MonoBehaviour
     private DrawingSurface _currentSurface;
 
     private void Awake() {
-        _input = new();
-        _input.Enable();
-        _input.Movement.Enable();
+        _input = GameManager.Input;
     }
 
     void Update() {
-        if (!_input.Movement.DrawButton.IsPressed()) {
+        if (!_input.BookActions.DrawButton.IsPressed()) {
             if (_currentSurface is not null) {
                 _currentSurface.FinishDrawing();
                 
@@ -23,7 +21,7 @@ public class Draw : MonoBehaviour
         }
         
         
-        Ray ray = Camera.main.ScreenPointToRay(_input.Movement.MousePosition.ReadValue<Vector2>());
+        Ray ray = Camera.main.ScreenPointToRay(_input.BookActions.MousePosition.ReadValue<Vector2>());
         RaycastHit hit;
         if (!Physics.Raycast(ray, out hit)) {
             return;

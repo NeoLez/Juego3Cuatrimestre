@@ -47,8 +47,6 @@ public class DrawingSurface : MonoBehaviour {
         Drawing res = new Drawing(tuples.ToHashSet().ToArray());
         Option<CardInfoSO> s = DrawingPatternDatabase.GetSpellFromDrawing(res);
         if (s.HasValue) {
-            Debug.Log(s.ValueOrFailure());
-            
             //WHAT IT DOES WITH THE VALUE COULD BE CHANGED TO HAVE DIFFERENT KINDS OF DRAWING SURFACES, MAYBE HAVING
             //A CALLBACK EXTERNAL SCRIPTS CAN SUBSCRIBE TO WOULD BE GOOD
             CardStorage cardStorage = GameManager.Player.GetComponent<CardStorage>();

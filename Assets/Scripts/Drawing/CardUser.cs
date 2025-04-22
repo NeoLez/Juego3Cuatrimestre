@@ -1,25 +1,26 @@
 ﻿using UnityEngine;
 
 public class CardUser : MonoBehaviour {
-    private PlayerInputActions _input;
     private CardStorage _cardStorage;
     
     private void Awake() {
-        _input = new PlayerInputActions();
-        _input.Enable();
-        _input.Movement.Enable();
-
+        var _input = GameManager.Input;
+        
         _cardStorage = GetComponent<CardStorage>();
 
-        _input.Movement.UseCard0.performed += (_ => SetCurrentCard(0));
-        _input.Movement.UseCard1.performed += (_ => SetCurrentCard(1));
-        _input.Movement.UseCard2.performed += (_ => SetCurrentCard(2));
-        _input.Movement.UseCard3.performed += (_ => SetCurrentCard(3));
-        _input.Movement.UseCard4.performed += (_ => SetCurrentCard(4));
-        _input.Movement.UseCard5.performed += (_ => SetCurrentCard(5));
-    }
+        _input.CardUsage.UseCard0.performed += _ => _cardStorage.SetCurrentCard(0);
+        _input.CardUsage.UseCard1.performed += _ => _cardStorage.SetCurrentCard(1);
+        _input.CardUsage.UseCard2.performed += _ => _cardStorage.SetCurrentCard(2);
+        _input.CardUsage.UseCard3.performed += _ => _cardStorage.SetCurrentCard(3);
+        _input.CardUsage.UseCard4.performed += _ => _cardStorage.SetCurrentCard(4);
+        _input.CardUsage.UseCard5.performed += _ => _cardStorage.SetCurrentCard(5);
 
-    private void SetCurrentCard(byte i) {
-        _cardStorage.SetCurrentCard(i);
+        _input.CardUsage.CardSelectRelative.performed += _ => {
+            float v = _input.CardUsage.CardSelectRelative.ReadValue<float>();
+            if (v > 0) {
+                _cardStorage.SetNextCard();
+            } else if (v < 0) {
+                _cardStorage.SetPreviousCard();
+            }};
     }
 }

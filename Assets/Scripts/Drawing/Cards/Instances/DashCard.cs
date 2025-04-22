@@ -1,6 +1,6 @@
 ﻿public class DashCard : Card {
     private readonly DashCardInfoCameraSO _info;
-    public DashCard(DashCardInfoCameraSO cardInfo, byte position) : base(cardInfo, position) {
+    public DashCard(DashCardInfoCameraSO cardInfo, int position) : base(cardInfo, position) {
         _info = cardInfo;
     }
 
