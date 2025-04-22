@@ -87,7 +87,6 @@ public class CardStorage : MonoBehaviour {
         int stepCount = 0;
         int i = (start + CardsMax - 1) % CardsMax;
         while (_cards[i] == null) {
-            Debug.Log(i);
             
             if (stepCount == CardsMax - 1) return -1;
 

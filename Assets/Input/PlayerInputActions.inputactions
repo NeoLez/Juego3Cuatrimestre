@@ -162,6 +162,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "DragObject",
+                    "type": "Button",
+                    "id": "018f33e5-5022-40c5-b80e-d5d9dbf49a72",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "MouseY",
                     "type": "Value",
                     "id": "bd13dc71-8bb4-4394-b945-fde9883c9005",
@@ -213,6 +222,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "MouseY",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "68253801-fa18-479d-98d7-f845ac8be3ce",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DragObject",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

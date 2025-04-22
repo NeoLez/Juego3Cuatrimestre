@@ -184,6 +184,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""DragObject"",
+                    ""type"": ""Button"",
+                    ""id"": ""018f33e5-5022-40c5-b80e-d5d9dbf49a72"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""MouseY"",
                     ""type"": ""Value"",
                     ""id"": ""bd13dc71-8bb4-4394-b945-fde9883c9005"",
@@ -235,6 +244,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""MouseY"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""68253801-fa18-479d-98d7-f845ac8be3ce"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DragObject"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -528,6 +548,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         // CameraMovement
         m_CameraMovement = asset.FindActionMap("CameraMovement", throwIfNotFound: true);
         m_CameraMovement_MouseX = m_CameraMovement.FindAction("MouseX", throwIfNotFound: true);
+        m_CameraMovement_DragObject = m_CameraMovement.FindAction("DragObject", throwIfNotFound: true);
         m_CameraMovement_MouseY = m_CameraMovement.FindAction("MouseY", throwIfNotFound: true);
         // BookActions
         m_BookActions = asset.FindActionMap("BookActions", throwIfNotFound: true);
@@ -661,12 +682,14 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_CameraMovement;
     private List<ICameraMovementActions> m_CameraMovementActionsCallbackInterfaces = new List<ICameraMovementActions>();
     private readonly InputAction m_CameraMovement_MouseX;
+    private readonly InputAction m_CameraMovement_DragObject;
     private readonly InputAction m_CameraMovement_MouseY;
     public struct CameraMovementActions
     {
         private @PlayerInputActions m_Wrapper;
         public CameraMovementActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @MouseX => m_Wrapper.m_CameraMovement_MouseX;
+        public InputAction @DragObject => m_Wrapper.m_CameraMovement_DragObject;
         public InputAction @MouseY => m_Wrapper.m_CameraMovement_MouseY;
         public InputActionMap Get() { return m_Wrapper.m_CameraMovement; }
         public void Enable() { Get().Enable(); }
@@ -680,6 +703,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @MouseX.started += instance.OnMouseX;
             @MouseX.performed += instance.OnMouseX;
             @MouseX.canceled += instance.OnMouseX;
+            @DragObject.started += instance.OnDragObject;
+            @DragObject.performed += instance.OnDragObject;
+            @DragObject.canceled += instance.OnDragObject;
             @MouseY.started += instance.OnMouseY;
             @MouseY.performed += instance.OnMouseY;
             @MouseY.canceled += instance.OnMouseY;
@@ -690,6 +716,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @MouseX.started -= instance.OnMouseX;
             @MouseX.performed -= instance.OnMouseX;
             @MouseX.canceled -= instance.OnMouseX;
+            @DragObject.started -= instance.OnDragObject;
+            @DragObject.performed -= instance.OnDragObject;
+            @DragObject.canceled -= instance.OnDragObject;
             @MouseY.started -= instance.OnMouseY;
             @MouseY.performed -= instance.OnMouseY;
             @MouseY.canceled -= instance.OnMouseY;
@@ -890,6 +919,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     public interface ICameraMovementActions
     {
         void OnMouseX(InputAction.CallbackContext context);
+        void OnDragObject(InputAction.CallbackContext context);
         void OnMouseY(InputAction.CallbackContext context);
     }
     public interface IBookActionsActions
