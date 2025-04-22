@@ -48,6 +48,9 @@ public class CardStorage : MonoBehaviour {
     }
 
     public void SetCurrentCard(int pos) {
+        if(pos < 0 || pos >= CardsMax)
+            return;
+        
         _cards[CurrentlySelected]?.Disable();
         if(cardUIGameObjects[CurrentlySelected] != null)
             cardUIGameObjects[CurrentlySelected].transform.localPosition += Vector3.up * 20; 
