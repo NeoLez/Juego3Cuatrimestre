@@ -59,20 +59,26 @@ public class Drag : MonoBehaviour {
 
     private void StartDrag() {
         Ray ray = new Ray(GameManager.MainCamera.transform.position, GameManager.MainCamera.transform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit, rayDistance, LayerMask.GetMask("DraggableObject"))) {
-            obj = hit.rigidbody;
-            currentDistance = Vector3.Distance(obj.position, GameManager.MainCamera.transform.position);
-            if (currentDistance < minDistance)
-                currentDistance = minDistance;
+        if (Physics.Raycast(ray, out RaycastHit hit, rayDistance, LayerMask.GetMask("Ground"))) {
+            if (hit.collider.gameObject.TryGetComponent(out ObjectStatus objectStatus)) {
+                if (objectStatus.Type == ObjectTypeEnum.PhysicsObject) {
+                    hit.collider.gameObject.layer = LayerMask.NameToLayer("DraggableObject");
+                    obj = hit.rigidbody;
+                    currentDistance = Vector3.Distance(obj.position, GameManager.MainCamera.transform.position);
+                    if (currentDistance < minDistance)
+                        currentDistance = minDistance;
             
-            dragRotOffset = Quaternion.Inverse(GameManager.MainCamera.transform.rotation)
-                            * obj.transform.rotation;
-            currentlyDragging = true;
+                    dragRotOffset = Quaternion.Inverse(GameManager.MainCamera.transform.rotation)
+                                    * obj.transform.rotation;
+                    currentlyDragging = true;
+                }
+            }
         }
     }
 
     private void StopDrag() {
         currentlyDragging = false;
+        obj.gameObject.layer = LayerMask.NameToLayer("Ground");
         obj = null;
     }
 }
