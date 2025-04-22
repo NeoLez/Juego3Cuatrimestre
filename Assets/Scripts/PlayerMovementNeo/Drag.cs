@@ -48,7 +48,7 @@ public class Drag : MonoBehaviour {
 
     private void StartDrag(InputAction.CallbackContext ctx) {
         Ray ray = new Ray(GameManager.MainCamera.transform.position, GameManager.MainCamera.transform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit, distance, LayerMask.NameToLayer("DraggableObject"))) {
+        if (Physics.Raycast(ray, out RaycastHit hit, distance, LayerMask.GetMask("DraggableObject"))) {
             obj = hit.rigidbody;
             dragRotOffset = Quaternion.Inverse(GameManager.MainCamera.transform.rotation)
                             * obj.transform.rotation;
