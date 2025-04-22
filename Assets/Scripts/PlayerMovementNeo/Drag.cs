@@ -3,8 +3,10 @@ using UnityEngine.InputSystem;
 
 public class Drag : MonoBehaviour {
     [SerializeField] private Rigidbody obj;
-    [SerializeField] private float distance;
+    [SerializeField] private float rayDistance;
+    [SerializeField] private float minDistance;
     [SerializeField] private float maxDistance;
+    private float currentDistance;
     [SerializeField] private float maxAngle;
     [SerializeField] private float speedMultiplier;
     [SerializeField] private float maxSpeed;
@@ -12,19 +14,28 @@ public class Drag : MonoBehaviour {
     [SerializeField] private float torqueStrength = 10f;
     [SerializeField] private float angularDamping = 2f;
 
+    private bool currentlyDragging;
+    
     private void Awake() {
-        GameManager.Input.CameraMovement.DragObject.started += StartDrag;
-        GameManager.Input.CameraMovement.DragObject.canceled += StopDrag;
+        GameManager.Input.CameraMovement.DragObject.started += _ => {
+            if (currentlyDragging) StopDrag();
+            else StartDrag();
+        };
     }
 
     private void Update() {
-        if (obj != null) {
-            if (Vector3.Distance(GameManager.MainCamera.transform.position, obj.transform.position) > maxDistance ||
-                Vector3.Angle(obj.transform.position - GameManager.MainCamera.transform.position, GameManager.MainCamera.transform.forward) > maxAngle) {
-                obj = null;
+        if (obj != null && currentlyDragging) {
+            if(!GameManager.Input.CameraMovement.enabled) {
+                StopDrag();
                 return;
             }
-            Vector3 target = transform.position + GameManager.MainCamera.transform.forward * distance;
+                
+            if (Vector3.Distance(GameManager.MainCamera.transform.position, obj.transform.position) > maxDistance ||
+                Vector3.Angle(obj.transform.position - GameManager.MainCamera.transform.position, GameManager.MainCamera.transform.forward) > maxAngle) {
+                StopDrag();
+                return;
+            }
+            Vector3 target = GameManager.MainCamera.transform.position + GameManager.MainCamera.transform.forward * currentDistance;
             Vector3 speed = (target - obj.transform.position) * speedMultiplier;
             if (speed.magnitude > maxSpeed) {
                 speed.Normalize();
@@ -46,16 +57,22 @@ public class Drag : MonoBehaviour {
         }
     }
 
-    private void StartDrag(InputAction.CallbackContext ctx) {
+    private void StartDrag() {
         Ray ray = new Ray(GameManager.MainCamera.transform.position, GameManager.MainCamera.transform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit, distance, LayerMask.GetMask("DraggableObject"))) {
+        if (Physics.Raycast(ray, out RaycastHit hit, rayDistance, LayerMask.GetMask("DraggableObject"))) {
             obj = hit.rigidbody;
+            currentDistance = Vector3.Distance(obj.position, GameManager.MainCamera.transform.position);
+            if (currentDistance < minDistance)
+                currentDistance = minDistance;
+            
             dragRotOffset = Quaternion.Inverse(GameManager.MainCamera.transform.rotation)
                             * obj.transform.rotation;
+            currentlyDragging = true;
         }
     }
 
-    private void StopDrag(InputAction.CallbackContext ctx) {
+    private void StopDrag() {
+        currentlyDragging = false;
         obj = null;
     }
 }

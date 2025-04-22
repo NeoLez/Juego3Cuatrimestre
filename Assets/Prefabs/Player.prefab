@@ -225,7 +225,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
-  distance: 2.5
+  rayDistance: 2.5
+  minDistance: 1.5
   maxDistance: 4
   maxAngle: 65
   speedMultiplier: 12
