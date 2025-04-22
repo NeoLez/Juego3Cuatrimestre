@@ -39,7 +39,7 @@ public class Drag : MonoBehaviour {
             // avoid NaNs when angle is very small
             if (axis.sqrMagnitude > 0.001f) {
                 // torque = k_p * angle * axis  –  k_d * angularVelocity
-                Vector3 correctiveTorque = axis.normalized * angleDeg * Mathf.Deg2Rad * torqueStrength
+                Vector3 correctiveTorque = axis.normalized * (angleDeg * Mathf.Deg2Rad * torqueStrength)
                                            - obj.angularVelocity * angularDamping;
                 obj.AddTorque(correctiveTorque, ForceMode.Acceleration);
             }
