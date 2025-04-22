@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RotatingObstacle : MonoBehaviour
 {
-    [Tooltip("Velocidad de rotación en grados por segundo")]
+    [Tooltip("Velocidad de rotacion en grados por segundo")]
     public float Speed = 180f;
 
-    [Tooltip("Eje de rotación. Ej: (1, 0, 0) para eje X, (0, 1, 0) para eje Y, etc.")]
+    [Tooltip("Eje de rotacion. Ej: (1, 0, 0) para eje X, (0, 1, 0) para eje Y, etc.")]
     public Vector3 rotationAxis = Vector3.up;
 
     private float originalSpeed;
