@@ -21,6 +21,7 @@ public class CardStorage : MonoBehaviour {
                 
                 if (i == CurrentlySelected) {
                     cardUIGameObjects[CurrentlySelected].transform.localPosition -= Vector3.up * 20;
+                    _cards[i].Enable();
                 }
                 else if(CurrentlySelected > i) {
                     bool foundCard = false;
@@ -72,8 +73,6 @@ public class CardStorage : MonoBehaviour {
         int stepCount = 0;
         int i = (start + 1) % CardsMax;
         while (_cards[i] == null) {
-            Debug.Log(i);
-            
             if (stepCount == CardsMax - 1) return -1;
 
             stepCount++;
