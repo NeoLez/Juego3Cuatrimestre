@@ -1,4 +1,6 @@
-﻿public class DashCard : Card {
+﻿using UnityEngine;
+
+public class DashCard : ThrowCard {
     private readonly DashCardInfoCameraSO _info;
     private float dashFOV = 80f;
     private float dashInTime = 0.05f;
@@ -17,6 +19,18 @@
                 LeanTween.value(GameManager.MainCamera.gameObject, dashFOV, GameManager.CamFOV, dashOutTime)
                     .setOnUpdate((float fov) => GameManager.MainCamera.fieldOfView = fov);
             });
+        RegisterUse();
+    }
+
+    protected override void OnThrowHit(RaycastHit? hit) {
+        if (!hit.HasValue) {
+            RegisterUse();
+            return;
+        }
+        
+        var rhit = hit.Value;
+        if(rhit.rigidbody != null)
+            rhit.rigidbody.AddForce(_info.forceStrength * (rhit.point - GameManager.MainCamera.transform.position), ForceMode.VelocityChange);
         RegisterUse();
     }
 }

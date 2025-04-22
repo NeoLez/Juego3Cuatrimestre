@@ -18,6 +18,7 @@ MonoBehaviour:
   inkCost: 0
   maxUses: 1
   cardUIPrefab: {fileID: 2933685303529508442, guid: a789563e7c075174e9d5ae452662d24c, type: 3}
+  distance: 6
   moveDistance: 12
   time: 0.15
   curve:
@@ -44,3 +45,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  forceStrength: 10
