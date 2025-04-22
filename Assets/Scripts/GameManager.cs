@@ -4,6 +4,7 @@ public class GameManager {
     public static GameObject Player;
     public static PlayerInputActions Input;
     public static Camera MainCamera;
+    public static float CamFOV;
 
     
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
