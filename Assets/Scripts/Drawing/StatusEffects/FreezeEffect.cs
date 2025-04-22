@@ -28,7 +28,6 @@ public class FrozenEffect : StatusEffect
 
     public override void Remove()
     {
-        Target.gameObject.layer = LayerMask.NameToLayer("DraggableObject");
         Target.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         Target.HideIceEffect();
     }
