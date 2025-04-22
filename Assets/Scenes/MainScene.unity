@@ -1232,6 +1232,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.31718516, y: 0.5930172, z: 0.38667116}
   m_Center: {x: 0.013051391, y: 0.29311967, z: -0.02079539}
+--- !u!114 &765674093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765674084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be9cced78ebe2564f92f20c841dc5dc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  maxHealth: 3
+  fireEffectPrefab: {fileID: 0}
+  iceEffectPrefab: {fileID: 0}
 --- !u!1 &821654680
 GameObject:
   m_ObjectHideFlags: 0
@@ -1831,6 +1847,7 @@ GameObject:
   - component: {fileID: 1392500315}
   - component: {fileID: 1392500314}
   - component: {fileID: 1392500313}
+  - component: {fileID: 1392500318}
   m_Layer: 7
   m_Name: Cube_2
   m_TagString: Untagged
@@ -1951,6 +1968,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1392500318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392500312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be9cced78ebe2564f92f20c841dc5dc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  maxHealth: 3
+  fireEffectPrefab: {fileID: 0}
+  iceEffectPrefab: {fileID: 0}
 --- !u!1 &1428996449
 GameObject:
   m_ObjectHideFlags: 0
@@ -3159,6 +3192,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: eb58c3ab2708af546a77ab742046c892, type: 3}
       insertIndex: -1
       addedObject: {fileID: 765674090}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: eb58c3ab2708af546a77ab742046c892, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 765674093}
   m_SourcePrefab: {fileID: 100100000, guid: eb58c3ab2708af546a77ab742046c892, type: 3}
 --- !u!1 &2088087817
 GameObject:
