@@ -44,24 +44,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""TestFire"",
-                    ""type"": ""Button"",
-                    ""id"": ""a7c1cab5-b1dc-450a-ace1-43bf99c2261c"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""TestIce"",
-                    ""type"": ""Button"",
-                    ""id"": ""58fb4781-0fc7-47a0-bab2-8974f1da66f2"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -183,28 +165,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""fae19868-e96e-444e-8103-e9030549f6b3"",
-                    ""path"": ""<Keyboard>/v"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""TestFire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""481a4917-cb70-4bce-95aa-de81ee4f8b18"",
-                    ""path"": ""<Keyboard>/c"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""TestIce"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -585,8 +545,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
         m_Movement_MoveDir = m_Movement.FindAction("MoveDir", throwIfNotFound: true);
         m_Movement_Jump = m_Movement.FindAction("Jump", throwIfNotFound: true);
-        m_Movement_TestFire = m_Movement.FindAction("TestFire", throwIfNotFound: true);
-        m_Movement_TestIce = m_Movement.FindAction("TestIce", throwIfNotFound: true);
         // CameraMovement
         m_CameraMovement = asset.FindActionMap("CameraMovement", throwIfNotFound: true);
         m_CameraMovement_MouseX = m_CameraMovement.FindAction("MouseX", throwIfNotFound: true);
@@ -671,16 +629,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private List<IMovementActions> m_MovementActionsCallbackInterfaces = new List<IMovementActions>();
     private readonly InputAction m_Movement_MoveDir;
     private readonly InputAction m_Movement_Jump;
-    private readonly InputAction m_Movement_TestFire;
-    private readonly InputAction m_Movement_TestIce;
     public struct MovementActions
     {
         private @PlayerInputActions m_Wrapper;
         public MovementActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @MoveDir => m_Wrapper.m_Movement_MoveDir;
         public InputAction @Jump => m_Wrapper.m_Movement_Jump;
-        public InputAction @TestFire => m_Wrapper.m_Movement_TestFire;
-        public InputAction @TestIce => m_Wrapper.m_Movement_TestIce;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -696,12 +650,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
-            @TestFire.started += instance.OnTestFire;
-            @TestFire.performed += instance.OnTestFire;
-            @TestFire.canceled += instance.OnTestFire;
-            @TestIce.started += instance.OnTestIce;
-            @TestIce.performed += instance.OnTestIce;
-            @TestIce.canceled += instance.OnTestIce;
         }
 
         private void UnregisterCallbacks(IMovementActions instance)
@@ -712,12 +660,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
-            @TestFire.started -= instance.OnTestFire;
-            @TestFire.performed -= instance.OnTestFire;
-            @TestFire.canceled -= instance.OnTestFire;
-            @TestIce.started -= instance.OnTestIce;
-            @TestIce.performed -= instance.OnTestIce;
-            @TestIce.canceled -= instance.OnTestIce;
         }
 
         public void RemoveCallbacks(IMovementActions instance)
@@ -973,8 +915,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     {
         void OnMoveDir(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnTestFire(InputAction.CallbackContext context);
-        void OnTestIce(InputAction.CallbackContext context);
     }
     public interface ICameraMovementActions
     {

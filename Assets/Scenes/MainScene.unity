@@ -850,7 +850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be9cced78ebe2564f92f20c841dc5dc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 2
+  Type: 1
   maxHealth: 3
   fireEffectPrefab: {fileID: 0}
   iceEffectPrefab: {fileID: 0}
@@ -1600,28 +1600,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 901190243}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1120968583 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3590033677297714036, guid: 7b0a47058df02a140a1bf52da1619c24, type: 3}
-  m_PrefabInstance: {fileID: 1826161354943506039}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1120968597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120968583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a33d8418c9717e543a90af4ec22a2a69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 2
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  cam: {fileID: 0}
 --- !u!1 &1158321387
 GameObject:
   m_ObjectHideFlags: 0
@@ -3329,10 +3307,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2486454814925464494, guid: 7b0a47058df02a140a1bf52da1619c24, type: 3}
-      propertyPath: Layer.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
     - target: {fileID: 3590033677297714036, guid: 7b0a47058df02a140a1bf52da1619c24, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3392,10 +3366,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3590033677297714036, guid: 7b0a47058df02a140a1bf52da1619c24, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1120968597}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b0a47058df02a140a1bf52da1619c24, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

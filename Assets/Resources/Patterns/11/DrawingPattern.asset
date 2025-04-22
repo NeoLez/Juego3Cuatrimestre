@@ -22,4 +22,4 @@ MonoBehaviour:
       byte2: 2
     - byte1: 2
       byte2: 0
-  spell: {fileID: 11400000, guid: f7844e01afcec8842a115b3f1cfa3537, type: 2}
+  cardInfo: {fileID: 11400000, guid: 67d16890b741a374aa88e9a28f748534, type: 2}

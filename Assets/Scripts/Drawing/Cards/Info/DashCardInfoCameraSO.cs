@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "Spell", menuName = "SO/Spells/DashSpellCamera")]
+[CreateAssetMenu(fileName = "DashCardInfo", menuName = "SO/CardInfo/DashCardInfo")]
 public class DashCardInfoCameraSO : CardInfoSO {
     [SerializeField] public float moveDistance;
     [SerializeField] public float time;
