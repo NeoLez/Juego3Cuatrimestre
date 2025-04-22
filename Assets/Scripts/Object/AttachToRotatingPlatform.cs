@@ -2,11 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttachToPlatform : MonoBehaviour
+[RequireComponent(typeof(Rigidbody))]
+public class AttachToRotatingPlatform : MonoBehaviour
 {
     private Transform currentPlatform;
     private Vector3 lastPlatformPosition;
     private Quaternion lastPlatformRotation;
+    private Rigidbody rb;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     void FixedUpdate()
     {
@@ -15,8 +22,8 @@ public class PlayerAttachToPlatform : MonoBehaviour
             Vector3 platformMovement = currentPlatform.position - lastPlatformPosition;
             Quaternion platformRotationDelta = currentPlatform.rotation * Quaternion.Inverse(lastPlatformRotation);
 
-            transform.position += platformMovement;
-            transform.rotation = platformRotationDelta * transform.rotation;
+            rb.MovePosition(rb.position + platformMovement);
+            rb.MoveRotation(platformRotationDelta * rb.rotation);
 
             lastPlatformPosition = currentPlatform.position;
             lastPlatformRotation = currentPlatform.rotation;
@@ -27,9 +34,17 @@ public class PlayerAttachToPlatform : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("RotatingPlatform"))
         {
-            currentPlatform = collision.transform;
-            lastPlatformPosition = currentPlatform.position;
-            lastPlatformRotation = currentPlatform.rotation;
+            foreach (ContactPoint contact in collision.contacts)
+            {
+                // Solo se acopla si el cubo está por encima de la plataforma (check en eje Y)
+                if (contact.point.y > collision.transform.position.y + 0.1f)
+                {
+                    currentPlatform = collision.transform;
+                    lastPlatformPosition = currentPlatform.position;
+                    lastPlatformRotation = currentPlatform.rotation;
+                    break;
+                }
+            }
         }
     }
 
