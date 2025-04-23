@@ -2402,7 +2402,7 @@ GameObject:
   - component: {fileID: 352633436}
   - component: {fileID: 352633435}
   - component: {fileID: 352633434}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6084,7 +6084,7 @@ GameObject:
   - component: {fileID: 1199566888}
   - component: {fileID: 1199566887}
   - component: {fileID: 1199566886}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10782,7 +10782,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 1509708494}
+  m_Mesh: {fileID: 967774562}
 --- !u!33 &2009835368
 MeshFilter:
   m_ObjectHideFlags: 10

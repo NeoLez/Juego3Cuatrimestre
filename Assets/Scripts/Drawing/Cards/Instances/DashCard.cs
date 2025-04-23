@@ -31,8 +31,10 @@ public class DashCard : ThrowCard {
         }
         
         var rhit = hit.Value;
-        if(rhit.rigidbody != null)
+        if(rhit.rigidbody != null) {
+            GameManager.Player.GetComponent<Drag>().DisengageObject(rhit.collider.gameObject);
             rhit.rigidbody.AddForce(_info.forceStrength * (rhit.point - GameManager.MainCamera.transform.position), ForceMode.VelocityChange);
+        }
         RegisterUse();
     }
 }
