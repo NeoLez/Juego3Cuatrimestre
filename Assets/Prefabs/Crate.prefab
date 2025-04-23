@@ -121,8 +121,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 1
   maxHealth: 3
-  fireEffectPrefab: {fileID: 0}
-  iceEffectPrefab: {fileID: 0}
+  fireEffectPrefab: {fileID: 535533120961856120, guid: dac6e8fcd074c244d9585b785be24147, type: 3}
+  iceEffectPrefab: {fileID: 4146312147535687916, guid: 665460fa2b3cbd54098df1b5b9ebca83, type: 3}
 --- !u!54 &1854743787626372031
 Rigidbody:
   m_ObjectHideFlags: 0

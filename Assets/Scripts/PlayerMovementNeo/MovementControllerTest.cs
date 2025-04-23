@@ -68,6 +68,7 @@ public class MovementControllerTest : MonoBehaviour {
                 _gravitySpeed += Physics.gravity * Time.fixedDeltaTime;
                 break;
             case CharacterState.Grounded:
+                CanDash = true;
                 _speed = Vector3.ProjectOnPlane(_speed, _surfaceNormal);
                 _speed = Vector3.Lerp(_prevSpeed, _speed, groundLerp);
                 if(_gravitySpeed.y < 0)//Never make gravitySpeed 0 if it points away from the floor (caused by jump). 
@@ -202,6 +203,7 @@ public class MovementControllerTest : MonoBehaviour {
     private float _dashDistance;
     private float _currentDashTime = Int32.MaxValue;
     private AnimationCurve _dashCurve;
+    private bool CanDash = true;
 
     private void HandleDashing() {
         if (_currentDashTime < _dashTime) {
@@ -214,12 +216,18 @@ public class MovementControllerTest : MonoBehaviour {
             _rb.velocity = _dashVector * speed;
         }
     }
-    public void Dash(Vector3 moveVector, float distance, float time, AnimationCurve curve) {
-        _dashTime = time;
-        _dashCurve = curve;
-        _dashDistance = distance;
-        _currentDashTime = 0;
-        _dashVector = moveVector.normalized;
+    public bool Dash(Vector3 moveVector, float distance, float time, AnimationCurve curve) {
+        if (CanDash) {
+            _dashTime = time;
+            _dashCurve = curve;
+            _dashDistance = distance;
+            _currentDashTime = 0;
+            _dashVector = moveVector.normalized;
+            CanDash = false;
+            return true;
+        }
+
+        return false;
     }
     #endregion
 }

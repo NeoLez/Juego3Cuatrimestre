@@ -1,44 +1,23 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RotatingObstacle : MonoBehaviour
 {
-    [Tooltip("Velocidad de rotación en grados por segundo")]
+    [Tooltip("Velocidad de rotacion en grados por segundo")]
     public float Speed = 180f;
 
-    [Tooltip("Eje de rotación.")]
+    [Tooltip("Eje de rotacion. Ej: (1, 0, 0) para eje X, (0, 1, 0) para eje Y, etc.")]
     public Vector3 rotationAxis = Vector3.up;
 
     private float originalSpeed;
-    private Quaternion lastRotation;
-
-    private List<Rigidbody> objetosEncima = new List<Rigidbody>();
 
     void Start()
     {
         originalSpeed = Speed;
-        lastRotation = transform.rotation;
     }
 
     void Update()
     {
-        transform.Rotate(rotationAxis.normalized, Speed * Time.deltaTime, Space.Self);
-
-        Quaternion deltaRotation = transform.rotation * Quaternion.Inverse(lastRotation);
-
-        foreach (Rigidbody rb in objetosEncima)
-        {
-            if (rb != null)
-            {
-                Vector3 dir = rb.position - transform.position;
-                dir = deltaRotation * dir;
-                Vector3 newPos = transform.position + dir;
-
-                rb.MovePosition(newPos);
-            }
-        }
-
-        lastRotation = transform.rotation;
+        transform.Rotate(rotationAxis.normalized, Speed * Time.deltaTime);
     }
 
     public void Freeze(float factor, float duracion)
@@ -50,24 +29,6 @@ public class RotatingObstacle : MonoBehaviour
     void RestoreSpeed()
     {
         Speed = originalSpeed;
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
-        if (rb != null && !objetosEncima.Contains(rb))
-        {
-            objetosEncima.Add(rb);
-        }
-    }
-
-    void OnCollisionExit(Collision collision)
-    {
-        Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
-        if (rb != null && objetosEncima.Contains(rb))
-        {
-            objetosEncima.Remove(rb);
-        }
     }
 
     void OnDrawGizmos()

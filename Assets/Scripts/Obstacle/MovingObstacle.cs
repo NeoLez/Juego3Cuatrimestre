@@ -5,6 +5,7 @@ public class MovingObstacle : MonoBehaviour
 {
     public Vector3 puntoA;
     public Vector3 puntoB;
+    private Vector3 startPosition;
     public float speed = 2f;
 
     private float originalSpeed;
@@ -15,8 +16,8 @@ public class MovingObstacle : MonoBehaviour
     // Lista de rigidbodies encima de la plataforma
     private List<Rigidbody> objetosEncima = new List<Rigidbody>();
 
-    void Start()
-    {
+    void Start() {
+        startPosition = transform.position;
         originalSpeed = speed;
         lastPosition = transform.position;
     }
@@ -25,7 +26,7 @@ public class MovingObstacle : MonoBehaviour
     {
         // Mover la plataforma
         t += Time.deltaTime * speed * (goingTowardB ? 1 : -1);
-        transform.position = Vector3.Lerp(puntoA, puntoB, t);
+        transform.position = Vector3.Lerp(startPosition + puntoA, startPosition + puntoB, t);
 
         if (t >= 1f)
         {
