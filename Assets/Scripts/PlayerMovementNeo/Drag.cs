@@ -24,7 +24,12 @@ public class Drag : MonoBehaviour {
     }
 
     private void Update() {
-        if (obj != null && currentlyDragging) {
+        if (obj == null) {
+            currentlyDragging = false;
+            return;
+        }
+        
+        if (currentlyDragging) {
             if(!GameManager.Input.CameraMovement.enabled || obj.gameObject.layer != LayerMask.NameToLayer("DraggableObject")) {
                 StopDrag();
                 return;
