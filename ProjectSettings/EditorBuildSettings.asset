@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Puzzles.unity
+    guid: 6a4db8f6c192d5c48bdae6a3dce61296
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: c4f79367683e7474aaba8fad95db19ab, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 092f4b1dcb5966b43bd3878c7ffbdc5d, type: 2}
