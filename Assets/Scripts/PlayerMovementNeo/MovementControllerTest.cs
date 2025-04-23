@@ -237,3 +237,4 @@ public enum CharacterState {
     Sliding,
     Air,
 }
+
