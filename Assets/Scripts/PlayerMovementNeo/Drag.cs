@@ -76,6 +76,12 @@ public class Drag : MonoBehaviour {
         }
     }
 
+    public void DisengageObject(GameObject gameObject) {
+        if (gameObject == obj.gameObject) {
+            StopDrag();
+        }
+    }
+
     private void StopDrag() {
         currentlyDragging = false;
         obj.gameObject.layer = LayerMask.NameToLayer("Ground");
