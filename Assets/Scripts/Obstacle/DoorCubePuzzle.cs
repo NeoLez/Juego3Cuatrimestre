@@ -1,0 +1,33 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class DoorCubePuzzle : MonoBehaviour
+{
+    public GameObject door;
+    private bool cubeInZoneA = false;
+    private bool cubeInZoneB = false;
+
+    public void CubeEnter(string zone)
+    {
+        if (zone == "A")
+        {
+            cubeInZoneA = true;
+        }
+        if (zone == "B")
+        {
+            cubeInZoneB = true;
+        }
+
+        Checkpuzzle();
+    }
+
+    public void Checkpuzzle()
+    {
+        if (cubeInZoneA && cubeInZoneB)
+        {
+            Debug.Log("se abrio la puerta");
+            door.SetActive(false);
+        }
+    }
+}
