@@ -77,7 +77,7 @@ public class Drag : MonoBehaviour {
     }
 
     public void DisengageObject(GameObject gameObject) {
-        if (gameObject == obj.gameObject) {
+        if (obj != null && gameObject == obj.gameObject) {
             StopDrag();
         }
     }
