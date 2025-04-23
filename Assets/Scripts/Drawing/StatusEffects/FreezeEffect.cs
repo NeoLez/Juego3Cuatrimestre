@@ -28,7 +28,13 @@ public class FrozenEffect : StatusEffect
 
     public override void Remove()
     {
-        Target.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        var type = Target.GetComponent<ObjectStatus>();
+        switch (type.Type) {
+            case ObjectTypeEnum.PhysicsObject:
+                Target.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                break;
+        }
+        
         Target.HideIceEffect();
     }
 }
