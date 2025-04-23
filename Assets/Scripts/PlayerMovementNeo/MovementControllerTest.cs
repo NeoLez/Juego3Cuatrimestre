@@ -59,8 +59,6 @@ public class MovementControllerTest : MonoBehaviour {
         Vector3 worldMoveDir = (_cameraController.GetHorizontalDirectionForwardVector() * _moveDir.y +
                                 _cameraController.GetHorizontalDirectionRightVector() * _moveDir.x).Swizzle_x0y();
         _speed = worldMoveDir * movementSpeed;
-
-        AdjustMovementSpeedWithSlope();
         
         switch (state) {
             case CharacterState.Air:
