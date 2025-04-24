@@ -11,15 +11,29 @@ public class Drag : MonoBehaviour {
     [SerializeField] private float speedMultiplier;
     [SerializeField] private float maxSpeed;
     private Quaternion dragRotOffset;
+    [SerializeField] private float rotationSensitivity;
     [SerializeField] private float torqueStrength = 10f;
     [SerializeField] private float angularDamping = 2f;
 
+    private bool currentlyRotating;
     private bool currentlyDragging;
     
     private void Awake() {
         GameManager.Input.CameraMovement.DragObject.started += _ => {
             if (currentlyDragging) StopDrag();
             else StartDrag();
+        };
+        GameManager.Input.Drag.DragRotate.started += _ => {
+            if (currentlyDragging) {
+                currentlyRotating = true;
+                GameManager.Input.CameraMovement.Disable();
+            }
+        };
+        GameManager.Input.Drag.DragRotate.canceled += _ => {
+            currentlyRotating = false;
+            if (currentlyDragging) {
+                GameManager.Input.CameraMovement.Enable();
+            }
         };
     }
 
@@ -30,7 +44,7 @@ public class Drag : MonoBehaviour {
         }
         
         if (currentlyDragging) {
-            if(!GameManager.Input.CameraMovement.enabled || obj.gameObject.layer != LayerMask.NameToLayer("DraggableObject")) {
+            if((!GameManager.Input.CameraMovement.enabled && !currentlyRotating) || obj.gameObject.layer != LayerMask.NameToLayer("DraggableObject")) {
                 StopDrag();
                 return;
             }
@@ -40,6 +54,13 @@ public class Drag : MonoBehaviour {
                 StopDrag();
                 return;
             }
+
+            if (GameManager.Input.Drag.DragRotate.IsPressed()) {
+                float x = GameManager.Input.Drag.MouseX.ReadValue<float>() * rotationSensitivity;
+                float y = GameManager.Input.Drag.MouseY.ReadValue<float>() * rotationSensitivity;
+                dragRotOffset = Quaternion.Euler(y, -x, 0) * dragRotOffset;
+            }
+            
             Vector3 target = GameManager.MainCamera.transform.position + GameManager.MainCamera.transform.forward * currentDistance;
             Vector3 speed = (target - obj.transform.position) * speedMultiplier;
             if (speed.magnitude > maxSpeed) {

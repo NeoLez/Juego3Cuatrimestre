@@ -231,6 +231,7 @@ MonoBehaviour:
   maxAngle: 65
   speedMultiplier: 12
   maxSpeed: 8
+  rotationSensitivity: 0.1
   torqueStrength: 10
   angularDamping: 2
 --- !u!114 &7280612235967409879

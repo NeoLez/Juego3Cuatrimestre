@@ -14,5 +14,6 @@ public class GameManager {
         Input.BookActions.Enable();
         Input.Movement.Enable();
         Input.CardUsage.Enable();
+        Input.Drag.Enable();
     }
 }
