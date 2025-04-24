@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DrawingObject
   - RotatingPlatform
+  - Enemy
   layers:
   - Default
   - TransparentFX
