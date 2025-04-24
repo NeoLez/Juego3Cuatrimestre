@@ -537,6 +537,96 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Drag"",
+            ""id"": ""d0624c8a-149e-48ae-a346-e65ea4880c36"",
+            ""actions"": [
+                {
+                    ""name"": ""DragRotate"",
+                    ""type"": ""Button"",
+                    ""id"": ""24f162d6-9526-4da9-9254-27e3b10512e4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MouseX"",
+                    ""type"": ""Value"",
+                    ""id"": ""952d25a0-037d-4840-b2e4-199982160b1b"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MouseY"",
+                    ""type"": ""Value"",
+                    ""id"": ""aea2b79a-a42e-4558-aed0-68f484842db7"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""2f4bc920-de87-4c9c-a300-c963b59e2f94"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DragRotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""837690bb-7192-40b5-9df8-7025ed2d538c"",
+                    ""path"": ""<Mouse>/delta/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseY"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""74e3c3da-3072-4741-bb0b-123d20e8de99"",
+                    ""path"": ""<Gamepad>/rightStick/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseY"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6d68af8b-bb87-4113-9059-71a7e3e0920b"",
+                    ""path"": ""<Mouse>/delta/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseX"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ca6316c8-ea7f-4424-87dd-edfbc8987dcb"",
+                    ""path"": ""<Gamepad>/rightStick/x"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=2)"",
+                    ""groups"": """",
+                    ""action"": ""MouseX"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -566,6 +656,11 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_CardUsage_CardUseSelf = m_CardUsage.FindAction("CardUseSelf", throwIfNotFound: true);
         m_CardUsage_CardUseThrow = m_CardUsage.FindAction("CardUseThrow", throwIfNotFound: true);
         m_CardUsage_CardSelectRelative = m_CardUsage.FindAction("CardSelectRelative", throwIfNotFound: true);
+        // Drag
+        m_Drag = asset.FindActionMap("Drag", throwIfNotFound: true);
+        m_Drag_DragRotate = m_Drag.FindAction("DragRotate", throwIfNotFound: true);
+        m_Drag_MouseX = m_Drag.FindAction("MouseX", throwIfNotFound: true);
+        m_Drag_MouseY = m_Drag.FindAction("MouseY", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -911,6 +1006,68 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         }
     }
     public CardUsageActions @CardUsage => new CardUsageActions(this);
+
+    // Drag
+    private readonly InputActionMap m_Drag;
+    private List<IDragActions> m_DragActionsCallbackInterfaces = new List<IDragActions>();
+    private readonly InputAction m_Drag_DragRotate;
+    private readonly InputAction m_Drag_MouseX;
+    private readonly InputAction m_Drag_MouseY;
+    public struct DragActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public DragActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @DragRotate => m_Wrapper.m_Drag_DragRotate;
+        public InputAction @MouseX => m_Wrapper.m_Drag_MouseX;
+        public InputAction @MouseY => m_Wrapper.m_Drag_MouseY;
+        public InputActionMap Get() { return m_Wrapper.m_Drag; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DragActions set) { return set.Get(); }
+        public void AddCallbacks(IDragActions instance)
+        {
+            if (instance == null || m_Wrapper.m_DragActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_DragActionsCallbackInterfaces.Add(instance);
+            @DragRotate.started += instance.OnDragRotate;
+            @DragRotate.performed += instance.OnDragRotate;
+            @DragRotate.canceled += instance.OnDragRotate;
+            @MouseX.started += instance.OnMouseX;
+            @MouseX.performed += instance.OnMouseX;
+            @MouseX.canceled += instance.OnMouseX;
+            @MouseY.started += instance.OnMouseY;
+            @MouseY.performed += instance.OnMouseY;
+            @MouseY.canceled += instance.OnMouseY;
+        }
+
+        private void UnregisterCallbacks(IDragActions instance)
+        {
+            @DragRotate.started -= instance.OnDragRotate;
+            @DragRotate.performed -= instance.OnDragRotate;
+            @DragRotate.canceled -= instance.OnDragRotate;
+            @MouseX.started -= instance.OnMouseX;
+            @MouseX.performed -= instance.OnMouseX;
+            @MouseX.canceled -= instance.OnMouseX;
+            @MouseY.started -= instance.OnMouseY;
+            @MouseY.performed -= instance.OnMouseY;
+            @MouseY.canceled -= instance.OnMouseY;
+        }
+
+        public void RemoveCallbacks(IDragActions instance)
+        {
+            if (m_Wrapper.m_DragActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IDragActions instance)
+        {
+            foreach (var item in m_Wrapper.m_DragActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_DragActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public DragActions @Drag => new DragActions(this);
     public interface IMovementActions
     {
         void OnMoveDir(InputAction.CallbackContext context);
@@ -939,5 +1096,11 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnCardUseSelf(InputAction.CallbackContext context);
         void OnCardUseThrow(InputAction.CallbackContext context);
         void OnCardSelectRelative(InputAction.CallbackContext context);
+    }
+    public interface IDragActions
+    {
+        void OnDragRotate(InputAction.CallbackContext context);
+        void OnMouseX(InputAction.CallbackContext context);
+        void OnMouseY(InputAction.CallbackContext context);
     }
 }
