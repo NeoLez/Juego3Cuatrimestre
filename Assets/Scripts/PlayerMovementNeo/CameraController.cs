@@ -5,20 +5,42 @@ public class CameraController : MonoBehaviour {
     [SerializeField] private Transform cam;
     [SerializeField] private float sensitivity = 1;
 
+    [SerializeField] private float sideSwayAngle;
+    [SerializeField] private float swaySpeed;
+    [SerializeField] private float horizontalAmount;
+    [SerializeField] private float verticalAmount;
+    [SerializeField] private float frequency;
+    [SerializeField] private float smooth;
+    private Vector2 cameraBobbingOffset;
+    private float currentSideSwayAngle;
+    
     [SerializeField] private float yaw;
     [SerializeField] private float pitch;
     
     private PlayerInputActions _input;
+    private MovementControllerTest _movementController;
 
-    private void Awake() {
+    private void Start() {
         _input = GameManager.Input;
-        cam = Camera.main.transform;
+        _movementController = GameManager.Player.GetComponent<MovementControllerTest>();
+        cam = GameManager.MainCamera.transform;
+        
         
         LockCamera();
     }
 
     private void Update() {
-        cam.position = cameraPosition.position;
+        Vector2 moveDir = _input.Movement.MoveDir.ReadValue<Vector2>();
+        
+        if (moveDir.magnitude > 0 && _movementController.GetState() != CharacterState.Air) {
+            HeadBob();
+        }
+        else {
+            cameraBobbingOffset = Vector2.Lerp(cameraBobbingOffset, Vector2.zero, smooth * Time.deltaTime);
+        }
+
+        Vector3 viewBobVector = GetHorizontalDirectionRightVector().Swizzle_x0y() * cameraBobbingOffset.x + Vector3.up * cameraBobbingOffset.y;
+        cam.position = cameraPosition.position + viewBobVector;
         
         yaw += _input.CameraMovement.MouseX.ReadValue<float>() * sensitivity;
         pitch += _input.CameraMovement.MouseY.ReadValue<float>() * sensitivity;
@@ -29,7 +51,17 @@ public class CameraController : MonoBehaviour {
         else if (yaw < 0)
             yaw += 360;
         
-        cam.localRotation = Quaternion.Euler(-pitch, yaw, 0);
+        
+        float target = -moveDir.x * sideSwayAngle;
+        currentSideSwayAngle = (target - currentSideSwayAngle) * swaySpeed + currentSideSwayAngle;
+        cam.localRotation = Quaternion.Euler(-pitch, yaw, currentSideSwayAngle);
+    }
+
+    private void HeadBob() {
+        cameraBobbingOffset.y = Mathf.Lerp(cameraBobbingOffset.y, Mathf.Sin(Time.time * frequency) * verticalAmount * 1.4f,
+            smooth * Time.deltaTime);
+        cameraBobbingOffset.x = Mathf.Lerp(cameraBobbingOffset.x, Mathf.Cos(Time.time * frequency / 2) * horizontalAmount * 1.6f,
+            smooth * Time.deltaTime);
     }
 
     public void LockCamera() {

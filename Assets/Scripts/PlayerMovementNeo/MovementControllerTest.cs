@@ -228,6 +228,10 @@ public class MovementControllerTest : MonoBehaviour {
         return false;
     }
     #endregion
+
+    public CharacterState GetState() {
+        return state;
+    }
 }
 
 public enum CharacterState {

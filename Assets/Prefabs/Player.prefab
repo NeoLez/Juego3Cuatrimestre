@@ -248,8 +248,14 @@ MonoBehaviour:
   cameraPosition: {fileID: 4740436010348776278}
   cam: {fileID: 0}
   sensitivity: 0.1
+  sideSwayAngle: 2.5
+  swaySpeed: 0.01
+  horizontalAmount: 0.05
+  verticalAmount: 0.08
+  frequency: 20
+  smooth: 10
   yaw: 0
-  pitch: 2
+  pitch: 0
 --- !u!114 &4790501068960925811
 MonoBehaviour:
   m_ObjectHideFlags: 0
