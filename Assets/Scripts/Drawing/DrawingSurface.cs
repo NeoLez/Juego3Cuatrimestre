@@ -12,6 +12,8 @@ public class DrawingSurface : MonoBehaviour {
     [SerializeField] private float lineOffset;
     private byte? _lastPoint;
 
+    [SerializeField] private LineRenderer lineRenderer;
+    
     [SerializeField] private float lineWidth;
     [SerializeField] private float circleLineWidth;
     private MeshFilter _lineMeshFilter;
@@ -57,11 +59,18 @@ public class DrawingSurface : MonoBehaviour {
         _lastPoint = null;
 
         _lineMeshFilter.mesh = new Mesh();
+        lineRenderer.ClearMesh();
+        lastAccepted = null;
     }
 
+    private Vector2? lastAccepted;
     public void NotifyPosition(Vector2 position) {
         Vector2 unscaled = PosToUnscaled(position);
-
+        if (lastAccepted == null || Vector2.Distance(position, lastAccepted.Value) > 0.02) {
+            lineRenderer.AddPoint(position);
+            lastAccepted = position;
+        }
+        
         for (byte i = 0; i< points.Length; i++) {
             Vector2 pointUnscaled = points[i].position;
             if (Vector2.Distance(pointUnscaled, unscaled) <= points[i].size) {
@@ -79,7 +88,7 @@ public class DrawingSurface : MonoBehaviour {
             }
         }
         
-        DrawGraphics();
+        //DrawGraphics();
     }
 
     private void DrawGraphics() {
