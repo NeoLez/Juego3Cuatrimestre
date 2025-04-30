@@ -53,7 +53,25 @@ public class ObjectStatus : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        switch (Type) {
+            case ObjectTypeEnum.PhysicsObject:
+                gameObject.layer = LayerMask.NameToLayer("Ground");
+                Renderer renderer = gameObject.GetComponent<Renderer>();
+                Material objMaterial = new Material(renderer.material);
+                renderer.material = objMaterial;
+
+                float disintegrateAmount = -1;
+                LeanTween.value(gameObject, disintegrateAmount, 1, 1).setOnUpdate((float val) =>
+                {
+                    disintegrateAmount = val;
+                    objMaterial.SetFloat("_Disintegrate", disintegrateAmount);
+                }).setDestroyOnComplete(true);
+                break;
+            default:
+                Destroy(gameObject);
+                break;
+        }
+        
     }
 
     public void ShowFireEffect()

@@ -17,6 +17,16 @@ public class FrozenEffect : StatusEffect
             case ObjectTypeEnum.PhysicsObject:
                 Target.gameObject.layer = LayerMask.NameToLayer("Ground");
                 Target.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                Renderer renderer = Target.GetComponent<Renderer>();
+                Material objMaterial = new Material(renderer.material);
+                renderer.material = objMaterial;
+
+                float frostAmount = 1;
+                LeanTween.value(Target.gameObject, frostAmount, -1, 1).setOnUpdate((float val) =>
+                {
+                    frostAmount = val;
+                    objMaterial.SetFloat("_IceTransition", frostAmount);
+                });
                 break;
         }
     }
@@ -32,6 +42,16 @@ public class FrozenEffect : StatusEffect
         switch (type.Type) {
             case ObjectTypeEnum.PhysicsObject:
                 Target.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                Renderer renderer = Target.GetComponent<Renderer>();
+                Material objMaterial = new Material(renderer.material);
+                renderer.material = objMaterial;
+
+                float frostAmount = -1;
+                LeanTween.value(Target.gameObject, frostAmount, 1, 1).setOnUpdate((float val) =>
+                {
+                    frostAmount = val;
+                    objMaterial.SetFloat("_IceTransition", frostAmount);
+                });
                 break;
         }
         
