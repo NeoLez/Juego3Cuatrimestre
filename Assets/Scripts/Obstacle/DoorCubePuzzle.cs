@@ -5,8 +5,8 @@ using UnityEngine;
 public class DoorCubePuzzle : MonoBehaviour
 {
     public GameObject door;
-    private bool cubeInZoneA = false;
-    private bool cubeInZoneB = false;
+    [SerializeField] private bool cubeInZoneA = false;
+    [SerializeField] private bool cubeInZoneB = false;
 
     public void CubeEnter(string zone)
     {
