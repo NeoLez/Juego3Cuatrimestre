@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
-public class WeepingAngel : MonoBehaviour
+public class MovingStatue : MonoBehaviour
 {
     public NavMeshAgent ai;
     
@@ -46,14 +46,8 @@ public class WeepingAngel : MonoBehaviour
             {
                 player.gameObject.SetActive(false);
                 jumpscareCam.gameObject.SetActive(true);
-                StartCoroutine(KillPlayer());
+                Destroy(GameManager.Player);
             }
         }
-    }
-
-    IEnumerator KillPlayer()
-    {
-        yield return new WaitForSeconds(jumpscareTime);
-        SceneManager.LoadScene(sceneAfterDeath);
     }
 }
