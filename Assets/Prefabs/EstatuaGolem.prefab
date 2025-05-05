@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2708098257810884246}
   - component: {fileID: 201271500650171800}
   - component: {fileID: 5474189448862045362}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 832064316039788260}
   - component: {fileID: 1606206235711034341}
   - component: {fileID: 4670026328540210628}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EstatuaGolem
   m_TagString: Enemy
   m_Icon: {fileID: 0}
