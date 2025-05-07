@@ -9,6 +9,8 @@ public class MovingStatue : MonoBehaviour
     
     public Transform player;
     
+    public Animator statueAnim;
+
     Vector3 _dest;
     
     public Camera playerCam, jumpscareCam;
@@ -33,12 +35,14 @@ public class MovingStatue : MonoBehaviour
         if(GeometryUtility.TestPlanesAABB(planes, this.gameObject.GetComponent<Renderer>().bounds))
         {
             ai.speed = 0;
+            statueAnim.speed = 0;
             ai.SetDestination(transform.position);
         }
         
         if (!GeometryUtility.TestPlanesAABB(planes, this.gameObject.GetComponent<Renderer>().bounds))
         {
             ai.speed = aiSpeed;
+            statueAnim.speed = 1;
             _dest = player.position;
             ai.destination = _dest;
             
