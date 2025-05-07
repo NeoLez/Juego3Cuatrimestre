@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 1;
+    public Transform respawnPosition;
     private int _currentHealth;
 
     void Start()
@@ -23,8 +21,8 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    void Die()
-    {
-        Destroy(gameObject);
+    public void Die() {
+        _currentHealth = maxHealth;
+        transform.position = respawnPosition.position;
     }
 }

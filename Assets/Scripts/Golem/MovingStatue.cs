@@ -42,11 +42,8 @@ public class MovingStatue : MonoBehaviour
             _dest = player.position;
             ai.destination = _dest;
             
-            if(distance <= catchDistance)
-            {
-                player.gameObject.SetActive(false);
-                jumpscareCam.gameObject.SetActive(true);
-                Destroy(GameManager.Player);
+            if(distance <= catchDistance) {
+                player.gameObject.GetComponent<PlayerHealth>().Die();
             }
         }
     }
