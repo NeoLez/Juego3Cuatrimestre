@@ -1484,7 +1484,7 @@ GameObject:
   - component: {fileID: 168202636}
   - component: {fileID: 168202635}
   - component: {fileID: 168202634}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: DisappearObject_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4270,7 +4270,7 @@ GameObject:
   - component: {fileID: 494336768}
   - component: {fileID: 494336767}
   - component: {fileID: 494336766}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: DisappearObject_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9773,7 +9773,7 @@ GameObject:
   - component: {fileID: 1039181827}
   - component: {fileID: 1039181826}
   - component: {fileID: 1039181825}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: DisappearObject_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11243,7 +11243,7 @@ GameObject:
   - component: {fileID: 1310782511}
   - component: {fileID: 1310782510}
   - component: {fileID: 1310782509}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: DisappearObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
