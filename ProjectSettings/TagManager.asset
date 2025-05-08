@@ -7,7 +7,6 @@ TagManager:
   - DrawingObject
   - RotatingPlatform
   - Enemy
-  - PuzzleBox
   layers:
   - Default
   - TransparentFX
