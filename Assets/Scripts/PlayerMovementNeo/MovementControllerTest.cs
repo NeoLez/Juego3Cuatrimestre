@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
@@ -13,17 +14,17 @@ public class MovementControllerTest : MonoBehaviour {
 
     [SerializeField] private float movementSpeed;
     [SerializeField] private float groundCheckRayLength;
-    [SerializeField] private LayerMask layer;
+    [SerializeField] private LayerMask groundLayer;
 
-    [SerializeField] private float airLerp;
-    [SerializeField] private float groundLerp;
+    [FormerlySerializedAs("airLerp")] [SerializeField] private float airMovementSnappiness;
+    [FormerlySerializedAs("groundLerp")] [SerializeField] private float groundMovementSnappiness;
 
     [SerializeField] private AnimationCurve angleBasedSpeedLimit;
     
     [SerializeField] private float maxSlopeAngle;
-    [SerializeField] private float currentSlopeAngle;
-    [SerializeField] private CharacterState state = CharacterState.Grounded;
-    private Vector3 _surfaceNormal;
+    private float _currentSlopeAngle;
+    private CharacterState _currentState = CharacterState.Grounded;
+    private Vector3 _currentSurfaceNormal;
     
     void Start() {
         _input = GameManager.Input;
@@ -45,43 +46,52 @@ public class MovementControllerTest : MonoBehaviour {
     private Vector3 _speed = Vector3.zero;
     private Vector3 _gravitySpeed = Vector3.zero;
     private Vector3 _prevJumpSpeed = Vector3.zero;
+    private Vector3 _targetGroundSpeed = Vector3.zero;
+    private Vector3 _currentGroundSpeed = Vector3.zero;
     private void FixedUpdate() {
         UpdateMovementState();
         HandleMovement();
         HandleJumping();
         
-        _rb.velocity = _speed + _gravitySpeed + _prevJumpSpeed;
+        _rb.velocity = _speed + _gravitySpeed + _prevJumpSpeed + _currentGroundSpeed;
         
         HandleDashing();
     }
 
+    public void SetGroundSpeed(Vector3 groundSpeed) {
+        _targetGroundSpeed = groundSpeed;
+    }
+    
     private void HandleMovement() {
         Vector3 worldMoveDir = (_cameraController.GetHorizontalDirectionForwardVector() * _moveDir.y +
                                 _cameraController.GetHorizontalDirectionRightVector() * _moveDir.x).Swizzle_x0y();
         _speed = worldMoveDir * movementSpeed;
         
-        switch (state) {
+        switch (_currentState) {
             case CharacterState.Air:
-                _speed = Vector3.Lerp(_prevSpeed, _speed, airLerp);
+                _speed = Vector3.Lerp(_prevSpeed, _speed, airMovementSnappiness);
+                _currentGroundSpeed = Vector3.Lerp(_currentGroundSpeed, _targetGroundSpeed, airMovementSnappiness * 0.05f);
                 _gravitySpeed += Physics.gravity * Time.fixedDeltaTime;
                 break;
             case CharacterState.Grounded:
                 CanDash = true;
-                _speed = Vector3.ProjectOnPlane(_speed, _surfaceNormal);
-                _speed = Vector3.Lerp(_prevSpeed, _speed, groundLerp);
+                _speed = Vector3.ProjectOnPlane(_speed, _currentSurfaceNormal);
+                _speed = Vector3.Lerp(_prevSpeed, _speed, groundMovementSnappiness);
+                _currentGroundSpeed = Vector3.Lerp(_currentGroundSpeed, _targetGroundSpeed, groundMovementSnappiness);
                 if(_gravitySpeed.y < 0)//Never make gravitySpeed 0 if it points away from the floor (caused by jump). 
                     _gravitySpeed = Vector3.zero;//Set to 0 to prevent it from accumulating speed while the player is standing.
                 break;
             case CharacterState.Sliding:
-                _speed = Vector3.ProjectOnPlane(_speed, _surfaceNormal);
+                _speed = Vector3.ProjectOnPlane(_speed, _currentSurfaceNormal);
                 if (_speed.y > 0) //Prevent player from climbing up the slope under any circumstance
                     _speed.y = 0;
             
-                _speed = Vector3.Lerp(_prevSpeed, _speed, groundLerp);
-            
+                _speed = Vector3.Lerp(_prevSpeed, _speed, groundMovementSnappiness);
+                _currentGroundSpeed = Vector3.Lerp(_currentGroundSpeed, _targetGroundSpeed, airMovementSnappiness * 0.05f);
+                
                 //Remove horizontal components from gravity vector and add them to the character velocity
                 //This makes sure that the lateral speed gained from sliding in slope lerps correctly when getting out of the slope
-                _gravitySpeed += Vector3.ProjectOnPlane(Physics.gravity * Time.fixedDeltaTime, _surfaceNormal).Swizzle_0y0();
+                _gravitySpeed += Vector3.ProjectOnPlane(Physics.gravity * Time.fixedDeltaTime, _currentSurfaceNormal).Swizzle_0y0();
                 Vector3 gravityClone = _gravitySpeed.Swizzle_xyz();
                 gravityClone.y = 0;
                 _speed += gravityClone;
@@ -91,11 +101,11 @@ public class MovementControllerTest : MonoBehaviour {
     }
     
     public void AdjustMovementSpeedWithSlope() {
-        if (_surfaceNormal != Vector3.zero && _surfaceNormal != Vector3.up) {
-            float slopeSpeedCoefficient = angleBasedSpeedLimit.Evaluate(currentSlopeAngle / 90f);
+        if (_currentSurfaceNormal != Vector3.zero && _currentSurfaceNormal != Vector3.up) {
+            float slopeSpeedCoefficient = angleBasedSpeedLimit.Evaluate(_currentSlopeAngle / 90f);
             
             //Calculates the two basis vectors for the new reference system that is relative to the plane rotation
-            Vector3 planeOppositeX = Vector3.ProjectOnPlane(_surfaceNormal, Vector3.up);
+            Vector3 planeOppositeX = Vector3.ProjectOnPlane(_currentSurfaceNormal, Vector3.up);
             Vector3 planeOppositeY = planeOppositeX.Swizzle_zyx();
             planeOppositeY.x *= -1;
             
@@ -115,7 +125,7 @@ public class MovementControllerTest : MonoBehaviour {
     }
     
     private void HandleJumping() {
-        if (!_currentlyJumping && state == CharacterState.Grounded)
+        if (!_currentlyJumping && _currentState == CharacterState.Grounded)
             _currentJumps = maxJumps;
         
         if (!_currentlyJumping && ShouldStartJump() && _currentJumps > 0 && _currentDashTime > _dashTime) {
@@ -124,20 +134,21 @@ public class MovementControllerTest : MonoBehaviour {
             _jumpStartTime = Time.fixedTime;
             _currentJumps--;
         }
+        
         if (_currentlyJumping) {
-            if (!_jumpInputRegistered) {
+            if (!_jumpInputRegistered) { //Reset if player let go of the jump
                 _currentlyJumping = false;
                 _jumpInputRegistered = false;
                 _prevJumpSpeed = Vector3.zero;
             }
-            else {
+            else { //Player keeps pressing jump
                 float percentage = (Time.fixedTime - _jumpStartTime) / maxJumpDuration;
-                if (percentage > 1.0) {
+                if (percentage > 1.0) { //Player pressed jump until the extra force was fully used
                     _currentlyJumping = false;
                     _jumpInputRegistered = false;
                     _prevJumpSpeed = Vector3.zero;
                 }
-                else {
+                else { //Continue applying constant upward force
                     _prevJumpSpeed = Vector3.up * (jumpCurve.Evaluate(percentage) * jumpHoldSpeed);
                 }
             }
@@ -145,24 +156,21 @@ public class MovementControllerTest : MonoBehaviour {
     }
 
     private void UpdateMovementState() {
-        if (Physics.SphereCast(_rb.position, _capsuleCollider.radius - 0.001f, Vector3.down, out RaycastHit hit, groundCheckRayLength, layer)) {
+        if (Physics.SphereCast(_rb.position, _capsuleCollider.radius - 0.001f, Vector3.down, out RaycastHit hit, groundCheckRayLength, groundLayer)) {
             //Do another raycast since the normal vector obtained through the SphereCast collider are inaccurate
-            if (Physics.Raycast(hit.point + Vector3.up, Vector3.down, out hit, 2f, layer)) {
-                currentSlopeAngle = Vector3.Angle(hit.normal, Vector3.up);
-                if(currentSlopeAngle <= maxSlopeAngle) {
-                    state = CharacterState.Grounded;
-                    _surfaceNormal = hit.normal;
-                }
+            if (Physics.Raycast(hit.point + Vector3.up, Vector3.down, out hit, 2f, groundLayer)) {
+                _currentSurfaceNormal = hit.normal;
+                _currentSlopeAngle = Vector3.Angle(_currentSurfaceNormal, Vector3.up);
+                
+                if(_currentSlopeAngle <= maxSlopeAngle)
+                    _currentState = CharacterState.Grounded;
                 else
-                {
-                    _surfaceNormal = hit.normal;
-                    state = CharacterState.Sliding;
-                }
+                    _currentState = CharacterState.Sliding;
             }
         }
         else {
-            _surfaceNormal = Vector3.up;
-            state = CharacterState.Air;
+            _currentSurfaceNormal = Vector3.up;
+            _currentState = CharacterState.Air;
         }
     }
     
@@ -186,11 +194,15 @@ public class MovementControllerTest : MonoBehaviour {
     private void InputJumpEnded(InputAction.CallbackContext ctx) {
         _jumpInputRegistered = false;
     }
+    
+    /// <summary>
+    /// Returns whether the player should jump taking input buffer into account to jump immediately when player touches the ground
+    /// </summary>
     private bool ShouldStartJump() {
         return _jumpInputRegistered && (
-            state == CharacterState.Air ||
-            state == CharacterState.Sliding ||
-            state == CharacterState.Grounded && Time.fixedTime - _jumpInputStartTime <= jumpInputBufferTime
+            _currentState == CharacterState.Air ||
+            _currentState == CharacterState.Sliding ||
+            _currentState == CharacterState.Grounded && Time.fixedTime - _jumpInputStartTime <= jumpInputBufferTime
         );
     }
     #endregion
@@ -203,6 +215,9 @@ public class MovementControllerTest : MonoBehaviour {
     private AnimationCurve _dashCurve;
     private bool CanDash = true;
 
+    /// <summary>
+    /// Move the player during the dash
+    /// </summary>
     private void HandleDashing() {
         if (_currentDashTime < _dashTime) {
             _gravitySpeed = Vector3.zero;
@@ -214,6 +229,10 @@ public class MovementControllerTest : MonoBehaviour {
             _rb.velocity = _dashVector * speed;
         }
     }
+    
+    /// <summary>
+    /// Start dash in the direction of moveVector
+    /// </summary>
     public bool Dash(Vector3 moveVector, float distance, float time, AnimationCurve curve) {
         if (CanDash) {
             _dashTime = time;
@@ -230,7 +249,7 @@ public class MovementControllerTest : MonoBehaviour {
     #endregion
 
     public CharacterState GetState() {
-        return state;
+        return _currentState;
     }
 }
 
