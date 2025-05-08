@@ -25,7 +25,9 @@ public class MovementControllerTest : MonoBehaviour {
     private float _currentSlopeAngle;
     private CharacterState _currentState = CharacterState.Grounded;
     private Vector3 _currentSurfaceNormal;
-    
+
+    private bool controlsInverted = false;
+
     void Start() {
         _input = GameManager.Input;
 
@@ -39,7 +41,8 @@ public class MovementControllerTest : MonoBehaviour {
     
     private Vector2 _moveDir = Vector2.zero;
     void Update() {
-        _moveDir = _input.Movement.MoveDir.ReadValue<Vector2>();
+        Vector2 input = _input.Movement.MoveDir.ReadValue<Vector2>();
+        _moveDir = controlsInverted ? -input : input;
     }
     
     private Vector3 _prevSpeed = Vector3.zero;
@@ -251,6 +254,11 @@ public class MovementControllerTest : MonoBehaviour {
     public CharacterState GetState() {
         return _currentState;
     }
+
+    public void InvertControls(bool state)
+    {
+        controlsInverted = state;
+    }
 }
 
 public enum CharacterState {
@@ -258,4 +266,6 @@ public enum CharacterState {
     Sliding,
     Air,
 }
+
+
 
