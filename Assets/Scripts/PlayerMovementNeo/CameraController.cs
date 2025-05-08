@@ -64,6 +64,14 @@ public class CameraController : MonoBehaviour {
             smooth * Time.deltaTime);
     }
 
+    public void AddPitch(float n) {
+        pitch += n;
+    }
+
+    public void AddYaw(float n) {
+        yaw += n;
+    }
+
     public void LockCamera() {
         Cursor.visible = false;
         _input.CameraMovement.Enable();

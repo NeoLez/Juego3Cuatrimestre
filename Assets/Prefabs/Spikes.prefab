@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7445972336718935330}
   - component: {fileID: 1740979615657128132}
   - component: {fileID: 5625486047974281731}
-  - component: {fileID: 8094519179847581969}
   m_Layer: 0
   m_Name: spike_3
   m_TagString: Untagged
@@ -84,27 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8094519179847581969
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159810562543899627}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1992047989754467130
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,7 +94,6 @@ GameObject:
   - component: {fileID: 1589190882215999800}
   - component: {fileID: 5855756824920541922}
   - component: {fileID: 6734536566195970842}
-  - component: {fileID: 4479993457192852600}
   m_Layer: 0
   m_Name: spike_2
   m_TagString: Untagged
@@ -189,27 +166,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4479993457192852600
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1992047989754467130}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2307128412852891746
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +177,6 @@ GameObject:
   - component: {fileID: 8655094117332042490}
   - component: {fileID: 9214686505441516288}
   - component: {fileID: 6690701790991450241}
-  - component: {fileID: 1138341925517070163}
   m_Layer: 0
   m_Name: spike
   m_TagString: Untagged
@@ -294,27 +249,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1138341925517070163
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2307128412852891746}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3798370246678198565
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,7 +260,6 @@ GameObject:
   - component: {fileID: 4015666802506776515}
   - component: {fileID: 9040428945558212754}
   - component: {fileID: 2601469763816073317}
-  - component: {fileID: 3345133741034618819}
   m_Layer: 0
   m_Name: spike_5
   m_TagString: Untagged
@@ -399,27 +332,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3345133741034618819
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3798370246678198565}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4390274288253384905
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,7 +343,6 @@ GameObject:
   - component: {fileID: 2813116179335962529}
   - component: {fileID: 629048871083795230}
   - component: {fileID: 7693716369579417508}
-  - component: {fileID: 6695803164069836580}
   m_Layer: 0
   m_Name: spike_8
   m_TagString: Untagged
@@ -504,27 +415,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6695803164069836580
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4390274288253384905}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4442456316710580594
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,7 +426,6 @@ GameObject:
   - component: {fileID: 2743143590618618560}
   - component: {fileID: 7561788991638106464}
   - component: {fileID: 7550502287963436921}
-  - component: {fileID: 5175956441753458440}
   m_Layer: 0
   m_Name: spike_4
   m_TagString: Untagged
@@ -609,27 +498,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5175956441753458440
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4442456316710580594}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5485006256481366967
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,7 +514,7 @@ GameObject:
   - component: {fileID: 5600106109101050318}
   - component: {fileID: 468160975158627221}
   m_Layer: 7
-  m_Name: wall
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -802,7 +670,6 @@ GameObject:
   - component: {fileID: 4990101872122614668}
   - component: {fileID: 1405767086709747181}
   - component: {fileID: 300141279734629126}
-  - component: {fileID: 4656074234559875456}
   m_Layer: 0
   m_Name: spike_6
   m_TagString: Untagged
@@ -875,27 +742,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4656074234559875456
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6061366005965604354}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6341691454559305662
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,7 +753,6 @@ GameObject:
   - component: {fileID: 4106053281973672998}
   - component: {fileID: 4640146057774145053}
   - component: {fileID: 5381307394222092652}
-  - component: {fileID: 2801988934232523700}
   m_Layer: 0
   m_Name: spike_7
   m_TagString: Untagged
@@ -980,27 +825,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2801988934232523700
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6341691454559305662}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7962893686595604262
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,7 +836,6 @@ GameObject:
   - component: {fileID: 8040631621073762722}
   - component: {fileID: 7548651727693135569}
   - component: {fileID: 608449625494737587}
-  - component: {fileID: 7340435842793113681}
   m_Layer: 0
   m_Name: spike_1
   m_TagString: Untagged
@@ -1085,24 +908,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7340435842793113681
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7962893686595604262}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
