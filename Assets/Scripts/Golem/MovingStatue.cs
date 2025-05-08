@@ -19,8 +19,6 @@ public class MovingStatue : MonoBehaviour
     
     public float catchDistance;
     
-    public float jumpscareTime;
-    
     public string sceneAfterDeath;
     
     void Update()
