@@ -142,11 +142,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 8
   groundCheckRayLength: 0.51
-  layer:
+  groundLayer:
     serializedVersion: 2
-    m_Bits: 8
-  airLerp: 0.4
-  groundLerp: 0.6
+    m_Bits: 0
+  airMovementSnappiness: 0.4
+  groundMovementSnappiness: 0.6
   angleBasedSpeedLimit:
     serializedVersion: 2
     m_Curve:
@@ -181,8 +181,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   maxSlopeAngle: 40
-  currentSlopeAngle: 0
-  state: 0
   jumpInputBufferTime: 0.15
   maxJumps: 2
   maxJumpDuration: 1
@@ -249,10 +247,10 @@ MonoBehaviour:
   cameraPosition: {fileID: 4740436010348776278}
   cam: {fileID: 0}
   sensitivity: 0.1
-  sideSwayAngle: 2.5
+  sideSwayAngle: 1.5
   swaySpeed: 0.01
   horizontalAmount: 0.05
-  verticalAmount: 0.08
+  verticalAmount: 0.06
   frequency: 20
   smooth: 10
   yaw: 0
@@ -416,6 +414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
+  respawnPosition: {fileID: 0}
 --- !u!1 &4130635824216452731
 GameObject:
   m_ObjectHideFlags: 0
