@@ -1,10 +1,12 @@
+using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Draw : MonoBehaviour
 {
     private PlayerInputActions _input;
-    private DrawingSurface _currentSurface;
-    [SerializeField] private LayerMask Layer;
+    private DrawingSurfac _currentSurface;
+    [SerializeField] private LayerMask firstPersonLayer;
 
     private void Awake() {
         _input = GameManager.Input;
@@ -23,23 +25,22 @@ public class Draw : MonoBehaviour
         
         
         Ray ray = Camera.main.ScreenPointToRay(_input.BookActions.MousePosition.ReadValue<Vector2>());
-        if (!Physics.Raycast(ray, out RaycastHit hit, 50f, Layer)) {
-            return;
-        }
+        RaycastHit[] hits = Physics.RaycastAll(ray, 5f);
+        Array.Sort(hits, (hit1, hit2) => hit1.distance.CompareTo(hit2.distance));
 
-        if (_currentSurface is null) {
-            if (hit.collider.TryGetComponent<DrawingSurface>(out var drawingSurface)) {
-                _currentSurface = drawingSurface;
+        foreach (var hitt in hits) {
+            if (hitt.transform.gameObject.TryGetComponent(out DrawingSurface surface)) {
+                _currentSurface = surface;
+                _currentSurface.NotifyPosition(hitt.textureCoord);
+                break;
             }
-            else {
-                return;
+            if (hitt.transform.gameObject.TryGetComponent(out DrawingSurfacePuzzle surfacePuzzle)) {
+                _currentSurface = surfacePuzzle;
+                _currentSurface.NotifyPosition(hitt.textureCoord);
+                break;
             }
         }
         
-
-        if (_currentSurface.gameObject == hit.collider.gameObject) {
-            _currentSurface.NotifyPosition(hit.textureCoord);            
-        }
         
     }
 }
