@@ -3,7 +3,7 @@ using UnityEngine;
 
 [Serializable]
 public class Drawing {
-    [SerializeField] private Line[] lines;
+    [SerializeField] public Line[] lines;
     private readonly int _hashCode;
 
     public Drawing(Line[] lines) {

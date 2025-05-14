@@ -1,25 +1,30 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Optional;
 using Optional.Unsafe;
+using Unity.Mathematics;
 using UnityEngine;
 
-public class DrawingSurface : MonoBehaviour, DrawingSurfac {
-    [SerializeField] private DrawingPoint[] points;
+public class DrawingSurfacePuzzle : MonoBehaviour, DrawingSurfac {
+    [SerializeField] public DrawingPoint[] points;
     [SerializeField] private Material lineMaterial;
     [SerializeField] private Material circleMaterial;
     [SerializeField] private List<Line> tuples = new(4);
     [SerializeField] private float lineOffset;
     private byte? _lastPoint;
-
-    [SerializeField] private LineRenderer lineRenderer;
     
     [SerializeField] private float lineWidth;
     [SerializeField] private float circleLineWidth;
     private MeshFilter _lineMeshFilter;
     [SerializeField] private int circleResolution;
     private MeshFilter _circlesMeshFilter;
+
+    private DrawingConsumer consumer;
+    public event Action OnPuzzleSolved;
     private void Awake() {
+        consumer = new DrawingConsumerAllPointsConnected();
+        
         GameObject linesObject = new GameObject();
         linesObject.transform.SetParent(transform);
         linesObject.transform.localPosition = Vector3.back * lineOffset;
@@ -27,7 +32,7 @@ public class DrawingSurface : MonoBehaviour, DrawingSurfac {
         _lineMeshFilter = linesObject.AddComponent<MeshFilter>();
         var meshRenderer = linesObject.AddComponent<MeshRenderer>();
         meshRenderer.material = lineMaterial;
-        linesObject.gameObject.layer = LayerMask.NameToLayer("FirstPerson");
+        //linesObject.gameObject.layer = LayerMask.NameToLayer("FirstPerson");
         
         GameObject circlesObject = new GameObject();
         circlesObject.transform.SetParent(transform);
@@ -36,40 +41,27 @@ public class DrawingSurface : MonoBehaviour, DrawingSurfac {
         _circlesMeshFilter = circlesObject.AddComponent<MeshFilter>();
         var circlesMeshRenderer = circlesObject.AddComponent<MeshRenderer>();
         circlesMeshRenderer.material = circleMaterial;
-        circlesObject.layer = LayerMask.NameToLayer("FirstPerson");
+        //circlesObject.layer = LayerMask.NameToLayer("FirstPerson");
         
         DrawCircles();
     }
 
     public void FinishDrawing() {
-        foreach (var point in points) {
-            point.selected = false;
-        }
-
-        Drawing res = new Drawing(tuples.ToHashSet().ToArray());
-        Option<CardInfoSO> s = DrawingPatternDatabase.GetSpellFromDrawing(res);
-        if (s.HasValue) {
-            //WHAT IT DOES WITH THE VALUE COULD BE CHANGED TO HAVE DIFFERENT KINDS OF DRAWING SURFACES, MAYBE HAVING
-            //A CALLBACK EXTERNAL SCRIPTS CAN SUBSCRIBE TO WOULD BE GOOD
-            CardStorage cardStorage = GameManager.Player.GetComponent<CardStorage>();
-            cardStorage.AddCard(s.ValueOrFailure());
-        }
+        Drawing drawing = new Drawing(tuples.ToHashSet().ToArray());
+        
+        if(consumer.Consume(drawing, points.Length))
+            OnPuzzleSolved?.Invoke();
 
         tuples.Clear();
         _lastPoint = null;
 
         _lineMeshFilter.mesh = new Mesh();
-        lineRenderer.ClearMesh();
         lastAccepted = null;
     }
 
     private Vector2? lastAccepted;
     public void NotifyPosition(Vector2 position) {
         Vector2 unscaled = PosToUnscaled(position);
-        if (lastAccepted == null || Vector2.Distance(position, lastAccepted.Value) > 0.02) {
-            lineRenderer.AddPoint(position);
-            lastAccepted = position;
-        }
         
         for (byte i = 0; i< points.Length; i++) {
             Vector2 pointUnscaled = points[i].position;
@@ -88,7 +80,7 @@ public class DrawingSurface : MonoBehaviour, DrawingSurfac {
             }
         }
         
-        //DrawGraphics();
+        DrawGraphics();
     }
 
     private void DrawGraphics() {
@@ -124,8 +116,30 @@ public class DrawingSurface : MonoBehaviour, DrawingSurfac {
         _lineMeshFilter.mesh = mesh;
     }
 
+    [SerializeField] private Vector2 posToWorld;
+    [SerializeField] private Transform objec;
     private void Update() {
         DrawCircles();
+        CheckForBarriers();
+    }
+
+    private void CheckForBarriers() {
+        var a = points.Select(((point, i) => {
+            return PosToWorld(point.position);
+        })).ToArray();
+        
+        foreach (var tuple in tuples) {
+            Vector3 firstPos = a[tuple.firstByte];
+            Vector3 secondPos = a[tuple.secondByte];
+            Vector3 diff = secondPos - firstPos;
+            Ray ray = new Ray(firstPos, diff);
+            Debug.Log(firstPos + " " + secondPos + " " + diff);
+            if (Physics.Raycast(ray, diff.magnitude, LayerMask.GetMask("DrawingBarrier"))) {
+                Debug.Log("a");
+                tuples.Clear();
+                break;
+            }
+        }
     }
 
     private void DrawCircles() {
@@ -158,5 +172,13 @@ public class DrawingSurface : MonoBehaviour, DrawingSurfac {
 
     private Vector2 PosToUnscaled(Vector2 v) {
         return new Vector2((v.x - 0.5f) * transform.localScale.x, (v.y - 0.5f) * transform.localScale.y);
+    }
+
+    public Vector3 PosToWorld(Vector2 v) {
+        Vector2 unscaled = v.Swizzle_xy0();
+        float3x3 matrix = new float3x3(transform.right, transform.up, transform.forward);
+        float3x3 matrixInverse = math.inverse(matrix);
+        float3 result = math.mul(new float3(unscaled.x, unscaled.y, 0), matrixInverse);
+        return new Vector3(result.x, result.y, result.z) + transform.position;
     }
 }
