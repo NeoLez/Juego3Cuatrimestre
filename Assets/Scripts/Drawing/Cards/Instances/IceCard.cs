@@ -14,7 +14,7 @@ public class IceCard : ThrowCard{
         var rhit = hit.Value;
         
         if (rhit.collider.gameObject.TryGetComponent(out ObjectStatus status)) {
-            status.ApplyEffect(new FrozenEffect(3f));
+            status.ApplyEffect(new FrozenEffect(5f));
         }
         RegisterUse();
     }
