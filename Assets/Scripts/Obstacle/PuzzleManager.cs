@@ -14,30 +14,15 @@ public class PuzzleData
 
 public class PuzzleManager : MonoBehaviour
 {
-    public static PuzzleManager Instance;
-
     [Header("Puzzle List")]
     public List<PuzzleData> puzzles = new List<PuzzleData>();
 
-    private void Awake()
-    {
-        // Singleton pattern
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-    }
-
     public void PlaceBoxInPuzzle(int puzzleIndex)
     {
-        // Valid index check
         if (puzzleIndex < 0 || puzzleIndex >= puzzles.Count) return;
 
         PuzzleData puzzle = puzzles[puzzleIndex];
 
-        // Avoid repeating completion
         if (puzzle.completed) return;
 
         puzzle.placedBoxes++;
@@ -46,12 +31,16 @@ public class PuzzleManager : MonoBehaviour
         {
             puzzle.completed = true;
 
-            // Deactivate door
             if (puzzle.door != null)
-                puzzle.door.SetActive(false);
+            {
+                SystemDoor doorScript = puzzle.door.GetComponent<SystemDoor>();
+                if (doorScript != null)
+                {
+                    doorScript.OpenDoor();
+                }
+            }
 
-            // Play sound
-            if (puzzle.doorOpenSound != null && puzzle.door != null)
+            if (puzzle.doorOpenSound != null)
                 AudioSource.PlayClipAtPoint(puzzle.doorOpenSound, puzzle.door.transform.position);
         }
     }

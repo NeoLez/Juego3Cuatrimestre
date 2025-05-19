@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(DrawingSurfacePuzzle))]
-public class DisableOnPuzzleSolved : MonoBehaviour {
-    [SerializeField] private GameObject gameObjectToDisable;
-    private void Awake() {
+public class DisableOnPuzzleSolved : MonoBehaviour
+{
+    [SerializeField] private SystemDoor doorToOpen;
+
+    private void Awake()
+    {
         GetComponent<DrawingSurfacePuzzle>().OnPuzzleSolved += () => {
-            gameObjectToDisable.SetActive(false);
+            if (doorToOpen != null)
+                doorToOpen.OpenDoor();
         };
     }
 }
