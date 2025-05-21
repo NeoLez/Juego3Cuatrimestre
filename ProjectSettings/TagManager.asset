@@ -7,6 +7,8 @@ TagManager:
   - DrawingObject
   - RotatingPlatform
   - Enemy
+  - particles
+  - Scanneable
   layers:
   - Default
   - TransparentFX

@@ -8,6 +8,7 @@ public class ScannerEffect : MonoBehaviour
     public float scanSpeed = 5f; 
     public float scanDuration = 2f;
     public LayerMask scanMask;
+    public string targetTag = "Scanneable";
 
     private float currentRadius = 0f;
     private float timer = 0f;
@@ -21,10 +22,10 @@ public class ScannerEffect : MonoBehaviour
         timer += Time.deltaTime;
         currentRadius = Mathf.Lerp(0f, maxScanRadius, timer / scanDuration);
 
-        Collider[] hits = Physics.OverlapSphere(transform.position, currentRadius, scanMask);
+        Collider[] hits = Physics.OverlapSphere(transform.position, currentRadius);
         foreach (Collider hit in hits)
         {
-            if (!alreadyDetected.Contains(hit))
+            if (!alreadyDetected.Contains(hit) && hit.CompareTag(targetTag))
             {
                 var scannable = hit.GetComponent<ScannableObject>();
                 if (scannable != null)
