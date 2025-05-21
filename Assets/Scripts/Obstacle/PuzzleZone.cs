@@ -4,8 +4,10 @@ using UnityEngine.UIElements;
 public class PuzzleZone : MonoBehaviour
 {
     public Transform snapPoint;
-    public int puzzleIndex; 
+    public int puzzleIndex;
     public AudioClip placeBoxSound;
+
+    public PuzzleManager puzzleManager; // 👈 Nueva referencia
 
     private bool isOccupied = false;
     private AudioSource audioSource;
@@ -32,7 +34,9 @@ public class PuzzleZone : MonoBehaviour
             if (placeBoxSound != null)
                 audioSource.PlayOneShot(placeBoxSound);
 
-            PuzzleManager.Instance.PlaceBoxInPuzzle(puzzleIndex);
+            // 🔁 Usamos la referencia pública
+            if (puzzleManager != null)
+                puzzleManager.PlaceBoxInPuzzle(puzzleIndex);
         }
     }
 }
