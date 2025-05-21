@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Drag : MonoBehaviour {
@@ -107,10 +108,15 @@ public class Drag : MonoBehaviour {
             StopDrag();
         }
     }
-
-    private void StopDrag() {
+    private IEnumerator ChangeLayer(GameObject G )
+    {
+        yield return new WaitForSeconds(0.5f);
+        G.layer = LayerMask.NameToLayer("Ground");
+    }
+    private void StopDrag()
+    {
         currentlyDragging = false;
-        obj.gameObject.layer = LayerMask.NameToLayer("Ground");
+        StartCoroutine(ChangeLayer(obj.gameObject));
         obj = null;
     }
 }

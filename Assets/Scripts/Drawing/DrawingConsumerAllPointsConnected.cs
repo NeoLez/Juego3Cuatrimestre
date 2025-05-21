@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public class DrawingConsumerAllPointsConnected : DrawingConsumer{
-    public bool Consume(Drawing drawing, int pointAmount) {
+    public override bool Consume(Drawing drawing, int pointAmount) {
         bool[] containsPoint = new bool[pointAmount];
         foreach (var line in drawing.lines) {
             containsPoint[line.firstByte] = true;

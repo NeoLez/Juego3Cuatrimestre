@@ -22,8 +22,9 @@ public class DrawingSurfacePuzzle : MonoBehaviour, DrawingSurfac {
 
     private DrawingConsumer consumer;
     public event Action OnPuzzleSolved;
-    private void Awake() {
-        consumer = new DrawingConsumerAllPointsConnected();
+    private void Awake()
+    {
+        consumer = GetComponent<DrawingConsumer>();
         
         GameObject linesObject = new GameObject();
         linesObject.transform.SetParent(transform);

@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 1439281185571084781}
   - component: {fileID: 6294628752459747287}
   - component: {fileID: 3190868460916151871}
+  - component: {fileID: 5871726448315248696}
   m_Layer: 0
   m_Name: PuzzleDrawingSurface
   m_TagString: Untagged
@@ -250,7 +251,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a8c40e15c7e47cb97a433fa59bea033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObjectToDisable: {fileID: 0}
+  doorToOpen: {fileID: 0}
+--- !u!114 &5871726448315248696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6655956279613710552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24d5ee145adf4e10bb288c0cf909e618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7266909556050262604
 GameObject:
   m_ObjectHideFlags: 0
