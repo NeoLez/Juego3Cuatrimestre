@@ -12,7 +12,7 @@ public class FrozenEffect : StatusEffect
         switch (type.Type)
         {
             case ObjectTypeEnum.MovingObject:
-                Target.GetComponent<MovingObstacle>().Freeze(0.3f, Duration); // Reduce a 30% de la velocidad
+                Target.GetComponent<MovingObstacle>().Freeze(0f, Duration); // Reduce a 30% de la velocidad
                 break;
             case ObjectTypeEnum.PhysicsObject:
                 Target.gameObject.layer = LayerMask.NameToLayer("Ground");
