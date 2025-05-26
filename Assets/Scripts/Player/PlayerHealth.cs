@@ -23,6 +23,16 @@ public class PlayerHealth : MonoBehaviour
 
     public void Die() {
         _currentHealth = maxHealth;
-        transform.position = respawnPosition.position;
+        Respawn();
+    }
+    
+    public void Respawn()
+    {
+        Vector3 checkpointPos = CheckpointManager.Instance.GetCheckpoint();
+
+        if (checkpointPos != Vector3.zero)
+        {
+            transform.position = checkpointPos;
+        }
     }
 }
