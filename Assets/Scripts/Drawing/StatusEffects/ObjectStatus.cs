@@ -17,6 +17,10 @@ public class ObjectStatus : MonoBehaviour
     private GameObject fireEffectInstance;
     private GameObject iceEffectInstance;
 
+    public AudioClip iceEffectSound;
+    public AudioClip iceEffectImpactSound;
+    public AudioClip fireEffectSound;
+
     private List<StatusEffect> activeEffects = new List<StatusEffect>();
 
     void Start()
