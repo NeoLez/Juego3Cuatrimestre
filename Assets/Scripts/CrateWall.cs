@@ -30,12 +30,17 @@ public class CrateWall : MonoBehaviour {
     {
         foreach (ModifiableContactPair pair in pairs) {
             if (pair.bodyInstanceID == wallInstanceId || pair.otherBodyInstanceID == wallInstanceId) {
+                bool foundCrate = false;
                 foreach (var crateID in crateListIDs) {
                     if (pair.bodyInstanceID == crateID || pair.otherBodyInstanceID == crateID) {
-                        for (int i = 0; i < pair.contactCount; i++) {
-                            pair.IgnoreContact(i);
-                        }
+                        foundCrate = true;
                         break;
+                    }
+                }
+
+                if (!foundCrate) {
+                    for (int i = 0; i < pair.contactCount; i++) {
+                        pair.IgnoreContact(i);
                     }
                 }
             }
