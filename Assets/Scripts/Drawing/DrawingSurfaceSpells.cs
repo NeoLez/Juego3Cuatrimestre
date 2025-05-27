@@ -4,7 +4,7 @@ using Optional;
 using Optional.Unsafe;
 using UnityEngine;
 
-public class DrawingSurface : MonoBehaviour, DrawingSurfac {
+public class DrawingSurfaceSpells : MonoBehaviour, IDrawingSurface {
     [SerializeField] private DrawingPoint[] points;
     [SerializeField] private Material lineMaterial;
     [SerializeField] private Material circleMaterial;
@@ -52,7 +52,7 @@ public class DrawingSurface : MonoBehaviour, DrawingSurfac {
             //WHAT IT DOES WITH THE VALUE COULD BE CHANGED TO HAVE DIFFERENT KINDS OF DRAWING SURFACES, MAYBE HAVING
             //A CALLBACK EXTERNAL SCRIPTS CAN SUBSCRIBE TO WOULD BE GOOD
             CardStorage cardStorage = GameManager.Player.GetComponent<CardStorage>();
-            cardStorage.AddCard(s.ValueOrFailure());
+            cardStorage.ReplaceCard(s.ValueOrFailure());
         }
 
         tuples.Clear();

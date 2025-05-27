@@ -5,7 +5,7 @@ public class CardStorage : MonoBehaviour {
     [SerializeField] private GameObject[] cardUIGameObjects = new GameObject[CardsMax];
     [SerializeField] private GameObject uiPanel;
     private const int CardsMax = 6;
-    [SerializeField] private int CurrentlySelected = -1;
+    [SerializeField] private int CurrentlySelected;
     
 
     public bool AddCard(CardInfoSO cardInfo) {
@@ -45,6 +45,20 @@ public class CardStorage : MonoBehaviour {
         
 
         return result;
+    }
+
+    public void ReplaceCard(CardInfoSO info) {
+        if (_cards[CurrentlySelected] != null) {
+            _cards[CurrentlySelected].Disable();
+            Destroy(cardUIGameObjects[CurrentlySelected]);
+        }
+        _cards[CurrentlySelected] = info.GetCard(CurrentlySelected);
+        _cards[CurrentlySelected].Enable();
+        GameObject card = Instantiate(info.cardUIPrefab, uiPanel.transform);
+        cardUIGameObjects[CurrentlySelected] = card;
+        card.transform.SetSiblingIndex(CurrentlySelected);
+        card.GetComponent<RectTransform>().anchoredPosition = Vector2.right * (120 * CurrentlySelected);
+        cardUIGameObjects[CurrentlySelected].transform.localPosition -= Vector3.up * 20;
     }
 
     public void SetCurrentCard(int pos) {

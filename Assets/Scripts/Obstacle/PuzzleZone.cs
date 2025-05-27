@@ -24,8 +24,8 @@ public class PuzzleZone : MonoBehaviour
         if (!isOccupied && other.GetComponent<Box>() != null)
         {
             Rigidbody rb = other.GetComponent<Rigidbody>();
-            if (rb != null) rb.isKinematic = true;
-
+            rb.isKinematic = true;
+            GameManager.Player.GetComponent<Drag>().DisengageObject(other.gameObject);
             other.transform.position = snapPoint.position;
             other.transform.rotation = snapPoint.rotation;
 

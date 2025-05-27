@@ -6,7 +6,7 @@ using Optional.Unsafe;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class DrawingSurfacePuzzle : MonoBehaviour, DrawingSurfac {
+public class DrawingSurfacePuzzle : MonoBehaviour, IDrawingSurface {
     [SerializeField] public DrawingPoint[] points;
     [SerializeField] private Material lineMaterial;
     [SerializeField] private Material circleMaterial;
@@ -134,7 +134,6 @@ public class DrawingSurfacePuzzle : MonoBehaviour, DrawingSurfac {
             Vector3 secondPos = a[tuple.secondByte];
             Vector3 diff = secondPos - firstPos;
             Ray ray = new Ray(firstPos, diff);
-            Debug.Log(firstPos + " " + secondPos + " " + diff);
             if (Physics.Raycast(ray, diff.magnitude, LayerMask.GetMask("DrawingBarrier"))) {
                 Debug.Log("a");
                 tuples.Clear();

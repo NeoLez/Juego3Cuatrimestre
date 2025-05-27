@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 public class Draw : MonoBehaviour
 {
     private PlayerInputActions _input;
-    private DrawingSurfac _currentSurface;
+    private IDrawingSurface _currentSurface;
     [SerializeField] private LayerMask firstPersonLayer;
 
     private void Awake() {
@@ -29,7 +29,7 @@ public class Draw : MonoBehaviour
         Array.Sort(hits, (hit1, hit2) => hit1.distance.CompareTo(hit2.distance));
 
         foreach (var hitt in hits) {
-            if (hitt.transform.gameObject.TryGetComponent(out DrawingSurface surface)) {
+            if (hitt.transform.gameObject.TryGetComponent(out DrawingSurfaceSpells surface)) {
                 _currentSurface = surface;
                 _currentSurface.NotifyPosition(hitt.textureCoord);
                 break;

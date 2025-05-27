@@ -18,4 +18,5 @@ MonoBehaviour:
   inkCost: 0
   maxUses: 1
   cardUIPrefab: {fileID: 2933685303529508442, guid: 9eb9279aab71f864c87d161d2cc1c909, type: 3}
+  cooldown: 1
   distance: 6
