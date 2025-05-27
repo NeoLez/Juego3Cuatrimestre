@@ -60,4 +60,7 @@ public class FrozenEffect : StatusEffect
         
         Target.HideIceEffect();
     }
+
+    public override void Die() {
+    }
 }
