@@ -10,7 +10,6 @@ public class BurningEffect : StatusEffect
     public override void Apply()
     {
         Target.ShowFireEffect();
-        Target.gameObject.layer = LayerMask.NameToLayer("Ground");
         Renderer renderer = Target.GetComponent<Renderer>();
         Material objMaterial = new Material(renderer.material);
         renderer.material = objMaterial;
