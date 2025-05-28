@@ -3,18 +3,21 @@ using UnityEngine;
 public class BurningEffect : StatusEffect
 {
     private float tick = 1f;
+    private AudioSource source;
 
     public BurningEffect(float duration) : base(duration) { }
 
     public override void Apply()
     {
         Target.ShowFireEffect();
-        Target.gameObject.layer = LayerMask.NameToLayer("Ground");
         Renderer renderer = Target.GetComponent<Renderer>();
         Material objMaterial = new Material(renderer.material);
         renderer.material = objMaterial;
 
         float fireAmount = 1;
+        var type = Target.GetComponent<ObjectStatus>();
+        source = GameManager.AudioSystem.PlaySoundLooping(type.fireEffectSound, type.gameObject.transform.position);
+        GameManager.AudioSystem.PlaySound(type.fireImpactSound);
         LeanTween.value(Target.gameObject, fireAmount, -1, 1).setOnUpdate((float val) =>
         {
             fireAmount = val;
@@ -26,6 +29,8 @@ public class BurningEffect : StatusEffect
     {
         Duration -= deltaTime;
         tick -= deltaTime;
+
+        source.transform.position = Target.transform.position;
 
         if (tick <= 0f)
         {
@@ -53,5 +58,11 @@ public class BurningEffect : StatusEffect
         }
         
         Target.HideFireEffect();
+    }
+
+    public override void Die() {
+        LeanTween.value(Target.gameObject, 1.0f, 0.0f, 1.5f).setOnUpdate((float val) => {
+            source.volume = val;
+        }).setOnComplete(_ => GameObject.Destroy(source.gameObject));
     }
 }

@@ -19,6 +19,7 @@ public class ObjectStatus : MonoBehaviour
 
     public AudioClip iceEffectSound;
     public AudioClip iceEffectImpactSound;
+    public AudioClip fireImpactSound;
     public AudioClip fireEffectSound;
 
     private List<StatusEffect> activeEffects = new List<StatusEffect>();
@@ -57,6 +58,9 @@ public class ObjectStatus : MonoBehaviour
 
     private void Die()
     {
+        foreach(var effect in activeEffects)
+            effect.Die();
+            
         switch (Type) {
             case ObjectTypeEnum.PhysicsObject:
                 gameObject.layer = LayerMask.NameToLayer("Ground");
@@ -65,7 +69,7 @@ public class ObjectStatus : MonoBehaviour
                 renderer.material = objMaterial;
 
                 float disintegrateAmount = -1;
-                LeanTween.value(gameObject, disintegrateAmount, 1, 1).setOnUpdate((float val) =>
+                LeanTween.value(gameObject, disintegrateAmount, 1, 2).setOnUpdate((float val) =>
                 {
                     disintegrateAmount = val;
                     objMaterial.SetFloat("_Disintegrate", disintegrateAmount);

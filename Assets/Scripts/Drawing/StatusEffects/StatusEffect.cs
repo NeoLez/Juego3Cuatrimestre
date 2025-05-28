@@ -16,6 +16,7 @@ public abstract class StatusEffect
     public abstract void Apply();
     public abstract void Update(float deltaTime);
     public abstract void Remove();
+    public abstract void Die();
 
     public bool IsComplete => Duration <= 0f;
 }
