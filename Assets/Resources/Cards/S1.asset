@@ -47,3 +47,4 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   forceStrength: 10
+  dashAudio: {fileID: 8300000, guid: 6f8fa9db302a8154cb7ce77cabfffb3f, type: 3}

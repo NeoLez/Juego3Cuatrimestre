@@ -11164,6 +11164,7 @@ MonoBehaviour:
   iceEffectPrefab: {fileID: 0}
   iceEffectSound: {fileID: 0}
   iceEffectImpactSound: {fileID: 0}
+  fireImpactSound: {fileID: 0}
   fireEffectSound: {fileID: 0}
 --- !u!4 &391819717 stripped
 Transform:
@@ -23618,6 +23619,7 @@ MonoBehaviour:
   iceEffectPrefab: {fileID: 4146312147535687916, guid: 665460fa2b3cbd54098df1b5b9ebca83, type: 3}
   iceEffectSound: {fileID: 0}
   iceEffectImpactSound: {fileID: 0}
+  fireImpactSound: {fileID: 0}
   fireEffectSound: {fileID: 0}
 --- !u!33 &782925235
 MeshFilter:
@@ -26883,6 +26885,7 @@ MonoBehaviour:
   iceEffectPrefab: {fileID: 0}
   iceEffectSound: {fileID: 0}
   iceEffectImpactSound: {fileID: 0}
+  fireImpactSound: {fileID: 0}
   fireEffectSound: {fileID: 0}
 --- !u!1001 &907462616
 PrefabInstance:
@@ -29804,6 +29807,7 @@ MonoBehaviour:
   iceEffectPrefab: {fileID: 0}
   iceEffectSound: {fileID: 0}
   iceEffectImpactSound: {fileID: 0}
+  fireImpactSound: {fileID: 0}
   fireEffectSound: {fileID: 0}
 --- !u!1001 &1002515343
 PrefabInstance:
@@ -35388,6 +35392,7 @@ MonoBehaviour:
   iceEffectPrefab: {fileID: 0}
   iceEffectSound: {fileID: 0}
   iceEffectImpactSound: {fileID: 0}
+  fireImpactSound: {fileID: 0}
   fireEffectSound: {fileID: 0}
 --- !u!1001 &1180212161
 PrefabInstance:
@@ -47665,6 +47670,7 @@ MonoBehaviour:
   iceEffectPrefab: {fileID: 0}
   iceEffectSound: {fileID: 0}
   iceEffectImpactSound: {fileID: 0}
+  fireImpactSound: {fileID: 0}
   fireEffectSound: {fileID: 0}
 --- !u!64 &1532050603
 MeshCollider:
@@ -55642,7 +55648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3726948654212901502, guid: 7b0a47058df02a140a1bf52da1619c24, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.08
+      value: -10.86
       objectReference: {fileID: 0}
     - target: {fileID: 3726948654212901502, guid: 7b0a47058df02a140a1bf52da1619c24, type: 3}
       propertyPath: m_LocalPosition.y
@@ -55650,7 +55656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3726948654212901502, guid: 7b0a47058df02a140a1bf52da1619c24, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.78
+      value: -42.33
       objectReference: {fileID: 0}
     - target: {fileID: 3726948654212901502, guid: 7b0a47058df02a140a1bf52da1619c24, type: 3}
       propertyPath: m_LocalRotation.w

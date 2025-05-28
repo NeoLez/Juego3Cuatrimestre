@@ -13,6 +13,8 @@ public class DashCard : ThrowCard {
         base.OnSelfActivation();
         if (GameManager.Player.GetComponent<MovementControllerTest>().Dash(Vector3.ProjectOnPlane(GameManager.MainCamera.transform.forward, Vector3.up).normalized,
                 _info.moveDistance, _info.time, _info.curve)) {
+            
+            GameManager.AudioSystem.PlaySound(_info.dashAudio);
             LeanTween.cancel(GameManager.MainCamera.gameObject);
             LeanTween.value(GameManager.MainCamera.gameObject, GameManager.CamFOV, dashFOV, dashInTime)
                 .setOnUpdate((float fov) => GameManager.MainCamera.fieldOfView = fov)
@@ -32,6 +34,7 @@ public class DashCard : ThrowCard {
         
         var rhit = hit.Value;
         if(rhit.rigidbody != null) {
+            GameManager.AudioSystem.PlaySound(_info.dashAudio);
             GameManager.Player.GetComponent<Drag>().DisengageObject(rhit.collider.gameObject);
             rhit.rigidbody.AddForce(_info.forceStrength * (rhit.point - GameManager.MainCamera.transform.position), ForceMode.VelocityChange);
         }
