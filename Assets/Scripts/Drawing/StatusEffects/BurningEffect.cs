@@ -61,7 +61,7 @@ public class BurningEffect : StatusEffect
     }
 
     public override void Die() {
-        LeanTween.value(Target.gameObject, 1.0f, 0.0f, 1.5f).setOnUpdate((float val) => {
+        LeanTween.value(source.gameObject, 1.0f, 0.0f, 1.5f).setOnUpdate((float val) => {
             source.volume = val;
         }).setOnComplete(_ => GameObject.Destroy(source.gameObject));
     }

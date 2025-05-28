@@ -68,8 +68,8 @@ public class ObjectStatus : MonoBehaviour
                 Material objMaterial = new Material(renderer.material);
                 renderer.material = objMaterial;
 
-                float disintegrateAmount = -1;
-                LeanTween.value(gameObject, disintegrateAmount, 1, 2).setOnUpdate((float val) =>
+                float disintegrateAmount = -0.5f;
+                LeanTween.value(gameObject, disintegrateAmount, 0.5f, 2f).setOnUpdate((float val) =>
                 {
                     disintegrateAmount = val;
                     objMaterial.SetFloat("_Disintegrate", disintegrateAmount);
