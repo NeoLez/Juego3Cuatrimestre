@@ -2154,6 +2154,7 @@ MonoBehaviour:
   iceEffectPrefab: {fileID: 0}
   iceEffectSound: {fileID: 0}
   iceEffectImpactSound: {fileID: 0}
+  fireImpactSound: {fileID: 0}
   fireEffectSound: {fileID: 0}
 --- !u!65 &414086566
 BoxCollider:
@@ -13198,6 +13199,7 @@ MonoBehaviour:
   iceEffectPrefab: {fileID: 0}
   iceEffectSound: {fileID: 0}
   iceEffectImpactSound: {fileID: 0}
+  fireImpactSound: {fileID: 0}
   fireEffectSound: {fileID: 0}
 --- !u!65 &1549436162
 BoxCollider:
@@ -14191,6 +14193,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa97629c7e60f646a1b7d392a80bb4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enterSound: {fileID: 0}
+  exitSound: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!65 &1781822923
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14376,6 +14381,7 @@ MonoBehaviour:
   iceEffectPrefab: {fileID: 0}
   iceEffectSound: {fileID: 0}
   iceEffectImpactSound: {fileID: 0}
+  fireImpactSound: {fileID: 0}
   fireEffectSound: {fileID: 0}
 --- !u!65 &1795851927
 BoxCollider:
@@ -14527,6 +14533,7 @@ MonoBehaviour:
   iceEffectPrefab: {fileID: 0}
   iceEffectSound: {fileID: 0}
   iceEffectImpactSound: {fileID: 0}
+  fireImpactSound: {fileID: 0}
   fireEffectSound: {fileID: 0}
 --- !u!65 &1889613148
 BoxCollider:
