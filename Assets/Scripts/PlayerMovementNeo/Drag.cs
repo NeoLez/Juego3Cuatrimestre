@@ -88,7 +88,7 @@ public class Drag : MonoBehaviour {
         Ray ray = new Ray(GameManager.MainCamera.transform.position, GameManager.MainCamera.transform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, rayDistance, LayerMask.GetMask("Ground"))) {
             if (hit.collider.gameObject.TryGetComponent(out ObjectStatus objectStatus)) {
-                if (objectStatus.Type == ObjectTypeEnum.PhysicsObject) {
+                if (objectStatus.Type == ObjectTypeEnum.PhysicsObject && !objectStatus.HasEffect(typeof(FrozenEffect))) {
                     hit.collider.gameObject.layer = LayerMask.NameToLayer("DraggableObject");
                     obj = hit.rigidbody;
                     currentDistance = Vector3.Distance(obj.position, GameManager.MainCamera.transform.position);

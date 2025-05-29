@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -104,5 +105,14 @@ public class ObjectStatus : MonoBehaviour
     {
         if (iceEffectInstance != null)
             Destroy(iceEffectInstance);
+    }
+
+    public bool HasEffect(Type statusType) {
+        foreach (StatusEffect effect in activeEffects) {
+            if (effect.GetType() == statusType) {
+                return true;
+            }
+        }
+        return false;
     }
 }
