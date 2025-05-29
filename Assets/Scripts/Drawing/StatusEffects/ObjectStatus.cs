@@ -46,7 +46,7 @@ public class ObjectStatus : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        if (currentHealth <= 0)
+        if (currentHealth == 0)
             Die();
     }
 
@@ -62,18 +62,17 @@ public class ObjectStatus : MonoBehaviour
         foreach(var effect in activeEffects)
             effect.Die();
             
+        Debug.Log("c");
         switch (Type) {
             case ObjectTypeEnum.PhysicsObject:
                 gameObject.layer = LayerMask.NameToLayer("Ground");
                 Renderer renderer = gameObject.GetComponent<Renderer>();
                 Material objMaterial = new Material(renderer.material);
                 renderer.material = objMaterial;
-
-                float disintegrateAmount = -0.5f;
-                LeanTween.value(gameObject, disintegrateAmount, 0.5f, 2f).setOnUpdate((float val) =>
+                
+                LeanTween.value(gameObject, -0.5f, 0.5f, 2f).setOnUpdate((val) =>
                 {
-                    disintegrateAmount = val;
-                    objMaterial.SetFloat("_Disintegrate", disintegrateAmount);
+                    objMaterial.SetFloat("_Disintegrate", val);
                 }).setDestroyOnComplete(true);
                 break;
             default:

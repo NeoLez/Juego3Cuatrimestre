@@ -9,6 +9,7 @@ public class BurningEffect : StatusEffect
 
     public override void Apply()
     {
+        Debug.Log("a");
         Target.ShowFireEffect();
         Renderer renderer = Target.GetComponent<Renderer>();
         Material objMaterial = new Material(renderer.material);
@@ -41,19 +42,10 @@ public class BurningEffect : StatusEffect
 
     public override void Remove()
     {
+        Debug.Log("b");
         var type = Target.GetComponent<ObjectStatus>();
         switch (type.Type) {
             case ObjectTypeEnum.PhysicsObject:
-                Renderer renderer = Target.GetComponent<Renderer>();
-                Material objMaterial = new Material(renderer.material);
-                renderer.material = objMaterial;
-
-                float fireAmount = -1;
-                LeanTween.value(Target.gameObject, fireAmount, 1, 1).setOnUpdate((float val) =>
-                {
-                    fireAmount = val;
-                    objMaterial.SetFloat("_FireTransition", fireAmount);
-                });
                 break;
         }
         
