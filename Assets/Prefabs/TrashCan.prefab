@@ -102,6 +102,10 @@ MonoBehaviour:
   maxHealth: 3
   fireEffectPrefab: {fileID: 535533120961856120, guid: dac6e8fcd074c244d9585b785be24147, type: 3}
   iceEffectPrefab: {fileID: 4146312147535687916, guid: 665460fa2b3cbd54098df1b5b9ebca83, type: 3}
+  iceEffectSound: {fileID: 8300000, guid: 0b10fab6df6d5de4ca5b5267778b1015, type: 3}
+  iceEffectImpactSound: {fileID: 8300000, guid: 7242e69c20716a04ba3b9739e261f466, type: 3}
+  fireImpactSound: {fileID: 8300000, guid: 5d6761cd0ba798c46a40f521746bebde, type: 3}
+  fireEffectSound: {fileID: 8300000, guid: ed5121496fd2f084a830e4d52498b07e, type: 3}
 --- !u!54 &2154856664159069726
 Rigidbody:
   m_ObjectHideFlags: 0

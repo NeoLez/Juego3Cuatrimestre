@@ -116,6 +116,8 @@ public class Drag : MonoBehaviour {
     private void StopDrag()
     {
         currentlyDragging = false;
+        if(currentlyRotating)
+            GameManager.Input.CameraMovement.Enable();
         StartCoroutine(ChangeLayer(obj.gameObject));
         obj = null;
     }
