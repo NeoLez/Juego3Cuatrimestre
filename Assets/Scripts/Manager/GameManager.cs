@@ -16,6 +16,7 @@ public class GameManager {
         Input.Movement.Enable();
         Input.CardUsage.Enable();
         Input.Drag.Enable();
+        Input.Scanner.Enable();
 
         AudioSystem = new AudioSystem();
     }

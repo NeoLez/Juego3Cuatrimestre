@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,18 +8,20 @@ public class TerrainScanner : MonoBehaviour
     public GameObject terrainScanPrefab;
     public float duration = 10;
     public float size = 500;
-    
-    void Update()
-    {
-        if (Keyboard.current.tKey.wasPressedThisFrame)
-        {
-            ActivateSpawnScanner();
-        }
+    public float cooldown = 10f;
+    private float lastUsed = float.MinValue;
+
+    private void Start() {
+        GameManager.Input.Scanner.Scan.started += ActivateSpawnScanner;
     }
 
-    void ActivateSpawnScanner()
-    {
-        GameObject terrainScan = Instantiate(terrainScanPrefab, gameObject.transform.position, Quaternion.identity) as GameObject;
+    void ActivateSpawnScanner(InputAction.CallbackContext ctx) {
+        if (Time.time - lastUsed <= cooldown)
+            return;
+
+        lastUsed = Time.time;
+        
+        GameObject terrainScan = Instantiate(terrainScanPrefab, gameObject.transform.position, Quaternion.identity);
         ParticleSystem terrainScannerPS = terrainScan.GetComponentInChildren<ParticleSystem>();
 
         if (terrainScannerPS != null)
@@ -29,7 +32,7 @@ public class TerrainScanner : MonoBehaviour
         }
         else
         {
-            Debug.Log("the first child doesnt have a particle system");
+            Debug.LogError("the first child doesnt have a particle system");
         }
         Destroy(terrainScan, duration + 1);
     }

@@ -605,6 +605,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Scanner",
+            "id": "4056d811-3e80-4c04-a088-9be47cf07efc",
+            "actions": [
+                {
+                    "name": "Scan",
+                    "type": "Button",
+                    "id": "7e9cf131-e76a-4dff-8b58-9169eff726c4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e592e7be-09ea-44b5-bc4c-5daef99804f5",
+                    "path": "<Keyboard>/t",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Scan",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
