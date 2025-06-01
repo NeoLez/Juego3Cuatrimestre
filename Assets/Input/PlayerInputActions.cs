@@ -627,6 +627,34 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Scanner"",
+            ""id"": ""4056d811-3e80-4c04-a088-9be47cf07efc"",
+            ""actions"": [
+                {
+                    ""name"": ""Scan"",
+                    ""type"": ""Button"",
+                    ""id"": ""7e9cf131-e76a-4dff-8b58-9169eff726c4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""e592e7be-09ea-44b5-bc4c-5daef99804f5"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Scan"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -661,6 +689,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Drag_DragRotate = m_Drag.FindAction("DragRotate", throwIfNotFound: true);
         m_Drag_MouseX = m_Drag.FindAction("MouseX", throwIfNotFound: true);
         m_Drag_MouseY = m_Drag.FindAction("MouseY", throwIfNotFound: true);
+        // Scanner
+        m_Scanner = asset.FindActionMap("Scanner", throwIfNotFound: true);
+        m_Scanner_Scan = m_Scanner.FindAction("Scan", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1068,6 +1099,52 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         }
     }
     public DragActions @Drag => new DragActions(this);
+
+    // Scanner
+    private readonly InputActionMap m_Scanner;
+    private List<IScannerActions> m_ScannerActionsCallbackInterfaces = new List<IScannerActions>();
+    private readonly InputAction m_Scanner_Scan;
+    public struct ScannerActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public ScannerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Scan => m_Wrapper.m_Scanner_Scan;
+        public InputActionMap Get() { return m_Wrapper.m_Scanner; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ScannerActions set) { return set.Get(); }
+        public void AddCallbacks(IScannerActions instance)
+        {
+            if (instance == null || m_Wrapper.m_ScannerActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ScannerActionsCallbackInterfaces.Add(instance);
+            @Scan.started += instance.OnScan;
+            @Scan.performed += instance.OnScan;
+            @Scan.canceled += instance.OnScan;
+        }
+
+        private void UnregisterCallbacks(IScannerActions instance)
+        {
+            @Scan.started -= instance.OnScan;
+            @Scan.performed -= instance.OnScan;
+            @Scan.canceled -= instance.OnScan;
+        }
+
+        public void RemoveCallbacks(IScannerActions instance)
+        {
+            if (m_Wrapper.m_ScannerActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IScannerActions instance)
+        {
+            foreach (var item in m_Wrapper.m_ScannerActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_ScannerActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public ScannerActions @Scanner => new ScannerActions(this);
     public interface IMovementActions
     {
         void OnMoveDir(InputAction.CallbackContext context);
@@ -1102,5 +1179,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnDragRotate(InputAction.CallbackContext context);
         void OnMouseX(InputAction.CallbackContext context);
         void OnMouseY(InputAction.CallbackContext context);
+    }
+    public interface IScannerActions
+    {
+        void OnScan(InputAction.CallbackContext context);
     }
 }

@@ -1,19 +1,16 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ScannerEffect : MonoBehaviour
 {
     public float maxScanRadius = 10f;
-    public float scanSpeed = 5f; 
     public float scanDuration = 2f;
-    public LayerMask scanMask;
     public string targetTag = "Scanneable";
 
     private float currentRadius = 0f;
     private float timer = 0f;
     private bool isScanning = true;
-    private HashSet<Collider> alreadyDetected = new HashSet<Collider>();
+    private HashSet<Collider> alreadyDetected = new();
 
     void Update()
     {
