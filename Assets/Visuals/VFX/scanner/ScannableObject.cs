@@ -56,23 +56,24 @@ public class ScannableObject : MonoBehaviour
             Material materialClone = new Material(beamRenderer.material);
             beamRenderer.material = materialClone;
             
-            LeanTween.value(lightgameObject, 0f, 1f, 4f).setOnUpdate((float val) => {
-                light.intensity = val;
-            }).setOnComplete(() => {
-                LeanTween.delayedCall(lightgameObject, 11f, () => {
-                    LeanTween.value(lightgameObject, 1f, 0f, 4f).setOnUpdate((float val) => {
-                        light.intensity = val;
-                    });
-                });
-            });
-
-            LeanTween.value(beam, 0f, 19, 19f).setOnUpdate((float val) => {
+            LeanTween.value(lightgameObject, 0f, 19f, 19f).setOnUpdate((float val) => {
                 if(val < 4f)
-                    materialClone.SetFloat("_Opacity", val/4f);
+                    light.intensity = val/4f;
                 else if (val > 15)
-                    materialClone.SetFloat("_Opacity", 1 - (val - 15)/4f);
+                    light.intensity = 1 - (val - 15)/4f;
                 else {
-                    materialClone.SetFloat("_Opacity", val/4f);
+                    light.intensity = 1 - (0.5f - (float)Math.Cos((val - 4) * 2 * Math.PI * 2 / 11f) / 2f) / 2f;
+                }
+            });
+            
+            LeanTween.value(beam, 0f, 19, 19f).setOnUpdate((float vale) => {
+                //Debug.Log(val);
+                if(vale < 4f)
+                    materialClone.SetFloat("_Opacity", vale/4f);
+                else if (vale > 15)
+                    materialClone.SetFloat("_Opacity", 1 - (vale - 15)/4f);
+                else {
+                    materialClone.SetFloat("_Opacity", 1 - (0.5f - (float)Math.Cos((vale - 4) * 2 * Math.PI * 2 / 11f) / 2f)/1.5f);
                 }
             });
             
