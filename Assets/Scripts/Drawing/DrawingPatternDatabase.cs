@@ -19,4 +19,9 @@ public static class DrawingPatternDatabase {
     public static void UnlockSpell(DrawingPatternSO drawingPattern) {
         UnlockedPatterns.Add(drawingPattern);
     }
+    
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    private static void RestLearntSpells() {
+        UnlockedPatterns.Clear();
+    }
 }
