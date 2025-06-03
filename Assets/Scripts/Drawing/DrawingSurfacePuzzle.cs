@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Optional;
-using Optional.Unsafe;
 using Unity.Mathematics;
 using UnityEngine;
 

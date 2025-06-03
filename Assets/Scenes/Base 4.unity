@@ -4816,6 +4816,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 244f87e060c3134469d3f5f91d91fed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorType: 0
+  doorOpenAngle: 95
+  moveDistance: 3
+  smooth: 3
 --- !u!4 &94365618
 Transform:
   m_ObjectHideFlags: 0
@@ -5314,8 +5318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vfxPrefab: {fileID: 1433055611896523512, guid: a2a68abe5bc18b442adeee3bbdd30cd1, type: 3}
-  objectRenderer: {fileID: 0}
-  highlightColor: {r: 0, g: 1, b: 1, a: 1}
+  planes: []
 --- !u!114 &108154539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8077,6 +8080,18 @@ PrefabInstance:
     - target: {fileID: 4351521352969580430, guid: 0b8d34cae27283e4999d2300d4e54cad, type: 3}
       propertyPath: rotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351521352969580430, guid: 0b8d34cae27283e4999d2300d4e54cad, type: 3}
+      propertyPath: crateBeamColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351521352969580430, guid: 0b8d34cae27283e4999d2300d4e54cad, type: 3}
+      propertyPath: crateBeamColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351521352969580430, guid: 0b8d34cae27283e4999d2300d4e54cad, type: 3}
+      propertyPath: crateBeamColor.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4351521352969580430, guid: 0b8d34cae27283e4999d2300d4e54cad, type: 3}
       propertyPath: objectsPos.Array.size
@@ -20046,6 +20061,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 244f87e060c3134469d3f5f91d91fed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorType: 0
+  doorOpenAngle: 95
+  moveDistance: 3
+  smooth: 3
 --- !u!1001 &479229858
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29589,8 +29608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vfxPrefab: {fileID: 1433055611896523512, guid: a2a68abe5bc18b442adeee3bbdd30cd1, type: 3}
-  objectRenderer: {fileID: 0}
-  highlightColor: {r: 0, g: 1, b: 1, a: 1}
+  planes: []
 --- !u!1001 &694611910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43552,8 +43570,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vfxPrefab: {fileID: 1433055611896523512, guid: a2a68abe5bc18b442adeee3bbdd30cd1, type: 3}
-  objectRenderer: {fileID: 0}
-  highlightColor: {r: 0, g: 1, b: 1, a: 1}
+  planes:
+  - {fileID: 0}
 --- !u!1001 &1019238079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46918,8 +46936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vfxPrefab: {fileID: 1433055611896523512, guid: a2a68abe5bc18b442adeee3bbdd30cd1, type: 3}
-  objectRenderer: {fileID: 0}
-  highlightColor: {r: 0, g: 1, b: 1, a: 1}
+  planes: []
 --- !u!1001 &1088403248
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54363,8 +54380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vfxPrefab: {fileID: 1433055611896523512, guid: a2a68abe5bc18b442adeee3bbdd30cd1, type: 3}
-  objectRenderer: {fileID: 0}
-  highlightColor: {r: 0, g: 1, b: 1, a: 1}
+  planes: []
 --- !u!1001 &1267111746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57726,6 +57742,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 244f87e060c3134469d3f5f91d91fed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorType: 0
+  doorOpenAngle: 95
+  moveDistance: 3
+  smooth: 3
 --- !u!4 &1349793297
 Transform:
   m_ObjectHideFlags: 0
@@ -62739,6 +62759,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 244f87e060c3134469d3f5f91d91fed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorType: 0
+  doorOpenAngle: 95
+  moveDistance: 3
+  smooth: 3
 --- !u!1001 &1483107027
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77064,7 +77088,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3726948654212901502, guid: 7b0a47058df02a140a1bf52da1619c24, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 289.5
+      value: -9.71
       objectReference: {fileID: 0}
     - target: {fileID: 3726948654212901502, guid: 7b0a47058df02a140a1bf52da1619c24, type: 3}
       propertyPath: m_LocalPosition.y
@@ -77072,7 +77096,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3726948654212901502, guid: 7b0a47058df02a140a1bf52da1619c24, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -733
+      value: 6.75
       objectReference: {fileID: 0}
     - target: {fileID: 3726948654212901502, guid: 7b0a47058df02a140a1bf52da1619c24, type: 3}
       propertyPath: m_LocalRotation.w
@@ -86700,6 +86724,7 @@ MonoBehaviour:
   terrainScanPrefab: {fileID: 9173671844534134673, guid: a3bde34c26562184ebd6257fe7e6276c, type: 3}
   duration: 10
   size: 500
+  cooldown: 10
 --- !u!1001 &2060985596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -87742,6 +87767,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 244f87e060c3134469d3f5f91d91fed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorType: 0
+  doorOpenAngle: 95
+  moveDistance: 3
+  smooth: 3
 --- !u!1001 &2081264934
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -89878,6 +89907,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 244f87e060c3134469d3f5f91d91fed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorType: 0
+  doorOpenAngle: 95
+  moveDistance: 3
+  smooth: 3
 --- !u!4 &2145639202
 Transform:
   m_ObjectHideFlags: 0

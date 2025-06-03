@@ -24,7 +24,7 @@ public class ScannerEffect : MonoBehaviour
         {
             if (!alreadyDetected.Contains(hit) && hit.CompareTag(targetTag))
             {
-                var scannable = hit.GetComponent<ScannableObject>();
+                var scannable = hit.GetComponent<Crate>();
                 if (scannable != null)
                 {
                     scannable.OnScanned();
