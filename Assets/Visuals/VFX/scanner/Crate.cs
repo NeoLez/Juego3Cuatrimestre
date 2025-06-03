@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Crate : MonoBehaviour
 {
-    private List<GameObject> currentVfxInstances;
+    private List<GameObject> currentVfxInstances = new();
     public GameObject vfxPrefab;
     
     public List<DrawingPuzzleArea> planes = new();
@@ -31,6 +31,8 @@ public class Crate : MonoBehaviour
                 Material materialClone = new Material(beamRenderer.material);
                 materialClone.SetColor("_Color", plane.GetComponent<DrawingPuzzleArea>().crateBeamColor);
                 beamRenderer.material = materialClone;
+                light.color = plane.crateBeamColor;
+                beam.transform.rotation = plane.transform.rotation;
 
                 LeanTween.delayedCall(currentVfxInstance, 20f, o => {
                     currentVfxInstances.Remove(currentVfxInstance);
