@@ -32,6 +32,7 @@ public class Crate : MonoBehaviour
                 materialClone.SetColor("_Color", plane.GetComponent<DrawingPuzzleArea>().crateBeamColor);
                 beamRenderer.material = materialClone;
                 light.color = plane.crateBeamColor;
+                float intensity = light.intensity;
                 beam.transform.rotation = plane.transform.rotation;
 
                 LeanTween.delayedCall(currentVfxInstance, 20f, o => {
@@ -47,6 +48,8 @@ public class Crate : MonoBehaviour
                     else {
                         light.intensity = 1 - (0.5f - (float)Math.Cos((val - 4) * 2 * Math.PI * 2 / 11f) / 2f) / 2f;
                     }
+
+                    light.intensity *= intensity;
                 });
             
                 LeanTween.value(beam, 0f, 19, 19f).setOnUpdate((float vale) => {
