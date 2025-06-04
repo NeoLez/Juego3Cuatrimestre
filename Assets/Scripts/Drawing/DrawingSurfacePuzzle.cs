@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Optional;
-using Optional.Unsafe;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -135,7 +133,6 @@ public class DrawingSurfacePuzzle : MonoBehaviour, IDrawingSurface {
             Vector3 diff = secondPos - firstPos;
             Ray ray = new Ray(firstPos, diff);
             if (Physics.Raycast(ray, diff.magnitude, LayerMask.GetMask("DrawingBarrier"))) {
-                Debug.Log("a");
                 tuples.Clear();
                 break;
             }

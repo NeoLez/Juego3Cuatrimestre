@@ -128,12 +128,12 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
-    - _NoiseScale: 1.9
-    - _NoiseScale2: 0.62
+    - _NoiseScale: 1
+    - _NoiseScale2: 0.87
     - _NoiseScale_1: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _Pow: 3.73
+    - _Pow: 2
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -143,8 +143,20 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _TextureMultiplier: 2.36
-    - _TextureMultiplier2: 0.44
+    - _TextureMultiplier: 0.88
+    - _TextureMultiplier2: 0.42
+    - _TransparencySphereSize: 2
+    - _TransparencySphereSize0: 1.25
+    - _TransparencySphereSize1: 1.25
+    - _TransparencySphereSize2: 1.25
+    - _TransparencySphereSize3: 1.25
+    - _TransparencySphereSize4: 0
+    - _TransparencySphereSize5: 0
+    - _TransparencySphereSize6: 0
+    - _TransparencySphereSizeSubtract1: 0
+    - _TransparencySphereSizeSubtract2: 0
+    - _TransparencySphereSubtractSize1: 0
+    - _TransparencySphereSubtractSize2: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
@@ -152,4 +164,14 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - _TransparencySpherePosition: {r: 5.84, g: 1.55, b: 16, a: 0}
+    - _TransparencySpherePosition0: {r: 0, g: 0, b: 0, a: 0}
+    - _TransparencySpherePosition1: {r: 0, g: 0, b: 0, a: 0}
+    - _TransparencySpherePosition2: {r: 0, g: 0, b: 0, a: 0}
+    - _TransparencySpherePosition3: {r: 0, g: 0, b: 0, a: 0}
+    - _TransparencySpherePosition4: {r: 0, g: 0, b: 0, a: 0}
+    - _TransparencySpherePosition5: {r: 0, g: 0, b: 0, a: 0}
+    - _TransparencySpherePosition6: {r: 0, g: 0, b: 0, a: 0}
+    - _TransparencySpherePositionSubtract1: {r: 0, g: 0, b: 0, a: 0}
+    - _TransparencySpherePositionSubtract2: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

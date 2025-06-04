@@ -58,7 +58,10 @@ VisualEffect:
     m_Vector3f:
       m_Array: []
     m_Vector4f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: 0.23425823, y: 0.06320754, z: 0.5, w: 0.74509805}
+        m_Name: Color1
+        m_Overridden: 1
     m_Uint:
       m_Array: []
     m_Int:
@@ -158,7 +161,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0, b: 0.9746666, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.1
   m_Range: 6
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 public class DrawingPuzzleArea : MonoBehaviour {
+    [SerializeField] [ColorUsage(true, true)] public Color crateBeamColor;
     [SerializeField] private float xSize;
     [FormerlySerializedAs("ySize")] [SerializeField] private float zSize;
 
