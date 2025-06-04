@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class SystemDoor : MonoBehaviour
+public class SystemDoor : OnPuzzleSolved
 {
     public enum DoorType
     {
@@ -22,6 +22,8 @@ public class SystemDoor : MonoBehaviour
 
     [Header("General")]
     public float smooth = 3.0f;
+    
+    public AudioClip doorOpenSound;
 
     private bool doorOpened = false;
     private Vector3 initialPosition;
@@ -38,6 +40,7 @@ public class SystemDoor : MonoBehaviour
         if (!doorOpened)
         {
             StartCoroutine(OpenDoorCoroutine());
+            GameManager.AudioSystem.PlaySoundPositional(doorOpenSound, transform.position);
             doorOpened = true;
         }
     }
@@ -80,5 +83,9 @@ public class SystemDoor : MonoBehaviour
             transform.localPosition = Vector3.Lerp(transform.localPosition, targetPosition, smooth * Time.deltaTime);
             yield return null;
         }
+    }
+
+    public override void OnSolved() {
+        OpenDoor();
     }
 }

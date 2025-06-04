@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Testeobrooo : MonoBehaviour
+public class LineParticleSystem : MonoBehaviour
 {
     [Header("Movement")]
     public List<Transform> waypoints;
@@ -34,9 +33,8 @@ public class Testeobrooo : MonoBehaviour
 
             if (currentWaypointIndex >= waypoints.Count)
             {
-                if (loop)
-                    currentWaypointIndex = 0;
-                else
+                currentWaypointIndex = 0;
+                if (!loop)
                     enabled = false;
             }
         }
