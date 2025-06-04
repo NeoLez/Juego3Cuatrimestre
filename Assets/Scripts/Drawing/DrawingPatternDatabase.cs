@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Optional;
 using UnityEngine;
 
@@ -18,6 +19,12 @@ public static class DrawingPatternDatabase {
 
     public static void UnlockSpell(DrawingPatternSO drawingPattern) {
         UnlockedPatterns.Add(drawingPattern);
+    }
+
+    public static void UnlockAllSpells() {
+        foreach (var pattern in Patterns) {
+            UnlockedPatterns.Add(pattern);
+        }
     }
     
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]

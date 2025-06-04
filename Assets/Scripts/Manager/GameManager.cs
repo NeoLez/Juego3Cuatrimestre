@@ -17,6 +17,11 @@ public class GameManager {
         Input.CardUsage.Enable();
         Input.Drag.Enable();
         Input.Scanner.Enable();
+        Input.Cheats.Enable();
+
+        Input.Cheats.UnlockAllSpells.started += (ctx) => {
+            DrawingPatternDatabase.UnlockAllSpells();
+        };
 
         AudioSystem = new AudioSystem();
     }

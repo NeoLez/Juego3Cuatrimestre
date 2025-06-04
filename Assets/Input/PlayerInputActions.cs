@@ -655,6 +655,34 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Cheats"",
+            ""id"": ""7138b9fd-40dd-476d-a695-9b3f48ecf321"",
+            ""actions"": [
+                {
+                    ""name"": ""UnlockAllSpells"",
+                    ""type"": ""Button"",
+                    ""id"": ""a2cf57cd-6b3a-4b9f-a83b-a18f4cafe753"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""61abe3e1-55f0-43ac-b1e6-2e00a86a52c7"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UnlockAllSpells"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -692,6 +720,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         // Scanner
         m_Scanner = asset.FindActionMap("Scanner", throwIfNotFound: true);
         m_Scanner_Scan = m_Scanner.FindAction("Scan", throwIfNotFound: true);
+        // Cheats
+        m_Cheats = asset.FindActionMap("Cheats", throwIfNotFound: true);
+        m_Cheats_UnlockAllSpells = m_Cheats.FindAction("UnlockAllSpells", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1145,6 +1176,52 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         }
     }
     public ScannerActions @Scanner => new ScannerActions(this);
+
+    // Cheats
+    private readonly InputActionMap m_Cheats;
+    private List<ICheatsActions> m_CheatsActionsCallbackInterfaces = new List<ICheatsActions>();
+    private readonly InputAction m_Cheats_UnlockAllSpells;
+    public struct CheatsActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public CheatsActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @UnlockAllSpells => m_Wrapper.m_Cheats_UnlockAllSpells;
+        public InputActionMap Get() { return m_Wrapper.m_Cheats; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(CheatsActions set) { return set.Get(); }
+        public void AddCallbacks(ICheatsActions instance)
+        {
+            if (instance == null || m_Wrapper.m_CheatsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CheatsActionsCallbackInterfaces.Add(instance);
+            @UnlockAllSpells.started += instance.OnUnlockAllSpells;
+            @UnlockAllSpells.performed += instance.OnUnlockAllSpells;
+            @UnlockAllSpells.canceled += instance.OnUnlockAllSpells;
+        }
+
+        private void UnregisterCallbacks(ICheatsActions instance)
+        {
+            @UnlockAllSpells.started -= instance.OnUnlockAllSpells;
+            @UnlockAllSpells.performed -= instance.OnUnlockAllSpells;
+            @UnlockAllSpells.canceled -= instance.OnUnlockAllSpells;
+        }
+
+        public void RemoveCallbacks(ICheatsActions instance)
+        {
+            if (m_Wrapper.m_CheatsActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ICheatsActions instance)
+        {
+            foreach (var item in m_Wrapper.m_CheatsActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_CheatsActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public CheatsActions @Cheats => new CheatsActions(this);
     public interface IMovementActions
     {
         void OnMoveDir(InputAction.CallbackContext context);
@@ -1183,5 +1260,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     public interface IScannerActions
     {
         void OnScan(InputAction.CallbackContext context);
+    }
+    public interface ICheatsActions
+    {
+        void OnUnlockAllSpells(InputAction.CallbackContext context);
     }
 }

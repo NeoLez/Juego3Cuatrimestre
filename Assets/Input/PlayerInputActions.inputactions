@@ -633,6 +633,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Cheats",
+            "id": "7138b9fd-40dd-476d-a695-9b3f48ecf321",
+            "actions": [
+                {
+                    "name": "UnlockAllSpells",
+                    "type": "Button",
+                    "id": "a2cf57cd-6b3a-4b9f-a83b-a18f4cafe753",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "61abe3e1-55f0-43ac-b1e6-2e00a86a52c7",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UnlockAllSpells",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
