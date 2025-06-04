@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(DrawingSurfacePuzzle))]
-public class DisableOnPuzzleSolved : MonoBehaviour
+public class OpenDoorOnPuzzleSolved : MonoBehaviour
 {
     [SerializeField] private SystemDoor doorToOpen;
 

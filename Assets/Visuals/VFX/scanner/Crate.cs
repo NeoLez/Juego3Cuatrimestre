@@ -33,7 +33,9 @@ public class Crate : MonoBehaviour
                 beamRenderer.material = materialClone;
                 light.color = plane.crateBeamColor;
                 float intensity = light.intensity;
-                beam.transform.rotation = plane.transform.rotation;
+                LeanTween.value(beam, 0f, 1f, 19f).setOnUpdate((float val) => {
+                    beam.transform.rotation = plane.transform.rotation;
+                });
 
                 LeanTween.delayedCall(currentVfxInstance, 20f, o => {
                     currentVfxInstances.Remove(currentVfxInstance);
