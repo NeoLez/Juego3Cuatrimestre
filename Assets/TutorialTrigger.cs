@@ -49,7 +49,7 @@ public class TutorialTrigger : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(delayToAllowClose);
         canClose = true;
-        closeHintText.SetActive(true); // Mostrar mensaje de cierre
+        closeHintText.SetActive(true);
     }
 
 
