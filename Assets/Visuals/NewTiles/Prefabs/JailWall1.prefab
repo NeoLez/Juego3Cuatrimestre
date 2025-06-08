@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2304735997224216514}
   - component: {fileID: 1976690718037198811}
   - component: {fileID: 5395808936230512435}
+  - component: {fileID: -7314840170424805999}
   m_Layer: 0
   m_Name: JailWall1
   m_TagString: Untagged
@@ -83,3 +84,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-7314840170424805999
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6473264330121290843}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.274299, y: 3.0930703, z: 0.16203094}
+  m_Center: {x: 0, y: 0.00000011920929, z: 0.000000011175871}
