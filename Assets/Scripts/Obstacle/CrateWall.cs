@@ -19,10 +19,8 @@ public class CrateWall : MonoBehaviour {
 
     private void Awake() {
         Renderer child0 = transform.GetChild(0).GetComponent<Renderer>();
-        Renderer child1 = transform.GetChild(1).GetComponent<Renderer>();
-        material = new Material(child1.material);
+        material = new Material(child0.material);
         child0.material = material;
-        child1.material = material;
         
         
         selfCollider = GetComponent<Collider>();
