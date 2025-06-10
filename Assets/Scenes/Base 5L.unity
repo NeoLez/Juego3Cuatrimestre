@@ -71449,15 +71449,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1784093748276963343, guid: 439735f5cf08a9549b657030612380ca, type: 3}
       propertyPath: m_LocalScale.x
-      value: 9.146168
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1784093748276963343, guid: 439735f5cf08a9549b657030612380ca, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.57922167
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1784093748276963343, guid: 439735f5cf08a9549b657030612380ca, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.17923494
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1784093748276963343, guid: 439735f5cf08a9549b657030612380ca, type: 3}
       propertyPath: m_LocalPosition.x
@@ -71502,6 +71502,10 @@ PrefabInstance:
     - target: {fileID: 2341912434677064661, guid: 439735f5cf08a9549b657030612380ca, type: 3}
       propertyPath: m_Name
       value: Planks_9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341912434677064661, guid: 439735f5cf08a9549b657030612380ca, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2341912434677064661, guid: 439735f5cf08a9549b657030612380ca, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -91038,15 +91042,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1784093748276963343, guid: 439735f5cf08a9549b657030612380ca, type: 3}
       propertyPath: m_LocalScale.x
-      value: 9.146168
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1784093748276963343, guid: 439735f5cf08a9549b657030612380ca, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.57922167
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1784093748276963343, guid: 439735f5cf08a9549b657030612380ca, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.17923494
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1784093748276963343, guid: 439735f5cf08a9549b657030612380ca, type: 3}
       propertyPath: m_LocalPosition.x
@@ -91091,6 +91095,10 @@ PrefabInstance:
     - target: {fileID: 2341912434677064661, guid: 439735f5cf08a9549b657030612380ca, type: 3}
       propertyPath: m_Name
       value: Planks_10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341912434677064661, guid: 439735f5cf08a9549b657030612380ca, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2341912434677064661, guid: 439735f5cf08a9549b657030612380ca, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -95093,15 +95101,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1784093748276963343, guid: 439735f5cf08a9549b657030612380ca, type: 3}
       propertyPath: m_LocalScale.x
-      value: 9.146168
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1784093748276963343, guid: 439735f5cf08a9549b657030612380ca, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.57922167
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1784093748276963343, guid: 439735f5cf08a9549b657030612380ca, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.17923494
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1784093748276963343, guid: 439735f5cf08a9549b657030612380ca, type: 3}
       propertyPath: m_LocalPosition.x
@@ -95146,6 +95154,10 @@ PrefabInstance:
     - target: {fileID: 2341912434677064661, guid: 439735f5cf08a9549b657030612380ca, type: 3}
       propertyPath: m_Name
       value: Planks_11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341912434677064661, guid: 439735f5cf08a9549b657030612380ca, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2341912434677064661, guid: 439735f5cf08a9549b657030612380ca, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -142959,11 +142971,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints:
-  - {fileID: 1328285389}
-  - {fileID: 1362058325}
-  - {fileID: 2046627263}
   - {fileID: 190046878}
   - {fileID: 1362058325}
+  - {fileID: 1328285389}
+  - {fileID: 190046878}
+  - {fileID: 2046627263}
   speed: 2
   loop: 1
   moveOnX: 1
@@ -143874,7 +143886,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5192803100829913164, guid: 1bfcc20310bdb064d84bb400ea2d89b8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5192803100829913164, guid: 1bfcc20310bdb064d84bb400ea2d89b8, type: 3}
       propertyPath: m_LocalRotation.x
@@ -143882,7 +143894,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5192803100829913164, guid: 1bfcc20310bdb064d84bb400ea2d89b8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5192803100829913164, guid: 1bfcc20310bdb064d84bb400ea2d89b8, type: 3}
       propertyPath: m_LocalRotation.z
@@ -143894,7 +143906,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5192803100829913164, guid: 1bfcc20310bdb064d84bb400ea2d89b8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 5192803100829913164, guid: 1bfcc20310bdb064d84bb400ea2d89b8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
