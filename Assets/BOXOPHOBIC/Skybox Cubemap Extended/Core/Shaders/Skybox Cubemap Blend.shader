@@ -10,6 +10,7 @@ Shader "Skybox/Cubemap Blend"
 		[NoScaleOffset][StyledTextureSingleLine]_Tex_Blend("Cubemap Blend (HDR)", CUBE) = "black" {}
 		[Space(10)]_CubemapTransition("Cubemap Transition", Range( 0 , 1)) = 0
 		[Space(10)]_Exposure("Cubemap Exposure", Range( 0 , 8)) = 1
+		_RandomMultiplier("RandomMultiplier", Range(0,2)) = 1
 		[Gamma]_TintColor("Cubemap Tint Color", Color) = (0.5,0.5,0.5,1)
 		_CubemapPosition("Cubemap Position", Float) = 0
 		[StyledCategory(Rotation Settings)]_Rotationn("[ Rotationn ]", Float) = 1
@@ -26,7 +27,6 @@ Shader "Skybox/Cubemap Blend"
 		[HideInInspector]_Tex_HDR("DecodeInstructions", Vector) = (0,0,0,0)
 		[HideInInspector]_Tex_Blend_HDR("DecodeInstructions", Vector) = (0,0,0,0)
 		[ASEEnd]_FogPosition("Fog Position", Float) = 0
-
 	}
 	
 	SubShader
@@ -120,7 +120,7 @@ Shader "Skybox/Cubemap Blend"
 				return DecodeHDR(Data, _Tex_Blend_HDR);
 			}
 			
-
+			uniform float _RandomMultiplier;
 			
 			v2f vert ( appdata v )
 			{
@@ -197,7 +197,11 @@ Shader "Skybox/Cubemap Blend"
 				
 				
 				finalColor = staticSwitch1179;
-				return finalColor;
+				
+				float luminance = dot(finalColor, float3(0.299, 0.587, 0.114));
+				float4 gray = float4(luminance, luminance, luminance, luminance);
+				
+				return lerp(gray, finalColor, _RandomMultiplier);
 			}
 			ENDCG
 		}
