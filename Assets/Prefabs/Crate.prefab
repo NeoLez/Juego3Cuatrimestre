@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1854743787626372031}
   - component: {fileID: 8911677903439524484}
   - component: {fileID: 3927174637670223485}
+  - component: {fileID: 5962476409415693137}
   m_Layer: 3
   m_Name: Crate
   m_TagString: Untagged
@@ -168,3 +169,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialType: 1
+--- !u!114 &5962476409415693137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935537089817935342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f886480b0fc4f7cb17ff928865591cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTime: 0.2

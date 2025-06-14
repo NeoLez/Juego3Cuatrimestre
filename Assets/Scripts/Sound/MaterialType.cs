@@ -4,5 +4,7 @@
         Wood,
         Stone,
         Carpet,
+        Barrier,
+        Metal,
     }    
 }

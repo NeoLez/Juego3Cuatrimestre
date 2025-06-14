@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5981562312198158816}
   - component: {fileID: 5981562312199125792}
   - component: {fileID: 5981562312196924897}
+  - component: {fileID: 9151905915957085568}
   m_Layer: 0
   m_Name: Book_Big_Red
   m_TagString: Untagged
@@ -107,3 +108,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: ca50010b0ae6b8f4c94725ca828dc68f, type: 3}
+--- !u!114 &9151905915957085568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5981562312196924896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a9a033f5bb43999f7df1c08bfda611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialType: 3

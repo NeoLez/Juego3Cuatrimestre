@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1192218090561944077}
   - component: {fileID: 6430824748685959588}
   - component: {fileID: 434504894301626432}
+  - component: {fileID: 8214133360302749626}
   m_Layer: 0
   m_Name: Dungeon_Big_to_Custom
   m_TagString: Untagged
@@ -107,3 +108,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 270315237488130045, guid: a6967b31e7f19cc4bb06302ec4842c79, type: 3}
+--- !u!114 &8214133360302749626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7877627489606281873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a9a033f5bb43999f7df1c08bfda611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialType: 2

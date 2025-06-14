@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1870028053818773298}
   - component: {fileID: 4421988317892720465}
   - component: {fileID: 6099672310086411270}
+  - component: {fileID: 723580353598326298}
   m_Layer: 3
   m_Name: FireRune
   m_TagString: Untagged
@@ -195,3 +196,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialType: 2
+--- !u!114 &723580353598326298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4196049088567448554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f886480b0fc4f7cb17ff928865591cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTime: 0

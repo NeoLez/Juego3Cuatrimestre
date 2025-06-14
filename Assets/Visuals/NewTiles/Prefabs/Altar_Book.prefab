@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8212181720543469624}
   - component: {fileID: 3563393664852674200}
   - component: {fileID: 7073966595860784561}
+  - component: {fileID: 4040634691271701957}
   m_Layer: 3
   m_Name: Altar_Book
   m_TagString: Untagged
@@ -129,3 +130,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2063.4514, y: 4550.6675, z: 1510.2808}
   m_Center: {x: 498.30322, y: 1441.048, z: -2.1368425}
+--- !u!114 &4040634691271701957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9079211751947936615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a9a033f5bb43999f7df1c08bfda611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialType: 1

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7886973110091432321}
   - component: {fileID: 7886973110092530497}
   - component: {fileID: 7886973110094470530}
+  - component: {fileID: 1223648313558721467}
   m_Layer: 0
   m_Name: Cauldron_Small
   m_TagString: Untagged
@@ -107,3 +108,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 0dbe52e7e22a05648ad36efdc78ea7e7, type: 3}
+--- !u!114 &1223648313558721467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7886973110094470529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a9a033f5bb43999f7df1c08bfda611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialType: 5

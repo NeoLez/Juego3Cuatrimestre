@@ -163,6 +163,7 @@ GameObject:
   - component: {fileID: 3640300687199342544}
   - component: {fileID: 3640300687200472336}
   - component: {fileID: 3640300687198475217}
+  - component: {fileID: 1778812339438853248}
   m_Layer: 0
   m_Name: Candlestick
   m_TagString: Untagged
@@ -260,3 +261,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4961821873198477550, guid: b541dad3b2450d64289359950648dcfb, type: 3}
+--- !u!114 &1778812339438853248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3640300687198475216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a9a033f5bb43999f7df1c08bfda611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialType: 5

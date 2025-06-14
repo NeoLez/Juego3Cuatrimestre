@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 4593152622303512869}
   - component: {fileID: 3802788965225499772}
   - component: {fileID: 4971691896920280304}
+  - component: {fileID: 2368571632343237887}
   m_Layer: 0
   m_Name: CrateWall
   m_TagString: Untagged
@@ -158,6 +159,19 @@ MonoBehaviour:
   positions: []
   sub1: {fileID: 6643101452627180823}
   sub2: {fileID: 1247850281157525704}
+--- !u!114 &2368571632343237887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187113507388566720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a9a033f5bb43999f7df1c08bfda611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialType: 4
 --- !u!1 &3660557619819105724
 GameObject:
   m_ObjectHideFlags: 0

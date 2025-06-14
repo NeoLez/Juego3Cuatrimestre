@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 245404403214356815}
   - component: {fileID: 3993866624599369612}
   - component: {fileID: 6319417187180884943}
+  - component: {fileID: 1356722004603815116}
   m_Layer: 0
   m_Name: ArchFixed
   m_TagString: Untagged
@@ -105,3 +106,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 400.1411, y: 259.969, z: 106.4187}
   m_Center: {x: 0, y: 0.00012207031, z: 0}
+--- !u!114 &1356722004603815116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428913141233918267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a9a033f5bb43999f7df1c08bfda611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialType: 2

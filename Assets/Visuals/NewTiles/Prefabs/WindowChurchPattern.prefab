@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3420630192886845562}
   - component: {fileID: 2809400513462025187}
   - component: {fileID: 6936521946412677734}
+  - component: {fileID: 8919207682961791734}
   m_Layer: 0
   m_Name: WindowChurchPattern
   m_TagString: Untagged
@@ -106,3 +107,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 400, y: 500.00006, z: 106.54998}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8919207682961791734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7984373262628446114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a9a033f5bb43999f7df1c08bfda611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialType: 2
