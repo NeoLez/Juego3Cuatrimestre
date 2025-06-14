@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4604552626866680805}
   - component: {fileID: 1730050202505185071}
   - component: {fileID: 2316854688227896739}
+  - component: {fileID: 1372900894630279910}
   m_Layer: 0
   m_Name: Banner
   m_TagString: Untagged
@@ -107,3 +108,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8528105395200891291, guid: b6e99e0c07eb2d04098b9c9515d5d165, type: 3}
+--- !u!114 &1372900894630279910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216915012680525562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a9a033f5bb43999f7df1c08bfda611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialType: 3

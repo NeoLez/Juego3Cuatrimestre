@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1057096677778143799}
   - component: {fileID: 8510310947197182663}
   - component: {fileID: 4792907744978646554}
+  - component: {fileID: 6041748224801194691}
   m_Layer: 3
   m_Name: FloorStone2
   m_TagString: Untagged
@@ -103,5 +104,18 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.000001, y: 0.14387393, z: 4}
+  m_Size: {x: 4.36, y: 0.2, z: 4.36}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6041748224801194691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841829764201714432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a9a033f5bb43999f7df1c08bfda611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialType: 2

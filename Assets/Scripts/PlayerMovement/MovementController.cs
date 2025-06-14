@@ -1,4 +1,5 @@
 using System;
+using SoundSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -16,6 +17,8 @@ public class MovementControllerTest : MonoBehaviour {
     [SerializeField] private float groundCheckRayLength;
     [SerializeField] private LayerMask groundLayer;
 
+    [SerializeField] private MaterialType currentSoundMaterialType;
+
     [FormerlySerializedAs("airLerp")] [SerializeField] private float airMovementSnappiness;
     [FormerlySerializedAs("groundLerp")] [SerializeField] private float groundMovementSnappiness;
 
@@ -23,7 +26,7 @@ public class MovementControllerTest : MonoBehaviour {
     
     [SerializeField] private float maxSlopeAngle;
     private float _currentSlopeAngle;
-    private CharacterState _currentState = CharacterState.Grounded;
+    [SerializeField] private CharacterState _currentState = CharacterState.Grounded;
     private Vector3 _currentSurfaceNormal;
 
     private bool controlsInverted = false;
@@ -164,16 +167,22 @@ public class MovementControllerTest : MonoBehaviour {
             if (Physics.Raycast(hit.point + Vector3.up, Vector3.down, out hit, 2f, groundLayer)) {
                 _currentSurfaceNormal = hit.normal;
                 _currentSlopeAngle = Vector3.Angle(_currentSurfaceNormal, Vector3.up);
-                
-                if(_currentSlopeAngle <= maxSlopeAngle)
+
+                if (_currentSlopeAngle <= maxSlopeAngle) {
                     _currentState = CharacterState.Grounded;
-                else
+                }
+                else {
                     _currentState = CharacterState.Sliding;
+                }
+
+                MaterialTypeComponent materialTypeComponent = hit.collider.gameObject.GetComponent<MaterialTypeComponent>();
+                currentSoundMaterialType = materialTypeComponent != null ? materialTypeComponent.materialType : MaterialType.None;
             }
         }
         else {
             _currentSurfaceNormal = Vector3.up;
             _currentState = CharacterState.Air;
+            currentSoundMaterialType = MaterialType.None;
         }
     }
     
@@ -253,6 +262,10 @@ public class MovementControllerTest : MonoBehaviour {
 
     public CharacterState GetState() {
         return _currentState;
+    }
+
+    public MaterialType GetMaterialType() {
+        return currentSoundMaterialType;
     }
 
     public void InvertControls(bool state)

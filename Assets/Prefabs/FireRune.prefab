@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4480084925908455088}
   - component: {fileID: 1870028053818773298}
   - component: {fileID: 4421988317892720465}
+  - component: {fileID: 6099672310086411270}
   m_Layer: 3
   m_Name: FireRune
   m_TagString: Untagged
@@ -181,3 +182,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 157.45955, y: 234.0901, z: 72.90779}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6099672310086411270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4196049088567448554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a9a033f5bb43999f7df1c08bfda611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialType: 2

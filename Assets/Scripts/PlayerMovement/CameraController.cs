@@ -1,3 +1,6 @@
+using System;
+using SoundSystem;
+using Timers;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour {
@@ -13,9 +16,15 @@ public class CameraController : MonoBehaviour {
     [SerializeField] private float smooth;
     private Vector2 cameraBobbingOffset;
     private float currentSideSwayAngle;
+
+    [SerializeField] private float waitTimeForFootstepStateChange = 0.05f;
+
+    [SerializeField] private AudioClip stepSound;
     
     [SerializeField] private float yaw;
     [SerializeField] private float pitch;
+    private bool walkedPreviousFrame;
+    private float startedWalk;
     
     private PlayerInputActions _input;
     private MovementControllerTest _movementController;
@@ -29,15 +38,40 @@ public class CameraController : MonoBehaviour {
         LockCamera();
     }
 
+    
+    public Timer walkCancelTimer = new Timer();
+    public float stepSoundTime = 0;
     private void Update() {
         Vector2 moveDir = _input.Movement.MoveDir.ReadValue<Vector2>();
         
         if (moveDir.magnitude > 0 && _movementController.GetState() != CharacterState.Air) {
+            if (!walkedPreviousFrame) {
+                Debug.Log("b");
+                walkedPreviousFrame = true;
+                startedWalk = Time.time;
+                stepSoundTime = (float)Math.PI / frequency;
+            }
+            walkCancelTimer.Reset(waitTimeForFootstepStateChange);
             HeadBob();
         }
         else {
-            cameraBobbingOffset = Vector2.Lerp(cameraBobbingOffset, Vector2.zero, smooth * Time.deltaTime);
+            if (walkedPreviousFrame) {
+                if (walkCancelTimer.IsCompleted()) {
+                    Debug.Log("A");
+                    walkedPreviousFrame = false;
+                    cameraBobbingOffset = Vector2.Lerp(cameraBobbingOffset, Vector2.zero, smooth * Time.deltaTime);
+                }
+            }
         }
+
+        if (walkedPreviousFrame) {
+            stepSoundTime -= Time.deltaTime;
+            if (stepSoundTime <= 0) {
+                FootstepMaterialDatabase.Dictionary[_movementController.GetMaterialType()]?.PlaySound();
+                stepSoundTime += (float)Math.PI * 2 / frequency;
+            }
+        }
+        
 
         Vector3 viewBobVector = GetHorizontalDirectionRightVector().Swizzle_x0y() * cameraBobbingOffset.x + Vector3.up * cameraBobbingOffset.y;
         cam.position = cameraPosition.position + viewBobVector;
@@ -56,11 +90,13 @@ public class CameraController : MonoBehaviour {
         currentSideSwayAngle = (target - currentSideSwayAngle) * swaySpeed + currentSideSwayAngle;
         cam.localRotation = Quaternion.Euler(-pitch, yaw, currentSideSwayAngle);
     }
-
+    
     private void HeadBob() {
-        cameraBobbingOffset.y = Mathf.Lerp(cameraBobbingOffset.y, Mathf.Sin(Time.time * frequency) * verticalAmount * 1.4f,
+        
+        float s = Mathf.Sin((Time.time - startedWalk) * frequency + (float)Math.PI / 2);
+        cameraBobbingOffset.y = Mathf.Lerp(cameraBobbingOffset.y, s * verticalAmount * 1.4f,
             smooth * Time.deltaTime);
-        cameraBobbingOffset.x = Mathf.Lerp(cameraBobbingOffset.x, Mathf.Cos(Time.time * frequency / 2) * horizontalAmount * 1.6f,
+        cameraBobbingOffset.x = Mathf.Lerp(cameraBobbingOffset.x, Mathf.Cos((Time.time - startedWalk) * frequency / 2 + (float)Math.PI / 2) * horizontalAmount * 1.6f,
             smooth * Time.deltaTime);
     }
 

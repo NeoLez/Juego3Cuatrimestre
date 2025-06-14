@@ -10,6 +10,7 @@ public class DrawingSurfacePuzzle : MonoBehaviour, IDrawingSurface {
     [SerializeField] private Material circleMaterial;
     [SerializeField] private List<Line> tuples = new(4);
     [SerializeField] private float lineOffset;
+    [SerializeField] private AudioClip lineDrawSound;
     private byte? _lastPoint;
     
     [SerializeField] private float lineWidth;
@@ -71,6 +72,7 @@ public class DrawingSurfacePuzzle : MonoBehaviour, IDrawingSurface {
                         Line newTuple = new Line(_lastPoint.Value, i);
                         //if (!_tuples.Contains(newTuple)) {
                             tuples.Add(newTuple);
+                            GameManager.AudioSystem.PlaySound(lineDrawSound);
                         //}
                     }
                 }

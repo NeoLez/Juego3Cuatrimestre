@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 8
-  groundCheckRayLength: 0.51
+  groundCheckRayLength: 0.54
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -181,6 +181,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   maxSlopeAngle: 40
+  _currentState: 0
   jumpInputBufferTime: 0.15
   maxJumps: 2
   maxJumpDuration: 1
@@ -253,8 +254,11 @@ MonoBehaviour:
   verticalAmount: 0.06
   frequency: 20
   smooth: 10
+  waitTimeForFootstepStateChange: 0.07
+  stepSound: {fileID: 0}
   yaw: 0
   pitch: 0
+  stepSoundTime: 0
 --- !u!114 &4790501068960925811
 MonoBehaviour:
   m_ObjectHideFlags: 0
