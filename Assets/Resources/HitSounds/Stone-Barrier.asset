@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Stone-Barrier
   m_EditorClassIdentifier: 
   materialA: 2
-  materialB: 2
+  materialB: 4
   sounds:
   - {fileID: 8300000, guid: f767af271f27b394585ebb12a7320eb8, type: 3}
