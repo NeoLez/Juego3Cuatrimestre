@@ -104,6 +104,8 @@ GameObject:
   - component: {fileID: 7143595899768215959}
   - component: {fileID: 5264602386683063111}
   - component: {fileID: 6477109378708124776}
+  - component: {fileID: 8929227605120990619}
+  - component: {fileID: 567991798329477868}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -145,6 +147,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
+  currentSoundMaterialType: 0
   airMovementSnappiness: 0.4
   groundMovementSnappiness: 0.6
   angleBasedSpeedLimit:
@@ -419,6 +422,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   respawnPosition: {fileID: 0}
+--- !u!114 &8929227605120990619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3590033677297714036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d0941e5585539341bf4f58701dcaaff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terrainScanPrefab: {fileID: 9173671844534134673, guid: a3bde34c26562184ebd6257fe7e6276c, type: 3}
+  duration: 10
+  size: 500
+  cooldown: 10
+--- !u!114 &567991798329477868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3590033677297714036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f365f04de1212a4da066070e46d819e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4130635824216452731
 GameObject:
   m_ObjectHideFlags: 0
