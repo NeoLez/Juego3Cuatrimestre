@@ -10,7 +10,6 @@ public class RotateProjectionPlane : MonoBehaviour {
     {
         if (isPlayerInRange && Keyboard.current.eKey.wasPressedThisFrame && !planeToRotate.IsRotating())
         {
-            Debug.Log("aa");
             
             if (firstRotation) {
                 planeToRotate.rotation = new Vector3(-90,0,0);

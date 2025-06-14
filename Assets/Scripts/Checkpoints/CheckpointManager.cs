@@ -28,7 +28,6 @@ public class CheckpointManager : MonoBehaviour
         {
             currentCheckpointID = id;
             currentCheckpointPosition = position;
-            Debug.Log("Checkpoint activado: " + id);
         }
     }
 

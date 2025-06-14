@@ -23,8 +23,8 @@ public class HitSounds : MonoBehaviour {
                 }
 
                 float volume = (other.relativeVelocity.magnitude - 4)/5;
-                Debug.Log(volume);
-            
+
+                if (other.contactCount < 1) return;
                 
                 if(HitSoundsDatabase.FindAndPlay(ownMaterialType.materialType, materialType.materialType, other.contacts[0].point, volume))
                     cooldownTimer.Reset(cooldownTime);

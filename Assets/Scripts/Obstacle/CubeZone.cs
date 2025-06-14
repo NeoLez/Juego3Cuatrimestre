@@ -12,7 +12,6 @@ public class CubeZone : MonoBehaviour
       if (other.GetComponent<CubePuzzle>() != null)
       {
          door.CubeEnter(ZoneName);
-         Debug.Log($"Se pudo obtener la puerta {ZoneName}");
       }
    }
 

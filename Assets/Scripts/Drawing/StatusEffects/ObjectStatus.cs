@@ -61,8 +61,7 @@ public class ObjectStatus : MonoBehaviour
     {
         foreach(var effect in activeEffects)
             effect.Die();
-            
-        Debug.Log("c");
+        
         switch (Type) {
             case ObjectTypeEnum.PhysicsObject:
                 gameObject.layer = LayerMask.NameToLayer("Ground");

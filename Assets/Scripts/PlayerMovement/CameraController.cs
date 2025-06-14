@@ -46,7 +46,6 @@ public class CameraController : MonoBehaviour {
         
         if (moveDir.magnitude > 0 && _movementController.GetState() != CharacterState.Air) {
             if (!walkedPreviousFrame) {
-                Debug.Log("b");
                 walkedPreviousFrame = true;
                 startedWalk = Time.time;
                 stepSoundTime = (float)Math.PI / frequency;
@@ -57,7 +56,6 @@ public class CameraController : MonoBehaviour {
         else {
             if (walkedPreviousFrame) {
                 if (walkCancelTimer.IsCompleted()) {
-                    Debug.Log("A");
                     walkedPreviousFrame = false;
                     cameraBobbingOffset = Vector2.Lerp(cameraBobbingOffset, Vector2.zero, smooth * Time.deltaTime);
                 }
