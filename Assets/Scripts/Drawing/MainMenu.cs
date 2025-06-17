@@ -44,6 +44,9 @@ public class MainMenu : MonoBehaviour {
     }
     public void Play() {
         shouldLoadScene = true;
+        Debug.Log(shouldLoadScene);
+        Debug.Log(sceneLoadedToMemory);
+        
     }
     
     public void Quit()
