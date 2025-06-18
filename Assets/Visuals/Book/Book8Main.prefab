@@ -381,8 +381,8 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: ea1fb4df103f0ca45a910d3f90997ac8, type: 2}
-  - {fileID: 2100000, guid: 3526f80396acd7c49a7dbb9fa453c06a, type: 2}
-  - {fileID: 2100000, guid: 3526f80396acd7c49a7dbb9fa453c06a, type: 2}
+  - {fileID: 2100000, guid: ea1fb4df103f0ca45a910d3f90997ac8, type: 2}
+  - {fileID: 2100000, guid: ea1fb4df103f0ca45a910d3f90997ac8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -537,8 +537,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pagePrefab: {fileID: 6835925278863012633, guid: 6c97fe2aeb252c041a0661ac8fbf531f, type: 3}
-  pageRight: {fileID: 0}
-  pageLeft: {fileID: 0}
+  pageRightRenderer: {fileID: 0}
+  pageRightAnim: {fileID: 0}
+  pageLeftRenderer: {fileID: 0}
+  pageLeftAnim: {fileID: 0}
+  doublePages:
+  - a: {fileID: 2100000, guid: 560d95592de6b3d4ab8b9c23fd981e5f, type: 2}
+    b: {fileID: 2100000, guid: 560d95592de6b3d4ab8b9c23fd981e5f, type: 2}
+  - a: {fileID: 2100000, guid: 209ae1071e7e1c3478e72de5871d513d, type: 2}
+    b: {fileID: 2100000, guid: f6beb18480d11374cb9813d4a2dbef26, type: 2}
+  - a: {fileID: 2100000, guid: 3388bdf563555f34b86c471ab001ba4b, type: 2}
+    b: {fileID: 2100000, guid: 8c797e5cd64c50b46a2b40748bc579e1, type: 2}
+  currentPage: 0
+  pageTurnAnimationTime: 0.7
+  pagePosOffset: 0.007
 --- !u!1 &4281966601570258042
 GameObject:
   m_ObjectHideFlags: 0

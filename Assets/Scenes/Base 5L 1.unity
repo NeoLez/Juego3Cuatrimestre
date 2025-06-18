@@ -1356,45 +1356,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7207189625946085087, guid: bd0fe6d98e27e804e92a0beee6221087, type: 3}
     - target: {fileID: 4954061948255082387, guid: b5fb1b04c8d4b93468d195b8cec318b8, type: 3}
-      propertyPath: pagePosOffset
-      value: 0.007
-      objectReference: {fileID: 0}
-    - target: {fileID: 4954061948255082387, guid: b5fb1b04c8d4b93468d195b8cec318b8, type: 3}
       propertyPath: doublePage.Array.size
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4954061948255082387, guid: b5fb1b04c8d4b93468d195b8cec318b8, type: 3}
-      propertyPath: pageTurnAnimationTime
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4954061948255082387, guid: b5fb1b04c8d4b93468d195b8cec318b8, type: 3}
-      propertyPath: doublePages.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4954061948255082387, guid: b5fb1b04c8d4b93468d195b8cec318b8, type: 3}
-      propertyPath: doublePages.Array.data[0].a
-      value: 
-      objectReference: {fileID: 2100000, guid: 21b6c873575ee5b4ea206aa8a2737e9e, type: 2}
-    - target: {fileID: 4954061948255082387, guid: b5fb1b04c8d4b93468d195b8cec318b8, type: 3}
-      propertyPath: doublePages.Array.data[0].b
-      value: 
-      objectReference: {fileID: 2100000, guid: 560d95592de6b3d4ab8b9c23fd981e5f, type: 2}
-    - target: {fileID: 4954061948255082387, guid: b5fb1b04c8d4b93468d195b8cec318b8, type: 3}
-      propertyPath: doublePages.Array.data[1].a
-      value: 
-      objectReference: {fileID: 2100000, guid: 209ae1071e7e1c3478e72de5871d513d, type: 2}
-    - target: {fileID: 4954061948255082387, guid: b5fb1b04c8d4b93468d195b8cec318b8, type: 3}
-      propertyPath: doublePages.Array.data[1].b
-      value: 
-      objectReference: {fileID: 2100000, guid: f6beb18480d11374cb9813d4a2dbef26, type: 2}
-    - target: {fileID: 4954061948255082387, guid: b5fb1b04c8d4b93468d195b8cec318b8, type: 3}
-      propertyPath: doublePages.Array.data[2].a
-      value: 
-      objectReference: {fileID: 2100000, guid: 3388bdf563555f34b86c471ab001ba4b, type: 2}
-    - target: {fileID: 4954061948255082387, guid: b5fb1b04c8d4b93468d195b8cec318b8, type: 3}
-      propertyPath: doublePages.Array.data[2].b
-      value: 
-      objectReference: {fileID: 2100000, guid: 8c797e5cd64c50b46a2b40748bc579e1, type: 2}
     - target: {fileID: 7773603685335767727, guid: b5fb1b04c8d4b93468d195b8cec318b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.78
