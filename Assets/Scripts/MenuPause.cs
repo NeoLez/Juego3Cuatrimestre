@@ -13,8 +13,15 @@ public class MenuPause : MonoBehaviour
 
     public Slider volumenSlider;
 
+    [Header("Sonidos")]
+    public AudioClip sonidoPausa;
+    public AudioClip sonidoReanudar;
+    private AudioSource audioSource;
+
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        
         volumenSlider.value = AudioListener.volume;
         volumenSlider.onValueChanged.AddListener(CambiarVolumen);
     }
@@ -25,6 +32,8 @@ public class MenuPause : MonoBehaviour
         {
             if (!paused)
             {
+                if (sonidoPausa != null) audioSource.PlayOneShot(sonidoPausa);
+
                 PauseMenu.SetActive(true);
                 paused = true;
 
@@ -34,15 +43,23 @@ public class MenuPause : MonoBehaviour
 
                 GameManager.Input.Movement.Disable();
                 GameManager.Input.CameraMovement.Disable();
+                GameManager.Input.BookActions.Disable();
+                GameManager.Input.Scanner.Disable();
+                GameManager.Input.Drag.Disable();
+                GameManager.Input.CardUsage.Disable();
 
                 AudioSource[] songs = FindObjectsOfType<AudioSource>();
-                for (int i = 0; i < songs.Length; i++)
+                foreach (AudioSource s in songs)
                 {
-                    songs[i].Pause();
+                    if (s != audioSource)
+                    {
+                        s.Pause();
+                    }
                 }
             }
             else
             {
+                if (sonidoReanudar != null) audioSource.PlayOneShot(sonidoReanudar);
                 resume();
             }
         }
@@ -61,11 +78,18 @@ public class MenuPause : MonoBehaviour
 
         GameManager.Input.Movement.Enable();
         GameManager.Input.CameraMovement.Enable();
-
+        GameManager.Input.BookActions.Enable();
+        GameManager.Input.Scanner.Enable();
+        GameManager.Input.Drag.Enable();
+        GameManager.Input.CardUsage.Enable();
+        
         AudioSource[] songs = FindObjectsOfType<AudioSource>();
-        for (int i = 0; i < songs.Length; i++)
+        foreach (AudioSource s in songs)
         {
-            songs[i].Play();
+            if (s != audioSource)
+            {
+                s.Play();
+            }
         }
     }
 
