@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -6983619144217900547}
   - component: {fileID: 7234577550342340160}
   - component: {fileID: 3336524788093524423}
+  - component: {fileID: 17303384883377800}
   m_Layer: 3
   m_Name: StoneFloor04
   m_TagString: Untagged
@@ -105,3 +106,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 400.00003, y: 15.822308, z: 400.00012}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &17303384883377800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8065589901054589809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a9a033f5bb43999f7df1c08bfda611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialType: 2
