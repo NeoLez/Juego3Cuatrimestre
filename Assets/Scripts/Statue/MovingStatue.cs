@@ -13,7 +13,7 @@ public class MovingStatue : MonoBehaviour
 
     Vector3 _dest;
     
-    public Camera playerCam, jumpscareCam;
+    public Camera playerCam;
     
     public float aiSpeed;
     
