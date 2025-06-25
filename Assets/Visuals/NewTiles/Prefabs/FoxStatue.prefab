@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -1587721595897302017}
   - component: {fileID: -6468483595967053987}
   - component: {fileID: -461510025115708400}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FoxStatue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
