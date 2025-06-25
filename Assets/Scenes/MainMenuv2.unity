@@ -832,7 +832,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Belen Mounier
+  m_text: Delfina Gimenez
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8dd3abf317651964bab3feda5b5d04f0, type: 2}
   m_sharedMaterial: {fileID: 2229051904106358749, guid: 8dd3abf317651964bab3feda5b5d04f0, type: 2}
@@ -981,6 +981,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombreEscenaAJugar: Base 5L
+  musica: {fileID: 295184118}
+  duracionFade: 2
 --- !u!4 &277129480 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3918751411058313036, guid: bf7a7fc00791eb945a5412768a68fffc, type: 3}
