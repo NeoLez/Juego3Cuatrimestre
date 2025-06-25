@@ -2836,7 +2836,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2029430302926709537, guid: cde62da2be044744686aaa30c4d79f85, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -29.77
+      value: -29.278
       objectReference: {fileID: 0}
     - target: {fileID: 2029430302926709537, guid: cde62da2be044744686aaa30c4d79f85, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2844,7 +2844,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2029430302926709537, guid: cde62da2be044744686aaa30c4d79f85, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 83.448
+      value: 83.473
       objectReference: {fileID: 0}
     - target: {fileID: 2029430302926709537, guid: cde62da2be044744686aaa30c4d79f85, type: 3}
       propertyPath: m_LocalRotation.w
@@ -95700,6 +95700,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8169520561329429757, guid: 2569a62b0421feb4fbb320665445719f, type: 3}
   m_PrefabInstance: {fileID: 742230187}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &743281953 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2913778094142811804, guid: bccb5cc6d9af742468d2bc453eb594d1, type: 3}
+  m_PrefabInstance: {fileID: 1277040419}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &743917903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -162691,6 +162696,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DrawingSurface 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2913778094142811804, guid: bccb5cc6d9af742468d2bc453eb594d1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5672432789647288059, guid: bccb5cc6d9af742468d2bc453eb594d1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -229333,7 +229342,7 @@ PrefabInstance:
     - target: {fileID: 4790501068960925811, guid: 7b0a47058df02a140a1bf52da1619c24, type: 3}
       propertyPath: surface
       value: 
-      objectReference: {fileID: 4110440978089176598, guid: b5fb1b04c8d4b93468d195b8cec318b8, type: 3}
+      objectReference: {fileID: 743281953}
     - target: {fileID: 4918944456445946968, guid: 7b0a47058df02a140a1bf52da1619c24, type: 3}
       propertyPath: maxJumps
       value: 2
