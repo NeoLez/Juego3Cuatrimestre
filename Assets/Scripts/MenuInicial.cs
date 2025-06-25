@@ -1,16 +1,36 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MenuInicial : MonoBehaviour
 {
-    [Header("Nombre de la escena ")]
-    public string nombreEscenaAJugar = "NombreDeTuEscena"; 
+    [Header("Nombre de la escena")]
+    public string nombreEscenaAJugar = "NombreDeTuEscena";
+
+    [Header("Música")]
+    public AudioSource musica;
+    public float duracionFade = 2f;
 
     public void Jugar()
     {
         TransicionEscenasUI.instance.DisolverSalida(nombreEscenaAJugar);
+        
+        StartCoroutine(FadeOutMusica());
+    }
+
+    private IEnumerator FadeOutMusica()
+    {
+        float tiempo = 0f;
+        float volumenInicial = musica.volume;
+
+        while (tiempo < duracionFade)
+        {
+            tiempo += Time.deltaTime;
+            musica.volume = Mathf.Lerp(volumenInicial, 0f, tiempo / duracionFade);
+            yield return null;
+        }
+
+        musica.volume = 0f;
+        musica.Stop();
     }
 
     public void Salir()
