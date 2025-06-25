@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2982588203572936752}
   - component: {fileID: 6765004625865516167}
   - component: {fileID: 4051574049410675126}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: StagStatue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
