@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
+using UnityEngine.Audio;
 using System.Collections;
 
 public class ButtonSound : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
@@ -9,7 +10,7 @@ public class ButtonSound : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public AudioClip hoverSound;
     public AudioClip clickSound;
-    
+
     public GameObject panelOpcionConfirmar;  
     public GameObject panelSalirConfirmar;    
 
@@ -22,6 +23,11 @@ public class ButtonSound : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public Color hoverColor = Color.yellow;
     private Color originalColor;
 
+    public AudioMixerGroup sfxMixerGroup;
+
+    private bool wasClicked = false;
+    private UnityEngine.UI.Button uiButton;
+
     private void Start()
     {
         if (globalAudioSource == null)
@@ -31,17 +37,30 @@ public class ButtonSound : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             {
                 audioManager = new GameObject("AudioManager");
                 globalAudioSource = audioManager.AddComponent<AudioSource>();
+
+                if (sfxMixerGroup != null)
+                {
+                    globalAudioSource.outputAudioMixerGroup = sfxMixerGroup;
+                }
+
                 DontDestroyOnLoad(audioManager);
             }
             else
             {
                 globalAudioSource = audioManager.GetComponent<AudioSource>();
+
+                if (sfxMixerGroup != null && globalAudioSource.outputAudioMixerGroup != sfxMixerGroup)
+                {
+                    globalAudioSource.outputAudioMixerGroup = sfxMixerGroup;
+                }
             }
         }
 
         buttonText = GetComponentInChildren<TextMeshProUGUI>();
         if (buttonText != null)
             originalColor = buttonText.color;
+
+        uiButton = GetComponent<UnityEngine.UI.Button>();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -51,6 +70,13 @@ public class ButtonSound : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         if (buttonText != null)
             buttonText.color = hoverColor;
+
+       
+        if (wasClicked && uiButton != null)
+        {
+            wasClicked = false;
+            uiButton.OnSelect(null);
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -66,6 +92,12 @@ public class ButtonSound : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         if (buttonText != null)
             buttonText.color = originalColor;
+        
+        if (uiButton != null)
+        {
+            wasClicked = true;
+            uiButton.OnDeselect(null);
+        }
 
         if (abreOpciones && panelOpcionConfirmar != null)
         {
