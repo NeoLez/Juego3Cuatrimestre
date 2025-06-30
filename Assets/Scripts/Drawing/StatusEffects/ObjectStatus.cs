@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObjectStatus : MonoBehaviour
 {
+    //TP2 Enzo Francisco Melidoni
     [Header("Tipo del Objeto")]
     public ObjectTypeEnum Type;
 

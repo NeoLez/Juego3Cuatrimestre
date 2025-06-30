@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class BurningEffect : StatusEffect
 {
+    //TP2 Enzo Francisco Melidoni
     private float tick = 1f;
     private AudioSource source;
 

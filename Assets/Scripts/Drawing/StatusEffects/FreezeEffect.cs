@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class FrozenEffect : StatusEffect
 {
+    //TP2 Enzo Francisco Melidoni
     public FrozenEffect(float duration) : base(duration) { }
 
     public override void Apply()

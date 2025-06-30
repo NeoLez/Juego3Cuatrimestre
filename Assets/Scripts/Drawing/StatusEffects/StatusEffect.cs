@@ -1,5 +1,6 @@
 public abstract class StatusEffect
 {
+    //TP2 Enzo Francisco Melidoni
     protected float Duration;
     protected ObjectStatus Target;
 
