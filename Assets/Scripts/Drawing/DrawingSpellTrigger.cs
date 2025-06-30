@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DrawingSpellTrigger : MonoBehaviour
 {
+    //TP2 Leonardo Gonzalez Chiavassa
     [SerializeField] private DrawingSurfacePuzzle puzzle;
     [SerializeField] private ObjectStatus targetObject;
     [SerializeField] private SpellType spellToCast;

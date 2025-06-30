@@ -9,6 +9,7 @@ public class Dialogues : MonoBehaviour
     private bool didDialogueStart;
     private int lineIndex;
     private float typingSpeed = 0.5f;
+    [SerializeField] private bool shouldStartAuto = false;
     [SerializeField] private GameObject dialogueInteraction;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
@@ -47,7 +48,7 @@ public class Dialogues : MonoBehaviour
     private void NextDialogueLine()
     {
         lineIndex++;
-        if (lineIndex > dialogueLines.Length)
+        if (lineIndex < dialogueLines.Length)
         {
             StartCoroutine(ShowLine());
         }
@@ -73,7 +74,19 @@ public class Dialogues : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = true;
-            dialogueInteraction.SetActive(true);
+            
+            if(shouldStartAuto)
+            {
+                if (!didDialogueStart) 
+                {
+                    StartDialogue();
+                    NextDialogueLine();
+                }
+            }
+            else
+            {
+                dialogueInteraction.SetActive(true);
+            }
         }
         
     }

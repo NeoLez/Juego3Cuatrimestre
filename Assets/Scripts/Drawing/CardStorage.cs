@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 public class CardStorage : MonoBehaviour {
+    //TP2 Leonardo Gonzalez Chiavassa
     private readonly Card[] _cards = new Card[CardsMax];
     [SerializeField] private GameObject[] cardUIGameObjects = new GameObject[CardsMax];
     [SerializeField] private GameObject uiPanel;

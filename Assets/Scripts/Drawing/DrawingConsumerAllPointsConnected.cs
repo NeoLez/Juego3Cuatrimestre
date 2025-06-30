@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 public class DrawingConsumerAllPointsConnected : DrawingConsumer{
+    //TP2 Leonardo Gonzalez Chiavassa
     public override bool Consume(Drawing drawing, int pointAmount) {
         bool[] containsPoint = new bool[pointAmount];
         foreach (var line in drawing.lines) {

@@ -4,6 +4,7 @@ using UnityEngine.Serialization;
 
 public class Draw : MonoBehaviour
 {
+    //TP2 Leonardo Gonzalez Chiavassa
     private PlayerInputActions _input;
     private IDrawingSurface _currentSurface;
     [SerializeField] private LayerMask firstPersonLayer;

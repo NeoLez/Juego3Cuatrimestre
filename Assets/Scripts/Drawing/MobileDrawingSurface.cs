@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CameraController))]
 public class MobileDrawingSurface : MonoBehaviour {
+    //TP2 Leonardo Gonzalez Chiavassa
     [SerializeField] private GameObject surface;
     [SerializeField] private float distance;
     private CameraController _cameraController;

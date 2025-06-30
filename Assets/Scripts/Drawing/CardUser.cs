@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 public class CardUser : MonoBehaviour {
+    //tp2 Leonardo Gonzalez Chiavassa
     private CardStorage _cardStorage;
     
     private void Awake() {

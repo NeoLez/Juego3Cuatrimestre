@@ -3,6 +3,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(MeshRenderer), typeof(MeshFilter))]
 public class LineRenderer : MonoBehaviour {
+    //TP2 Leonardo Gonzalez Chiavassa
     private List<Vector3> vertices = new();
     private List<int> triangles = new();
     private List<Vector2> points = new();

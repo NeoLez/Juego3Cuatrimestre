@@ -4,6 +4,7 @@ using Optional;
 using UnityEngine;
 
 public static class DrawingPatternDatabase {
+    //TP2 Leonardo Gonzalez Chiavassa
     private static readonly DrawingPatternSO[] Patterns = Resources.LoadAll<DrawingPatternSO>("Patterns");
     private static readonly HashSet<DrawingPatternSO> UnlockedPatterns = new();
 

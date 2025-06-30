@@ -5,6 +5,7 @@ using Optional.Unsafe;
 using UnityEngine;
 
 public class DrawingSurfaceSpells : MonoBehaviour, IDrawingSurface {
+    //TP2 Leonardo Gonzalez Chiavassa
     [SerializeField] private DrawingPoint[] points;
     [SerializeField] private Material lineMaterial;
     [SerializeField] private Material circleMaterial;

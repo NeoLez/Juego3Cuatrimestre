@@ -5,6 +5,7 @@ using Unity.Mathematics;
 using UnityEngine;
 
 public class DrawingSurfacePuzzle : MonoBehaviour, IDrawingSurface {
+    //TP2 Leonardo Gonzalez Chiavassa
     [SerializeField] public DrawingPoint[] points;
     [SerializeField] private Material lineMaterial;
     [SerializeField] private Material circleMaterial;
