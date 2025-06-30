@@ -71,6 +71,7 @@ public class MenuPause : MonoBehaviour
         SalirConfirmar.SetActive(false);
         OpcionConfirmar.SetActive(false);
         paused = false;
+        
 
         Time.timeScale = 1;
         Cursor.visible = false;

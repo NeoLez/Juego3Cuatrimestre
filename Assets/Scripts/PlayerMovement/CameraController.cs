@@ -20,30 +20,31 @@ public class CameraController : MonoBehaviour {
     [SerializeField] private float waitTimeForFootstepStateChange = 0.05f;
 
     [SerializeField] private AudioClip stepSound;
-    
+
     [SerializeField] private float yaw;
     [SerializeField] private float pitch;
     private bool walkedPreviousFrame;
     private float startedWalk;
-    
+
     private PlayerInputActions _input;
     private MovementControllerTest _movementController;
+
+    public Timer walkCancelTimer = new Timer();
+    public float stepSoundTime = 0;
 
     private void Start() {
         _input = GameManager.Input;
         _movementController = GameManager.Player.GetComponent<MovementControllerTest>();
         cam = GameManager.MainCamera.transform;
         
-        
+        sensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 1f);
+
         LockCamera();
     }
 
-    
-    public Timer walkCancelTimer = new Timer();
-    public float stepSoundTime = 0;
     private void Update() {
         Vector2 moveDir = _input.Movement.MoveDir.ReadValue<Vector2>();
-        
+
         if (moveDir.magnitude > 0 && _movementController.GetState() != CharacterState.Air) {
             if (!walkedPreviousFrame) {
                 walkedPreviousFrame = true;
@@ -52,8 +53,7 @@ public class CameraController : MonoBehaviour {
             }
             walkCancelTimer.Reset(waitTimeForFootstepStateChange);
             HeadBob();
-        }
-        else {
+        } else {
             if (walkedPreviousFrame) {
                 if (walkCancelTimer.IsCompleted()) {
                     walkedPreviousFrame = false;
@@ -69,7 +69,6 @@ public class CameraController : MonoBehaviour {
                 stepSoundTime += (float)Math.PI * 2 / frequency;
             }
         }
-        
 
         Vector3 viewBobVector = GetHorizontalDirectionRightVector().Swizzle_x0y() * cameraBobbingOffset.x + Vector3.up * cameraBobbingOffset.y;
         cam.position = cameraPosition.position + viewBobVector;
@@ -82,20 +81,16 @@ public class CameraController : MonoBehaviour {
             yaw -= 360;
         else if (yaw < 0)
             yaw += 360;
-        
-        
+
         float target = -moveDir.x * sideSwayAngle;
         currentSideSwayAngle = (target - currentSideSwayAngle) * swaySpeed + currentSideSwayAngle;
         cam.localRotation = Quaternion.Euler(-pitch, yaw, currentSideSwayAngle);
     }
-    
+
     private void HeadBob() {
-        
         float s = Mathf.Sin((Time.time - startedWalk) * frequency + (float)Math.PI / 2);
-        cameraBobbingOffset.y = Mathf.Lerp(cameraBobbingOffset.y, s * verticalAmount * 1.4f,
-            smooth * Time.deltaTime);
-        cameraBobbingOffset.x = Mathf.Lerp(cameraBobbingOffset.x, Mathf.Cos((Time.time - startedWalk) * frequency / 2 + (float)Math.PI / 2) * horizontalAmount * 1.6f,
-            smooth * Time.deltaTime);
+        cameraBobbingOffset.y = Mathf.Lerp(cameraBobbingOffset.y, s * verticalAmount * 1.4f, smooth * Time.deltaTime);
+        cameraBobbingOffset.x = Mathf.Lerp(cameraBobbingOffset.x, Mathf.Cos((Time.time - startedWalk) * frequency / 2 + (float)Math.PI / 2) * horizontalAmount * 1.6f, smooth * Time.deltaTime);
     }
 
     public void AddPitch(float n) {
@@ -121,6 +116,7 @@ public class CameraController : MonoBehaviour {
     public Vector2 GetHorizontalDirectionForwardVector() {
         return new Vector2(Mathf.Sin(yaw * Mathf.Deg2Rad), Mathf.Cos(yaw * Mathf.Deg2Rad));
     }
+
     public Vector2 GetHorizontalDirectionRightVector() {
         return new Vector2(Mathf.Cos(yaw * Mathf.Deg2Rad), -Mathf.Sin(yaw * Mathf.Deg2Rad));
     }
