@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class DisplaySettingsMenu : MonoBehaviour
 {
+    //TP2 Enzo Francisco Melidoni
     public Dropdown resolutionDropdown;
     public Dropdown screenModeDropdown;
 

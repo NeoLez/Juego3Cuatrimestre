@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class MouseSensitivity : MonoBehaviour
 {
+    //TP2 Enzo Francisco Melidoni
     public Slider sensibilidadSlider;
 
     void Start()

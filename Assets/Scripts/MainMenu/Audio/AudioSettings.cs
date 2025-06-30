@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class AudioSettings : MonoBehaviour
 {
+    //TP2 Enzo Francisco Melidoni
     public AudioMixer audioMixer;
 
     public Slider musicSlider;

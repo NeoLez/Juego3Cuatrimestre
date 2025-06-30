@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class MenuInicial : MonoBehaviour
 {
+    //TP2 Enzo Francisco Melidoni
     [Header("Nombre de la escena")]
     public string nombreEscenaAJugar = "NombreDeTuEscena";
 

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class MenuPause : MonoBehaviour
 {
+    //TP2 Enzo Francisco Melidoni
     public GameObject PauseMenu;
     public bool paused = false;
     public GameObject SalirConfirmar;

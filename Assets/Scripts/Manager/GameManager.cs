@@ -1,6 +1,7 @@
 using UnityEngine;
 
 public class GameManager {
+    //TP2 Belen Mounier
     public static GameObject Player;
     public static PlayerInputActions Input;
     public static AudioSystem AudioSystem;

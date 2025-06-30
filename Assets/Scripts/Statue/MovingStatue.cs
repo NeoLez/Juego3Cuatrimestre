@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MovingStatue : MonoBehaviour
 {
+    //TP2 Belen Mounier
     public NavMeshAgent ai;
     
     public Transform player;

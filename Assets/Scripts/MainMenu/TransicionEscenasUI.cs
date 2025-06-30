@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class TransicionEscenasUI : MonoBehaviour
 {
+    //TP2 Enzo Francisco Melidoni
     public static TransicionEscenasUI instance;
 
     [Header("Disolver")]
