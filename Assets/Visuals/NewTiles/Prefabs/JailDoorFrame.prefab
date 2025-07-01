@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 755878098792614712}
   - component: {fileID: 6238806508548745659}
   - component: {fileID: 3942760568624900088}
+  - component: {fileID: 1147052566137302222}
   m_Layer: 0
   m_Name: JailDoorFrame
   m_TagString: Untagged
@@ -106,3 +107,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8240043077191119038, guid: b2674135e8fa9a64db17f17fef65d9dd, type: 3}
+--- !u!114 &1147052566137302222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3010744365916055152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a9a033f5bb43999f7df1c08bfda611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialType: 5
