@@ -34,9 +34,9 @@ public class ValveManager : MonoBehaviour
         if (CompareColors(c1, Color.blue) && CompareColors(c2, Color.red) && CompareColors(c3, Color.green))
         {
           
-            Color lightBlue = new Color(0.4f, 0.8f, 1f);
+            Color lightBlue = new Color(1f, 0.8f, 0.6f);
 
-            waterMaterial.SetColor("WaterColour", lightBlue); 
+            waterMaterial.SetColor("_Water_Colour", lightBlue); 
           
         }
     }
