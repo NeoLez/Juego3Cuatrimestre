@@ -1,72 +1,58 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class Dialogues : MonoBehaviour
 {
     private bool isPlayerInRange;
-    private bool didDialogueStart;
+    [SerializeField] private bool isDialoguePlaying;
+    [SerializeField] private bool isFillingInLine;
     private int lineIndex;
     private float typingSpeed = 0.05f;
-    [SerializeField] private bool shouldStartAuto = false;
-    [SerializeField] private bool hasAutoPlayed = false;
+    [SerializeField] private bool shouldStartAuto;
+    [SerializeField] private bool hasAutoPlayed;
     [SerializeField] private GameObject dialogueInteraction;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField, TextArea(3, 5)] private string[] dialogueLines;
+
+    private void Awake() {
+        GameManager.Input.WorldInteractions.Interact.performed += PlayerInteracted;
+    }
+
+    private void PlayerInteracted(InputAction.CallbackContext ctx) {
+        if (isDialoguePlaying) {
+            if (isFillingInLine) {
+                StopAllCoroutines();
+                dialogueText.text = dialogueLines[lineIndex];
+                isFillingInLine = false;
+            }
+            else {
+                NextDialogueLine();
+            }
+        }
+        else if (!shouldStartAuto) {
+            StartDialogue();
+        }
+    }
     
-    void Update()
+    private void StartDialogue()
     {
-        if (didDialogueStart) return;
-        
-        if (shouldStartAuto && isPlayerInRange && !hasAutoPlayed)
-        {
+        if (shouldStartAuto) {
             GameManager.Input.Movement.Disable();
             GameManager.Input.CameraMovement.Disable();
             GameManager.Input.BookActions.Disable();
             GameManager.Input.Scanner.Disable();
             GameManager.Input.Drag.Disable();
             GameManager.Input.CardUsage.Disable();
-            StartDialogue(auto: true);
         }
-        else if (!shouldStartAuto && isPlayerInRange && Input.GetKeyDown(KeyCode.E))
-        {
-            StartDialogue(auto: false);
-        }
-        else if (dialogueText.text == dialogueLines[lineIndex])
-        {
-            NextDialogueLine();
-        }
-        else
-        {
-            StopAllCoroutines();
-            dialogueText.text = dialogueLines[lineIndex];
-        }
-    }
-    void LateUpdate()
-    {
-        if (!didDialogueStart) return;
-        
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (dialogueText.text == dialogueLines[lineIndex])
-                NextDialogueLine();
-            else
-            {
-                StopAllCoroutines();
-                dialogueText.text = dialogueLines[lineIndex];
-            }
-        }
-    }
-    private void StartDialogue(bool auto)
-    {
-       didDialogueStart = true;
-       dialoguePanel.SetActive(true);
-       dialogueInteraction.SetActive(false);
-       lineIndex = 0;
-       if (auto) hasAutoPlayed = false;
-           StartCoroutine(ShowLine());
+        isDialoguePlaying = true;
+        dialoguePanel.SetActive(true);
+        dialogueInteraction.SetActive(false);
+        lineIndex = 0;
+        isFillingInLine = true;
+        StartCoroutine(ShowLine());
     }
 
     private void NextDialogueLine()
@@ -91,14 +77,14 @@ public class Dialogues : MonoBehaviour
     }
     private void EndDialogue()
     {
-        didDialogueStart = false;
+        isDialoguePlaying = false;
         dialoguePanel.SetActive(false);
-        if (!shouldStartAuto)
+        if (shouldStartAuto) 
         {
+            hasAutoPlayed = true;
+        }else {
             dialogueInteraction.SetActive(true);
         }
-        if (shouldStartAuto)
-            hasAutoPlayed = true;
     }
     private IEnumerator ShowLine()
     {
@@ -109,19 +95,19 @@ public class Dialogues : MonoBehaviour
             dialogueText.text += ch;
             yield return new WaitForSeconds(typingSpeed);
         }
+
+        isFillingInLine = false;
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
+        if (other.gameObject == GameManager.Player) {
             isPlayerInRange = true;
-            if(!shouldStartAuto)
-            {
-                dialogueInteraction.SetActive(true);
+            if(shouldStartAuto) {
+                if(!hasAutoPlayed)
+                    StartDialogue();
             }
-            else if (!didDialogueStart)
-            {
-                
+            else {
+                dialogueInteraction.SetActive(true);
             }
         }
         
@@ -129,8 +115,7 @@ public class Dialogues : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
+        if (other.gameObject == GameManager.Player) {
             isPlayerInRange = false;
             dialogueInteraction.SetActive(false);
         }
