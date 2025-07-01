@@ -32,7 +32,7 @@ public class Dialogues : MonoBehaviour
                 NextDialogueLine();
             }
         }
-        else {
+        else if (!shouldStartAuto) {
             StartDialogue();
         }
     }
@@ -79,12 +79,12 @@ public class Dialogues : MonoBehaviour
     {
         isDialoguePlaying = false;
         dialoguePanel.SetActive(false);
-        if (!shouldStartAuto) 
+        if (shouldStartAuto) 
         {
+            hasAutoPlayed = true;
+        }else {
             dialogueInteraction.SetActive(true);
         }
-        if (shouldStartAuto)
-            hasAutoPlayed = true;
     }
     private IEnumerator ShowLine()
     {
@@ -100,12 +100,11 @@ public class Dialogues : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == GameManager.Player)
-        {
+        if (other.gameObject == GameManager.Player) {
             isPlayerInRange = true;
-            if(shouldStartAuto && !hasAutoPlayed)
-            {
-                StartDialogue();
+            if(shouldStartAuto) {
+                if(!hasAutoPlayed)
+                    StartDialogue();
             }
             else {
                 dialogueInteraction.SetActive(true);
@@ -116,8 +115,7 @@ public class Dialogues : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == GameManager.Player)
-        {
+        if (other.gameObject == GameManager.Player) {
             isPlayerInRange = false;
             dialogueInteraction.SetActive(false);
         }
