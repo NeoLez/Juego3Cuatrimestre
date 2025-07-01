@@ -36,7 +36,7 @@ public class ValveManager : MonoBehaviour
           
             Color lightBlue = new Color(0.4f, 0.8f, 1f);
 
-            waterMaterial.SetColor("WaterColour", lightBlue); 
+            waterMaterial.SetColor("_Water_Colour", lightBlue); 
           
         }
     }
