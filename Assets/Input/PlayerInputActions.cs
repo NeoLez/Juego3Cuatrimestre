@@ -912,6 +912,34 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""WorldInteractions"",
+            ""id"": ""8086503f-bfe9-4d9e-a994-2cdb85d656aa"",
+            ""actions"": [
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""a8b14236-d89e-4c17-aac8-58af11859ee2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""26627d9e-721b-4d0a-8838-e54e50b2cdf6"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -953,6 +981,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         // Cheats
         m_Cheats = asset.FindActionMap("Cheats", throwIfNotFound: true);
         m_Cheats_UnlockAllSpells = m_Cheats.FindAction("UnlockAllSpells", throwIfNotFound: true);
+        // WorldInteractions
+        m_WorldInteractions = asset.FindActionMap("WorldInteractions", throwIfNotFound: true);
+        m_WorldInteractions_Interact = m_WorldInteractions.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1460,6 +1491,52 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         }
     }
     public CheatsActions @Cheats => new CheatsActions(this);
+
+    // WorldInteractions
+    private readonly InputActionMap m_WorldInteractions;
+    private List<IWorldInteractionsActions> m_WorldInteractionsActionsCallbackInterfaces = new List<IWorldInteractionsActions>();
+    private readonly InputAction m_WorldInteractions_Interact;
+    public struct WorldInteractionsActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public WorldInteractionsActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Interact => m_Wrapper.m_WorldInteractions_Interact;
+        public InputActionMap Get() { return m_Wrapper.m_WorldInteractions; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(WorldInteractionsActions set) { return set.Get(); }
+        public void AddCallbacks(IWorldInteractionsActions instance)
+        {
+            if (instance == null || m_Wrapper.m_WorldInteractionsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_WorldInteractionsActionsCallbackInterfaces.Add(instance);
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
+        }
+
+        private void UnregisterCallbacks(IWorldInteractionsActions instance)
+        {
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
+        }
+
+        public void RemoveCallbacks(IWorldInteractionsActions instance)
+        {
+            if (m_Wrapper.m_WorldInteractionsActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IWorldInteractionsActions instance)
+        {
+            foreach (var item in m_Wrapper.m_WorldInteractionsActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_WorldInteractionsActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public WorldInteractionsActions @WorldInteractions => new WorldInteractionsActions(this);
     public interface IMovementActions
     {
         void OnMoveDir(InputAction.CallbackContext context);
@@ -1503,5 +1580,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     public interface ICheatsActions
     {
         void OnUnlockAllSpells(InputAction.CallbackContext context);
+    }
+    public interface IWorldInteractionsActions
+    {
+        void OnInteract(InputAction.CallbackContext context);
     }
 }

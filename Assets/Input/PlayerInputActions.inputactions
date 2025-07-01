@@ -890,6 +890,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "WorldInteractions",
+            "id": "8086503f-bfe9-4d9e-a994-2cdb85d656aa",
+            "actions": [
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "a8b14236-d89e-4c17-aac8-58af11859ee2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "26627d9e-721b-4d0a-8838-e54e50b2cdf6",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
