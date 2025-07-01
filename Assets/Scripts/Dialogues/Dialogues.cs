@@ -8,26 +8,50 @@ public class Dialogues : MonoBehaviour
     private bool isPlayerInRange;
     private bool didDialogueStart;
     private int lineIndex;
-    private float typingSpeed = 0.5f;
+    private float typingSpeed = 0.05f;
     [SerializeField] private bool shouldStartAuto = false;
+    [SerializeField] private bool hasAutoPlayed = false;
     [SerializeField] private GameObject dialogueInteraction;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField, TextArea(3, 5)] private string[] dialogueLines;
     
-    // Update is called once per frame
     void Update()
     {
-        if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
+        if (didDialogueStart) return;
+        
+        if (shouldStartAuto && isPlayerInRange && !hasAutoPlayed)
         {
-            if (!didDialogueStart)
-            {
-                StartDialogue();
-            }
-            else if (dialogueText.text == dialogueLines[lineIndex])
-            {
-                    NextDialogueLine();
-            }
+            GameManager.Input.Movement.Disable();
+            GameManager.Input.CameraMovement.Disable();
+            GameManager.Input.BookActions.Disable();
+            GameManager.Input.Scanner.Disable();
+            GameManager.Input.Drag.Disable();
+            GameManager.Input.CardUsage.Disable();
+            StartDialogue(auto: true);
+        }
+        else if (!shouldStartAuto && isPlayerInRange && Input.GetKeyDown(KeyCode.E))
+        {
+            StartDialogue(auto: false);
+        }
+        else if (dialogueText.text == dialogueLines[lineIndex])
+        {
+            NextDialogueLine();
+        }
+        else
+        {
+            StopAllCoroutines();
+            dialogueText.text = dialogueLines[lineIndex];
+        }
+    }
+    void LateUpdate()
+    {
+        if (!didDialogueStart) return;
+        
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (dialogueText.text == dialogueLines[lineIndex])
+                NextDialogueLine();
             else
             {
                 StopAllCoroutines();
@@ -35,14 +59,14 @@ public class Dialogues : MonoBehaviour
             }
         }
     }
-
-    private void StartDialogue()
+    private void StartDialogue(bool auto)
     {
        didDialogueStart = true;
        dialoguePanel.SetActive(true);
        dialogueInteraction.SetActive(false);
        lineIndex = 0;
-       StartCoroutine(ShowLine());
+       if (auto) hasAutoPlayed = false;
+           StartCoroutine(ShowLine());
     }
 
     private void NextDialogueLine()
@@ -54,10 +78,27 @@ public class Dialogues : MonoBehaviour
         }
         else
         {
-            didDialogueStart = false;
+            EndDialogue();
             dialoguePanel.SetActive(false);
             dialogueInteraction.SetActive(true);
+            GameManager.Input.Movement.Enable();
+            GameManager.Input.CameraMovement.Enable();
+            GameManager.Input.BookActions.Enable();
+            GameManager.Input.Scanner.Enable();
+            GameManager.Input.Drag.Enable();
+            GameManager.Input.CardUsage.Enable();
         }
+    }
+    private void EndDialogue()
+    {
+        didDialogueStart = false;
+        dialoguePanel.SetActive(false);
+        if (!shouldStartAuto)
+        {
+            dialogueInteraction.SetActive(true);
+        }
+        if (shouldStartAuto)
+            hasAutoPlayed = true;
     }
     private IEnumerator ShowLine()
     {
@@ -74,18 +115,13 @@ public class Dialogues : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = true;
-            
-            if(shouldStartAuto)
-            {
-                if (!didDialogueStart) 
-                {
-                    StartDialogue();
-                    NextDialogueLine();
-                }
-            }
-            else
+            if(!shouldStartAuto)
             {
                 dialogueInteraction.SetActive(true);
+            }
+            else if (!didDialogueStart)
+            {
+                
             }
         }
         
