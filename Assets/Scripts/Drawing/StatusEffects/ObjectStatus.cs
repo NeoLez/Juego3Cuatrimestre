@@ -117,6 +117,8 @@ public class ObjectStatus : MonoBehaviour
 
     //TODO: This sucks.
     private void OnCollisionEnter(Collision other) {
+        if (!HasEffect(typeof(BurningEffect))) return;
+        
         if (other.gameObject.TryGetComponent(out ObjectStatus status))
         {
             if (!status.HasEffect(typeof(BurningEffect))) {
