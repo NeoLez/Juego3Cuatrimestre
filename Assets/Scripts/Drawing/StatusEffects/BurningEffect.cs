@@ -19,7 +19,7 @@ public class BurningEffect : StatusEffect
         var type = Target.GetComponent<ObjectStatus>();
         source = GameManager.AudioSystem.PlaySoundLooping(type.fireEffectSound, type.gameObject.transform.position);
         GameManager.AudioSystem.PlaySound(type.fireImpactSound);
-        LeanTween.value(Target.gameObject, fireAmount, -1, 1).setOnUpdate((float val) =>
+        LeanTween.value(Target.gameObject, fireAmount, -0.6f, 1).setOnUpdate((float val) =>
         {
             fireAmount = val;
             objMaterial.SetFloat("_FireTransition", fireAmount);
