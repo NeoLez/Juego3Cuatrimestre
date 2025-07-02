@@ -5,7 +5,7 @@ public class MenuInicial : MonoBehaviour
 {
     //TP2 Enzo Francisco Melidoni
     [Header("Nombre de la escena")]
-    public string nombreEscenaAJugar = "NombreDeTuEscena";
+    public string nombreEscenaAJugar = "Base 5L";
 
     [Header("Música")]
     public AudioSource musica;

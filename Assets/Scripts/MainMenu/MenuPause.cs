@@ -12,8 +12,6 @@ public class MenuPause : MonoBehaviour
     public GameObject SalirConfirmar;
     public GameObject OpcionConfirmar;
 
-    public Slider volumenSlider;
-
     [Header("Sonidos")]
     public AudioClip sonidoPausa;
     public AudioClip sonidoReanudar;
@@ -22,9 +20,6 @@ public class MenuPause : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        
-        volumenSlider.value = AudioListener.volume;
-        volumenSlider.onValueChanged.AddListener(CambiarVolumen);
     }
 
     void Update()
@@ -94,12 +89,12 @@ public class MenuPause : MonoBehaviour
             }
         }
     }
-
-    public void CambiarVolumen(float volumen)
+    public void VolverAlMenuPrincipal()
     {
-        AudioListener.volume = volumen;
+        Time.timeScale = 1; 
+        SceneManager.LoadScene(0); 
     }
-
+    
     public void Quit()
     {
         Application.Quit();
