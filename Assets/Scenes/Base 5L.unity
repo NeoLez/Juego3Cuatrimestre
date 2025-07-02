@@ -13206,6 +13206,7 @@ MonoBehaviour:
   doorOpenAngle: 95
   moveDistance: 3
   smooth: 3
+  volume: 1
   doorOpenSound: {fileID: 0}
   doorFinishedOpeningSound: {fileID: 0}
 --- !u!4 &94365618
@@ -30577,6 +30578,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954397883438197797, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 9132436546793489461, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
       propertyPath: m_Intensity
       value: 1.5
@@ -31566,6 +31571,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954397883438197797, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 9132436546793489461, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
       propertyPath: m_Intensity
       value: 1.5
@@ -32064,6 +32073,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954397883438197797, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 9132436546793489461, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
       propertyPath: m_Intensity
       value: 1.5
@@ -33629,8 +33642,9 @@ MonoBehaviour:
   doorOpenAngle: 95
   moveDistance: 3
   smooth: 3
+  volume: 1
   doorOpenSound: {fileID: 8300000, guid: 8677780febd0ddb4cabc7ea7c08d5cb7, type: 3}
-  doorFinishedOpeningSound: {fileID: 0}
+  doorFinishedOpeningSound: {fileID: 8300000, guid: 362be8609e9917a4781e2de660862918, type: 3}
 --- !u!4 &228816336
 Transform:
   m_ObjectHideFlags: 0
@@ -46189,6 +46203,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954397883438197797, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 9132436546793489461, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
       propertyPath: m_Intensity
       value: 1.5
@@ -48672,6 +48690,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954397883438197797, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 9132436546793489461, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
       propertyPath: m_Intensity
       value: 1.5
@@ -55047,6 +55069,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954397883438197797, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 9132436546793489461, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
       propertyPath: m_Intensity
       value: 1.5
@@ -65318,6 +65344,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954397883438197797, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 9132436546793489461, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
       propertyPath: m_Intensity
       value: 1.5
@@ -67238,6 +67268,7 @@ MonoBehaviour:
   doorOpenAngle: 95
   moveDistance: 3
   smooth: 3
+  volume: 1
   doorOpenSound: {fileID: 0}
   doorFinishedOpeningSound: {fileID: 0}
 --- !u!4 &475955073 stripped
@@ -85389,6 +85420,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954397883438197797, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 9132436546793489461, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
       propertyPath: m_Intensity
       value: 1.5
@@ -98708,6 +98743,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954397883438197797, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 9132436546793489461, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
       propertyPath: m_Intensity
       value: 1.5
@@ -118565,6 +118604,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954397883438197797, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 9132436546793489461, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
       propertyPath: m_Intensity
       value: 1.5
@@ -142424,6 +142467,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954397883438197797, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 9132436546793489461, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
       propertyPath: m_Intensity
       value: 1.5
@@ -142974,6 +143021,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954397883438197797, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 9132436546793489461, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
       propertyPath: m_Intensity
       value: 1.5
@@ -153332,7 +153383,7 @@ GameObject:
   - component: {fileID: 1086921702}
   - component: {fileID: 1086921701}
   m_Layer: 5
-  m_Name: Opciones de audio
+  m_Name: Opciones de controles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -169454,7 +169505,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -177620,6 +177671,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954397883438197797, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 9132436546793489461, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
       propertyPath: m_Intensity
       value: 1.5
@@ -177686,6 +177741,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954397883438197797, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 9132436546793489461, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
       propertyPath: m_Intensity
       value: 1.5
@@ -185834,7 +185893,7 @@ GameObject:
   - component: {fileID: 1312028048}
   - component: {fileID: 1312028047}
   m_Layer: 5
-  m_Name: Opciones de audio
+  m_Name: Opciones de graficos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -187833,6 +187892,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954397883438197797, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 9132436546793489461, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
       propertyPath: m_Intensity
       value: 1.5
@@ -189142,6 +189205,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954397883438197797, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 9132436546793489461, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
       propertyPath: m_Intensity
       value: 1.5
@@ -205037,6 +205104,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954397883438197797, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 9132436546793489461, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
       propertyPath: m_Intensity
       value: 1.5
@@ -209524,6 +209595,7 @@ MonoBehaviour:
   doorOpenAngle: 95
   moveDistance: 3
   smooth: 3
+  volume: 1
   doorOpenSound: {fileID: 0}
   doorFinishedOpeningSound: {fileID: 0}
 --- !u!1001 &1477678508
@@ -210907,6 +210979,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954397883438197797, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 9132436546793489461, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
       propertyPath: m_Intensity
       value: 1.5
@@ -216924,6 +217000,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954397883438197797, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 9132436546793489461, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
       propertyPath: m_Intensity
       value: 1.5
@@ -219598,6 +219678,7 @@ MonoBehaviour:
   doorOpenAngle: 95
   moveDistance: 3
   smooth: 3
+  volume: 1
   doorOpenSound: {fileID: 8300000, guid: 8677780febd0ddb4cabc7ea7c08d5cb7, type: 3}
   doorFinishedOpeningSound: {fileID: 0}
 --- !u!1001 &1556186507
@@ -220774,6 +220855,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954397883438197797, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 9132436546793489461, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
       propertyPath: m_Intensity
       value: 1.5
@@ -234791,6 +234876,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954397883438197797, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 9132436546793489461, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
       propertyPath: m_Intensity
       value: 1.5
@@ -237883,6 +237972,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954397883438197797, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 9132436546793489461, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
       propertyPath: m_Intensity
       value: 1.5
@@ -243785,6 +243878,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954397883438197797, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 9132436546793489461, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
       propertyPath: m_Intensity
       value: 1.5
@@ -262378,6 +262475,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954397883438197797, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 9132436546793489461, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
       propertyPath: m_Intensity
       value: 1.5
@@ -263891,10 +263992,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorType: 1
   doorOpenAngle: 95
-  moveDistance: 3
-  smooth: 3
+  moveDistance: 1
+  smooth: 1
+  volume: 1
   doorOpenSound: {fileID: 8300000, guid: 8677780febd0ddb4cabc7ea7c08d5cb7, type: 3}
-  doorFinishedOpeningSound: {fileID: 0}
+  doorFinishedOpeningSound: {fileID: 8300000, guid: 362be8609e9917a4781e2de660862918, type: 3}
 --- !u!4 &1838526317
 Transform:
   m_ObjectHideFlags: 0
@@ -276173,119 +276275,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1432332771}
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
---- !u!1001 &1927023857
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1307366085592668771, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1307366085592668771, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1307366085592668771, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1307366085592668771, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1307366085592668771, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1307366085592668771, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1307366085592668771, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1920
-      objectReference: {fileID: 0}
-    - target: {fileID: 1307366085592668771, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 1079.9689
-      objectReference: {fileID: 0}
-    - target: {fileID: 1307366085592668771, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1307366085592668771, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1307366085592668771, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -6.7260714
-      objectReference: {fileID: 0}
-    - target: {fileID: 1307366085592668771, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.70710784
-      objectReference: {fileID: 0}
-    - target: {fileID: 1307366085592668771, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.70710576
-      objectReference: {fileID: 0}
-    - target: {fileID: 1307366085592668771, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1307366085592668771, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1307366085592668771, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 733871
-      objectReference: {fileID: 0}
-    - target: {fileID: 1307366085592668771, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 23.572958
-      objectReference: {fileID: 0}
-    - target: {fileID: 1307366085592668771, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1307366085592668771, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1307366085592668771, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2722051766702473616, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
-      propertyPath: m_Name
-      value: MenuControles
-      objectReference: {fileID: 0}
-    - target: {fileID: 2722051766702473616, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4320409165603904650, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
-      propertyPath: m_Name
-      value: Agarrar objetos
-      objectReference: {fileID: 0}
-    - target: {fileID: 4635462730738151082, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9029375589744475507, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
 --- !u!4 &1927958284 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8169520561329429757, guid: 2569a62b0421feb4fbb320665445719f, type: 3}
@@ -287683,7 +287672,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -289517,6 +289506,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954397883438197797, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 9132436546793489461, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
       propertyPath: m_Intensity
       value: 1.5
@@ -296586,6 +296579,7 @@ MonoBehaviour:
   doorOpenAngle: 95
   moveDistance: 3
   smooth: 3
+  volume: 1
   doorOpenSound: {fileID: 8300000, guid: 8677780febd0ddb4cabc7ea7c08d5cb7, type: 3}
   doorFinishedOpeningSound: {fileID: 0}
 --- !u!4 &2065433007
@@ -298440,6 +298434,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954397883438197797, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 9132436546793489461, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
       propertyPath: m_Intensity
       value: 1.5
@@ -299109,6 +299107,7 @@ MonoBehaviour:
   doorOpenAngle: 95
   moveDistance: 3
   smooth: 3
+  volume: 1
   doorOpenSound: {fileID: 0}
   doorFinishedOpeningSound: {fileID: 0}
 --- !u!1001 &2080470626
@@ -312945,6 +312944,7 @@ MonoBehaviour:
   doorOpenAngle: 95
   moveDistance: 3
   smooth: 3
+  volume: 1
   doorOpenSound: {fileID: 0}
   doorFinishedOpeningSound: {fileID: 0}
 --- !u!4 &2145639202
@@ -313459,6 +313459,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 750268413912529695, guid: 1016653e28ab5d14fa1c506773cfda3e, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
     - target: {fileID: 3461606313362241365, guid: 1016653e28ab5d14fa1c506773cfda3e, type: 3}
       propertyPath: m_Name
       value: NonPositionalAudioSource
@@ -313948,7 +313952,6 @@ SceneRoots:
   - {fileID: 797418112}
   - {fileID: 1391473870}
   - {fileID: 1036119790}
-  - {fileID: 1927023857}
   - {fileID: 1800770668}
   - {fileID: 1050789842}
   - {fileID: 48880843}
