@@ -14516,7 +14516,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 60101e248276e0544b820f95b520be2a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 73.83
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 60101e248276e0544b820f95b520be2a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -38241,7 +38241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorType: 1
   doorOpenAngle: 95
-  moveDistance: 3
+  moveDistance: 4
   smooth: 3
   volume: 1
   doorOpenSound: {fileID: 8300000, guid: 8677780febd0ddb4cabc7ea7c08d5cb7, type: 3}
@@ -38255,7 +38255,7 @@ Transform:
   m_GameObject: {fileID: 228816334}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.26, y: 0, z: -32.2}
+  m_LocalPosition: {x: -12.23, y: 0, z: 41.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -60413,16 +60413,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795b5f3cb83aee448808b8c73b03979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverSound: {fileID: 8300000, guid: cebc999cdeef3014d8aa2ec3cecda450, type: 3}
-  clickSound: {fileID: 8300000, guid: c70f6526d3c5ada4e8187d326b2c8cd1, type: 3}
-  panelOpcionConfirmar: {fileID: 0}
-  panelSalirConfirmar: {fileID: 0}
-  abreOpciones: 0
-  abreSalir: 0
-  cierraOpciones: 0
-  cierraSalir: 0
-  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  sfxMixerGroup: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
 --- !u!114 &369324210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62194,6 +62184,10 @@ PrefabInstance:
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1124245820837767607, guid: 1bfcc20310bdb064d84bb400ea2d89b8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 103.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 1124245820837767607, guid: 1bfcc20310bdb064d84bb400ea2d89b8, type: 3}
       propertyPath: m_LocalScale.x
       value: 35.014862
       objectReference: {fileID: 0}
@@ -62231,7 +62225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1124245820837767607, guid: 1bfcc20310bdb064d84bb400ea2d89b8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -5079
       objectReference: {fileID: 0}
     - target: {fileID: 1124245820837767607, guid: 1bfcc20310bdb064d84bb400ea2d89b8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -62240,6 +62234,10 @@ PrefabInstance:
     - target: {fileID: 1433309483643633855, guid: 1bfcc20310bdb064d84bb400ea2d89b8, type: 3}
       propertyPath: worldHintTextObject
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1568853905958979086, guid: 1bfcc20310bdb064d84bb400ea2d89b8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1568853905958979086, guid: 1bfcc20310bdb064d84bb400ea2d89b8, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -62313,6 +62311,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: -3885248408432238867, guid: 7f9c69e0ff9d25e48b8c6c2feb3d2468, type: 3}
+    - target: {fileID: 8102640068097795054, guid: 1bfcc20310bdb064d84bb400ea2d89b8, type: 3}
+      propertyPath: m_text
+      value: E to Interact
+      objectReference: {fileID: 0}
     - target: {fileID: 8102640068097795054, guid: 1bfcc20310bdb064d84bb400ea2d89b8, type: 3}
       propertyPath: m_fontSize
       value: 100
@@ -77698,16 +77700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795b5f3cb83aee448808b8c73b03979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverSound: {fileID: 8300000, guid: cebc999cdeef3014d8aa2ec3cecda450, type: 3}
-  clickSound: {fileID: 8300000, guid: c70f6526d3c5ada4e8187d326b2c8cd1, type: 3}
-  panelOpcionConfirmar: {fileID: 0}
-  panelSalirConfirmar: {fileID: 0}
-  abreOpciones: 0
-  abreSalir: 0
-  cierraOpciones: 0
-  cierraSalir: 0
-  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  sfxMixerGroup: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
 --- !u!114 &492082641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88625,6 +88617,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8947240020027515363, guid: 89d3b7d674b1c0a4d814eebbef104b81, type: 3}
   m_PrefabInstance: {fileID: 565466942}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &565909084 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1568853905958979086, guid: 1bfcc20310bdb064d84bb400ea2d89b8, type: 3}
+  m_PrefabInstance: {fileID: 381758954}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &565946039
 PrefabInstance:
@@ -101756,16 +101753,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795b5f3cb83aee448808b8c73b03979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverSound: {fileID: 8300000, guid: cebc999cdeef3014d8aa2ec3cecda450, type: 3}
-  clickSound: {fileID: 8300000, guid: c70f6526d3c5ada4e8187d326b2c8cd1, type: 3}
-  panelOpcionConfirmar: {fileID: 0}
-  panelSalirConfirmar: {fileID: 0}
-  abreOpciones: 0
-  abreSalir: 0
-  cierraOpciones: 0
-  cierraSalir: 0
-  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  sfxMixerGroup: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
 --- !u!114 &639457862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110556,16 +110543,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795b5f3cb83aee448808b8c73b03979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverSound: {fileID: 8300000, guid: cebc999cdeef3014d8aa2ec3cecda450, type: 3}
-  clickSound: {fileID: 8300000, guid: c70f6526d3c5ada4e8187d326b2c8cd1, type: 3}
-  panelOpcionConfirmar: {fileID: 0}
-  panelSalirConfirmar: {fileID: 0}
-  abreOpciones: 0
-  abreSalir: 0
-  cierraOpciones: 0
-  cierraSalir: 0
-  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  sfxMixerGroup: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
 --- !u!114 &698553248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147284,7 +147261,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 866b6b9719606404e862e68580baadd0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 67.98999
+      value: -5.723
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 866b6b9719606404e862e68580baadd0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -157799,16 +157776,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795b5f3cb83aee448808b8c73b03979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverSound: {fileID: 8300000, guid: cebc999cdeef3014d8aa2ec3cecda450, type: 3}
-  clickSound: {fileID: 8300000, guid: c70f6526d3c5ada4e8187d326b2c8cd1, type: 3}
-  panelOpcionConfirmar: {fileID: 0}
-  panelSalirConfirmar: {fileID: 0}
-  abreOpciones: 0
-  abreSalir: 0
-  cierraOpciones: 0
-  cierraSalir: 0
-  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  sfxMixerGroup: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
 --- !u!114 &1005872707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179791,16 +179758,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795b5f3cb83aee448808b8c73b03979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverSound: {fileID: 8300000, guid: cebc999cdeef3014d8aa2ec3cecda450, type: 3}
-  clickSound: {fileID: 8300000, guid: c70f6526d3c5ada4e8187d326b2c8cd1, type: 3}
-  panelOpcionConfirmar: {fileID: 0}
-  panelSalirConfirmar: {fileID: 0}
-  abreOpciones: 0
-  abreSalir: 0
-  cierraOpciones: 0
-  cierraSalir: 0
-  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  sfxMixerGroup: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
 --- !u!114 &1153101464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199319,10 +199276,6 @@ PrefabInstance:
       propertyPath: dialoguePanel
       value: 
       objectReference: {fileID: 1347489265}
-    - target: {fileID: 6080610491374088497, guid: 8d8c48d9481993f42a9d23b3c5704ecf, type: 3}
-      propertyPath: shouldStartAuto
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6080610491374088497, guid: 8d8c48d9481993f42a9d23b3c5704ecf, type: 3}
       propertyPath: dialogueInteraction
       value: 
@@ -224845,10 +224798,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a69bd6f107496346b45a42dc99f6fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuAudio: {fileID: 1431904834}
-  menuControles: {fileID: 0}
-  menuGraficos: {fileID: 0}
-  menuPrincipal: {fileID: 0}
 --- !u!1001 &1432074634
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -261869,15 +261818,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 60101e248276e0544b820f95b520be2a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.72
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 60101e248276e0544b820f95b520be2a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 60101e248276e0544b820f95b520be2a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 73.83
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 60101e248276e0544b820f95b520be2a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -279085,7 +279034,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1158532707312971085, guid: 8d8c48d9481993f42a9d23b3c5704ecf, type: 3}
       propertyPath: m_Size.x
-      value: 9.098416
+      value: 14.16
       objectReference: {fileID: 0}
     - target: {fileID: 1158532707312971085, guid: 8d8c48d9481993f42a9d23b3c5704ecf, type: 3}
       propertyPath: m_Size.y
@@ -279093,7 +279042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1158532707312971085, guid: 8d8c48d9481993f42a9d23b3c5704ecf, type: 3}
       propertyPath: m_Size.z
-      value: 8.493423
+      value: 14.7
       objectReference: {fileID: 0}
     - target: {fileID: 1158532707312971085, guid: 8d8c48d9481993f42a9d23b3c5704ecf, type: 3}
       propertyPath: m_Center.x
@@ -279134,6 +279083,7 @@ PrefabInstance:
     - target: {fileID: 6080610491374088497, guid: 8d8c48d9481993f42a9d23b3c5704ecf, type: 3}
       propertyPath: dialogueLines.Array.data[0]
       value: '
+
 
         Aja!
 
@@ -293108,11 +293058,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorType: 1
   doorOpenAngle: 95
-  moveDistance: 1
+  moveDistance: 4
   smooth: 1
   volume: 1
   doorOpenSound: {fileID: 8300000, guid: 8677780febd0ddb4cabc7ea7c08d5cb7, type: 3}
-  doorFinishedOpeningSound: {fileID: 8300000, guid: 362be8609e9917a4781e2de660862918, type: 3}
+  doorFinishedOpeningSound: {fileID: 0}
 --- !u!4 &1838526317
 Transform:
   m_ObjectHideFlags: 0
@@ -293122,7 +293072,7 @@ Transform:
   m_GameObject: {fileID: 1838526315}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.70710576, z: -0, w: 0.7071079}
-  m_LocalPosition: {x: 48.08, y: 0, z: 60.72}
+  m_LocalPosition: {x: -25.879, y: 2.024, z: 58.885}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -317197,7 +317147,8 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 1475703907261949211, guid: 1bfcc20310bdb064d84bb400ea2d89b8, type: 3}
     - {fileID: 8972680657477905879, guid: 1bfcc20310bdb064d84bb400ea2d89b8, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4189471566180943113, guid: 1bfcc20310bdb064d84bb400ea2d89b8, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5192803100829913164, guid: 1bfcc20310bdb064d84bb400ea2d89b8, type: 3}
       insertIndex: -1
@@ -334485,7 +334436,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1158532707312971085, guid: 8d8c48d9481993f42a9d23b3c5704ecf, type: 3}
       propertyPath: m_Size.x
-      value: 4.9534636
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1158532707312971085, guid: 8d8c48d9481993f42a9d23b3c5704ecf, type: 3}
       propertyPath: m_Size.y
@@ -334493,7 +334444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1158532707312971085, guid: 8d8c48d9481993f42a9d23b3c5704ecf, type: 3}
       propertyPath: m_Size.z
-      value: 6.1247435
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1158532707312971085, guid: 8d8c48d9481993f42a9d23b3c5704ecf, type: 3}
       propertyPath: m_Center.x
@@ -334530,7 +334481,7 @@ PrefabInstance:
     - target: {fileID: 6080610491374088497, guid: 8d8c48d9481993f42a9d23b3c5704ecf, type: 3}
       propertyPath: dialogueInteraction
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 565909084}
     - target: {fileID: 6080610491374088497, guid: 8d8c48d9481993f42a9d23b3c5704ecf, type: 3}
       propertyPath: dialogueLines.Array.size
       value: 3
