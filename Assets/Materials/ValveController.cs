@@ -5,6 +5,9 @@ using UnityEngine;
 public class ValveController : MonoBehaviour
 {
     [SerializeField] float angle = 0.2f;
+    [SerializeField] AudioClip soundClip;
+    private AudioSource audioSource;
+
 
     private bool playerInside = false;
     private bool isRotating = false;
@@ -32,12 +35,18 @@ public class ValveController : MonoBehaviour
         {
             material = rend.material;
         }
+
+        audioSource = gameObject.AddComponent<AudioSource>(); 
+        audioSource.clip = soundClip;
     }
 
     private void Update()
     {
         if (playerInside && Input.GetKeyDown(KeyCode.E) && !isRotating)
         {
+            StartCoroutine(RotateForSeconds(1.5f));
+
+            audioSource.Play(); 
             StartCoroutine(RotateForSeconds(1.5f));
         }
     }
