@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 1
-  maxHealth: 3
+  maxHealth: 300
   fireEffectPrefab: {fileID: 535533120961856120, guid: dac6e8fcd074c244d9585b785be24147, type: 3}
   iceEffectPrefab: {fileID: 4146312147535687916, guid: 665460fa2b3cbd54098df1b5b9ebca83, type: 3}
   iceEffectSound: {fileID: 8300000, guid: 0b10fab6df6d5de4ca5b5267778b1015, type: 3}
