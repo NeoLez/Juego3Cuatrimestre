@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuInicial : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class MenuInicial : MonoBehaviour
         TransicionEscenasUI.instance.DisolverSalida(nombreEscenaAJugar);
         
         StartCoroutine(FadeOutMusica());
+    }
+
+    public void Prototipado()
+    {
+        SceneManager.LoadScene(2);
     }
 
     private IEnumerator FadeOutMusica()
