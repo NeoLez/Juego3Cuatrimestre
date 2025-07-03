@@ -6,7 +6,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
     [SerializeField] private Transform cameraPosition;
     [SerializeField] private Transform cam;
-    [SerializeField] private float sensitivity = 1;
+    [SerializeField] public float sensitivity = 1;
 
     [SerializeField] private float sideSwayAngle;
     [SerializeField] private float swaySpeed;
