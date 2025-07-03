@@ -29,7 +29,6 @@ public class Dialogues : MonoBehaviour
                 isFillingInLine = false;
             }
             else {
-                Debug.Log(gameObject.name);
                 NextDialogueLine();
             }
         }
