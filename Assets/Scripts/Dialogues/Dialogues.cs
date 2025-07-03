@@ -29,10 +29,11 @@ public class Dialogues : MonoBehaviour
                 isFillingInLine = false;
             }
             else {
+                Debug.Log(gameObject.name);
                 NextDialogueLine();
             }
         }
-        else if (!shouldStartAuto) {
+        else if (!shouldStartAuto && isPlayerInRange) {
             StartDialogue();
         }
     }
@@ -57,6 +58,7 @@ public class Dialogues : MonoBehaviour
 
     private void NextDialogueLine()
     {
+        StopAllCoroutines();
         lineIndex++;
         if (lineIndex < dialogueLines.Length)
         {
@@ -86,8 +88,8 @@ public class Dialogues : MonoBehaviour
             dialogueInteraction.SetActive(true);
         }
     }
-    private IEnumerator ShowLine()
-    {
+    private IEnumerator ShowLine() {
+        isFillingInLine = true;
         dialogueText.text = string.Empty;
 
         foreach (char ch in dialogueLines[lineIndex])

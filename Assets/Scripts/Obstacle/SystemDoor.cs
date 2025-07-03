@@ -22,8 +22,10 @@ public class SystemDoor : OnPuzzleSolved
 
     [Header("General")]
     public float smooth = 3.0f;
-    
+
+    public float volume = 1;
     public AudioClip doorOpenSound;
+    public AudioClip doorFinishedOpeningSound;
 
     private bool doorOpened = false;
     private Vector3 initialPosition;
@@ -51,13 +53,13 @@ public class SystemDoor : OnPuzzleSolved
         {
             case DoorType.Rotate:
                 Quaternion targetRotation = Quaternion.Euler(0, doorOpenAngle, 0);
-                while (Quaternion.Angle(transform.localRotation, targetRotation) > 0.1f)
+                while (Quaternion.Angle(transform.localRotation, targetRotation) > 1f)
                 {
-                    transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, smooth * Time.deltaTime);
+                    transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, smooth * Time.deltaTime);
                     yield return null;
                 }
+                GameManager.AudioSystem.PlaySoundPositional(doorFinishedOpeningSound, transform.position);
                 break;
-
             case DoorType.MoveUp:
                 yield return MoveDoor(initialPosition + Vector3.up * moveDistance);
                 break;
@@ -78,11 +80,12 @@ public class SystemDoor : OnPuzzleSolved
 
     IEnumerator MoveDoor(Vector3 targetPosition)
     {
-        while (Vector3.Distance(transform.localPosition, targetPosition) > 0.01f)
+        while (Vector3.Distance(transform.localPosition, targetPosition) > 1f)
         {
             transform.localPosition = Vector3.Lerp(transform.localPosition, targetPosition, smooth * Time.deltaTime);
             yield return null;
         }
+        GameManager.AudioSystem.PlaySoundPositional(doorFinishedOpeningSound, transform.position);
     }
 
     public override void OnSolved() {
