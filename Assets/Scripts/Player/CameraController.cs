@@ -37,8 +37,6 @@ public class CameraController : MonoBehaviour {
         _movementController = GameManager.Player.GetComponent<MovementControllerTest>();
         cam = GameManager.MainCamera.transform;
         
-        sensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 1f);
-
         LockCamera();
     }
 
@@ -75,6 +73,8 @@ public class CameraController : MonoBehaviour {
         
         yaw += _input.CameraMovement.MouseX.ReadValue<float>() * sensitivity;
         pitch += _input.CameraMovement.MouseY.ReadValue<float>() * sensitivity;
+        
+        sensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 0.15f);
 
         pitch = Mathf.Clamp(pitch, -89f, 89f);
         if (yaw > 360)
