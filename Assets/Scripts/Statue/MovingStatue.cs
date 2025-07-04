@@ -41,6 +41,7 @@ public class MovingStatue : MonoBehaviour
             
             if(distance <= catchDistance) {
                 player.gameObject.GetComponent<PlayerHealth>().Die();
+                Debug.Log("Te mato");
             }
         }
     }
