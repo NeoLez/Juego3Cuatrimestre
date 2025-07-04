@@ -7,20 +7,14 @@ public class MovingStatue : MonoBehaviour
 {
     //TP2 Belen Mounier
     public NavMeshAgent ai;
-    
     public Transform player;
-    
     public Animator statueAnim;
 
     Vector3 _dest;
     
     public Camera playerCam;
-    
     public float aiSpeed;
-    
     public float catchDistance;
-    
-    public string sceneAfterDeath;
     
     void Update()
     {
