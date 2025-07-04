@@ -17,7 +17,7 @@ namespace SoundSystem {
 
         public void PlayAudio(Vector3 position, float volume = 1) {
             if(sounds.Count > 0)
-                GameManager.AudioSystem.PlaySoundPositional(sounds[Random.Range(0, sounds.Count-1)], position, volume);
+                GameManager.AudioSystem.PlaySoundPositional(sounds[Random.Range(0, sounds.Count-1)], position, GameManager.AudioSystem.VFX, volume);
         }
     }
 }

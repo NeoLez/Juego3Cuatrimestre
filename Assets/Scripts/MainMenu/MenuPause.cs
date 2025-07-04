@@ -28,7 +28,8 @@ public class MenuPause : MonoBehaviour
         {
             if (!paused)
             {
-                if (sonidoPausa != null) audioSource.PlayOneShot(sonidoPausa);
+                if (sonidoPausa != null)
+                    GameManager.AudioSystem.PlaySound(sonidoPausa);
 
                 PauseMenu.SetActive(true);
                 paused = true;
@@ -49,13 +50,15 @@ public class MenuPause : MonoBehaviour
                 {
                     if (s != audioSource)
                     {
+                        Debug.Log(s.gameObject.name);
                         s.Pause();
                     }
                 }
             }
             else
             {
-                if (sonidoReanudar != null) audioSource.PlayOneShot(sonidoReanudar);
+                if (sonidoReanudar != null)
+                    GameManager.AudioSystem.PlaySound(sonidoReanudar);
                 resume();
             }
         }
@@ -85,6 +88,7 @@ public class MenuPause : MonoBehaviour
         {
             if (s != audioSource)
             {
+                Debug.Log(s.gameObject.name);
                 s.Play();
             }
         }

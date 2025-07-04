@@ -42,7 +42,7 @@ public class SystemDoor : OnPuzzleSolved
         if (!doorOpened)
         {
             StartCoroutine(OpenDoorCoroutine());
-            GameManager.AudioSystem.PlaySoundPositional(doorOpenSound, transform.position);
+            GameManager.AudioSystem.PlaySoundPositional(doorOpenSound, transform.position, GameManager.AudioSystem.VFX);
             doorOpened = true;
         }
     }
@@ -59,7 +59,7 @@ public class SystemDoor : OnPuzzleSolved
                     yield return null;
                 }
                 if(doorFinishedOpeningSound != null)
-                    GameManager.AudioSystem.PlaySoundPositional(doorFinishedOpeningSound, transform.position);
+                    GameManager.AudioSystem.PlaySoundPositional(doorFinishedOpeningSound, transform.position, GameManager.AudioSystem.VFX);
                 break;
             case DoorType.MoveUp:
                 yield return MoveDoor(initialPosition + Vector3.up * moveDistance);
@@ -87,7 +87,7 @@ public class SystemDoor : OnPuzzleSolved
             yield return null;
         }
         if(doorFinishedOpeningSound != null)
-            GameManager.AudioSystem.PlaySoundPositional(doorFinishedOpeningSound, transform.position);
+            GameManager.AudioSystem.PlaySoundPositional(doorFinishedOpeningSound, transform.position, GameManager.AudioSystem.VFX);
     }
 
     public override void OnSolved() {

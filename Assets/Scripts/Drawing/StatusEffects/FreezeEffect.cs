@@ -21,8 +21,8 @@ public class FrozenEffect : StatusEffect
                 Renderer renderer = Target.GetComponent<Renderer>();
                 Material objMaterial = new Material(renderer.material);
                 renderer.material = objMaterial;
-                GameManager.AudioSystem.PlaySoundPositional(type.iceEffectSound, Target.gameObject.transform.position);
-                GameManager.AudioSystem.PlaySoundPositional(type.iceEffectImpactSound, Target.gameObject.transform.position);
+                GameManager.AudioSystem.PlaySoundPositional(type.iceEffectSound, Target.gameObject.transform.position, GameManager.AudioSystem.VFX);
+                GameManager.AudioSystem.PlaySoundPositional(type.iceEffectImpactSound, Target.gameObject.transform.position, GameManager.AudioSystem.VFX);
 
                 float frostAmount = 1;
                 LeanTween.value(Target.gameObject, frostAmount, -1, 1).setOnUpdate((float val) =>
@@ -48,7 +48,7 @@ public class FrozenEffect : StatusEffect
                 Renderer renderer = Target.GetComponent<Renderer>();
                 Material objMaterial = new Material(renderer.material);
                 renderer.material = objMaterial;
-                GameManager.AudioSystem.PlaySoundPositional(type.iceEffectSound, Target.gameObject.transform.position);
+                GameManager.AudioSystem.PlaySoundPositional(type.iceEffectSound, Target.gameObject.transform.position, GameManager.AudioSystem.VFX);
                 
                 float frostAmount = -1;
                 LeanTween.value(Target.gameObject, frostAmount, 1, 1).setOnUpdate((float val) =>

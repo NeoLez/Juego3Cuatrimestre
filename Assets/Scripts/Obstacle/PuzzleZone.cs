@@ -24,7 +24,7 @@ public class PuzzleZone : MonoBehaviour
             isOccupied = true;
 
             if (placeBoxSound != null)
-                GameManager.AudioSystem.PlaySoundPositional(placeBoxSound, transform.position);
+                GameManager.AudioSystem.PlaySoundPositional(placeBoxSound, transform.position, GameManager.AudioSystem.VFX);
 
             // 🔁 Usamos la referencia pública // 👈 y aqui tambien
             if (puzzleManager != null)
