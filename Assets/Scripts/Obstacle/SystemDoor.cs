@@ -58,7 +58,8 @@ public class SystemDoor : OnPuzzleSolved
                     transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, smooth * Time.deltaTime);
                     yield return null;
                 }
-                GameManager.AudioSystem.PlaySoundPositional(doorFinishedOpeningSound, transform.position);
+                if(doorFinishedOpeningSound != null)
+                    GameManager.AudioSystem.PlaySoundPositional(doorFinishedOpeningSound, transform.position);
                 break;
             case DoorType.MoveUp:
                 yield return MoveDoor(initialPosition + Vector3.up * moveDistance);
@@ -85,7 +86,8 @@ public class SystemDoor : OnPuzzleSolved
             transform.localPosition = Vector3.Lerp(transform.localPosition, targetPosition, smooth * Time.deltaTime);
             yield return null;
         }
-        GameManager.AudioSystem.PlaySoundPositional(doorFinishedOpeningSound, transform.position);
+        if(doorFinishedOpeningSound != null)
+            GameManager.AudioSystem.PlaySoundPositional(doorFinishedOpeningSound, transform.position);
     }
 
     public override void OnSolved() {
