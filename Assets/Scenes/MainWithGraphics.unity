@@ -5254,6 +5254,14 @@ PrefabInstance:
       propertyPath: menuPrincipal
       value: 
       objectReference: {fileID: 1489514287}
+    - target: {fileID: 8091982813682884258, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
+      propertyPath: m_Value
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091982813682884258, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
+      propertyPath: m_MaxValue
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8842703444837193554, guid: 3148f417ef5478540854e3384e8983cf, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

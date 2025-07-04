@@ -26428,11 +26428,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4840672883517268485, guid: b639b6003ec23a64a9a901a6fab9416b, type: 3}
   m_PrefabInstance: {fileID: 152364997}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &153286616 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3590033677297714036, guid: 7b0a47058df02a140a1bf52da1619c24, type: 3}
-  m_PrefabInstance: {fileID: 1800770668}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &153585322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60815,6 +60810,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795b5f3cb83aee448808b8c73b03979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  panelOpcionConfirmar: {fileID: 0}
+  panelSalirConfirmar: {fileID: 0}
+  abreOpciones: 0
+  abreSalir: 0
+  cierraOpciones: 0
+  cierraSalir: 0
+  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  sfxMixerGroup: {fileID: 0}
 --- !u!114 &369324210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78381,6 +78386,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795b5f3cb83aee448808b8c73b03979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  panelOpcionConfirmar: {fileID: 0}
+  panelSalirConfirmar: {fileID: 0}
+  abreOpciones: 0
+  abreSalir: 0
+  cierraOpciones: 0
+  cierraSalir: 0
+  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  sfxMixerGroup: {fileID: 0}
 --- !u!114 &492082641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102758,6 +102773,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795b5f3cb83aee448808b8c73b03979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  panelOpcionConfirmar: {fileID: 0}
+  panelSalirConfirmar: {fileID: 0}
+  abreOpciones: 0
+  abreSalir: 0
+  cierraOpciones: 0
+  cierraSalir: 0
+  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  sfxMixerGroup: {fileID: 0}
 --- !u!114 &639457862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112170,6 +112195,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795b5f3cb83aee448808b8c73b03979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  panelOpcionConfirmar: {fileID: 0}
+  panelSalirConfirmar: {fileID: 0}
+  abreOpciones: 0
+  abreSalir: 0
+  cierraOpciones: 0
+  cierraSalir: 0
+  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  sfxMixerGroup: {fileID: 0}
 --- !u!114 &698553248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159802,6 +159837,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795b5f3cb83aee448808b8c73b03979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  panelOpcionConfirmar: {fileID: 0}
+  panelSalirConfirmar: {fileID: 0}
+  abreOpciones: 0
+  abreSalir: 0
+  cierraOpciones: 0
+  cierraSalir: 0
+  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  sfxMixerGroup: {fileID: 0}
 --- !u!114 &1005872707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174544,7 +174589,7 @@ SpriteRenderer:
   m_Size: {x: 7.35, y: 7.33}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1096389211
@@ -182185,6 +182230,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795b5f3cb83aee448808b8c73b03979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  panelOpcionConfirmar: {fileID: 0}
+  panelSalirConfirmar: {fileID: 0}
+  abreOpciones: 0
+  abreSalir: 0
+  cierraOpciones: 0
+  cierraSalir: 0
+  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  sfxMixerGroup: {fileID: 0}
 --- !u!114 &1153101464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228211,6 +228266,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a69bd6f107496346b45a42dc99f6fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuAudio: {fileID: 0}
+  menuControles: {fileID: 0}
+  menuGraficos: {fileID: 0}
+  menuPrincipal: {fileID: 0}
 --- !u!1001 &1432074634
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -229957,9 +230016,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 784979148}
   m_Direction: 0
   m_MinValue: 0.1
-  m_MaxValue: 0.3
+  m_MaxValue: 0.2
   m_WholeNumbers: 0
-  m_Value: 0.2
+  m_Value: 0.15
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -296330,28 +296389,13 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 411461800740201526, guid: 7b0a47058df02a140a1bf52da1619c24, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3590033677297714036, guid: 7b0a47058df02a140a1bf52da1619c24, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1800770684}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b0a47058df02a140a1bf52da1619c24, type: 3}
 --- !u!54 &1800770669 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 948166661392557474, guid: 7b0a47058df02a140a1bf52da1619c24, type: 3}
   m_PrefabInstance: {fileID: 1800770668}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1800770684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153286616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e9da5d4561e64d47b134322834c506d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1801613835
 PrefabInstance:
   m_ObjectHideFlags: 0

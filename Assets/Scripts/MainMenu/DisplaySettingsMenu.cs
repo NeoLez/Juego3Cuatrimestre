@@ -10,13 +10,13 @@ public class DisplaySettingsMenu : MonoBehaviour
 
     private List<Resolution> customResolutions = new List<Resolution>
     {
-        new Resolution { width = 1920, height = 1080, refreshRate = 60 },
-        new Resolution { width = 1360, height = 768, refreshRate = 60 },
-        new Resolution { width = 1280, height = 768, refreshRate = 60 },
-        new Resolution { width = 1280, height = 720, refreshRate = 60 },
-        new Resolution { width = 1176, height = 664, refreshRate = 60 },
-        new Resolution { width = 1024, height = 768, refreshRate = 60 },
-        new Resolution { width = 800, height = 600, refreshRate = 60 }
+        new Resolution { width = 1920, height = 1080 },
+        new Resolution { width = 1360, height = 768 },
+        new Resolution { width = 1280, height = 768},
+        new Resolution { width = 1280, height = 720},
+        new Resolution { width = 1176, height = 664},
+        new Resolution { width = 1024, height = 768},
+        new Resolution { width = 800, height = 600}
     };
 
     void Start()
