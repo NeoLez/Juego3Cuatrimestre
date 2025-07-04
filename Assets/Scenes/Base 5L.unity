@@ -40538,7 +40538,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56b3a77ea323d84d8d6caaf9859b42c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationOverTime: {x: 0, y: 0.8, z: 0}
 --- !u!1001 &285920447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53205,6 +53204,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795b5f3cb83aee448808b8c73b03979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverSound: {fileID: 8300000, guid: cebc999cdeef3014d8aa2ec3cecda450, type: 3}
+  clickSound: {fileID: 8300000, guid: c70f6526d3c5ada4e8187d326b2c8cd1, type: 3}
+  panelOpcionConfirmar: {fileID: 0}
+  panelSalirConfirmar: {fileID: 0}
+  abreOpciones: 0
+  abreSalir: 0
+  cierraOpciones: 0
+  cierraSalir: 0
+  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  sfxMixerGroup: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
 --- !u!114 &369324210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58513,7 +58522,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56b3a77ea323d84d8d6caaf9859b42c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationOverTime: {x: 0, y: 0.8, z: 0}
 --- !u!1001 &408198501
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69519,6 +69527,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795b5f3cb83aee448808b8c73b03979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverSound: {fileID: 8300000, guid: cebc999cdeef3014d8aa2ec3cecda450, type: 3}
+  clickSound: {fileID: 8300000, guid: c70f6526d3c5ada4e8187d326b2c8cd1, type: 3}
+  panelOpcionConfirmar: {fileID: 0}
+  panelSalirConfirmar: {fileID: 0}
+  abreOpciones: 0
+  abreSalir: 0
+  cierraOpciones: 0
+  cierraSalir: 0
+  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  sfxMixerGroup: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
 --- !u!114 &492082641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92204,6 +92222,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795b5f3cb83aee448808b8c73b03979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverSound: {fileID: 8300000, guid: cebc999cdeef3014d8aa2ec3cecda450, type: 3}
+  clickSound: {fileID: 8300000, guid: c70f6526d3c5ada4e8187d326b2c8cd1, type: 3}
+  panelOpcionConfirmar: {fileID: 0}
+  panelSalirConfirmar: {fileID: 0}
+  abreOpciones: 0
+  abreSalir: 0
+  cierraOpciones: 0
+  cierraSalir: 0
+  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  sfxMixerGroup: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
 --- !u!114 &639457862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101157,6 +101185,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795b5f3cb83aee448808b8c73b03979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverSound: {fileID: 8300000, guid: cebc999cdeef3014d8aa2ec3cecda450, type: 3}
+  clickSound: {fileID: 8300000, guid: c70f6526d3c5ada4e8187d326b2c8cd1, type: 3}
+  panelOpcionConfirmar: {fileID: 0}
+  panelSalirConfirmar: {fileID: 0}
+  abreOpciones: 0
+  abreSalir: 0
+  cierraOpciones: 0
+  cierraSalir: 0
+  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  sfxMixerGroup: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
 --- !u!114 &698553248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101583,7 +101621,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56b3a77ea323d84d8d6caaf9859b42c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationOverTime: {x: 0, y: 0.8, z: 0}
 --- !u!1001 &701755424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -142741,6 +142778,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795b5f3cb83aee448808b8c73b03979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverSound: {fileID: 8300000, guid: cebc999cdeef3014d8aa2ec3cecda450, type: 3}
+  clickSound: {fileID: 8300000, guid: c70f6526d3c5ada4e8187d326b2c8cd1, type: 3}
+  panelOpcionConfirmar: {fileID: 0}
+  panelSalirConfirmar: {fileID: 0}
+  abreOpciones: 0
+  abreSalir: 0
+  cierraOpciones: 0
+  cierraSalir: 0
+  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  sfxMixerGroup: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
 --- !u!114 &1005872707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147406,6 +147453,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 690788609356749391, guid: ad0070f2e97fd8040a82ec41ddc27c40, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 690788609356749391, guid: ad0070f2e97fd8040a82ec41ddc27c40, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
@@ -147469,6 +147520,14 @@ PrefabInstance:
       propertyPath: sfxMixerGroup
       value: 
       objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
+    - target: {fileID: 2613033130383040428, guid: ad0070f2e97fd8040a82ec41ddc27c40, type: 3}
+      propertyPath: panelSalirConfirmar
+      value: 
+      objectReference: {fileID: 282039052}
+    - target: {fileID: 2613033130383040428, guid: ad0070f2e97fd8040a82ec41ddc27c40, type: 3}
+      propertyPath: panelOpcionConfirmar
+      value: 
+      objectReference: {fileID: 2131292657}
     - target: {fileID: 2657365939106860379, guid: ad0070f2e97fd8040a82ec41ddc27c40, type: 3}
       propertyPath: m_fontSize
       value: 70
@@ -147509,6 +147568,10 @@ PrefabInstance:
       propertyPath: cierraOpciones
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2861272797061075876, guid: ad0070f2e97fd8040a82ec41ddc27c40, type: 3}
+      propertyPath: panelSalirConfirmar
+      value: 
+      objectReference: {fileID: 282039052}
     - target: {fileID: 2861272797061075876, guid: ad0070f2e97fd8040a82ec41ddc27c40, type: 3}
       propertyPath: panelOpcionConfirmar
       value: 
@@ -147805,6 +147868,14 @@ PrefabInstance:
       propertyPath: sfxMixerGroup
       value: 
       objectReference: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
+    - target: {fileID: 8783289597227533823, guid: ad0070f2e97fd8040a82ec41ddc27c40, type: 3}
+      propertyPath: panelSalirConfirmar
+      value: 
+      objectReference: {fileID: 282039052}
+    - target: {fileID: 8783289597227533823, guid: ad0070f2e97fd8040a82ec41ddc27c40, type: 3}
+      propertyPath: panelOpcionConfirmar
+      value: 
+      objectReference: {fileID: 2131292657}
     - target: {fileID: 8977507823055746087, guid: ad0070f2e97fd8040a82ec41ddc27c40, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -163747,6 +163818,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795b5f3cb83aee448808b8c73b03979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverSound: {fileID: 8300000, guid: cebc999cdeef3014d8aa2ec3cecda450, type: 3}
+  clickSound: {fileID: 8300000, guid: c70f6526d3c5ada4e8187d326b2c8cd1, type: 3}
+  panelOpcionConfirmar: {fileID: 0}
+  panelSalirConfirmar: {fileID: 0}
+  abreOpciones: 0
+  abreSalir: 0
+  cierraOpciones: 0
+  cierraSalir: 0
+  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  sfxMixerGroup: {fileID: -5843195868190790480, guid: 6ffccf38acec7ca4b9310ea1ae209c80, type: 2}
 --- !u!114 &1153101464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204696,6 +204777,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a69bd6f107496346b45a42dc99f6fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuAudio: {fileID: 0}
+  menuControles: {fileID: 0}
+  menuGraficos: {fileID: 0}
+  menuPrincipal: {fileID: 0}
 --- !u!1001 &1432074634
 PrefabInstance:
   m_ObjectHideFlags: 0
