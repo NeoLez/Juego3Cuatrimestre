@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using Assets.Scripts.Player;
+using StatusEffects;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -87,8 +89,10 @@ public class Drag : MonoBehaviour {
     private void StartDrag() {
         Ray ray = new Ray(GameManager.MainCamera.transform.position, GameManager.MainCamera.transform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, rayDistance, LayerMask.GetMask("Ground"))) {
-            if (hit.collider.gameObject.TryGetComponent(out ObjectStatus objectStatus)) {
-                if (objectStatus.Type == ObjectTypeEnum.PhysicsObject && !objectStatus.HasEffect(typeof(FrozenEffect))) {
+            StatusEffectsHandler effectsHandler = hit.collider.GetComponent<StatusEffectsHandler>();
+            DraggableObject draggableObject = hit.collider.GetComponent<DraggableObject>();
+            if(draggableObject != null && effectsHandler != null) {
+                if (!effectsHandler.HasEffect(StatusEffectsType.FREEZE)) {
                     Transform mark = hit.collider.transform.Find("InteractionMark");
                     if (mark != null)
                     {

@@ -11,13 +11,14 @@ GameObject:
   - component: {fileID: 5020551825607976927}
   - component: {fileID: 8279647129777941078}
   - component: {fileID: 3748805809617577361}
-  - component: {fileID: 5431018994318975406}
   - component: {fileID: 1572155740725728890}
   - component: {fileID: 4480084925908455088}
   - component: {fileID: 1870028053818773298}
   - component: {fileID: 4421988317892720465}
   - component: {fileID: 6099672310086411270}
   - component: {fileID: 723580353598326298}
+  - component: {fileID: 8440154284089479354}
+  - component: {fileID: 1555622999195135192}
   m_Layer: 3
   m_Name: FireRune
   m_TagString: Untagged
@@ -91,26 +92,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5431018994318975406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4196049088567448554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be9cced78ebe2564f92f20c841dc5dc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 1
-  maxHealth: 3
-  fireEffectPrefab: {fileID: 535533120961856120, guid: dac6e8fcd074c244d9585b785be24147, type: 3}
-  iceEffectPrefab: {fileID: 4146312147535687916, guid: 665460fa2b3cbd54098df1b5b9ebca83, type: 3}
-  iceEffectSound: {fileID: 8300000, guid: 0b10fab6df6d5de4ca5b5267778b1015, type: 3}
-  iceEffectImpactSound: {fileID: 8300000, guid: 7242e69c20716a04ba3b9739e261f466, type: 3}
-  fireImpactSound: {fileID: 8300000, guid: 5d6761cd0ba798c46a40f521746bebde, type: 3}
-  fireEffectSound: {fileID: 8300000, guid: ed5121496fd2f084a830e4d52498b07e, type: 3}
 --- !u!54 &1572155740725728890
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -209,3 +190,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownTime: 0
+--- !u!114 &8440154284089479354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4196049088567448554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab789982fa58dd891bbabcb133f601f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1555622999195135192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4196049088567448554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fbf32ae9af78782abeed15b504fef11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
