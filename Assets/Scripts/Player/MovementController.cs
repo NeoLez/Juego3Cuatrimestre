@@ -1,8 +1,11 @@
 using System;
+using Facts;
 using SoundSystem;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using Events = Facts.Events;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
@@ -139,6 +142,8 @@ public class MovementControllerTest : MonoBehaviour {
             _gravitySpeed = Vector3.up * initialJumpVelocity;
             _jumpStartTime = Time.fixedTime;
             _currentJumps--;
+            
+            Events.ON_PLAYER_JUMPED.Raise(Unit.Default);
         }
         
         if (_currentlyJumping) {
