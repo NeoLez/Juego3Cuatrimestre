@@ -6,6 +6,7 @@ using NonMonobehaviorUpdates;
 using UnityEngine;
 using UnityEngine.LowLevel;
 using UnityEngine.PlayerLoop;
+using Achievements;
 
 namespace PlayerLoopCleaner {
     public static class PlayerLoopCleaner {
@@ -27,6 +28,8 @@ namespace PlayerLoopCleaner {
         private static void RegisterNewSystems() {
             PlayerLoopInterface.InsertSystemBefore(typeof(UpdatesManager), UpdatesManager.TickUpdate, typeof(Update.ScriptRunBehaviourUpdate));
             PlayerLoopInterface.InsertSystemBefore(typeof(UpdatesManager), UpdatesManager.TickFixedUpdate, typeof(FixedUpdate.ScriptRunBehaviourFixedUpdate));
+            
+            PlayerLoopInterface.InsertSystemAfter(typeof(AchievementManager), AchievementManager.CheckAchievements, typeof(FixedUpdate.ScriptRunBehaviourFixedUpdate));
         }
         
         //Removes all instances of the systems specified in TypesToRemove

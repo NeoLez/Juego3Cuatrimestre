@@ -50,7 +50,6 @@ public class MenuPause : MonoBehaviour
                 {
                     if (s != audioSource)
                     {
-                        Debug.Log(s.gameObject.name);
                         s.Pause();
                     }
                 }
@@ -88,7 +87,6 @@ public class MenuPause : MonoBehaviour
         {
             if (s != audioSource)
             {
-                Debug.Log(s.gameObject.name);
                 s.Play();
             }
         }

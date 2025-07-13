@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using Facts;
+using UnityEngine;
 
 public class DashCard : ThrowCard {
     private readonly DashCardInfoCameraSO _info;
@@ -13,6 +15,8 @@ public class DashCard : ThrowCard {
         base.OnSelfActivation();
         if (GameManager.Player.GetComponent<MovementControllerTest>().Dash(Vector3.ProjectOnPlane(GameManager.MainCamera.transform.forward, Vector3.up).normalized,
                 _info.moveDistance, _info.time, _info.curve)) {
+            
+            Events.ON_PLAYER_USE_DASH_SELF.Raise(Unit.Default);
             
             GameManager.AudioSystem.PlaySound(_info.dashAudio);
             LeanTween.cancel(GameManager.MainCamera.gameObject);
@@ -34,6 +38,8 @@ public class DashCard : ThrowCard {
         
         var rhit = hit.Value;
         if(rhit.rigidbody != null) {
+            Events.ON_PLAYER_USE_DASH.Raise(Unit.Default);
+            
             GameManager.AudioSystem.PlaySound(_info.dashAudio);
             GameManager.Player.GetComponent<Drag>().DisengageObject(rhit.collider.gameObject);
             rhit.rigidbody.AddForce(_info.forceStrength * (rhit.point - GameManager.MainCamera.transform.position), ForceMode.VelocityChange);

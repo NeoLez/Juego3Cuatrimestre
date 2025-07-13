@@ -76,6 +76,8 @@ public class MovementControllerTest : MonoBehaviour {
                                 _cameraController.GetHorizontalDirectionRightVector() * _moveDir.x).Swizzle_x0y();
         _speed = worldMoveDir * movementSpeed;
         
+        if(worldMoveDir.magnitude > 0) Events.ON_PLAYER_WALKED.Raise(Time.fixedDeltaTime);
+        
         switch (_currentState) {
             case CharacterState.Air:
                 _speed = Vector3.Lerp(_prevSpeed, _speed, airMovementSnappiness);
