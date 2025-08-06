@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 491646786415538755}
   - component: {fileID: 491646786418963043}
   - component: {fileID: 491646786417963171}
-  - component: {fileID: 491646786415701602}
   - component: {fileID: -5277951478363455875}
   m_Layer: 0
   m_Name: Book_Green
@@ -86,28 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &491646786415701602
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 491646786415701603}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 86eb514168a2b5343a94c3b241459305, type: 3}
 --- !u!114 &-5277951478363455875
 MonoBehaviour:
   m_ObjectHideFlags: 0

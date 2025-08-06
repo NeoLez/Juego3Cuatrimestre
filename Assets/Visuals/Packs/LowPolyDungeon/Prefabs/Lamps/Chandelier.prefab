@@ -250,8 +250,8 @@ GameObject:
   - component: {fileID: 1821300323072192296}
   - component: {fileID: 1821300323075092232}
   - component: {fileID: 1821300323073961416}
-  - component: {fileID: 94327225118650334}
   - component: {fileID: 2004101260370971044}
+  - component: {fileID: 3383715711322025373}
   m_Layer: 0
   m_Name: Chandelier
   m_TagString: Untagged
@@ -341,8 +341,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &94327225118650334
-MeshCollider:
+--- !u!114 &2004101260370971044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821300323071963912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a9a033f5bb43999f7df1c08bfda611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialType: 5
+--- !u!65 &3383715711322025373
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -359,23 +372,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 9096884052415582558, guid: 6b596b44345a31449b0a45c5c08932c6, type: 3}
---- !u!114 &2004101260370971044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1821300323071963912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36a9a033f5bb43999f7df1c08bfda611, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materialType: 5
+  serializedVersion: 3
+  m_Size: {x: 1.4277179, y: 1.5624006, z: 1.4277179}
+  m_Center: {x: 0, y: -1.0682113, z: 0.000000059604645}
 --- !u!1 &2245167050539041353
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7432622557476287136}
   - component: {fileID: 7432622557474960000}
   - component: {fileID: 7432622557473861696}
-  - component: {fileID: 7432622557476056707}
   - component: {fileID: 380170798122432429}
+  - component: {fileID: 4883679330020937477}
   m_Layer: 3
   m_Name: Shelf
   m_TagString: Untagged
@@ -85,8 +85,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7432622557476056707
-MeshCollider:
+--- !u!114 &380170798122432429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7432622557476056704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a9a033f5bb43999f7df1c08bfda611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialType: 1
+--- !u!65 &4883679330020937477
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -103,20 +116,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 36e948af173868141a822ed806b581c0, type: 3}
---- !u!114 &380170798122432429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7432622557476056704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36a9a033f5bb43999f7df1c08bfda611, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materialType: 1
+  serializedVersion: 3
+  m_Size: {x: 1.84, y: 2.3288481, z: 0.5685754}
+  m_Center: {x: 0, y: 1.1524998, z: -0.00036323073}
