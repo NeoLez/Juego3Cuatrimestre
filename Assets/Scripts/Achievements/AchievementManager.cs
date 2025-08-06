@@ -10,8 +10,8 @@ namespace Achievements {
         private static float _lastTimeChecked = Single.NegativeInfinity;
         private static List<Achievement> _achievements = new();
         public static void CheckAchievements() {
+            if (Time.time - _lastTimeChecked < 0.5f) return;
             foreach (var achievement in _achievements) {
-                if (Time.time - _lastTimeChecked < 0.5f) return;
                 _lastTimeChecked = Time.time;
                 
                 if (achievement.Evaluate()) {
@@ -20,25 +20,33 @@ namespace Achievements {
             }
         }
 
-        public static readonly Achievement JUMP_3_TIMES = new (
-            "Jump 3 Times", 
-            new LeafConditionGeneric<int>(Facts.Facts.TOTAL_JUMPS, num => num >= 3)
+        public static readonly Achievement USE_FREEZE_SPELL = new (
+            "Use Freeze Spell", 
+            new LeafConditionGeneric<int>(Facts.Facts.TOTAL_FREEZE_USES, num => num >= 1)
             );
-
-        public static readonly Achievement WALKED_3_SECONDS_AND_JUMPED_5_TIMES = new (
-            "Walked 3 seconds and jumped 5 times",
-            new OrCondition(
-                new AndCondition(
-                    new LeafConditionGeneric<int>(Facts.Facts.TOTAL_JUMPS, val => val >= 5), 
-                    new LeafConditionGeneric<int>(Facts.Facts.TOTAL_DASH_USES_SELF, val => val >= 3)
-                ),
-                new LeafConditionGeneric<float>(Facts.Facts.TOTAL_WALK_TIME, val => val >= 3)
-            )
+        public static readonly Achievement USE_FIRE_SPELL = new (
+            "Use Freeze Spell", 
+            new LeafConditionGeneric<int>(Facts.Facts.TOTAL_FIRE_USES, num => num >= 1)
+        );
+        public static readonly Achievement USE_DASH_SPELL = new (
+            "Use Freeze Spell", 
+            new LeafConditionGeneric<int>(Facts.Facts.TOTAL_DASH_USES, num => num >= 1)
+        );
+        public static readonly Achievement DIE_ONCE = new (
+            "Use Freeze Spell", 
+            new LeafConditionGeneric<int>(Facts.Facts.TOTAL_DEATHS, num => num >= 1)
+        );
+        public static readonly Achievement COMPLETE_GAME = new (
+            "Use Freeze Spell", 
+            new LeafConditionGeneric<int>(Facts.Facts.TOTAL_GAME_COMPLETIONS, num => num >= 1)
         );
         
         static AchievementManager() {
-            //_achievements.Add(JUMP_3_TIMES);
-            _achievements.Add(WALKED_3_SECONDS_AND_JUMPED_5_TIMES);
-	}
+            _achievements.Add(USE_FREEZE_SPELL);
+            _achievements.Add(USE_DASH_SPELL);
+            _achievements.Add(USE_FIRE_SPELL);
+            _achievements.Add(DIE_ONCE);
+            _achievements.Add(COMPLETE_GAME);
+	    }
     }
 }

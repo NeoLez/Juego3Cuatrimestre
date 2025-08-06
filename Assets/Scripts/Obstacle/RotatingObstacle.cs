@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 public class RotatingObstacle : MonoBehaviour {
-    [SerializeField] private float rotationSpeed;
+    [SerializeField] public float rotationSpeed;
     private Rigidbody rb;
 
     private void Awake() {

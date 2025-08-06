@@ -11,6 +11,7 @@ public abstract class ThrowCard : Card {
         Ray ray = new Ray(GameManager.MainCamera.transform.position, GameManager.MainCamera.transform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, ThrowCardInfo.distance, LayerMask.GetMask("Ground", "DraggableObject")))
         {
+            Debug.Log(hit.collider.gameObject.name);
             OnThrowHit(hit);
         }
         OnThrowHit(null);

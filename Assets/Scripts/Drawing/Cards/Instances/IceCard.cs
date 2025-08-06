@@ -1,4 +1,5 @@
-﻿using StatusEffects;
+﻿using Facts;
+using StatusEffects;
 using UnityEngine;
 
 public class IceCard : ThrowCard{
@@ -15,6 +16,7 @@ public class IceCard : ThrowCard{
         var rhit = hit.Value;
         
         if (rhit.collider.gameObject.TryGetComponent(out StatusEffectsHandler status)) {
+            Events.ON_PLAYER_USE_FREEZE.Raise(Unit.Default);
             status.AddEffect(StatusEffectsType.FREEZE, 8f);
         }
         RegisterUse();

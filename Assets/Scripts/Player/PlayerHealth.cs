@@ -1,3 +1,4 @@
+using Facts;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -22,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
     public void Die() {
+        Events.ON_PLAYER_DIE.Raise(Unit.Default);
         _currentHealth = maxHealth;
         Respawn();
     }
