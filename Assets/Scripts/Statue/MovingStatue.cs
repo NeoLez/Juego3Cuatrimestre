@@ -9,6 +9,7 @@ public class MovingStatue : MonoBehaviour
     public NavMeshAgent ai;
     public Transform player;
     public Animator statueAnim;
+    public bool freeze;
 
     Vector3 _dest;
     
@@ -25,15 +26,12 @@ public class MovingStatue : MonoBehaviour
         float distance = Vector3.Distance(transform.position, player.position);
 
    
-        if(GeometryUtility.TestPlanesAABB(planes, this.gameObject.GetComponent<Renderer>().bounds))
+        if(freeze || GeometryUtility.TestPlanesAABB(planes, this.gameObject.GetComponent<Renderer>().bounds))
         {
             ai.speed = 0;
             statueAnim.speed = 0;
             ai.SetDestination(transform.position);
-        }
-        
-        if (!GeometryUtility.TestPlanesAABB(planes, this.gameObject.GetComponent<Renderer>().bounds))
-        {
+        } else {
             ai.speed = aiSpeed;
             statueAnim.speed = 1;
             _dest = player.position;
@@ -41,7 +39,6 @@ public class MovingStatue : MonoBehaviour
             
             if(distance <= catchDistance) {
                 player.gameObject.GetComponent<PlayerHealth>().Die();
-                Debug.Log("Te mato");
             }
         }
     }

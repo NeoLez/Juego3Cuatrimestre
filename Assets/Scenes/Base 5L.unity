@@ -89350,7 +89350,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4456811522452252156, guid: 95de4c2a4055c854f82d3213acc61478, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1326152487}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6575420357879775715, guid: 95de4c2a4055c854f82d3213acc61478, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1192050905}
+    - targetCorrespondingSourceObject: {fileID: 6575420357879775715, guid: 95de4c2a4055c854f82d3213acc61478, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1192050906}
   m_SourcePrefab: {fileID: 100100000, guid: 95de4c2a4055c854f82d3213acc61478, type: 3}
 --- !u!1001 &619699767
 PrefabInstance:
@@ -172241,6 +172247,38 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4514716565785803060, guid: 52cfc34cb5ec6b84bb03dc381684a09a, type: 3}
   m_PrefabInstance: {fileID: 1191918223}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1192050899 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6575420357879775715, guid: 95de4c2a4055c854f82d3213acc61478, type: 3}
+  m_PrefabInstance: {fileID: 619304308}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1192050905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192050899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fbf32ae9af78782abeed15b504fef11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1192050906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192050899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ab9b6554854cfaad2eb6178d5a391c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iceEffectSound: {fileID: 8300000, guid: 0b10fab6df6d5de4ca5b5267778b1015, type: 3}
+  iceEffectImpactSound: {fileID: 8300000, guid: 7242e69c20716a04ba3b9739e261f466, type: 3}
+  iceParticlesPrefab: {fileID: 4146312147535687916, guid: 665460fa2b3cbd54098df1b5b9ebca83, type: 3}
 --- !u!1001 &1192145973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -317850,6 +317888,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3856432514723603110, guid: d5706eac69040ab4ea2c7b6dee624a71, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fcea28a42993d3041826acb114375d5a, type: 2}
     - target: {fileID: 919132149155446097, guid: d5706eac69040ab4ea2c7b6dee624a71, type: 3}
       propertyPath: m_Name
       value: Zombie Walk

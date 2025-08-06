@@ -9,7 +9,7 @@ public abstract class ThrowCard : Card {
     protected override void OnThrowActivation() {
         base.OnThrowActivation();
         Ray ray = new Ray(GameManager.MainCamera.transform.position, GameManager.MainCamera.transform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit, ThrowCardInfo.distance, LayerMask.GetMask("Ground", "DraggableObject")))
+        if (Physics.Raycast(ray, out RaycastHit hit, ThrowCardInfo.distance))
         {
             Debug.Log(hit.collider.gameObject.name);
             OnThrowHit(hit);
