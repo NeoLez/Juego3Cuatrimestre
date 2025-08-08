@@ -5992,7 +5992,6 @@ GameObject:
   - component: {fileID: 41153274}
   - component: {fileID: 41153280}
   - component: {fileID: 41153282}
-  - component: {fileID: 41153281}
   - component: {fileID: 41153283}
   - component: {fileID: 41153284}
   m_Layer: 3
@@ -6102,21 +6101,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
---- !u!114 &41153281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 41153273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aaa97629c7e60f646a1b7d392a80bb4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enterSound: {fileID: 0}
-  exitSound: {fileID: 0}
-  audioSource: {fileID: 0}
 --- !u!65 &41153282
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40544,7 +40528,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56b3a77ea323d84d8d6caaf9859b42c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationOverTime: {x: 0, y: 0, z: 0}
 --- !u!1001 &285920447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53258,6 +53241,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795b5f3cb83aee448808b8c73b03979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  panelOpcionConfirmar: {fileID: 0}
+  panelSalirConfirmar: {fileID: 0}
+  abreOpciones: 0
+  abreSalir: 0
+  cierraOpciones: 0
+  cierraSalir: 0
+  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  sfxMixerGroup: {fileID: 0}
 --- !u!114 &369324210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58700,7 +58693,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56b3a77ea323d84d8d6caaf9859b42c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationOverTime: {x: 0, y: 0, z: 0}
 --- !u!1001 &408198501
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69750,6 +69742,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795b5f3cb83aee448808b8c73b03979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  panelOpcionConfirmar: {fileID: 0}
+  panelSalirConfirmar: {fileID: 0}
+  abreOpciones: 0
+  abreSalir: 0
+  cierraOpciones: 0
+  cierraSalir: 0
+  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  sfxMixerGroup: {fileID: 0}
 --- !u!114 &492082641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92497,6 +92499,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795b5f3cb83aee448808b8c73b03979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  panelOpcionConfirmar: {fileID: 0}
+  panelSalirConfirmar: {fileID: 0}
+  abreOpciones: 0
+  abreSalir: 0
+  cierraOpciones: 0
+  cierraSalir: 0
+  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  sfxMixerGroup: {fileID: 0}
 --- !u!114 &639457862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96732,6 +96744,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2560409210060411557, guid: db7c27b13d93d544ba4f3aa6dc35bb5f, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2381890483179193753, guid: 6b24e2d3b6518b64b877a23f232bdf02, type: 3}
     - target: {fileID: 4393765498338221298, guid: db7c27b13d93d544ba4f3aa6dc35bb5f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -82.07
@@ -96776,6 +96792,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CubePuzzle_8
       objectReference: {fileID: 0}
+    - target: {fileID: 7064016169287782127, guid: db7c27b13d93d544ba4f3aa6dc35bb5f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -1134714066672644336, guid: c67e7a8aaa2e5424e92001c981f96707, type: 3}
+    - target: {fileID: 7064016169287782127, guid: db7c27b13d93d544ba4f3aa6dc35bb5f, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 98bfd6380f09e0b498fbabdd268939a0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -101539,6 +101563,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795b5f3cb83aee448808b8c73b03979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  panelOpcionConfirmar: {fileID: 0}
+  panelSalirConfirmar: {fileID: 0}
+  abreOpciones: 0
+  abreSalir: 0
+  cierraOpciones: 0
+  cierraSalir: 0
+  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  sfxMixerGroup: {fileID: 0}
 --- !u!114 &698553248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101965,7 +101999,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56b3a77ea323d84d8d6caaf9859b42c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationOverTime: {x: 0, y: 0, z: 0}
 --- !u!1001 &701755424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -143555,6 +143588,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795b5f3cb83aee448808b8c73b03979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  panelOpcionConfirmar: {fileID: 0}
+  panelSalirConfirmar: {fileID: 0}
+  abreOpciones: 0
+  abreSalir: 0
+  cierraOpciones: 0
+  cierraSalir: 0
+  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  sfxMixerGroup: {fileID: 0}
 --- !u!114 &1005872707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165087,6 +165130,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795b5f3cb83aee448808b8c73b03979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  panelOpcionConfirmar: {fileID: 0}
+  panelSalirConfirmar: {fileID: 0}
+  abreOpciones: 0
+  abreSalir: 0
+  cierraOpciones: 0
+  cierraSalir: 0
+  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  sfxMixerGroup: {fileID: 0}
 --- !u!114 &1153101464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188824,6 +188877,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2560409210060411557, guid: db7c27b13d93d544ba4f3aa6dc35bb5f, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2381890483179193753, guid: 6b24e2d3b6518b64b877a23f232bdf02, type: 3}
     - target: {fileID: 4393765498338221298, guid: db7c27b13d93d544ba4f3aa6dc35bb5f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -108.46
@@ -188868,6 +188925,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CubePuzzle_6
       objectReference: {fileID: 0}
+    - target: {fileID: 7064016169287782127, guid: db7c27b13d93d544ba4f3aa6dc35bb5f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -1134714066672644336, guid: c67e7a8aaa2e5424e92001c981f96707, type: 3}
+    - target: {fileID: 7064016169287782127, guid: db7c27b13d93d544ba4f3aa6dc35bb5f, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 98bfd6380f09e0b498fbabdd268939a0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -200820,7 +200885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5640440717637307043, guid: 4f0a9bd9803497744bd6681d121c023c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8542479855374387424, guid: 4f0a9bd9803497744bd6681d121c023c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -215132,6 +215197,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2560409210060411557, guid: db7c27b13d93d544ba4f3aa6dc35bb5f, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2381890483179193753, guid: 6b24e2d3b6518b64b877a23f232bdf02, type: 3}
     - target: {fileID: 4393765498338221298, guid: db7c27b13d93d544ba4f3aa6dc35bb5f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -82.07
@@ -215176,6 +215245,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: CubePuzzle_7
       objectReference: {fileID: 0}
+    - target: {fileID: 7064016169287782127, guid: db7c27b13d93d544ba4f3aa6dc35bb5f, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064016169287782127, guid: db7c27b13d93d544ba4f3aa6dc35bb5f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -1134714066672644336, guid: 6b24e2d3b6518b64b877a23f232bdf02, type: 3}
+    - target: {fileID: 7064016169287782127, guid: db7c27b13d93d544ba4f3aa6dc35bb5f, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 98bfd6380f09e0b498fbabdd268939a0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -254557,6 +254638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb124c784a1c49c6b3a135fec2449eb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planeToRotate: {fileID: 0}
 --- !u!4 &1705458635 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4514716565785803060, guid: 52cfc34cb5ec6b84bb03dc381684a09a, type: 3}
@@ -278287,6 +278369,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2560409210060411557, guid: db7c27b13d93d544ba4f3aa6dc35bb5f, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2381890483179193753, guid: 6b24e2d3b6518b64b877a23f232bdf02, type: 3}
     - target: {fileID: 4393765498338221298, guid: db7c27b13d93d544ba4f3aa6dc35bb5f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -82.07
@@ -278331,6 +278417,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CubePuzzle_10
       objectReference: {fileID: 0}
+    - target: {fileID: 7064016169287782127, guid: db7c27b13d93d544ba4f3aa6dc35bb5f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 5561349426305759274, guid: 6b24e2d3b6518b64b877a23f232bdf02, type: 3}
+    - target: {fileID: 7064016169287782127, guid: db7c27b13d93d544ba4f3aa6dc35bb5f, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 98bfd6380f09e0b498fbabdd268939a0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -290222,6 +290316,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795b5f3cb83aee448808b8c73b03979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  panelOpcionConfirmar: {fileID: 0}
+  panelSalirConfirmar: {fileID: 0}
+  abreOpciones: 0
+  abreSalir: 0
+  cierraOpciones: 0
+  cierraSalir: 0
+  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  sfxMixerGroup: {fileID: 0}
 --- !u!114 &1944177464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298634,6 +298738,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a795b5f3cb83aee448808b8c73b03979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  panelOpcionConfirmar: {fileID: 0}
+  panelSalirConfirmar: {fileID: 0}
+  abreOpciones: 0
+  abreSalir: 0
+  cierraOpciones: 0
+  cierraSalir: 0
+  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  sfxMixerGroup: {fileID: 0}
 --- !u!114 &1998961357
 MonoBehaviour:
   m_ObjectHideFlags: 0
