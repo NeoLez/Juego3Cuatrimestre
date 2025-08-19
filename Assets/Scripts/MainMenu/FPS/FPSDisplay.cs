@@ -7,8 +7,8 @@ public class FPSDisplay : MonoBehaviour
     public TextMeshProUGUI fpsText;
     public float updateInterval = 0.5f;
 
-    public GameObject fpsUIGroup;         // El grupo de texto que muestra los FPS
-    public Image checkmarkImage;          // La palomita ✅
+    public GameObject fpsUIGroup;         
+    public Image checkmarkImage;          
     private bool isEnabled = false;
 
     private float timeSinceLastUpdate = 0f;
