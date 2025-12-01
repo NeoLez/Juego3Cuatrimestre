@@ -18,7 +18,6 @@ public class RotatingObstacle : MonoBehaviour {
         rb.angularVelocity = Vector3.up * rotationSpeed;
 
         if (PlayerMovementControllerTest) {
-            Debug.Log(PlayerMovementControllerTest.transform.position - transform.position);
             Vector3 r     = PlayerMovementControllerTest.transform.position - transform.position;  
             Vector3 omega = Vector3.up * rotationSpeed;  
             Vector3 v     = Vector3.Cross(omega, r);

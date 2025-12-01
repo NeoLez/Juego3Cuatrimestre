@@ -10,8 +10,19 @@ public class CrateWall : MonoBehaviour {
     private Collider selfCollider;
     private int wallInstanceId;
     
+    private Material material;
+    [SerializeField] private List<Transform> positions = new();
+
+    [SerializeField] private Transform sub1;
+    [SerializeField] private Transform sub2;
+    
 
     private void Awake() {
+        Renderer child0 = transform.GetChild(0).GetComponent<Renderer>();
+        material = new Material(child0.material);
+        child0.material = material;
+        
+        
         selfCollider = GetComponent<Collider>();
         selfCollider.hasModifiableContacts = true;
 
@@ -45,5 +56,25 @@ public class CrateWall : MonoBehaviour {
                 }
             }
         }
+    }
+
+    private void Update() {
+        material.SetVector("_TransparencySpherePositionSubtract1", sub1.position.Swizzle_xyz0());
+        material.SetFloat("_TransparencySphereSubtractSize1", sub1.localScale.x);
+        material.SetVector("_TransparencySpherePositionSubtract2", sub2.position.Swizzle_xyz0());
+        material.SetFloat("_TransparencySphereSubtractSize2", sub2.localScale.x);
+        
+        for (int i = 0; i < 4 && i < positions.Count; i++) {
+            material.SetVector("_TransparencySpherePosition"+i, positions[i].position.Swizzle_xyz0());
+        }
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if(crateList.Contains(other.gameObject))
+            positions.Add(other.transform);
+    }
+
+    private void OnTriggerExit(Collider other) {
+        positions.Remove(other.transform);
     }
 }

@@ -5,7 +5,7 @@ public class ScannerEffect : MonoBehaviour
 {
     public float maxScanRadius = 10f;
     public float scanDuration = 2f;
-    private List<ScannableObject> hits = new();
+    private List<Crate> hits = new();
     private bool isScanning;
     private float timer = 0;
     private float currentRadius = 0;
@@ -15,13 +15,13 @@ public class ScannerEffect : MonoBehaviour
         isScanning = true;
         
         foreach (var collider in Physics.OverlapSphere(transform.position, maxScanRadius)) {
-            if (collider.TryGetComponent(out ScannableObject scannable)) {
+            if (collider.TryGetComponent(out Crate scannable)) {
                 hits.Add(scannable);
             }
         }
         hits.Sort((a, b) => {
             return (int)((transform.position - a.transform.position).sqrMagnitude -
-                    (transform.position - b.transform.position).sqrMagnitude);
+                         (transform.position - b.transform.position).sqrMagnitude);
         });
     }
 

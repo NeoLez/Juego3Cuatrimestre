@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - particles
   - Scanneable
+  - Grid
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - DraggableObject
   - Enemy
   - DrawingBarrier
-  - 
+  - Door
   - 
   - 
   - 

@@ -3,6 +3,7 @@ using UnityEngine;
 
 [Serializable]
 public class Line {
+    //TP2 Leonardo Gonzalez Chiavassa
     [SerializeField] private byte byte1;
     [SerializeField] private byte byte2;
     private readonly int _hashCode;

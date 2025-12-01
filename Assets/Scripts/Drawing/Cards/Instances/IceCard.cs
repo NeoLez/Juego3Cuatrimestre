@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using StatusEffects;
+using UnityEngine;
 
 public class IceCard : ThrowCard{
     private readonly IceCardInfoSO _info;
@@ -13,8 +14,8 @@ public class IceCard : ThrowCard{
 
         var rhit = hit.Value;
         
-        if (rhit.collider.gameObject.TryGetComponent(out ObjectStatus status)) {
-            status.ApplyEffect(new FrozenEffect(5f));
+        if (rhit.collider.gameObject.TryGetComponent(out StatusEffectsHandler status)) {
+            status.AddEffect(StatusEffectsType.FREEZE, 8f);
         }
         RegisterUse();
     }

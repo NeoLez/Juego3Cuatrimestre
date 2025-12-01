@@ -5,11 +5,13 @@ using Optional.Unsafe;
 using UnityEngine;
 
 public class DrawingSurfaceSpells : MonoBehaviour, IDrawingSurface {
+    //TP2 Leonardo Gonzalez Chiavassa
     [SerializeField] private DrawingPoint[] points;
     [SerializeField] private Material lineMaterial;
     [SerializeField] private Material circleMaterial;
     [SerializeField] private List<Line> tuples = new(4);
     [SerializeField] private float lineOffset;
+    [SerializeField] private AudioClip lineDrawSound;
     private byte? _lastPoint;
 
     [SerializeField] private LineRenderer lineRenderer;
@@ -80,6 +82,7 @@ public class DrawingSurfaceSpells : MonoBehaviour, IDrawingSurface {
                         Line newTuple = new Line(_lastPoint.Value, i);
                         //if (!_tuples.Contains(newTuple)) {
                             tuples.Add(newTuple);
+                            GameManager.AudioSystem.PlaySound(lineDrawSound);
                         //}
                     }
                 }

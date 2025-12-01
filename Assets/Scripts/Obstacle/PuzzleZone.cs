@@ -7,17 +7,9 @@ public class PuzzleZone : MonoBehaviour
     public int puzzleIndex;
     public AudioClip placeBoxSound;
 
-    public PuzzleManager puzzleManager; // 👈 Nueva referencia
+    public PuzzleManager puzzleManager; // 👈 Nueva referencia // 👈 ChatGPT estuvo aqui
 
     private bool isOccupied = false;
-    private AudioSource audioSource;
-
-    private void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
-            audioSource = gameObject.AddComponent<AudioSource>();
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -32,9 +24,9 @@ public class PuzzleZone : MonoBehaviour
             isOccupied = true;
 
             if (placeBoxSound != null)
-                audioSource.PlayOneShot(placeBoxSound);
+                GameManager.AudioSystem.PlaySoundPositional(placeBoxSound, transform.position, GameManager.AudioSystem.VFX);
 
-            // 🔁 Usamos la referencia pública
+            // 🔁 Usamos la referencia pública // 👈 y aqui tambien
             if (puzzleManager != null)
                 puzzleManager.PlaceBoxInPuzzle(puzzleIndex);
         }

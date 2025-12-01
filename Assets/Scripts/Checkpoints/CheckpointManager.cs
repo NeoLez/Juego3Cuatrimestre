@@ -24,12 +24,9 @@ public class CheckpointManager : MonoBehaviour
 
     public void SetCheckpoint(int id, Vector3 position)
     {
-        if (id > currentCheckpointID)
-        {
-            currentCheckpointID = id;
-            currentCheckpointPosition = position;
-            Debug.Log("Checkpoint activado: " + id);
-        }
+        currentCheckpointID = id;
+        currentCheckpointPosition = position;
+        
     }
 
     public Vector3 GetCheckpoint()

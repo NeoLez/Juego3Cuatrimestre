@@ -3,6 +3,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(DrawingSurfacePuzzle))]
 public class UnlockSpellOnSolvePuzzle : MonoBehaviour {
+    //TP2 Leonardo Gonzalez Chiavassa
     [SerializeField] private List<DrawingPatternSO> DrawingPatterns; 
     private void OnEnable() {
         GetComponent<DrawingSurfacePuzzle>().OnPuzzleSolved += UnlockSpell;

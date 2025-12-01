@@ -14,7 +14,6 @@ public class Spikes : MonoBehaviour
             if (health != null)
             {
                 health.TakeDamage(damage);
-                Debug.Log("jaja moriste");
             }
         }
     }

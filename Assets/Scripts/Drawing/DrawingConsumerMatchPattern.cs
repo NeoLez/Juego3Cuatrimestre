@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class DrawingConsumerMatchPattern : DrawingConsumer
 {
+    //TP2 Leonardo Gonzalez Chiavassa
     public List<DrawingPatternSO> patterns;
     public override bool Consume(Drawing drawing, int amountOfPoints)
     {

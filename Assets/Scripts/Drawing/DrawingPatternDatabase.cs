@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using System.Linq;
 using Optional;
 using UnityEngine;
 
 public static class DrawingPatternDatabase {
+    //TP2 Leonardo Gonzalez Chiavassa
     private static readonly DrawingPatternSO[] Patterns = Resources.LoadAll<DrawingPatternSO>("Patterns");
     private static readonly HashSet<DrawingPatternSO> UnlockedPatterns = new();
 
@@ -18,6 +20,12 @@ public static class DrawingPatternDatabase {
 
     public static void UnlockSpell(DrawingPatternSO drawingPattern) {
         UnlockedPatterns.Add(drawingPattern);
+    }
+
+    public static void UnlockAllSpells() {
+        foreach (var pattern in Patterns) {
+            UnlockedPatterns.Add(pattern);
+        }
     }
     
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]

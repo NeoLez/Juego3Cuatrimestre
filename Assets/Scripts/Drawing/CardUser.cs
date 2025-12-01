@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 public class CardUser : MonoBehaviour {
+    //tp2 Leonardo Gonzalez Chiavassa
     private CardStorage _cardStorage;
     
     private void Awake() {
@@ -14,6 +15,7 @@ public class CardUser : MonoBehaviour {
         _input.CardUsage.UseCard3.performed += _ => _cardStorage.SetCurrentCard(3);
         _input.CardUsage.UseCard4.performed += _ => _cardStorage.SetCurrentCard(4);
         _input.CardUsage.UseCard5.performed += _ => _cardStorage.SetCurrentCard(5);
+        
 
         _input.CardUsage.CardSelectRelative.performed += _ => {
             float v = _input.CardUsage.CardSelectRelative.ReadValue<float>();

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 public class LineRendererTest : MonoBehaviour {
+    //TP2 Leonardo Gonzalez Chiavassa
     [SerializeField] private GameObject point;
     [SerializeField] private LineRenderer LineRenderer;
     [SerializeField] private bool add;

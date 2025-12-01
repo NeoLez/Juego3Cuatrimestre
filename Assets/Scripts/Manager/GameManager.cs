@@ -1,6 +1,7 @@
 using UnityEngine;
 
 public class GameManager {
+    //TP2 Belen Mounier
     public static GameObject Player;
     public static PlayerInputActions Input;
     public static AudioSystem AudioSystem;
@@ -17,6 +18,12 @@ public class GameManager {
         Input.CardUsage.Enable();
         Input.Drag.Enable();
         Input.Scanner.Enable();
+        Input.Cheats.Enable();
+        Input.WorldInteractions.Enable();
+
+        Input.Cheats.UnlockAllSpells.started += (ctx) => {
+            DrawingPatternDatabase.UnlockAllSpells();
+        };
 
         AudioSystem = new AudioSystem();
     }

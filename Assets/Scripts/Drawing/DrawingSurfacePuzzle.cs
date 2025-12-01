@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Optional;
-using Optional.Unsafe;
 using Unity.Mathematics;
 using UnityEngine;
 
 public class DrawingSurfacePuzzle : MonoBehaviour, IDrawingSurface {
+    //TP2 Leonardo Gonzalez Chiavassa
     [SerializeField] public DrawingPoint[] points;
     [SerializeField] private Material lineMaterial;
     [SerializeField] private Material circleMaterial;
     [SerializeField] private List<Line> tuples = new(4);
     [SerializeField] private float lineOffset;
+    [SerializeField] private AudioClip lineDrawSound;
     private byte? _lastPoint;
     
     [SerializeField] private float lineWidth;
@@ -73,6 +73,7 @@ public class DrawingSurfacePuzzle : MonoBehaviour, IDrawingSurface {
                         Line newTuple = new Line(_lastPoint.Value, i);
                         //if (!_tuples.Contains(newTuple)) {
                             tuples.Add(newTuple);
+                            GameManager.AudioSystem.PlaySound(lineDrawSound);
                         //}
                     }
                 }
@@ -135,7 +136,6 @@ public class DrawingSurfacePuzzle : MonoBehaviour, IDrawingSurface {
             Vector3 diff = secondPos - firstPos;
             Ray ray = new Ray(firstPos, diff);
             if (Physics.Raycast(ray, diff.magnitude, LayerMask.GetMask("DrawingBarrier"))) {
-                Debug.Log("a");
                 tuples.Clear();
                 break;
             }

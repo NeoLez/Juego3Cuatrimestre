@@ -26,7 +26,6 @@ public class DoorCubePuzzle : MonoBehaviour
     {
         if (cubeInZoneA && cubeInZoneB)
         {
-            Debug.Log("se abrio la puerta");
             door.SetActive(false);
         }
     }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using StatusEffects;
+using UnityEngine;
 
 public class FireCard : ThrowCard {
     private FireCardInfoSO _info;
@@ -13,8 +14,8 @@ public class FireCard : ThrowCard {
 
         var rhit = hit.Value;
         
-        if (rhit.collider.gameObject.TryGetComponent(out ObjectStatus status)) {
-            status.ApplyEffect(new BurningEffect(4f));
+        if (rhit.collider.gameObject.TryGetComponent(out StatusEffectsHandler status)) {
+            status.AddEffect(StatusEffectsType.BURN, 4f);
         }
         RegisterUse();
     }
